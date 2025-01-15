@@ -75,6 +75,13 @@ public class ReglerControl : MonoBehaviour
 
             // Apply the rotation to the to_rotate object
             to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
+            
+        }else if (ReglerType == ReglerTypeEnum.Genau && Percent != previousPercent)
+        {
+            // Calculate the rotation angle based on Percent
+            float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
+            // Apply the rotation to the to_rotate object
+            to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
         }
 
         previousPercent = Percent;
