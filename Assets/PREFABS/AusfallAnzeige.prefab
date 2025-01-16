@@ -238,10 +238,40 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6cb700a1a9a0244489eed295bbd7ddd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7376358687712258158}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f6cb700a1a9a0244489eed295bbd7ddd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6214863196806772060}
   m_SourcePrefab: {fileID: 100100000, guid: f6cb700a1a9a0244489eed295bbd7ddd, type: 3}
+--- !u!1 &7385970978291811966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6cb700a1a9a0244489eed295bbd7ddd, type: 3}
+  m_PrefabInstance: {fileID: 7656493926439762735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6214863196806772060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7385970978291811966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cdf0e9727f47441b76c482495255ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: WP1
+  isAusgefallen: 0
+  transparentOn: {fileID: 2100000, guid: 144dfb769bffa904293bda1242fdad5e, type: 2}
+  transparentOff: {fileID: 2100000, guid: 0995a2a5443691a499af2e865fd328e9, type: 2}
+  meshRenderer: {fileID: 9043440295433349035}
 --- !u!4 &7911678667223063748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6cb700a1a9a0244489eed295bbd7ddd, type: 3}
+  m_PrefabInstance: {fileID: 7656493926439762735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &9043440295433349035 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: f6cb700a1a9a0244489eed295bbd7ddd, type: 3}
   m_PrefabInstance: {fileID: 7656493926439762735}
   m_PrefabAsset: {fileID: 0}

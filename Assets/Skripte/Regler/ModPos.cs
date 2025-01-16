@@ -1,15 +1,19 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.Collections;
+using UnityEngine.InputSystem;
+using UnityEngine.Networking;
 
-public class ReglerControl : MonoBehaviour
+public class ModPos : MonoBehaviour
 {
-    public enum ReglerTypeEnum
+
+    private enum ReglerTypeEnum
     {
         Genau = 0,
         Binaer = 1
     }
 
-    public ReglerTypeEnum ReglerType = ReglerTypeEnum.Genau;
+    private ReglerTypeEnum ReglerType = ReglerTypeEnum.Genau;
 
     public GameObject to_rotate;
 
@@ -26,22 +30,17 @@ public class ReglerControl : MonoBehaviour
     private bool isInteracting = false;
     private Vector3 initialInteractorPosition;
     private int initialPercent;
-    
     private int previousPercent;
+    int CPRpm;
+
+
+    private const string BASE_URL = "http://localhost:8443/api/";
 
     void Start()
     {
-        //to_rotate = GameObject.Find("KNOB.005");
-
-        if (ReglerType == ReglerTypeEnum.Binaer)
-        {
-            StartRotation = -90;
-            EndRotation = 0;
-        }
 
         initialPercent = Percent;
         previousPercent = Percent;
-
 
         // Calculate the rotation angle based on Percent
         float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
@@ -52,17 +51,7 @@ public class ReglerControl : MonoBehaviour
 
     void Update()
     {
-        if (Percent != previousPercent)
-        {
-            if (ReglerType == ReglerTypeEnum.Binaer)
-            {
-                // Calculate the rotation angle based on Percent
-                float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
-                // Apply the rotation to the to_rotate object
-                to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
-            }
-        }
-        
+
         if (ReglerType == ReglerTypeEnum.Genau && isInteracting && interactor != null)
         {
             // Calculate the horizontal movement of the controller
@@ -75,19 +64,46 @@ public class ReglerControl : MonoBehaviour
             // Calculate the rotation angle based on Percent
             float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
 
-            // Apply the rotation to the to_rotate object
+            // Apply the rotation to the to_rotate objectS
             to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
-            
+
+            if (Time.time - lastPressTime > pressCooldown)
+            {
+
+                /* converting angles to Rpm.
+                there must be a better way for sure...*/
+
+                lastPressTime = Time.time;
+
+                Debug.Log("Percent: " + Percent);
+               
+                StartCoroutine(UpdatePump("rods", 100-Percent));
+            }
+
         } else if (ReglerType == ReglerTypeEnum.Genau && Percent != previousPercent)
         {
             // Calculate the rotation angle based on Percent
             float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
             // Apply the rotation to the to_rotate object
             to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
+
+            if (Time.time - lastPressTime > pressCooldown)
+            {
+
+                /* converting angles to Rpm.
+                there must be a better way for sure...*/
+
+                lastPressTime = Time.time;
+
+                Debug.Log("Percent: " + Percent);
+
+                StartCoroutine(UpdatePump("rods", 100-Percent));
+            }
         }
 
         previousPercent = Percent;
-        
+
+
     }
 
     private void OnEnable()
@@ -106,19 +122,11 @@ public class ReglerControl : MonoBehaviour
 
     private void OnSelectEntered(SelectEnterEventArgs args)
     {
-        if (ReglerType == ReglerTypeEnum.Genau)
-        {
             isInteracting = true;
             interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor;
             initialInteractorPosition = interactor.transform.position;
             initialPercent = Percent;
-        }
-        else if (ReglerType == ReglerTypeEnum.Binaer && Time.time - lastPressTime >= pressCooldown)
-        {
-            // Toggle the Percent value between 0 and 100
-            Percent = Percent == 0 ? 100 : 0;
-            lastPressTime = Time.time; // Update the last press time
-        }
+        
     }
 
     private void OnSelectExited(SelectExitEventArgs args)
@@ -129,4 +137,24 @@ public class ReglerControl : MonoBehaviour
             interactor = null;
         }
     }
+
+    public IEnumerator UpdatePump(string id, int value)
+    {
+
+        using (UnityWebRequest req = UnityWebRequest.Put($"{BASE_URL}control/{id}?setRod={value}", ""))
+        {
+            yield return req.SendWebRequest();
+
+            if (req.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError($"Request Error: {req.error}");
+            }
+            else
+            {
+                Debug.Log($"Request Successful: {req.downloadHandler.text}");
+            }
+        }
+    }
+
+
 }
