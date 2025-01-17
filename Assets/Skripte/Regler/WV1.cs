@@ -56,13 +56,10 @@ public class WV1: MonoBehaviour
 
         if (Percent != previousPercent)
         {
-            if (ReglerType == ReglerTypeEnum.Binaer)
-            {
                 // Calculate the rotation angle based on Percent
                 float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
                 // Apply the rotation to the to_rotate object
                 to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
-            }
 
             if (to_rotate.transform.rotation.eulerAngles.y == EndRotation)
             {

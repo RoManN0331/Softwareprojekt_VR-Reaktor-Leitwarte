@@ -56,22 +56,21 @@ public class WV2: MonoBehaviour
 
         if (Percent != previousPercent)
         {
-            if (ReglerType == ReglerTypeEnum.Binaer)
-            {
+
                 // Calculate the rotation angle based on Percent
                 float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
                 // Apply the rotation to the to_rotate object
                 to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
-            }
 
-            if (!clientObject.GetComponent<NPPClient>().simulation.WV2.status && to_rotate.transform.rotation.eulerAngles.y == EndRotation)
+            if (to_rotate.transform.rotation.eulerAngles.y == 32.7f)
+                     /*accounts for the orientation of the console*/
             {
                 StartCoroutine(SetValves("WV2", true));
                 Debug.Log("Valve WV2 is open");
             }
 
-            else if (clientObject.GetComponent<NPPClient>().simulation.WV2.status && to_rotate.transform.rotation.eulerAngles.y == 270)
-            
+            else if (to_rotate.transform.rotation.eulerAngles.y == 302.7f)
+                    /*accounts for the orientation of the console*/            
             {
                 StartCoroutine(SetValves("WV2", false));
                 Debug.Log("Valve WV2 is closed");

@@ -15,14 +15,15 @@ public class CWater : MonoBehaviour
         {
 
             clientObject = GameObject.Find("NPPclientObject");
-            anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Condenser.waterLevel;
+            anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Condenser.waterLevel/5000*100;
+            Debug.Log("CWater: " + anzeigeSteuerung.CHANGEpercentage);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Condenser.waterLevel;
+        anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Condenser.waterLevel/5000*100;
     }
 
 }

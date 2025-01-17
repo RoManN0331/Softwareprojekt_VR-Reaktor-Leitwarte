@@ -15,14 +15,14 @@ public class RWater : MonoBehaviour
         {
 
             clientObject = GameObject.Find("NPPclientObject");
-            anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Reactor.waterLevel;
+            anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Reactor.waterLevel / 2900 * 100;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Reactor.waterLevel;
+        anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Reactor.waterLevel / 2900 * 100;
     }
 
 }

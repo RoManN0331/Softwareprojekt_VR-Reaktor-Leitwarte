@@ -31,7 +31,6 @@ public class CP : MonoBehaviour
     private Vector3 initialInteractorPosition;
     private int initialPercent;
     private int previousPercent;
-    int CPRpm;
 
     private const string BASE_URL = "http://localhost:8443/api/";
 
@@ -63,25 +62,17 @@ public class CP : MonoBehaviour
             // Calculate the rotation angle based on Percent
             float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
 
+                /* converting angles to Rpm.
+                there must be a better way for sure...*/
+
             // Apply the rotation to the to_rotate objectS
             to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
 
             if (Time.time - lastPressTime > pressCooldown)
             {
 
-                /* converting angles to Rpm.
-                there must be a better way for sure...*/
-
                 lastPressTime = Time.time;
-                if (angle < 0)
-                {
-                    CPRpm = (int) ((90 - Mathf.Abs(angle)) * 11.1111f);
-                }
-                else
-                {
-                    CPRpm = (int) (angle * 11.1111f + 999f);
-                }
-                StartCoroutine(UpdatePump("CP", CPRpm));
+                StartCoroutine(UpdatePump("CP", (int)(Percent*20)));
             }
 
         } else if (ReglerType == ReglerTypeEnum.Genau && Percent != previousPercent)
@@ -94,20 +85,8 @@ public class CP : MonoBehaviour
             if (Time.time - lastPressTime > pressCooldown)
             {
 
-                /* converting angles to Rpm.
-                there must be a better way for sure...*/
-
                 lastPressTime = Time.time;
-                if (angle < 0)
-                {
-                    CPRpm = (int) ((90 - Mathf.Abs(angle)) * 11.1111f);
-                
-                }
-                else
-                {
-                    CPRpm = (int) (angle * 11.1111f + 999);
-                }
-                StartCoroutine(UpdatePump("CP", CPRpm));
+                StartCoroutine(UpdatePump("CP", (int)(Percent*20)));
             }
         }
 

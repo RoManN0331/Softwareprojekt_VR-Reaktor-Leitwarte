@@ -42,7 +42,6 @@ public class SV1: MonoBehaviour
         initialPercent = Percent;
         previousPercent = Percent;
 
-
         // Calculate the rotation angle based on Percent
         float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
         // Apply the rotation to the to_rotate object
@@ -56,25 +55,22 @@ public class SV1: MonoBehaviour
 
         if (Percent != previousPercent)
         {
-            if (ReglerType == ReglerTypeEnum.Binaer)
-            {
+
                 // Calculate the rotation angle based on Percent
                 float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
                 // Apply the rotation to the to_rotate object
                 to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
-                
-                if(to_rotate != null)
-                    Debug.Log("SV1 Update");
-            }
 
-            if (to_rotate.transform.rotation.eulerAngles.y == EndRotation)
+            if (to_rotate.transform.rotation.eulerAngles.y == 32.7f)
+                    /*accounts for the orientation of the console*/
                 {
+
                     StartCoroutine(SetValves("SV1", true));
                     Debug.Log("Valve SV1 is open");
                 }
             
-            else if (to_rotate.transform.rotation.eulerAngles.y == 270)
-    
+            else if (to_rotate.transform.rotation.eulerAngles.y == 302.7f)
+                    /*accounts for the orientation of the console*/
                 {
                     StartCoroutine(SetValves("SV1", false));
                     Debug.Log("Valve SV1 is closed");

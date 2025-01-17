@@ -31,7 +31,6 @@ public class WP2 : MonoBehaviour
     private Vector3 initialInteractorPosition;
     private int initialPercent;
     private int previousPercent;
-    int WP2Rpm;
 
 
     private const string BASE_URL = "http://localhost:8443/api/";
@@ -70,19 +69,8 @@ public class WP2 : MonoBehaviour
             if (Time.time - lastPressTime > pressCooldown)
             {
 
-                /* converting angles to Rpm.
-                there must be a better way for sure...*/
-
                 lastPressTime = Time.time;
-                if (angle < 0)
-                {
-                    WP2Rpm = (int) ((90 - Mathf.Abs(angle)) * 11.1111f);
-                }
-                else
-                {
-                    WP2Rpm = (int) (angle * 11.1111f + 999f);
-                }
-                StartCoroutine(UpdatePump("WP2", WP2Rpm));
+                StartCoroutine(UpdatePump("WP2", (int)(Percent*20)));
             }
 
         } else if (ReglerType == ReglerTypeEnum.Genau && Percent != previousPercent)
@@ -95,20 +83,8 @@ public class WP2 : MonoBehaviour
             if (Time.time - lastPressTime > pressCooldown)
             {
 
-                /* converting angles to Rpm.
-                there must be a better way for sure...*/
-
                 lastPressTime = Time.time;
-                if (angle < 0)
-                {
-                    WP2Rpm = (int) ((90 - Mathf.Abs(angle)) * 11.1111f);
-                
-                }
-                else
-                {
-                    WP2Rpm = (int) (angle * 11.1111f + 999);
-                }
-                StartCoroutine(UpdatePump("WP2", WP2Rpm));
+                StartCoroutine(UpdatePump("WP2", (int)(Percent*20)));
             }
         }
 

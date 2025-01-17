@@ -15,14 +15,14 @@ public class RPressure : MonoBehaviour
         {
 
             clientObject = GameObject.Find("NPPclientObject");
-            anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Reactor.pressure;
+            anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Reactor.pressure / 500 * 100;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Reactor.pressure;
+        anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Reactor.pressure / 500 * 100;
     }
 
 }
