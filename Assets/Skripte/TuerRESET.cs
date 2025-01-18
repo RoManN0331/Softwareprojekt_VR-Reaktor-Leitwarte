@@ -10,12 +10,13 @@ public class TuerRESET : MonoBehaviour
 
     private void OnEnable()
     {
-        interactable = GetComponent<XRSimpleInteractable>();
+        var interactable = GetComponent<XRSimpleInteractable>();
         interactable.selectEntered.AddListener(OnSelectEntered);
     }
 
     private void OnDisable()
     {
+        var interactable = GetComponent<XRSimpleInteractable>();
         interactable.selectEntered.RemoveListener(OnSelectEntered);
     }
 
