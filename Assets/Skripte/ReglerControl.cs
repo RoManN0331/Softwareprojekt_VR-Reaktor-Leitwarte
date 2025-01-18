@@ -31,6 +31,8 @@ public class ReglerControl : MonoBehaviour
 
     void Start()
     {
+        //to_rotate = GameObject.Find("KNOB.005");
+
         if (ReglerType == ReglerTypeEnum.Binaer)
         {
             StartRotation = -90;
@@ -76,7 +78,7 @@ public class ReglerControl : MonoBehaviour
             // Apply the rotation to the to_rotate object
             to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
             
-        }else if (ReglerType == ReglerTypeEnum.Genau && Percent != previousPercent)
+        } else if (ReglerType == ReglerTypeEnum.Genau && Percent != previousPercent)
         {
             // Calculate the rotation angle based on Percent
             float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
