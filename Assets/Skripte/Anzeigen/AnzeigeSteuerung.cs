@@ -1,4 +1,3 @@
-using System.Globalization;
 using TMPro;
 using UnityEngine;
 
@@ -128,6 +127,7 @@ public class AnzeigeSteuerung : MonoBehaviour
     
     private void UpdateBars()
     {
+        CHANGEpercentage = Mathf.Clamp(CHANGEpercentage,0 ,100);
         
         if (CHANGEpercentage <= percentage)
         {
