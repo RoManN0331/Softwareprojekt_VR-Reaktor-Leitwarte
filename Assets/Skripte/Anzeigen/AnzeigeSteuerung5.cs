@@ -63,6 +63,9 @@ public class AnzeigeSteuerung5 : MonoBehaviour
     private int minIndex13;
     private int minIndex23;
     private int maxIndex3;
+    
+    public bool isDIGITAL = false;
+    
     void Start()
     {
         InitializeText(komponente, start_Number, end_Number);
@@ -73,17 +76,27 @@ public class AnzeigeSteuerung5 : MonoBehaviour
         InitializeMesh(toManiuplateORANGE, ref meshORANGE, ref originalVertices2, ref minIndex12, ref minIndex22, ref maxIndex2, ref lastPercentage2, percentage2);
         InitializeMesh(toManiuplateRED, ref meshRED, ref originalVertices3, ref minIndex13, ref minIndex23, ref maxIndex3, ref lastPercentage3, percentage3);
         
+        setBar(0);
+        setBar(1);
+        setBar(2);
+        setBar(3);
+        setBar(4);
+        
         UpdateBars();
     }
 
     void Update()
     {
+        if(isDIGITAL) DigitalText.text = Mathf.FloorToInt(CHANGEpercentage * (end_Number / 100f)).ToString();;
+        
         if (CHANGEpercentage != lastPercentage || CHANGEpercentage != lastPercentage2 || CHANGEpercentage != lastPercentage3
             || CHANGEpercentage != lastPercentage8 || CHANGEpercentage != lastPercentage9)
         {
             UpdateBars();
         }
     }
+    
+    private TextMeshPro DigitalText;
     
     private void InitializeText(string komponente, float startNumber, float endNumber)
     {
@@ -98,6 +111,11 @@ public class AnzeigeSteuerung5 : MonoBehaviour
         {
             float fraction = (i / 8f) * endNumber;
             SetText(anzeigeBasic, $"Text_Nummer{i}-8", fraction.ToString());
+        }
+
+        if (isDIGITAL)
+        {
+            DigitalText = anzeigeBasic.transform.Find("TEXT_DIGITAL").gameObject.GetComponent<TextMeshPro>();
         }
     }
 
@@ -210,6 +228,9 @@ public class AnzeigeSteuerung5 : MonoBehaviour
         Mesh mesh = null;
         switch (ID)
         {
+            case 0:
+                mesh = mesh8;
+                break;
             case 1:
                 mesh = mesh9;
                 break;
