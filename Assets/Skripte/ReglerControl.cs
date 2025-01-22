@@ -65,19 +65,19 @@ public class ReglerControl : MonoBehaviour
         
         if (ReglerType == ReglerTypeEnum.Genau && isInteracting && interactor != null)
         {
-            // Calculate the horizontal movement of the controller
-            Vector3 currentInteractorPosition = interactor.transform.position;
-            float horizontalMovement = (currentInteractorPosition.x - initialInteractorPosition.x) * -2;
-
-            // Update the Percent value based on horizontal movement
-            Percent = Mathf.Clamp(initialPercent + (int)(horizontalMovement * 100), 0, 100);
+            // Calculate the rotation of the controller around the z-axis
+            float currentZRotation = interactor.transform.eulerAngles.z;
+            float initialZRotation = initialInteractorRotation.eulerAngles.z;
+            float rotationDifference = Mathf.DeltaAngle(initialZRotation, currentZRotation); 
+            
+            // Update the Percent value based on rotation difference
+            Percent = Mathf.Clamp(initialPercent + (int)(rotationDifference * -0.5f), 0, 100);
 
             // Calculate the rotation angle based on Percent
             float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
 
             // Apply the rotation to the to_rotate object
             to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
-            
         } else if (ReglerType == ReglerTypeEnum.Genau && Percent != previousPercent)
         {
             // Calculate the rotation angle based on Percent
@@ -104,13 +104,14 @@ public class ReglerControl : MonoBehaviour
         interactable.selectExited.RemoveListener(OnSelectExited);
     }
 
+    private Quaternion initialInteractorRotation;
     private void OnSelectEntered(SelectEnterEventArgs args)
     {
         if (ReglerType == ReglerTypeEnum.Genau)
         {
             isInteracting = true;
             interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor;
-            initialInteractorPosition = interactor.transform.position;
+            initialInteractorRotation = interactor.transform.rotation;
             initialPercent = Percent;
         }
         else if (ReglerType == ReglerTypeEnum.Binaer && Time.time - lastPressTime >= pressCooldown)

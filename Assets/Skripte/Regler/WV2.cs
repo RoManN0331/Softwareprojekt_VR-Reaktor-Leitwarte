@@ -62,14 +62,14 @@ public class WV2: MonoBehaviour
                 // Apply the rotation to the to_rotate object
                 to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
 
-            if (to_rotate.transform.rotation.eulerAngles.y == 32.7f)
+            if (to_rotate.transform.rotation.eulerAngles.y == EndRotation)
                      /*accounts for the orientation of the console*/
             {
                 StartCoroutine(SetValves("WV2", true));
                 Debug.Log("Valve WV2 is open");
             }
 
-            else if (to_rotate.transform.rotation.eulerAngles.y == 302.7f)
+            else if (to_rotate.transform.rotation.eulerAngles.y == 270)
                     /*accounts for the orientation of the console*/            
             {
                 StartCoroutine(SetValves("WV2", false));
