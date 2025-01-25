@@ -66,15 +66,18 @@ public class WV2: MonoBehaviour
 
             UpdateRotation();
 
-            if (to_rotate.transform.rotation.eulerAngles.y == EndRotation)
-                     /*accounts for the orientation of the console*/
+            if (Percent == 100)
             {
                 SetValveStatus("WV2", true);
                 Debug.Log("Valve WV2 is open");
             }
 
-            else if (to_rotate.transform.rotation.eulerAngles.y == 270)
-                    /*accounts for the orientation of the console*/            
+            else if (Percent == 0)
+                    /*
+                      percent kommt mit jeder rotation klar 
+                      alternativer wäre noch to_rotate.transform.localrotation.eulerAngles.y == StartRoation
+                      also die LOKALE rotation ;)   * /
+                     */            
             {
                 SetValveStatus("WV2", false);
                 Debug.Log("Valve WV2 is closed");

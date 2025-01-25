@@ -65,13 +65,13 @@ public class WV1: MonoBehaviour
         {
             UpdateRotation();
 
-            if (to_rotate.transform.rotation.eulerAngles.y == EndRotation)
+            if (Percent == 100)
             {
                 SetValveStatus("WV1", true);
                 Debug.Log("Valve WV1 is open");
             }
 
-            else if (to_rotate.transform.rotation.eulerAngles.y == 270)
+            else if (Percent == 0)
             
             {
                 SetValveStatus("WV1", false);

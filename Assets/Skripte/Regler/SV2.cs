@@ -62,13 +62,13 @@ public class SV2: MonoBehaviour
                 // Apply the rotation to the to_rotate object
                 to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
 
-            if (to_rotate.transform.rotation.eulerAngles.y == 32.7f)
+            if (Percent == 100)
             {
                 StartCoroutine(SetPumps("SV2", true));
                 Debug.Log("Valve SV2 is open");
             }
 
-            else if (to_rotate.transform.rotation.eulerAngles.y == 302.7f)
+            else if (Percent == 0)
             
             {
                 StartCoroutine(SetPumps("SV2", false));
