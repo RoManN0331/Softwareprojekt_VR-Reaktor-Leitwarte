@@ -3,14 +3,14 @@ using System.Collections;
 
 public class RWater : MonoBehaviour
 {
-    private AnzeigeSteuerung anzeigeSteuerung;
+    private AnzeigeSteuerung5 anzeigeSteuerung;
 
     private GameObject clientObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        anzeigeSteuerung = GetComponent<AnzeigeSteuerung>();
+        anzeigeSteuerung = GetComponent<AnzeigeSteuerung5>();
         if (anzeigeSteuerung != null)
         {
 
