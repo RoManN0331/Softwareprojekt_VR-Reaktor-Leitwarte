@@ -3,14 +3,13 @@ using UnityEngine;
 public class GazeGuidingTarget : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public TargetType isTypeOf;
+    
+    public enum TargetType
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Genau,
+        Binaer,
+        Anzeige,
+        Ausfallanzeige
     }
 }
