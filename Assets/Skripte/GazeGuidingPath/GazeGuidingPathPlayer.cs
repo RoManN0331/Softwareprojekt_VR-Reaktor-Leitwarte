@@ -126,7 +126,7 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     
     public void Arrow3D()
     {
-        if (Arrow3DEnabled)
+        if (Arrow3DEnabled && currentTarget.isTypeOf == GazeGuidingTarget.TargetType.Genau)
         {
             if (arrow3DInstance == null)
             {
