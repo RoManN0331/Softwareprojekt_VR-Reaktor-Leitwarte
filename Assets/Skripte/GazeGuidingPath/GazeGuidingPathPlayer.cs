@@ -65,6 +65,19 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         // Set initial states
         DirectionCue.gameObject.SetActive(false);
         DirectionCue2.gameObject.SetActive(false);
+            
+        // Find the main camera in the XR Origin (XR Rig) > Camera Offset > Main Camera
+        Camera mainCamera = GameObject.Find("XR Origin (XR Rig)/Camera Offset/Main Camera").GetComponent<Camera>();
+
+        // Set the render camera of the Canvas component
+        Canvas canvas = uiInstance.transform.Find("Canvas").GetComponent<Canvas>();
+        canvas.worldCamera = mainCamera;
+        // Set the plane distance to bring the UI closer to the camera
+        canvas.planeDistance = 0.05f;
+
+        // Set the sorting order to ensure the UI is rendered on top of other objects
+        canvas.sortingOrder = 100;
+        
     }
     
     private bool arrow3DInstanceCreated = false; // Flag to track if Arrow3D instance has been created
