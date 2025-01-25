@@ -135,9 +135,9 @@
                     "name": "Rotate Mode Override",
                     "type": "Button",
                     "id": "2e390909-c0f6-4ca5-b8bc-4c54090f96d9",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -378,8 +378,8 @@
                 {
                     "name": "",
                     "id": "2b070a4a-e044-4cbd-a8e2-6b362785bf21",
-                    "path": "<Keyboard>/leftCtrl",
-                    "interactions": "",
+                    "path": "<Keyboard>/#(Y)",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Rotate Mode Override",

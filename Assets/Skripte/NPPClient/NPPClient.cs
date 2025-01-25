@@ -9,7 +9,7 @@ using UnityEngine.Networking;
 public class NPPClient : MonoBehaviour
 {
     private static readonly HttpClient client = new HttpClient();
-    private const string BASE_URL = "http://localhost:8443/api/";
+    private const string BASE_URL = "http://localhost:8080/api/";
     private const float UPDATE_INTERVAL = .5f;
     private AnimatorController animatorController;
 
@@ -129,6 +129,57 @@ public class NPPClient : MonoBehaviour
         }
         return null;        
     }
+	
+	public IEnumerator UpdatePump(string id, int value)
+    {
+        using (UnityWebRequest req = UnityWebRequest.Put($"{BASE_URL}control/{id}?setPump={value}", ""))
+        {
+            yield return req.SendWebRequest();
+
+            if (req.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError($"Error updating pump: {req.error}");
+            }
+            else
+            {
+                Debug.Log($"Pump updated successfully: {req.downloadHandler.text}");
+            }
+        }
+    }
+	
+	public IEnumerator UpdateValveStatus(string valveId, bool value)
+    {
+        using (UnityWebRequest request = UnityWebRequest.Put($"{BASE_URL}control/{valveId}?setValve={value}", ""))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError($"Error updating valve status: {request.error}");
+            }
+            else
+            {
+                Debug.Log($"Valve status updated successfully: {request.downloadHandler.text}");
+            }
+        }
+    }
+	
+	public IEnumerator SetRodPosition(int value)
+	{
+		using (UnityWebRequest req = UnityWebRequest.Put($"{BASE_URL}control/rods?setRod={value}", ""))
+		{
+			yield return req.SendWebRequest();
+
+			if (req.result != UnityWebRequest.Result.Success)
+			{
+				Debug.LogError($"Request Error: {req.error}");
+			}
+			else
+			{
+				Debug.Log($"Request Successful: {req.downloadHandler.text}");
+			}
+		}
+	}
 
     private IEnumerator UpdateSimulationState()
     {
@@ -158,4 +209,7 @@ public class NPPClient : MonoBehaviour
             yield return new WaitForSeconds(UPDATE_INTERVAL);
         }
     }
+	
+	
+	
 }
