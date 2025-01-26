@@ -176,6 +176,36 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         }
     }
 
+    
+    
+    //Aus einem anderen Skript aufrufbar mit z.B.:
+    //GazeGuidingPathPlayer gazeGuidingPathPlayer = FindObjectOfType<GazeGuidingPathPlayer>();
+    //gazeGuidingPathPlayer.TriggerTargetNAME("WP1RPM", GazeGuidingTarget.TargetType.Anzeige);
+    //dadruch wird dann das gazeGuiding auf WP1RPM-anzeige gesetzt
+    //die restlichen eingaben sind die GameObjektnamen mit dem GazeGuidingTarget skript
+    
+    public void TriggerTargetNAME(string targetName,  GazeGuidingTarget.TargetType type, bool Flip3DArrow = false)
+    {
+        ClearLine();
+        currentTarget = targets.Find(t => t.name == targetName && t.isTypeOf == type);
+        if (currentTarget != null)
+        {
+            if (Flip3DArrow)
+            {
+                arrow3DPrefab.GetComponent<Rotate3DArrow>().flipDirection = true;
+            }
+            else
+            {
+                arrow3DPrefab.GetComponent<Rotate3DArrow>().flipDirection = false;
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Target with name {targetName} and type {type} not found.");
+        }
+    }
+    
+    
     public void ClearLine()
     {
         // Remove the Arrow3D instance

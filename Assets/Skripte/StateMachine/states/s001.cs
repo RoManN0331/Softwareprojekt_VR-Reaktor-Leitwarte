@@ -5,8 +5,8 @@ public class s001 : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GazeGuidingTarget target = GameObject.Find("RKS").GetComponent<GazeGuidingTarget>();
-        GameObject.Find("PlayerGazeGuidingPath").GetComponent<GazeGuidingPathPlayer>().TriggerTarget(target); 
+        GazeGuidingPathPlayer gazeGuidingPathPlayer = FindObjectOfType<GazeGuidingPathPlayer>();
+        gazeGuidingPathPlayer.TriggerTargetNAME("CPRPM", GazeGuidingTarget.TargetType.Genau);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
