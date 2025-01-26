@@ -40,6 +40,7 @@ public class AnimatorController : MonoBehaviour
         animator.SetInteger("ControlRodsLvl",  (int) state.Reactor.rodPosition);
         animator.SetInteger("ReactorWaterLvl", (int) state.Reactor.waterLevel);
         animator.SetInteger("ReactorPressure", (int) state.Reactor.pressure);
+        //animator.SetBool("Restheat", (int) state.Reactor.restheat);
         //Set condenser parameter
         animator.SetInteger("CondenserWaterLvl", (int) state.Condenser.waterLevel);
         animator.SetInteger("CondenserPressure", (int) state.Condenser.pressure);

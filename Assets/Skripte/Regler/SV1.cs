@@ -61,7 +61,7 @@ public class SV1: MonoBehaviour
                 // Apply the rotation to the to_rotate object
                 to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
 
-            if (to_rotate.transform.rotation.eulerAngles.y == 32.7f)
+            if (Percent == 100)
                     /*accounts for the orientation of the console*/
                 {
 
@@ -69,7 +69,7 @@ public class SV1: MonoBehaviour
                     Debug.Log("Valve SV1 is open");
                 }
             
-            else if (to_rotate.transform.rotation.eulerAngles.y == 302.7f)
+            else if (Percent == 0)
                     /*accounts for the orientation of the console*/
                 {
                     StartCoroutine(SetValves("SV1", false));
