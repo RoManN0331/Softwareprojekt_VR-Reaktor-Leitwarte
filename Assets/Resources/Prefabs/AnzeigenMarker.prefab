@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &8288339085994309847
 RectTransform:
@@ -310,3 +310,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2.25
   moveAmount: 0.003
+  fontSizeSpeed: 2
+  fontSizeAmount: 0.1
+  targetNumber: 1000
