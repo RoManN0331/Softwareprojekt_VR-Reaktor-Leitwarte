@@ -2,10 +2,17 @@ using UnityEngine;
 
 public class s002 : StateMachineBehaviour
 {
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    private GazeGuidingPathPlayer gazeGuidingPathPlayer;
+    private GazeGuidingPathPlayerSecondPath gazeGuidingPathPlayer2;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GazeGuidingPathPlayer gazeGuidingPathPlayer = FindObjectOfType<GazeGuidingPathPlayer>();
+        // Diese vier Zeilen Code bei jedem State hinzufügen
+        gazeGuidingPathPlayer = FindObjectOfType<GazeGuidingPathPlayer>();
+        gazeGuidingPathPlayer2 = FindObjectOfType<GazeGuidingPathPlayerSecondPath>();
+        
+        gazeGuidingPathPlayer.ClearLine();
+        gazeGuidingPathPlayer2.ClearLine();
+        
         gazeGuidingPathPlayer.TriggerTargetNAME("WV1", GazeGuidingTarget.TargetType.Binaer);
     }
 }

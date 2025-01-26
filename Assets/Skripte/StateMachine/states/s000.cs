@@ -11,7 +11,7 @@ public class s000 : StateMachineBehaviour
         gazeGuidingPathPlayer2 = FindObjectOfType<GazeGuidingPathPlayerSecondPath>();
         
         gazeGuidingPathPlayer.ClearLine();
-        gazeGuidingPathPlayer.ClearLine();
+        gazeGuidingPathPlayer2.ClearLine();
         
         
         //ERSTER Pfeil
@@ -27,7 +27,8 @@ public class s000 : StateMachineBehaviour
         gazeGuidingPathPlayer.DirectionCueEnabled = true; // Roten Rand für den nöchsten State aktivieren
         
         
-        // Der allerletzte State der StateMachine sollte diesen Code besitzen damit die Pfeile verschwinden
+        // Der allerletzte State der StateMachine sollte diesen Code besitzen, damit die Pfeile verschwinden
+        // nicht mitten in den States, da sonst Pfeile verschwinden (nicht synchronisiert)
         /*
         gazeGuidingPathPlayer.ClearLine();
         gazeGuidingPathPlayer2.ClearLine();
