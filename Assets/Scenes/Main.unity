@@ -6703,6 +6703,7 @@ MonoBehaviour:
   DirectionCueFadeDuration: 0.175
   DirectionArrowEnabled: 1
   Arrow3DEnabled: 1
+  DirectionArrowOnScreen: 1
   targets:
   - {fileID: 6574682919767574228}
   - {fileID: 8631340812775877953}

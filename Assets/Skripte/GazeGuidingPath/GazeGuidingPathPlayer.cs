@@ -12,6 +12,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     
     public bool Arrow3DEnabled = true;
     
+    public bool DirectionArrowOnScreen = true;
+    
     public List<GazeGuidingTarget> targets;
     public float pathDisplayDistance = 5.0f;
     public float animationDuration = 1.0f; // Duration of the path drawing animation
@@ -134,6 +136,12 @@ public class GazeGuidingPathPlayer : MonoBehaviour
                 DirectionCue.gameObject.SetActive(false);
                 DirectionCue2.gameObject.SetActive(false);
             }
+
+            if (DirectionArrowOnScreen)
+            {
+                renderDirectionArrow();
+            }
+            
         }
     }
     
@@ -210,6 +218,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     {
         // Remove the Arrow3D instance
         RemoveArrow3D();
+
+        removeDirectionArrow();
         
         DirectionCue.gameObject.SetActive(false);
         DirectionCue2.gameObject.SetActive(false);
@@ -222,6 +232,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             animatePathCoroutine = null;
         }
         lineRenderer.positionCount = 0;
+        
+        
     }
 
     public void triggerTEST()
@@ -373,6 +385,65 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             }
         }
     }
+
+    //3D-Pfeil wie in Need for Speed
+    private GameObject arrowInstance; // Store the instance of the arrow
+
+    public void renderDirectionArrow()
+    {
+        // Check if an instance already exists
+        if (arrowInstance != null)
+        {
+            return; // Exit the method if an instance already exists
+        }
+
+        // Load the 3DPfeilNfS prefab from the Resources folder
+        GameObject arrowPrefab = Resources.Load<GameObject>("Prefabs/3DPfeilNfS");
+
+        if (arrowPrefab != null)
+        {
+            // Instantiate the prefab
+            arrowInstance = Instantiate(arrowPrefab);
+            arrowInstance.GetComponent<PfeilNfS>().target = currentTarget;
+            
+            // Find the main camera
+            Camera mainCamera = Camera.main;
+
+            if (mainCamera != null)
+            {
+                // Calculate the position at the top of the screen
+                Vector3 screenPosition = new Vector3(Screen.width / 2, Screen.height, mainCamera.nearClipPlane + 0.1f);
+                Vector3 worldPosition = mainCamera.ScreenToWorldPoint(screenPosition);
+
+                // Set the position of the instantiated prefab
+                arrowInstance.transform.position = worldPosition;
+
+                // Optionally, set the parent to the camera to keep it in the same position relative to the screen
+                arrowInstance.transform.SetParent(mainCamera.transform, true);
+            }
+            else
+            {
+                Debug.LogWarning("Main camera not found.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("3DPfeilNfS prefab not found in Resources/Prefabs.");
+        }
+    }
+    
+    public void removeDirectionArrow()
+    {
+        // Check if an instance exists
+        if (arrowInstance != null)
+        {
+            // Destroy the instance
+            Destroy(arrowInstance);
+            arrowInstance = null;
+        }
+    }
+    
+    
 
     private IEnumerator ResetFadingFlag(float duration, System.Action resetAction)
     {
