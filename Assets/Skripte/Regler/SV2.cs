@@ -31,7 +31,7 @@ public class SV2: MonoBehaviour
     private int initialPercent;
     private int previousPercent;
 
-    private const string BASE_URL = "http://localhost:8443/api/";
+    private const string BASE_URL = "http://localhost:8080/api/";
 
     void Start()
     {
