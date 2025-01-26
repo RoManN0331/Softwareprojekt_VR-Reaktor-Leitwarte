@@ -6,6 +6,6 @@ public class s002 : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         GazeGuidingPathPlayer gazeGuidingPathPlayer = FindObjectOfType<GazeGuidingPathPlayer>();
-        gazeGuidingPathPlayer.TriggerTargetNAME("WV1", GazeGuidingTarget.TargetType.Genau);
+        gazeGuidingPathPlayer.TriggerTargetNAME("WV1", GazeGuidingTarget.TargetType.Binaer);
     }
 }

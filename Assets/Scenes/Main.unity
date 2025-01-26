@@ -6720,7 +6720,7 @@ MonoBehaviour:
   - {fileID: 7787197351236467280}
   - {fileID: 6024760223483447987}
   - {fileID: 6024760223701515809}
-  pathDisplayDistance: 0.77
+  pathDisplayDistance: 0.85
   animationDuration: 1
   lineMaterial: {fileID: 2100000, guid: 9c8b90ff3b396b64e9ef60f86215f919, type: 2}
 --- !u!1 &1432616319 stripped
@@ -8384,7 +8384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
