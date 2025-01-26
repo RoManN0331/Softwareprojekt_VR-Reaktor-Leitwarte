@@ -32,8 +32,6 @@ public class CP : MonoBehaviour
     private int initialPercent;
     private int previousPercent;
 
-    private const string BASE_URL = "http://localhost:8443/api/";
-
     void Start()
     {
 
@@ -137,7 +135,7 @@ public class CP : MonoBehaviour
     public IEnumerator UpdatePump(string id, int value)
     {
 
-        using (UnityWebRequest req = UnityWebRequest.Put($"{BASE_URL}control/pump/{id}?setRpm={value}", ""))
+        using (UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/pump/{id}?setRpm={value}", ""))
         {
             yield return req.SendWebRequest();
 

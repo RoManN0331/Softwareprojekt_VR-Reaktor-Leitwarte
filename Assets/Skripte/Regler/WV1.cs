@@ -31,8 +31,6 @@ public class WV1: MonoBehaviour
     private int initialPercent;
     private int previousPercent;
 
-    private const string BASE_URL = "http://localhost:8443/api/";
-
     void Start()
     {
 
@@ -116,7 +114,7 @@ public class WV1: MonoBehaviour
     IEnumerator SetPumps(string ValveID, bool value){
 
 
-        UnityWebRequest req = UnityWebRequest.Put($"{BASE_URL}control/valve/{ValveID}?activate={value}", "");
+        UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/valve/{ValveID}?activate={value}", "");
 
         yield return req.SendWebRequest();
 

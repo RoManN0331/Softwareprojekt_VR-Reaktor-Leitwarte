@@ -33,9 +33,6 @@ public class ModPos : MonoBehaviour
     private int previousPercent;
     int CPRpm;
 
-
-    private const string BASE_URL = "http://localhost:8443/api/";
-
     void Start()
     {
 
@@ -151,7 +148,7 @@ public class ModPos : MonoBehaviour
     public IEnumerator UpdatePump(string id, int value)
     {
 
-        using (UnityWebRequest req = UnityWebRequest.Put($"{BASE_URL}control/{id}?setRod={value}", ""))
+        using (UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/{id}?setRod={value}", ""))
         {
             yield return req.SendWebRequest();
 

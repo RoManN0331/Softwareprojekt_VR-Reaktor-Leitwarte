@@ -135,9 +135,9 @@
                     "name": "Rotate Mode Override",
                     "type": "Button",
                     "id": "2e390909-c0f6-4ca5-b8bc-4c54090f96d9",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
