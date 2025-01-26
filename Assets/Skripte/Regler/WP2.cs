@@ -58,7 +58,7 @@ public class WP2 : MonoBehaviour
     void Update()
     {
 
-        if (ReglerType == ReglerTypeEnum.Genau && isInteracting && interactor != null)
+        if (isInteracting && interactor != null)
         {
             HandleRotationInteraction();
         }
@@ -86,21 +86,16 @@ public class WP2 : MonoBehaviour
 
         Percent = Mathf.Clamp(initialPercent + (int)(rotationDifference * -0.5f), 0, 100);
         UpdateRotation();
-        
+
         if (Time.time - lastPressTime > pressCooldown)
         {
             lastPressTime = Time.time;
             SendPercentToSimulation();
         }
     }
-    
+
     private void SendPercentToSimulation()
     {
-        if (ReglerType == ReglerTypeEnum.Binaer)
-        {
-            Percent = Percent == 0 ? 100 : 0;
-        }
-        
         int rpmValue = Percent * 20; // Convert percent to RPM
         StartCoroutine(nppClient.UpdatePump("WP2", rpmValue));
     }
@@ -121,27 +116,20 @@ public class WP2 : MonoBehaviour
 
     private void OnSelectEntered(SelectEnterEventArgs args)
     {
-        if (ReglerType == ReglerTypeEnum.Genau)
-        {
-            isInteracting = true;
-            interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor;
-            initialInteractorRotation = interactor.transform.rotation;
-            initialPercent = Percent;
-        }
-        else if (ReglerType == ReglerTypeEnum.Binaer && Time.time - lastPressTime >= pressCooldown)
-        {
-            // Toggle the Percent value between 0 and 100
-            Percent = Percent == 0 ? 100 : 0;
-            lastPressTime = Time.time; // Update the last press time
-        }
+        
+        isInteracting = true;
+        interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor;
+        initialInteractorRotation = interactor.transform.rotation;
+        initialPercent = Percent;
+        
     }
 
     private void OnSelectExited(SelectExitEventArgs args)
     {
-        if (ReglerType == ReglerTypeEnum.Genau)
-        {
-            isInteracting = false;
-            interactor = null;
-        }
+       
+        isInteracting = false;
+        interactor = null;
     }
+
+
 }
