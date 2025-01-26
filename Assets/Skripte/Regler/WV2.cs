@@ -55,7 +55,8 @@ public class WV2: MonoBehaviour
 
         UpdateRotation();
 
-
+        //Signal Lampe um zu signalisieren ob Ventil offen oder geschlossen ist
+        initLamp();
     }
 
     void Update()
@@ -70,6 +71,8 @@ public class WV2: MonoBehaviour
             {
                 SetValveStatus("WV2", true);
                 Debug.Log("Valve WV2 is open");
+                
+                lightRegler.SetLight(true);
             }
 
             else if (Percent == 0)
@@ -81,6 +84,8 @@ public class WV2: MonoBehaviour
             {
                 SetValveStatus("WV2", false);
                 Debug.Log("Valve WV2 is closed");
+                
+                lightRegler.SetLight(false);
             }
         }
 
@@ -140,5 +145,21 @@ public class WV2: MonoBehaviour
     {
     
     }
-
+    
+    private LightRegler lightRegler;
+    private void initLamp()
+    {
+        // Find the child GameObject named "Lampe"
+        Transform lampeTransform = transform.Find("Lampe");
+        if (lampeTransform != null)
+        {
+            // Get the LightRegler component from the child GameObject
+            lightRegler = lampeTransform.GetComponent<LightRegler>();
+        }
+        else
+        {
+            Debug.LogError("Child GameObject 'Lampe' not found.");
+        }
+    }
+    
 }
