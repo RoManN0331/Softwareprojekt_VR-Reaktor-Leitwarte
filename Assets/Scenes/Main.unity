@@ -6340,7 +6340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6574682920169527482, guid: d41d27035ab905043a64831fab6cd426, type: 3}
       propertyPath: m_Name
-      value: CPRPM
+      value: CPRPM_display
       objectReference: {fileID: 0}
     - target: {fileID: 8631340814552967218, guid: d41d27035ab905043a64831fab6cd426, type: 3}
       propertyPath: m_Enabled
