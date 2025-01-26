@@ -147,16 +147,19 @@ public class ReglerControl : MonoBehaviour
     private LightRegler lightRegler;
     private void initLamp()
     {
-        // Find the child GameObject named "Lampe"
-        Transform lampeTransform = transform.Find("Lampe");
-        if (lampeTransform != null)
+        if (ReglerType == ReglerTypeEnum.Binaer)
         {
-            // Get the LightRegler component from the child GameObject
-            lightRegler = lampeTransform.GetComponent<LightRegler>();
-        }
-        else
-        {
-            Debug.LogError("Child GameObject 'Lampe' not found.");
+            // Find the child GameObject named "Lampe"
+            Transform lampeTransform = transform.Find("Lampe");
+            if (lampeTransform != null)
+            {
+                // Get the LightRegler component from the child GameObject
+                lightRegler = lampeTransform.GetComponent<LightRegler>();
+            }
+            else
+            {
+                Debug.LogError("Child GameObject 'Lampe' not found.");
+            }
         }
     }
 }

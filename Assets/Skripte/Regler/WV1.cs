@@ -68,7 +68,7 @@ public class WV1: MonoBehaviour
 
             if (Percent == 100)
             {
-                SetValveStatus("WV1", true);
+                StartCoroutine(SetValves("WV1", true));
                 Debug.Log("Valve WV1 is open");
                 
                 lightRegler.SetLight(true);
@@ -77,7 +77,7 @@ public class WV1: MonoBehaviour
             else if (Percent == 0)
             
             {
-                SetValveStatus("WV1", false);
+                StartCoroutine(SetValves("WV2", false));
                 Debug.Log("Valve WV1 is closed");
                 
                 lightRegler.SetLight(false);
@@ -98,15 +98,20 @@ public class WV1: MonoBehaviour
         to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
     }
 	
-	IEnumerator SetValveStatus(string valveId, bool value)
-    {
-        if (nppClient != null)
+    IEnumerator SetValves(string ValveID, bool value){
+
+
+        UnityWebRequest req = UnityWebRequest.Put($"{BASE_URL}control/valve/{ValveID}?activate={value}", "");
+
+        yield return req.SendWebRequest();
+
+        if (req.result != UnityWebRequest.Result.Success)
         {
-            yield return StartCoroutine(nppClient.UpdateValveStatus(valveId, value));
+            Debug.LogError($"Request Error: {req.error}");
         }
         else
         {
-            Debug.LogError("NPPClient is not initialized.");
+            Debug.Log($"Request Successful: {req.downloadHandler.text}");
         }
     }
 

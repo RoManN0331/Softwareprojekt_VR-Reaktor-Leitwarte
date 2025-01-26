@@ -1933,3 +1933,4 @@ MonoBehaviour:
   percentage2: 80
   toManiuplateRED: {fileID: 1927945511555575645}
   percentage3: 100
+  isDIGITAL: 0

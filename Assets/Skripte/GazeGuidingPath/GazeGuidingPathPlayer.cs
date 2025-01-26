@@ -450,6 +450,40 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         yield return new WaitForSeconds(duration);
         resetAction();
     }
+
+    private GazeGuidingTarget anzeigenTarget;
+    public void TriggerAnzeigenMarkierung(string targetName, GazeGuidingTarget.TargetType type, float NumberToHighlight)
+    {
+        anzeigenTarget = targets.Find(t => t.name == targetName && t.isTypeOf == type);
+        
+        if (anzeigenTarget != null)
+        {
+            Transform anzeigenMarkerTransform = anzeigenTarget.transform.Find("AnzeigenMarker");
+            if (anzeigenMarkerTransform != null)
+            {
+                anzeigenMarkerTransform.gameObject.SetActive(true);
+                anzeigenMarkerTransform.GetComponent<AnzeigenMarker>().targetNumber = NumberToHighlight;
+            }
+            else
+            {
+                Debug.LogError("Child GameObject 'AnzeigenMarker' not found.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Target with name {targetName} and type {type} not found.");
+        }
+    }
     
-    
+    public void ClearAnzeigenMarkierung()
+    {
+        if (anzeigenTarget != null)
+        {
+            Transform anzeigenMarkerTransform = anzeigenTarget.transform.Find("AnzeigenMarker");
+            if (anzeigenMarkerTransform != null)
+            {
+                anzeigenMarkerTransform.gameObject.SetActive(false);
+            }
+        }
+    }
 }

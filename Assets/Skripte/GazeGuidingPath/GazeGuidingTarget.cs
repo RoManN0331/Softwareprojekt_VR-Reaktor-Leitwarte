@@ -12,4 +12,9 @@ public class GazeGuidingTarget : MonoBehaviour
         Anzeige,
         Ausfallanzeige
     }
+    
+    
+    
+    
+    
 }

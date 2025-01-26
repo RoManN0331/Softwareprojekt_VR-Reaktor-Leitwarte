@@ -263,4 +263,6 @@ public class AnzeigeSteuerung : MonoBehaviour
                 break;
         }
     }
+
+    private int x;
 }

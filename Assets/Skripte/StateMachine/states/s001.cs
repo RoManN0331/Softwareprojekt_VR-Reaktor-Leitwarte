@@ -15,6 +15,14 @@ public class s001 : StateMachineBehaviour
         gazeGuidingPathPlayer2.ClearLine();
         
         gazeGuidingPathPlayer.TriggerTargetNAME("CPRPM", GazeGuidingTarget.TargetType.Genau);
+        
+        /* Test */
+        
+        gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("CPRPM", GazeGuidingTarget.TargetType.Anzeige, 1600);
     }
 
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
+    }
 }
