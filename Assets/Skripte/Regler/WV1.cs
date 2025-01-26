@@ -99,7 +99,7 @@ public class WV1: MonoBehaviour
     IEnumerator SetValves(string ValveID, bool value){
 
 
-        UnityWebRequest req = UnityWebRequest.Put($"{BASE_URL}control/valve/{ValveID}?activate={value}", "");
+        UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/valve/{ValveID}?activate={value}", "");
 
         yield return req.SendWebRequest();
 
