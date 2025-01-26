@@ -1,0 +1,44 @@
+using UnityEngine;
+
+public class s1004 : StateMachineBehaviour
+{
+
+    /*  Skript: hochfahren
+        set ReactorWaterLevel to 2100 via WP1RPM  */
+
+    private GameObject target;
+    private GameObject target2;
+    private GazeGuidingPathPlayer gazeGuidingPathPlayer;
+    private GazeGuidingPathPlayerSecondPath gazeGuidingPathPlayer2;
+
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        // boiler plate
+        gazeGuidingPathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
+        gazeGuidingPathPlayer2 = FindObjectOfType<GazeGuidingPathPlayerSecondPath>();        
+        gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
+
+
+        // state specific
+        target = GameObject.Find("RWaterLvl").gameObject;
+        target2 = GameObject.Find("WP1RPM").gameObject;
+        gazeGuidingPathPlayer.TriggerTargetNAME("RWaterLvl", target.GetComponent<GazeGuidingTarget>().isTypeOf);
+        gazeGuidingPathPlayer2.TriggerTargetNAME("WP1RPM", target2.GetComponent<GazeGuidingTarget>().isTypeOf);
+
+    }
+
+    /*
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        see GazeGuidingPathPlayer.updade()
+        and
+        see GazeGuidingPathPlayerSecondPath.updade()    
+    }
+    */
+
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        //gazeGuidingPathPlayer.ClearLine();
+        //gazeGuidingPathPlayer2.ClearLine();
+    }
+}

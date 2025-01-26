@@ -86,23 +86,23 @@ public class WP2 : MonoBehaviour
 
         Percent = Mathf.Clamp(initialPercent + (int)(rotationDifference * -0.5f), 0, 100);
         UpdateRotation();
-
+        
         if (Time.time - lastPressTime > pressCooldown)
         {
             lastPressTime = Time.time;
-            StartCoroutine(SendPercentToSimulation());
+            SendPercentToSimulation();
         }
     }
-
-    private IEnumerator SendPercentToSimulation()
+    
+    private void SendPercentToSimulation()
     {
         if (ReglerType == ReglerTypeEnum.Binaer)
         {
             Percent = Percent == 0 ? 100 : 0;
         }
-
+        
         int rpmValue = Percent * 20; // Convert percent to RPM
-        yield return StartCoroutine(nppClient.UpdatePump("WP2", rpmValue));
+        StartCoroutine(nppClient.UpdatePump("WP2", rpmValue));
     }
 
     private void OnEnable()
