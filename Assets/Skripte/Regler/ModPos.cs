@@ -36,9 +36,6 @@ public class ModPos : MonoBehaviour
 	
 	private NPPClient nppClient;
 
-
-    private const string BASE_URL = "http://localhost:8080/api/";
-
     void Start()
     {
 		
@@ -152,5 +149,4 @@ public class ModPos : MonoBehaviour
             interactor = null;
         }
     }
-
 }

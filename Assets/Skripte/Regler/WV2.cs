@@ -33,8 +33,6 @@ public class WV2: MonoBehaviour
 	
 	private NPPClient nppClient;
 
-    private const string BASE_URL = "http://localhost:8080/api/";
-
     void Start()
     {
 
@@ -166,5 +164,4 @@ public class WV2: MonoBehaviour
             Debug.LogError("Child GameObject 'Lampe' not found.");
         }
     }
-    
 }

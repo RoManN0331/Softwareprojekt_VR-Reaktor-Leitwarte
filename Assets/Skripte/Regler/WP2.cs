@@ -35,9 +35,6 @@ public class WP2 : MonoBehaviour
 	
 	private NPPClient nppClient;
 
-
-    private const string BASE_URL = "http://localhost:8080/api/";
-
     void Start()
     {
 		
@@ -147,6 +144,4 @@ public class WP2 : MonoBehaviour
             interactor = null;
         }
     }
-
-
 }
