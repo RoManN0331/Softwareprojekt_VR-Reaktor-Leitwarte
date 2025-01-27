@@ -39,6 +39,8 @@ public class GazeGuidingPathPlayerSecondPath : MonoBehaviour
         
         // Load the Arrow3D prefab
         arrow3DPrefab = Resources.Load<GameObject>("Prefabs/Arrow3D");
+        
+        targets = new List<GazeGuidingTarget>(FindObjectsOfType<GazeGuidingTarget>());
     }
     
     private bool arrow3DInstanceCreated = false; // Flag to track if Arrow3D instance has been created

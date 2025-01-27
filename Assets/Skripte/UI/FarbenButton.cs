@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.Collections;
+using System.Linq; // Add this line
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using TMPro;
+using UnityEditor;
 
 public class FarbenButton : MonoBehaviour
 {
@@ -21,6 +23,27 @@ public class FarbenButton : MonoBehaviour
     private Color[] originalEmissionColors;
     private Color[] originalTextColors;
 
+    private void Start()
+    {
+        // Find all GameObjects named "AnzeigenMarker"
+        GameObject[] anzeigenMarkers = Resources.FindObjectsOfTypeAll<GameObject>()
+            .Where(go => go.name == "AnzeigenMarker" && !AssetDatabase.Contains(go))
+            .ToArray();
+
+        // Initialize textMeshProObjects with TextMeshPro components of children named "AusrufeZeichen"
+        textMeshProObjects = anzeigenMarkers
+            .SelectMany(marker => marker.GetComponentsInChildren<TextMeshPro>(true))
+            .Where(tmp => tmp.gameObject.name == "AusrufeZeichen")
+            .ToArray();
+
+        // Deactivate all "AnzeigenMarker" objects
+        foreach (var marker in anzeigenMarkers)
+        {
+            marker.SetActive(false);
+        }
+    }
+    
+    
     private void OnEnable()
     {
         var interactable = GetComponent<XRSimpleInteractable>();

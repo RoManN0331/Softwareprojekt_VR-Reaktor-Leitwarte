@@ -63,6 +63,9 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         
         // Load the Arrow3D prefab
         arrow3DPrefab = Resources.Load<GameObject>("Prefabs/Arrow3D");
+        
+        // Automatically set all GazeGuidingTarget objects
+        targets = new List<GazeGuidingTarget>(FindObjectsOfType<GazeGuidingTarget>());
     }
 
     private void initUI(GameObject uiInstance)
