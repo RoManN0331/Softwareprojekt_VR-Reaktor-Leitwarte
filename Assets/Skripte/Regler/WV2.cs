@@ -33,8 +33,6 @@ public class WV2: MonoBehaviour
 	
 	private NPPClient nppClient;
 
-    private const string BASE_URL = "http://localhost:8443/api/";
-
     void Start()
     {
 
@@ -55,7 +53,8 @@ public class WV2: MonoBehaviour
 
         UpdateRotation();
 
-
+        //Signal Lampe um zu signalisieren ob Ventil offen oder geschlossen ist
+        initLamp();
     }
 
     void Update()
@@ -68,8 +67,10 @@ public class WV2: MonoBehaviour
 
             if (Percent == 100)
             {
-                StartCoroutine(SetValveStatus("WV2", true));
+                StartCoroutine(SetValves("WV2", true));
                 Debug.Log("Valve WV2 is open");
+                
+                lightRegler.SetLight(true);
             }
 
             else if (Percent == 0)
@@ -79,8 +80,10 @@ public class WV2: MonoBehaviour
                       also die LOKALE rotation ;)   * /
                      */            
             {
-                StartCoroutine(SetValveStatus("WV2", false));
+                StartCoroutine(SetValves("WV2", false));
                 Debug.Log("Valve WV2 is closed");
+                
+                lightRegler.SetLight(false);
             }
         }
 
@@ -96,10 +99,11 @@ public class WV2: MonoBehaviour
         // Apply the rotation to the to_rotate object
         to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
     }
+	
+    IEnumerator SetValves(string ValveID, bool value){
 
-	IEnumerator SetValveStatus(string valveId, bool value)
-    {
-        UnityWebRequest req = UnityWebRequest.Put($"{BASE_URL}control/valve/{valveId}?activate={value}", "");
+
+        UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/valve/{ValveID}?activate={value}", "");
 
         yield return req.SendWebRequest();
 
@@ -144,5 +148,20 @@ public class WV2: MonoBehaviour
     {
     
     }
-
+    
+    private LightRegler lightRegler;
+    private void initLamp()
+    {
+        // Find the child GameObject named "Lampe"
+        Transform lampeTransform = transform.Find("Lampe");
+        if (lampeTransform != null)
+        {
+            // Get the LightRegler component from the child GameObject
+            lightRegler = lampeTransform.GetComponent<LightRegler>();
+        }
+        else
+        {
+            Debug.LogError("Child GameObject 'Lampe' not found.");
+        }
+    }
 }

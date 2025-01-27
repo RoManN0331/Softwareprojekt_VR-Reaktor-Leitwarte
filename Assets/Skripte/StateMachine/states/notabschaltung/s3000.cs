@@ -17,6 +17,9 @@ public class s3000 : StateMachineBehaviour
 
 
         // state specific
+
+        gazeGuidingPathPlayer.SetGazeGuidingClipboard("POS3");
+        gazeGuidingPathPlayer.HighlightClipboard(1);
         target = GameObject.Find("ModPos").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("ModPos", target.GetComponent<GazeGuidingTarget>().isTypeOf);
     }
@@ -26,10 +29,11 @@ public class s3000 : StateMachineBehaviour
     {
         see gazeGuidingPathPlayer.Update();
     }
+    */
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-    
+        gazeGuidingPathPlayer.removeHighlightFromClipboard();
     }
-    */
+    
 }

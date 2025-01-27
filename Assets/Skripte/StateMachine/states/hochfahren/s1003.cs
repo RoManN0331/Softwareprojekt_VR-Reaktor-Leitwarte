@@ -17,8 +17,9 @@ public class s1003 : StateMachineBehaviour
 
 
         // state specific
-        target = GameObject.Find("WP1RPM").gameObject;
 
+        gazeGuidingPathPlayer.HighlightClipboard(4);
+        target = GameObject.Find("WP1RPM").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("WP1RPM", target.GetComponent<GazeGuidingTarget>().isTypeOf);
     }
 
@@ -31,7 +32,7 @@ public class s1003 : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //gazeGuidingPathPlayer.ClearLine();        
+        gazeGuidingPathPlayer.removeHighlightFromClipboard();    
     }
 
 }

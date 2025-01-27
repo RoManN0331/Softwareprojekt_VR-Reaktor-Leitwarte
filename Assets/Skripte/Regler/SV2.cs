@@ -31,8 +31,6 @@ public class SV2: MonoBehaviour
     private int initialPercent;
     private int previousPercent;
 
-    private const string BASE_URL = "http://localhost:8443/api/";
-
     void Start()
     {
 
@@ -48,7 +46,8 @@ public class SV2: MonoBehaviour
         // Apply the rotation to the to_rotate object
         to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
 
-
+        //Signal Lampe um zu signalisieren ob Ventil offen oder geschlossen ist
+        initLamp();
     }
 
     void Update()
@@ -66,6 +65,8 @@ public class SV2: MonoBehaviour
             {
                 StartCoroutine(SetPumps("SV2", true));
                 Debug.Log("Valve SV2 is open");
+                
+                lightRegler.SetLight(true);
             }
 
             else if (Percent == 0)
@@ -73,6 +74,8 @@ public class SV2: MonoBehaviour
             {
                 StartCoroutine(SetPumps("SV2", false));
                 Debug.Log("Valve SV2 is closed");
+                
+                lightRegler.SetLight(false);
             }
         }
 
@@ -116,7 +119,7 @@ public class SV2: MonoBehaviour
     IEnumerator SetPumps(string ValveID, bool value){
 
 
-    UnityWebRequest req = UnityWebRequest.Put($"{BASE_URL}control/valve/{ValveID}?activate={value}", "");
+    UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/valve/{ValveID}?activate={value}", "");
 
     yield return req.SendWebRequest();
 
@@ -128,5 +131,21 @@ public class SV2: MonoBehaviour
     {
         Debug.Log($"Request Successful: {req.downloadHandler.text}");
     }
+    }
+    
+    private LightRegler lightRegler;
+    private void initLamp()
+    {
+        // Find the child GameObject named "Lampe"
+        Transform lampeTransform = transform.Find("Lampe");
+        if (lampeTransform != null)
+        {
+            // Get the LightRegler component from the child GameObject
+            lightRegler = lampeTransform.GetComponent<LightRegler>();
+        }
+        else
+        {
+            Debug.LogError("Child GameObject 'Lampe' not found.");
+        }
     }
 }

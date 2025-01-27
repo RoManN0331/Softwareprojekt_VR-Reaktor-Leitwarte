@@ -15,6 +15,7 @@ public class s3001 : StateMachineBehaviour
         gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
 
         // state specific
+        gazeGuidingPathPlayer.HighlightClipboard(2);
         target = GameObject.Find("WV2").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("WV2", target.GetComponent<GazeGuidingTarget>().isTypeOf);
     }
@@ -24,10 +25,11 @@ public class s3001 : StateMachineBehaviour
     {
         see gazeGuidingPathPlayer.Update();
     }
+    */
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-    
+        gazeGuidingPathPlayer.removeHighlightFromClipboard();
     }
-    */
+    
 }

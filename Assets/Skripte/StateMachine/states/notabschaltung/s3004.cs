@@ -19,6 +19,7 @@ public class s3004 : StateMachineBehaviour
         gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
 
         // state specific
+        gazeGuidingPathPlayer.HighlightClipboard(5);
         target = GameObject.Find("CPressure").gameObject;
         //target2 = GameObject.Find("RWaterLvl").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("CPressure", target.GetComponent<GazeGuidingTarget>().isTypeOf);
@@ -32,10 +33,11 @@ public class s3004 : StateMachineBehaviour
         and
         see gazeGuidingPathPlayer2.Update();        
     }
-    
+    */
+
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-    
+        gazeGuidingPathPlayer.removeHighlightFromClipboard();
     }
-    */
+    
 }
