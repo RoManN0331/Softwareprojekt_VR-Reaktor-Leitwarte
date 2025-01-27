@@ -19,14 +19,14 @@ public class AnimatorController : MonoBehaviour
         //Set System parameter
         animator.SetBool("SimRunning", state.SystemStatus.running);
         //Set health parameter
-        animator.SetBool("ReactorStatus",     GetComponent("RKS", state.ComponentHealth).status);
-        animator.SetBool("ReactorTankStatus", GetComponent("RKT", state.ComponentHealth).status);
-        animator.SetBool("CondenserStatus",   GetComponent("KNT", state.ComponentHealth).status);
-        animator.SetBool("TurbinStatus",      GetComponent("TBN", state.ComponentHealth).status);
-        animator.SetBool("WP1Status",         GetComponent("WP1", state.ComponentHealth).status);
-        animator.SetBool("WP2Status",         GetComponent("WP2", state.ComponentHealth).status);
-        animator.SetBool("CPStatus",          GetComponent("CP", state.ComponentHealth).status);
-        animator.SetBool("AtomicsStatus",     GetComponent("AU", state.ComponentHealth).status); 
+        animator.SetBool("ReactorStatus",     GetComponent("RKS", state.ComponentHealth).broken);
+        animator.SetBool("ReactorTankStatus", GetComponent("RKT", state.ComponentHealth).broken);
+        animator.SetBool("CondenserStatus",   GetComponent("KNT", state.ComponentHealth).broken);
+        animator.SetBool("TurbineStatus",     GetComponent("TBN", state.ComponentHealth).broken);
+        animator.SetBool("WP1Status",         GetComponent("WP1", state.ComponentHealth).broken);
+        animator.SetBool("WP2Status",         GetComponent("WP2", state.ComponentHealth).broken);
+        animator.SetBool("CPStatus",          GetComponent("CP", state.ComponentHealth).broken);
+        animator.SetBool("AtomicStatus",      GetComponent("AU", state.ComponentHealth).broken); 
         //Set valve parameter
         animator.SetBool("SV1Status", state.SV1.status);
         animator.SetBool("SV2Status", state.SV2.status);
@@ -40,6 +40,7 @@ public class AnimatorController : MonoBehaviour
         animator.SetInteger("ControlRodsLvl",  (int) state.Reactor.rodPosition);
         animator.SetInteger("ReactorWaterLvl", (int) state.Reactor.waterLevel);
         animator.SetInteger("ReactorPressure", (int) state.Reactor.pressure);
+        //animator.SetBool("Restheat", (int) state.Reactor.restheat);
         //Set condenser parameter
         animator.SetInteger("CondenserWaterLvl", (int) state.Condenser.waterLevel);
         animator.SetInteger("CondenserPressure", (int) state.Condenser.pressure);

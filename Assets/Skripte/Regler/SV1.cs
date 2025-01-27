@@ -31,8 +31,7 @@ public class SV1: MonoBehaviour
     private int initialPercent;
     private int previousPercent;
 	private NPPClient nppClient;
-
-    private const string BASE_URL = "http://localhost:8443/api/";
+    private LightRegler lightRegler;
 
     void Start()
     {
@@ -53,7 +52,8 @@ public class SV1: MonoBehaviour
 
         UpdateRotation();
 
-
+        //Signal Lampe um zu signalisieren ob Ventil offen oder geschlossen ist
+        initLamp();
     }
 
     void Update()
@@ -64,19 +64,23 @@ public class SV1: MonoBehaviour
 
             UpdateRotation();
 
-            if (to_rotate.transform.rotation.eulerAngles.y == 32.7f)
+            if (Percent == 100)
                     /*accounts for the orientation of the console*/
                 {
 
-                    SetValves("SV1", true);
+                    SetValveStatus("SV1", true);
                     Debug.Log("Valve SV1 is open");
+                    
+                    lightRegler.SetLight(true);
                 }
             
-            else if (to_rotate.transform.rotation.eulerAngles.y == 302.7f)
+            else if (Percent == 0)
                     /*accounts for the orientation of the console*/
                 {
-                    SetValves("SV1", false);
+                    SetValveStatus("SV1", false);
                     Debug.Log("Valve SV1 is closed");
+                    
+                    lightRegler.SetLight(false);
                 }
 
         }
@@ -135,4 +139,19 @@ public class SV1: MonoBehaviour
     
     }
 
+    
+    private void initLamp()
+    {
+        // Find the child GameObject named "Lampe"
+        Transform lampeTransform = transform.Find("Lampe");
+        if (lampeTransform != null)
+        {
+            // Get the LightRegler component from the child GameObject
+            lightRegler = lampeTransform.GetComponent<LightRegler>();
+        }
+        else
+        {
+            Debug.LogError("Child GameObject 'Lampe' not found.");
+        }
+    }
 }

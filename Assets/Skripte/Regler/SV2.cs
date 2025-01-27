@@ -32,8 +32,6 @@ public class SV2: MonoBehaviour
     private int previousPercent;
 	private NPPClient nppClient;
 
-    private const string BASE_URL = "http://localhost:8443/api/";
-
     void Start()
     {
 
@@ -53,7 +51,8 @@ public class SV2: MonoBehaviour
 
         UpdateRotation();
 
-
+        //Signal Lampe um zu signalisieren ob Ventil offen oder geschlossen ist
+        initLamp();
     }
 	
     void Update()
@@ -64,17 +63,21 @@ public class SV2: MonoBehaviour
 
             UpdateRotation();
 
-            if (to_rotate.transform.rotation.eulerAngles.y == 32.7f)
+            if (Percent == 100)
             {
                 StartCoroutine(SetPumps("SV2", true));
                 Debug.Log("Valve SV2 is open");
+                
+                lightRegler.SetLight(true);
             }
 
-            else if (to_rotate.transform.rotation.eulerAngles.y == 302.7f)
+            else if (Percent == 0)
             
             {
                 StartCoroutine(SetPumps("SV2", false));
                 Debug.Log("Valve SV2 is closed");
+                
+                lightRegler.SetLight(false);
             }
         }
 
@@ -138,7 +141,7 @@ public class SV2: MonoBehaviour
     IEnumerator SetPumps(string ValveID, bool value){
 
 
-    UnityWebRequest req = UnityWebRequest.Put($"{BASE_URL}control/valve/{ValveID}?activate={value}", "");
+    UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/valve/{ValveID}?activate={value}", "");
 
     yield return req.SendWebRequest();
 
@@ -150,5 +153,21 @@ public class SV2: MonoBehaviour
     {
         Debug.Log($"Request Successful: {req.downloadHandler.text}");
     }
+    }
+    
+    private LightRegler lightRegler;
+    private void initLamp()
+    {
+        // Find the child GameObject named "Lampe"
+        Transform lampeTransform = transform.Find("Lampe");
+        if (lampeTransform != null)
+        {
+            // Get the LightRegler component from the child GameObject
+            lightRegler = lampeTransform.GetComponent<LightRegler>();
+        }
+        else
+        {
+            Debug.LogError("Child GameObject 'Lampe' not found.");
+        }
     }
 }

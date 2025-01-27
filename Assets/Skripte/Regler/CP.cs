@@ -24,15 +24,13 @@ public class CP : MonoBehaviour
     private int EndRotation = 90;
 
     private float lastPressTime = 0f;
-    private float pressCooldown = 1f; // 1 second cooldown
+    private float pressCooldown = 0.1f; // 1 second cooldown
 
     private UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor interactor;
     private bool isInteracting = false;
     private Vector3 initialInteractorPosition;
     private int initialPercent;
     private int previousPercent;
-
-    private const string BASE_URL = "http://localhost:8443/api/";
 
     void Start()
     {
@@ -50,7 +48,7 @@ public class CP : MonoBehaviour
     void Update()
     {
 
-        if (ReglerType == ReglerTypeEnum.Genau && isInteracting && interactor != null)
+        if (isInteracting && interactor != null)
         {
             // Calculate the rotation of the controller around the z-axis
             float currentZRotation = interactor.transform.eulerAngles.z;
@@ -73,7 +71,7 @@ public class CP : MonoBehaviour
                 StartCoroutine(UpdatePump("CP", (int)(Percent*20)));
             }
 
-        } else if (ReglerType == ReglerTypeEnum.Genau && Percent != previousPercent)
+        } else if (Percent != previousPercent)
         {
             // Calculate the rotation angle based on Percent
             float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
@@ -110,34 +108,22 @@ public class CP : MonoBehaviour
     private Quaternion initialInteractorRotation;
     private void OnSelectEntered(SelectEnterEventArgs args)
     {
-        if (ReglerType == ReglerTypeEnum.Genau)
-        {
-            isInteracting = true;
-            interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor;
-            initialInteractorRotation = interactor.transform.rotation;
-            initialPercent = Percent;
-        }
-        else if (ReglerType == ReglerTypeEnum.Binaer && Time.time - lastPressTime >= pressCooldown)
-        {
-            // Toggle the Percent value between 0 and 100
-            Percent = Percent == 0 ? 100 : 0;
-            lastPressTime = Time.time; // Update the last press time
-        }
+        isInteracting = true;
+        interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor;
+        initialInteractorRotation = interactor.transform.rotation;
+        initialPercent = Percent;
     }
 
     private void OnSelectExited(SelectExitEventArgs args)
     {
-        if (ReglerType == ReglerTypeEnum.Genau)
-        {
-            isInteracting = false;
-            interactor = null;
-        }
+        isInteracting = false;
+        interactor = null;
     }
 
     public IEnumerator UpdatePump(string id, int value)
     {
 
-        using (UnityWebRequest req = UnityWebRequest.Put($"{BASE_URL}control/pump/{id}?setRpm={value}", ""))
+        using (UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/pump/{id}?setRpm={value}", ""))
         {
             yield return req.SendWebRequest();
 

@@ -33,8 +33,6 @@ public class WV2: MonoBehaviour
 	
 	private NPPClient nppClient;
 
-    private const string BASE_URL = "http://localhost:8080/api/";
-
     void Start()
     {
 
@@ -55,7 +53,8 @@ public class WV2: MonoBehaviour
 
         UpdateRotation();
 
-
+        //Signal Lampe um zu signalisieren ob Ventil offen oder geschlossen ist
+        initLamp();
     }
 
     void Update()
@@ -66,18 +65,25 @@ public class WV2: MonoBehaviour
 
             UpdateRotation();
 
-            if (to_rotate.transform.rotation.eulerAngles.y == EndRotation)
-                     /*accounts for the orientation of the console*/
+            if (Percent == 100)
             {
-                SetValveStatus("WV2", true);
+                StartCoroutine(SetValves("WV2", true));
                 Debug.Log("Valve WV2 is open");
+                
+                lightRegler.SetLight(true);
             }
 
-            else if (to_rotate.transform.rotation.eulerAngles.y == 270)
-                    /*accounts for the orientation of the console*/            
+            else if (Percent == 0)
+                    /*
+                      percent kommt mit jeder rotation klar 
+                      alternativer wäre noch to_rotate.transform.localrotation.eulerAngles.y == StartRoation
+                      also die LOKALE rotation ;)   * /
+                     */            
             {
-                SetValveStatus("WV2", false);
+                StartCoroutine(SetValves("WV2", false));
                 Debug.Log("Valve WV2 is closed");
+                
+                lightRegler.SetLight(false);
             }
         }
 
@@ -94,15 +100,20 @@ public class WV2: MonoBehaviour
         to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
     }
 	
-	IEnumerator SetValveStatus(string valveId, bool value)
-    {
-        if (nppClient != null)
+    IEnumerator SetValves(string ValveID, bool value){
+
+
+        UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/valve/{ValveID}?activate={value}", "");
+
+        yield return req.SendWebRequest();
+
+        if (req.result != UnityWebRequest.Result.Success)
         {
-            yield return StartCoroutine(nppClient.UpdateValveStatus(valveId, value));
+            Debug.LogError($"Request Error: {req.error}");
         }
         else
         {
-            Debug.LogError("NPPClient is not initialized.");
+            Debug.Log($"Request Successful: {req.downloadHandler.text}");
         }
     }
 	
@@ -154,5 +165,20 @@ public class WV2: MonoBehaviour
     {
     
     }
-
+    
+    private LightRegler lightRegler;
+    private void initLamp()
+    {
+        // Find the child GameObject named "Lampe"
+        Transform lampeTransform = transform.Find("Lampe");
+        if (lampeTransform != null)
+        {
+            // Get the LightRegler component from the child GameObject
+            lightRegler = lampeTransform.GetComponent<LightRegler>();
+        }
+        else
+        {
+            Debug.LogError("Child GameObject 'Lampe' not found.");
+        }
+    }
 }

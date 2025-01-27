@@ -36,9 +36,6 @@ public class ModPos : MonoBehaviour
 	
 	private NPPClient nppClient;
 
-
-    private const string BASE_URL = "http://localhost:8080/api/";
-
     void Start()
     {
 		
@@ -62,11 +59,11 @@ public class ModPos : MonoBehaviour
     void Update()
     {
 
-        if (ReglerType == ReglerTypeEnum.Genau && isInteracting && interactor != null)
+        if (isInteracting && interactor != null)
         {
             HandleInteractorRotation();
         }
-        else if (ReglerType == ReglerTypeEnum.Genau && Percent != previousPercent)
+        else if (Percent != previousPercent)
         {
             UpdateRotation();
             UpdateRodPosition();
@@ -136,28 +133,15 @@ public class ModPos : MonoBehaviour
 
     private void OnSelectEntered(SelectEnterEventArgs args)
     {
-        if (ReglerType == ReglerTypeEnum.Genau)
-        {
-            isInteracting = true;
-            interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor;
-            initialInteractorRotation = interactor.transform.rotation;
-            initialPercent = Percent;
-        }
-        else if (ReglerType == ReglerTypeEnum.Binaer && Time.time - lastPressTime >= pressCooldown)
-        {
-            // Toggle the Percent value between 0 and 100
-            Percent = Percent == 0 ? 100 : 0;
-            lastPressTime = Time.time; // Update the last press time
-        }
+        isInteracting = true;
+        interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor;
+        initialInteractorRotation = interactor.transform.rotation;
+        initialPercent = Percent;
     }
 
     private void OnSelectExited(SelectExitEventArgs args)
     {
-        if (ReglerType == ReglerTypeEnum.Genau)
-        {
-            isInteracting = false;
-            interactor = null;
-        }
+        isInteracting = false;
+        interactor = null;
     }
-
 }
