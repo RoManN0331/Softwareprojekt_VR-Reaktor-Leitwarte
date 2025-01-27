@@ -189,13 +189,43 @@ public class NPPClient : MonoBehaviour
 		WP1 wp1 = FindObjectOfType<WP1>();
 		if (wp1 != null)
 		{
-			wp1.SetPercentFromExternal(80);
+			wp1.SetPercentFromExternal(75);
+		}
+		
+		WP2 wp2 = FindObjectOfType<WP2>();
+		if (wp2 != null)
+		{
+			wp2.SetPercentFromExternal(0);
+		}
+		
+		CP cp = FindObjectOfType<CP>();
+		if (cp != null)
+		{
+			cp.SetPercentFromExternal(90);
 		}
 
 		WV1 wv1 = FindObjectOfType<WV1>();
 		if (wv1 != null)
 		{
 			wv1.SetPercentFromExternal(100); 
+		}
+		
+		WV2 wv2 = FindObjectOfType<WV2>();
+		if (wv2 != null)
+		{
+			wv2.SetPercentFromExternal(0); 
+		}
+		
+		SV1 sv1 = FindObjectOfType<SV1>();
+		if (sv1 != null)
+		{
+			sv1.SetPercentFromExternal(0); 
+		}
+		
+		SV2 sv2 = FindObjectOfType<SV2>();
+		if (sv2 != null)
+		{
+			sv2.SetPercentFromExternal(0); 
 		}
 
 		// API-Befehle für das Szenario ausführen
