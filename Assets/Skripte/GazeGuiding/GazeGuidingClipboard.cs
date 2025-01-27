@@ -36,4 +36,19 @@ public class GazeGuidingClipboard
     {
         return informationText + "Checkliste\n" + String.Join("", taskList);
     }
+
+    /*
+
+    public void removeHighlightFromTask(int index){
+
+        //  removes highlighting from Task index
+
+        if (index < 1 || index > taskList.Length) 
+            ; 
+        else
+            taskList[index-1] = "<color=#000000>" + taskList[index-1] + "</color>";
+
+    }
+
+    */
 }

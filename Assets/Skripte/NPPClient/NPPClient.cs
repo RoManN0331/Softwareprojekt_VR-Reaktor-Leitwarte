@@ -127,7 +127,7 @@ public class NPPClient : MonoBehaviour
 	
 	public IEnumerator UpdatePump(string id, int value)
     {
-        using (UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/{id}?setPump={value}", ""))
+        using (UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/pump/{id}?setRpm={value}", ""))
         {
             yield return req.SendWebRequest();
 
@@ -144,7 +144,7 @@ public class NPPClient : MonoBehaviour
 	
 	public IEnumerator UpdateValveStatus(string valveId, bool value)
     {
-        using (UnityWebRequest request = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/{valveId}?setValve={value}", ""))
+        using (UnityWebRequest request = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/valve/{valveId}?active={value}", ""))
         {
             yield return request.SendWebRequest();
 

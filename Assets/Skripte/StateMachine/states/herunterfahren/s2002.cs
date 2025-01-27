@@ -17,6 +17,7 @@ public class s2002 : StateMachineBehaviour
 
 
         // state specific
+        gazeGuidingPathPlayer.HighlightClipboard(3);
         target = GameObject.Find("SV1").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("SV1", target.GetComponent<GazeGuidingTarget>().isTypeOf);
     }
@@ -26,10 +27,11 @@ public class s2002 : StateMachineBehaviour
     {
         see GazeGuidingPathPlayer.updade()
     }
+    */
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        gazeGuidingPathPlayer.removeHighlightFromClipboard();
     }
-    */
+    
 }

@@ -19,6 +19,7 @@ public class s3003 : StateMachineBehaviour
         gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
 
         // state specific
+        gazeGuidingPathPlayer.HighlightClipboard(4);
         target = GameObject.Find("WP2RPM").gameObject;
         target2 = GameObject.Find("RWaterLvl").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("WP2RPM", target.GetComponent<GazeGuidingTarget>().isTypeOf);
@@ -32,10 +33,11 @@ public class s3003 : StateMachineBehaviour
         and
         see gazeGuidingPathPlayer2.Update();    
     }
+    */
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-    
+        gazeGuidingPathPlayer.removeHighlightFromClipboard();
     }
-    */
+    
 }

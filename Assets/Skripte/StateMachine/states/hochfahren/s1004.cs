@@ -15,16 +15,17 @@ public class s1004 : StateMachineBehaviour
     {
         // boiler plate
         gazeGuidingPathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
-        gazeGuidingPathPlayer2 = FindObjectOfType<GazeGuidingPathPlayerSecondPath>();        
+        gazeGuidingPathPlayer2 = FindAnyObjectByType<GazeGuidingPathPlayerSecondPath>();        
         gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
 
 
         // state specific
+
+        gazeGuidingPathPlayer.HighlightClipboard(5);
         target = GameObject.Find("RWaterLvl").gameObject;
         target2 = GameObject.Find("WP1RPM").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("RWaterLvl", target.GetComponent<GazeGuidingTarget>().isTypeOf);
         gazeGuidingPathPlayer2.TriggerTargetNAME("WP1RPM", target2.GetComponent<GazeGuidingTarget>().isTypeOf);
-
     }
 
     /*
@@ -38,7 +39,6 @@ public class s1004 : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //gazeGuidingPathPlayer.ClearLine();
-        //gazeGuidingPathPlayer2.ClearLine();
+        gazeGuidingPathPlayer.removeHighlightFromClipboard();
     }
 }

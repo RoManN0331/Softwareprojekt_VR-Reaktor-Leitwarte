@@ -24,7 +24,7 @@ public class WP2 : MonoBehaviour
     private int EndRotation = 90;
 
     private float lastPressTime = 0f;
-    private float pressCooldown = 1f; // 1 second cooldown
+    private float pressCooldown = 0.1f; // 1 second cooldown
 
     private UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor interactor;
     private bool isInteracting = false;

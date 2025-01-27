@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,6 +31,12 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     private GameObject arrow3DPrefab; // Reference to the Arrow3D prefab
     private GameObject arrow3DInstance; // Instance of the Arrow3D prefab
     
+    // GazeGuiding for clipboards
+
+    private TextMeshPro clipboardText;
+    private GazeGuidingClipboard GGClipboard;
+
+
     void Start()
     {
         
@@ -486,4 +493,74 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             }
         }
     }
+
+
+    /* gazeguiding for clipboards */
+
+
+    public void SetGazeGuidingClipboard (string clipboardName){
+
+        /* activates gaze guiding for clipboard clipboardName */
+
+        clipboardText = GameObject.Find(clipboardName).transform.Find("Clipboard/TEXT").GetComponent<TextMeshPro>();
+        GGClipboard = new GazeGuidingClipboard(clipboardText.text);
+    }
+
+        public void UnsetGazeGuidingClipboard(){
+
+        /* deactivates gaze guiding for a clipboard */
+
+        GGClipboard = null;
+        clipboardText = null;
+
+    }
+
+    public void HighlightClipboard(int index){
+
+        /* highlights a portion of the text on the clipboard specified by index */
+
+        if (GGClipboard == null || clipboardText == null){
+
+            Debug.LogError("No clipboard set for gaze guiding");
+            
+        } else {
+
+            GGClipboard.HighlightTask(index);
+            clipboardText.text = GGClipboard.GetFormattedClipboardText();
+        
+        }
+    }
+
+
+    public void removeHighlightFromClipboard(){
+
+        /* removes highlighting by reinitialising the clipboard */
+
+        if (clipboardText == null){
+
+            Debug.LogError("No clipboard set for gaze guiding");
+            
+        } else {
+
+        GGClipboard = new GazeGuidingClipboard(clipboardText.text);
+        }
+    }
+
+    /*
+    public void removeHighlightFromClipboard(int index){
+
+        // removes highlight for Task index 
+
+        if (GGClipboard == null || clipboardText == null){
+
+            Debug.LogError("No clipboard set for gaze guiding");
+            
+        } else {
+
+            GGClipboard.removeHighlightFromTask(index);
+            clipboardText.text = GGClipboard.GetFormattedClipboardText();
+        }
+    }
+    */
+
 }

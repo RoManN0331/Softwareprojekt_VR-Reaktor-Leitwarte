@@ -17,6 +17,7 @@ public class s2005 : StateMachineBehaviour
 
 
         // state specific
+        gazeGuidingPathPlayer.HighlightClipboard(6);
         target = GameObject.Find("CPRPM").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("CPRPM", target.GetComponent<GazeGuidingTarget>().isTypeOf);
     }
@@ -26,10 +27,11 @@ public class s2005 : StateMachineBehaviour
     {
         see GazeGuidingPathPlayer.updade()
     }
+    */
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-    
+        gazeGuidingPathPlayer.removeHighlightFromClipboard();
     }
-    */
+    
 }

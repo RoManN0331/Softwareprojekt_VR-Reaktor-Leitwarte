@@ -9,8 +9,8 @@ using System;
 */
 public class GlobalConfig : MonoBehaviour
 {
-    public static string BASE_URL = "http://localhost:8080/api/";
-    public static float CLIENT_UPDATE_INTERVAL = .5f;
+    public static string BASE_URL = "http://localhost:8443/api/";
+    public static float CLIENT_UPDATE_INTERVAL = .05f;
 
     public const bool START_REST_SERVER = false;
 
