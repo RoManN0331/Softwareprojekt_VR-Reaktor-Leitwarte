@@ -1,32 +1,68 @@
+using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.InputSystem;
+using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit.Inputs;
+using UnityEngine.XR.Interaction.Toolkit.Inputs.Readers;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class TuerRESET : MonoBehaviour
 {
-    private XRSimpleInteractable interactable;
+    public InputActionReference trigger;
+
+    private void Start()
+    {
+        InputActionManager temp = FindObjectOfType<InputActionManager>();
+        if (temp != null && temp.actionAssets.Count > 0)
+        {
+            foreach (var act in temp.actionAssets )
+            {
+                var action = act.FindAction("XRI Right Interaction/Activate");
+                trigger = InputActionReference.Create(action);
+                break;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (isHovering && !isCooldown && trigger.action.triggered)
+        {
+            StartCoroutine(HandleDoorInteraction());
+        }
+    }
+    
+    
     private bool isCooldown = false;
+    private bool isHovering = false;
 
     private void OnEnable()
     {
         var interactable = GetComponent<XRSimpleInteractable>();
-        interactable.selectEntered.AddListener(OnSelectEntered);
+        interactable.hoverEntered.AddListener(OnHoverEntered);
+        interactable.hoverExited.AddListener(OnHoverExited);
     }
 
     private void OnDisable()
     {
         var interactable = GetComponent<XRSimpleInteractable>();
-        interactable.selectEntered.RemoveListener(OnSelectEntered);
+        interactable.hoverEntered.RemoveListener(OnHoverEntered);
+        interactable.hoverExited.RemoveListener(OnHoverExited);
     }
 
-    private void OnSelectEntered(SelectEnterEventArgs args)
+    private void OnHoverEntered(HoverEnterEventArgs args)
     {
-        if (!isCooldown)
-        {
-            StartCoroutine(HandleDoorInteraction());
-        }
+        isHovering = true;
     }
+
+    private void OnHoverExited(HoverExitEventArgs args)
+    {
+        isHovering = false;
+    }
+    
 
     private IEnumerator HandleDoorInteraction()
     {
