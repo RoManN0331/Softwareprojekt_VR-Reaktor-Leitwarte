@@ -180,6 +180,42 @@ public class NPPClient : MonoBehaviour
 			}
 		}
 	}
+	
+	public IEnumerator SetNormalShutdownScenario()
+	{
+		Debug.Log("Setting Normal Shutdown Scenario via API...");
+		
+		ModPos modPos = FindObjectOfType<ModPos>();
+		
+		if(modPos != null){
+			modPos.setPercentFromExternal(80);
+		}
+		
+		WP1 wp1 = FindObjectOfType<WP1>();
+		if (wp1 != null)
+		{
+			wp1.SetPercentFromExternal(80);
+		}
+
+		WV1 wv1 = FindObjectOfType<WV1>();
+		if (wv1 != null)
+		{
+			wv1.SetPercentFromExternal(100); 
+		}
+
+		// API-Befehle für das Szenario ausführen
+		yield return StartCoroutine(SetRodPosition(80)); // Control Rods auf 80%
+		yield return StartCoroutine(UpdatePump("WP1", 1500)); // WP1 auf 1500 RPM
+		yield return StartCoroutine(UpdatePump("WP2", 0)); // WP2 auf 0 RPM
+		yield return StartCoroutine(UpdatePump("CP", 1800)); // CP auf 1800 RPM
+
+		yield return StartCoroutine(UpdateValveStatus("SV1", false)); // SV1 schließen
+		yield return StartCoroutine(UpdateValveStatus("SV2", false)); // SV2 schließen
+		yield return StartCoroutine(UpdateValveStatus("WV1", true)); // WV1 öffnen
+		yield return StartCoroutine(UpdateValveStatus("WV2", false)); // WV2 schließen
+
+		Debug.Log("Normal Shutdown Scenario applied successfully.");
+	}
 
     private IEnumerator UpdateSimulationState()
     {

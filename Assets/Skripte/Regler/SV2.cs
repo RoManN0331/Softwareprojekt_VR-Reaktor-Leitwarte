@@ -30,37 +30,39 @@ public class SV2: MonoBehaviour
     private Vector3 initialInteractorPosition;
     private int initialPercent;
     private int previousPercent;
+	private NPPClient nppClient;
 
     private const string BASE_URL = "http://localhost:8443/api/";
 
     void Start()
     {
 
-        to_rotate = GameObject.Find("KNOB.SV2");
+        to_rotate = GameObject.Find("KNOB.SV1");
         clientObject = GameObject.Find("NPPclientObject");
+		
+		nppClient = FindObjectOfType<NPPClient>();
+
+        if (nppClient == null)
+        {
+            Debug.LogError("NPPClient instance not found in the scene.");
+            return;
+        }
 
         initialPercent = Percent;
         previousPercent = Percent;
 
-
-        // Calculate the rotation angle based on Percent
-        float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
-        // Apply the rotation to the to_rotate object
-        to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
+        UpdateRotation();
 
 
     }
-
+	
     void Update()
     {
 
         if (Percent != previousPercent)
         {
 
-                // Calculate the rotation angle based on Percent
-                float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
-                // Apply the rotation to the to_rotate object
-                to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
+            UpdateRotation();
 
             if (to_rotate.transform.rotation.eulerAngles.y == 32.7f)
             {
@@ -79,7 +81,27 @@ public class SV2: MonoBehaviour
         previousPercent = Percent;
                 
     }
+	
+	private void UpdateRotation()
+    {
+        // Calculate the rotation angle based on Percent
+        float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
 
+        // Apply the rotation to the to_rotate object
+        to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
+    }
+	
+	public void SetValveStatus(string valveId, bool value)
+    {
+        if (nppClient != null)
+        {
+            StartCoroutine(nppClient.UpdateValveStatus(valveId, value));
+        }
+        else
+        {
+            Debug.LogError("NPPClient is not initialized.");
+        }
+    }
 
     private void OnEnable()
     {

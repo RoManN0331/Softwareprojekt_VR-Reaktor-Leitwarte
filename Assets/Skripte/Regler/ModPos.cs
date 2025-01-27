@@ -112,6 +112,13 @@ public class ModPos : MonoBehaviour
             StartCoroutine(nppClient.SetRodPosition(rodValue));
         }
     }
+	
+	public void SetPercentFromExternal(int newPercent)
+    {
+        Percent = Mathf.Clamp(newPercent, 0, 100);
+        UpdateRotation();
+        UpdateRodPosition();
+    }
 
     private void OnEnable()
     {

@@ -30,6 +30,7 @@ public class SV1: MonoBehaviour
     private Vector3 initialInteractorPosition;
     private int initialPercent;
     private int previousPercent;
+	private NPPClient nppClient;
 
     private const string BASE_URL = "http://localhost:8443/api/";
 
@@ -38,14 +39,19 @@ public class SV1: MonoBehaviour
 
         to_rotate = GameObject.Find("KNOB.SV1");
         clientObject = GameObject.Find("NPPclientObject");
+		
+		nppClient = FindObjectOfType<NPPClient>();
+
+        if (nppClient == null)
+        {
+            Debug.LogError("NPPClient instance not found in the scene.");
+            return;
+        }
 
         initialPercent = Percent;
         previousPercent = Percent;
 
-        // Calculate the rotation angle based on Percent
-        float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
-        // Apply the rotation to the to_rotate object
-        to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
+        UpdateRotation();
 
 
     }
@@ -56,23 +62,20 @@ public class SV1: MonoBehaviour
         if (Percent != previousPercent)
         {
 
-                // Calculate the rotation angle based on Percent
-                float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
-                // Apply the rotation to the to_rotate object
-                to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
+            UpdateRotation();
 
             if (to_rotate.transform.rotation.eulerAngles.y == 32.7f)
                     /*accounts for the orientation of the console*/
                 {
 
-                    StartCoroutine(SetValves("SV1", true));
+                    SetValves("SV1", true);
                     Debug.Log("Valve SV1 is open");
                 }
             
             else if (to_rotate.transform.rotation.eulerAngles.y == 302.7f)
                     /*accounts for the orientation of the console*/
                 {
-                    StartCoroutine(SetValves("SV1", false));
+                    SetValves("SV1", false);
                     Debug.Log("Valve SV1 is closed");
                 }
 
@@ -80,7 +83,27 @@ public class SV1: MonoBehaviour
         previousPercent = Percent;
                 
     }
+	
+	private void UpdateRotation()
+    {
+        // Calculate the rotation angle based on Percent
+        float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
 
+        // Apply the rotation to the to_rotate object
+        to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
+    }
+	
+	public void SetValveStatus(string valveId, bool value)
+    {
+        if (nppClient != null)
+        {
+            StartCoroutine(nppClient.UpdateValveStatus(valveId, value));
+        }
+        else
+        {
+            Debug.LogError("NPPClient is not initialized.");
+        }
+    }
 
     private void OnEnable()
     {
@@ -95,7 +118,6 @@ public class SV1: MonoBehaviour
         interactable.selectEntered.RemoveListener(OnSelectEntered);
         interactable.selectExited.RemoveListener(OnSelectExited);
     }
-
 
     private void OnSelectEntered(SelectEnterEventArgs args)
     {
@@ -113,21 +135,4 @@ public class SV1: MonoBehaviour
     
     }
 
-
-    IEnumerator SetValves(string ValveID, bool value){
-
-
-    UnityWebRequest req = UnityWebRequest.Put($"{BASE_URL}control/valve/{ValveID}?activate={value}", "");
-
-    yield return req.SendWebRequest();
-
-        if (req.result != UnityWebRequest.Result.Success)
-    {
-        Debug.LogError($"Request Error: {req.error}");
-    }
-    else
-    {
-        Debug.Log($"Request Successful: {req.downloadHandler.text}");
-    }
-    }
 }

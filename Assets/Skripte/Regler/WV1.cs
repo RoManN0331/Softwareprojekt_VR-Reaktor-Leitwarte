@@ -93,17 +93,34 @@ public class WV1: MonoBehaviour
         to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
     }
 	
-	IEnumerator SetValveStatus(string valveId, bool value)
+	public void SetValveStatus(string valveId, bool value)
     {
         if (nppClient != null)
         {
-            yield return StartCoroutine(nppClient.UpdateValveStatus(valveId, value));
+            StartCoroutine(nppClient.UpdateValveStatus(valveId, value));
         }
         else
         {
             Debug.LogError("NPPClient is not initialized.");
         }
     }
+	
+	public void SetPercentFromExternal(int percent)
+	{
+		Percent = Mathf.Clamp(percent, 0, 100); 
+		UpdateRotation(); 
+
+		if (to_rotate.transform.rotation.eulerAngles.y == EndRotation)
+		{
+			SetValveStatus("WV1", true);
+			Debug.Log("Valve WV1 is open");
+		}
+		else if (to_rotate.transform.rotation.eulerAngles.y == 270)
+		{
+			SetValveStatus("WV1", false);
+			Debug.Log("Valve WV1 is closed");
+		}
+	}
 
 
     private void OnEnable()

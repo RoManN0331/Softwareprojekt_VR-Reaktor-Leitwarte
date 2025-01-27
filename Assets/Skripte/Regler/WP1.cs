@@ -93,11 +93,11 @@ public class WP1 : MonoBehaviour
         if (Time.time - lastPressTime > pressCooldown)
         {
             lastPressTime = Time.time;
-            StartCoroutine(SendPercentToSimulation());
+            SendPercentToSimulation();
         }
     }
 
-    private IEnumerator SendPercentToSimulation()
+    private void SendPercentToSimulation()
     {
         if (ReglerType == ReglerTypeEnum.Binaer)
         {
@@ -105,8 +105,15 @@ public class WP1 : MonoBehaviour
         }
 
         int rpmValue = Percent * 20; // Convert percent to RPM
-        yield return StartCoroutine(nppClient.UpdatePump("WP1", rpmValue));
+        StartCoroutine(nppClient.UpdatePump("WP1", rpmValue));
     }
+	
+	public void SetPercentFromExternal(int percent)
+	{
+		Percent = Mathf.Clamp(percent, 0, 100); 
+		UpdateRotation(); 
+		SendPercentToSimulation(); 
+	}
 
     private void OnEnable()
     {

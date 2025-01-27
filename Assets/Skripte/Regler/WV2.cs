@@ -105,6 +105,23 @@ public class WV2: MonoBehaviour
             Debug.LogError("NPPClient is not initialized.");
         }
     }
+	
+	public void SetPercentFromExternal(int percent)
+	{
+		Percent = Mathf.Clamp(percent, 0, 100); 
+		UpdateRotation(); 
+
+		if (to_rotate.transform.rotation.eulerAngles.y == EndRotation)
+		{
+			SetValveStatus("WV2", true);
+			Debug.Log("Valve WV2 is open");
+		}
+		else if (to_rotate.transform.rotation.eulerAngles.y == 270)
+		{
+			SetValveStatus("WV2", false);
+			Debug.Log("Valve WV2 is closed");
+		}
+	}
 
 
     private void OnEnable()
