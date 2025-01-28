@@ -462,17 +462,34 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     }
 
     private GazeGuidingTarget anzeigenTarget;
+    private GazeGuidingTarget anzeigenTarget2;
     public void TriggerAnzeigenMarkierung(string targetName, GazeGuidingTarget.TargetType type, float NumberToHighlight)
     {
-        anzeigenTarget = targets.Find(t => t.name == targetName && t.isTypeOf == type);
-        
         if (anzeigenTarget != null)
         {
-            Transform anzeigenMarkerTransform = anzeigenTarget.transform.Find("AnzeigenMarker");
-            if (anzeigenMarkerTransform != null)
+            anzeigenTarget2 = targets.Find(t => t.name == targetName && t.isTypeOf == type);
+        }
+        else
+        {
+            anzeigenTarget = targets.Find(t => t.name == targetName && t.isTypeOf == type);
+        }
+        
+        if (anzeigenTarget2 != null)
+        {
+            Transform anzeigenMarkerTransform2 = anzeigenTarget2.transform.Find("AnzeigenMarker");
+            if (anzeigenMarkerTransform2 != null && !anzeigenMarkerTransform2.gameObject.activeSelf)
             {
-                anzeigenMarkerTransform.gameObject.SetActive(true);
-                anzeigenMarkerTransform.GetComponent<AnzeigenMarker>().targetNumber = NumberToHighlight;
+                anzeigenMarkerTransform2.gameObject.SetActive(true);
+                anzeigenMarkerTransform2.GetComponent<AnzeigenMarker>().targetNumber = NumberToHighlight;
+            }
+            else if (anzeigenTarget != null)
+            {
+                Transform anzeigenMarkerTransform = anzeigenTarget.transform.Find("AnzeigenMarker");
+                if (anzeigenMarkerTransform != null && !anzeigenMarkerTransform.gameObject.activeSelf);
+                {
+                    anzeigenMarkerTransform.gameObject.SetActive(true);
+                    anzeigenMarkerTransform.GetComponent<AnzeigenMarker>().targetNumber = NumberToHighlight;
+                }
             }
             else
             {
@@ -495,6 +512,18 @@ public class GazeGuidingPathPlayer : MonoBehaviour
                 anzeigenMarkerTransform.gameObject.SetActive(false);
             }
         }
+        if (anzeigenTarget2 != null)
+        {
+            Transform anzeigenMarkerTransform2 = anzeigenTarget2.transform.Find("AnzeigenMarker");
+            if (anzeigenMarkerTransform2 != null)
+            {
+                anzeigenMarkerTransform2.gameObject.SetActive(false);
+            }
+        }
+
+        anzeigenTarget = null;
+        anzeigenTarget2 = null;
+
     }
 
 

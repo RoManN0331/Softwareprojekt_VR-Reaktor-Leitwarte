@@ -12,7 +12,7 @@ public class s3001 : StateMachineBehaviour
     {    
         // boiler plate
         gazeGuidingPathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();        
-        gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
+        gazeGuidingPathPlayer.DirectionCueEnabled = true; // Roten Rand Deaktivieren        
 
         // state specific
         gazeGuidingPathPlayer.HighlightClipboard(2);

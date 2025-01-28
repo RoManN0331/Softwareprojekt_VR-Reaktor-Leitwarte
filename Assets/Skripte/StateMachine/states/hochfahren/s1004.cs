@@ -26,6 +26,8 @@ public class s1004 : StateMachineBehaviour
         target2 = GameObject.Find("WP1RPM").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("RWaterLvl", target.GetComponent<GazeGuidingTarget>().isTypeOf);
         gazeGuidingPathPlayer2.TriggerTargetNAME("WP1RPM", target2.GetComponent<GazeGuidingTarget>().isTypeOf);
+        
+        gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("RWaterLvl", GazeGuidingTarget.TargetType.Anzeige, 2100);
     }
 
     /*

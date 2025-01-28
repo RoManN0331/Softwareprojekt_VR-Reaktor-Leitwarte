@@ -22,6 +22,8 @@ public class s1000 : StateMachineBehaviour
         gazeGuidingPathPlayer.HighlightClipboard(1);
         target = GameObject.Find("SV2").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("SV2", target.GetComponent<GazeGuidingTarget>().isTypeOf);
+        
+        
 
     }
 
