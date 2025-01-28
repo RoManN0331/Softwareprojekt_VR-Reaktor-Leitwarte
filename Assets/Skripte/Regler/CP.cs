@@ -66,7 +66,10 @@ public class CP : MonoBehaviour
         }
         previousPercent = Percent;
 
-
+        if(Time.frameCount % 30 == 0 && Mathf.RoundToInt(nppClient.simulation.CP.rpm) !=  Percent * 20)
+        {
+            SendPercentToSimulation();
+        }
     }
 	
 	private void UpdateRotation()

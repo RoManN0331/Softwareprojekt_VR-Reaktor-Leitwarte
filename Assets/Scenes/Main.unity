@@ -621,7 +621,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5428658793518074434, guid: f2f01e839dd45774db53df1213b83242, type: 3}
       propertyPath: end_Number
-      value: 2900
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 5428658793518074434, guid: f2f01e839dd45774db53df1213b83242, type: 3}
       propertyPath: komponente
@@ -18977,6 +18977,7 @@ GameObject:
   - component: {fileID: 1234566472}
   - component: {fileID: 1234566471}
   - component: {fileID: 1234566470}
+  - component: {fileID: 1234566474}
   m_Layer: 0
   m_Name: NPPclientObject
   m_TagString: Untagged
@@ -19100,6 +19101,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1234566474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234566469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe32f233c68345e4e9b154a4355096db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  START_REST_SERVER: 1
 --- !u!4 &1238652150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5797865432727159296, guid: f27e218c6b6e37843872d47397808ee9, type: 3}
@@ -29531,7 +29545,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5428658793518074434, guid: f2f01e839dd45774db53df1213b83242, type: 3}
       propertyPath: end_Number
-      value: 2900
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 5428658793518074434, guid: f2f01e839dd45774db53df1213b83242, type: 3}
       propertyPath: komponente

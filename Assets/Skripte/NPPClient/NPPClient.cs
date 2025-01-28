@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
+using Random = UnityEngine.Random;
 
 public class NPPClient : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class NPPClient : MonoBehaviour
     public NPPReactorState simulation = new NPPReactorState();
     private AnimatorController animatorController;
 
+    private AusfallAnzeigenManager ausfallAnzeigenManager;
     void Awake()
     {
         animatorController = GetComponent<AnimatorController>();
@@ -21,6 +23,8 @@ public class NPPClient : MonoBehaviour
     void Start()
     {
         StartCoroutine(UpdateSimulationState());
+        
+        ausfallAnzeigenManager = FindObjectOfType<AusfallAnzeigenManager>();
     }
 
     private async Task FetchReactorState()
@@ -269,5 +273,20 @@ public class NPPClient : MonoBehaviour
             // Wait for interval
             yield return new WaitForSeconds(GlobalConfig.CLIENT_UPDATE_INTERVAL);
         }
+    }
+    
+    private void Update()
+    {
+	    if (Time.frameCount % 60 == 0)
+	    {
+		    if(simulation.ComponentHealth.components[2].broken) ausfallAnzeigenManager.TurnOn("WP1");
+		    if(simulation.ComponentHealth.components[3].broken) ausfallAnzeigenManager.TurnOn("WP2");
+		    if(simulation.ComponentHealth.components[7].broken) ausfallAnzeigenManager.TurnOn("CP");
+		    if(simulation.ComponentHealth.components[4].broken) ausfallAnzeigenManager.TurnOn("RKS");
+		    if(simulation.ComponentHealth.components[5].broken) ausfallAnzeigenManager.TurnOn("RKT");
+		    if(simulation.ComponentHealth.components[10].broken) ausfallAnzeigenManager.TurnOn("KNT");
+		    if(simulation.ComponentHealth.components[11].broken) ausfallAnzeigenManager.TurnOn("AU");
+		    if(simulation.ComponentHealth.components[6].broken) ausfallAnzeigenManager.TurnOn("TBN");
+	    }
     }
 }

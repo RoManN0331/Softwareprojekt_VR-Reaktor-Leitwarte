@@ -70,6 +70,10 @@ public class WP2 : MonoBehaviour
 
         previousPercent = Percent;
 
+        if(Time.frameCount % 30 == 0 &&  Mathf.RoundToInt(nppClient.simulation.WP2.rpm) !=  Percent * 20)
+        {
+            SendPercentToSimulation();
+        }
     }
 	
 	private void UpdateRotation()

@@ -231,6 +231,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 
         removeDirectionArrow();
         
+        ClearAnzeigenMarkierung();
+        
         DirectionCue.gameObject.SetActive(false);
         DirectionCue2.gameObject.SetActive(false);
         
@@ -473,7 +475,7 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         {
             anzeigenTarget = targets.Find(t => t.name == targetName && t.isTypeOf == type);
         }
-        
+
         if (anzeigenTarget2 != null)
         {
             Transform anzeigenMarkerTransform2 = anzeigenTarget2.transform.Find("AnzeigenMarker");
@@ -481,23 +483,21 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             {
                 anzeigenMarkerTransform2.gameObject.SetActive(true);
                 anzeigenMarkerTransform2.GetComponent<AnzeigenMarker>().targetNumber = NumberToHighlight;
-            }
-            else if (anzeigenTarget != null)
-            {
-                Transform anzeigenMarkerTransform = anzeigenTarget.transform.Find("AnzeigenMarker");
-                if (anzeigenMarkerTransform != null && !anzeigenMarkerTransform.gameObject.activeSelf);
-                {
-                    anzeigenMarkerTransform.gameObject.SetActive(true);
-                    anzeigenMarkerTransform.GetComponent<AnzeigenMarker>().targetNumber = NumberToHighlight;
-                }
-            }
-            else
+            }else
             {
                 Debug.LogError("Child GameObject 'AnzeigenMarker' not found.");
             }
-        }
-        else
+        }else if (anzeigenTarget != null)
         {
+            Transform anzeigenMarkerTransform = anzeigenTarget.transform.Find("AnzeigenMarker");
+            if (anzeigenMarkerTransform != null && !anzeigenMarkerTransform.gameObject.activeSelf)
+            {
+                anzeigenMarkerTransform.gameObject.SetActive(true);
+                anzeigenMarkerTransform.GetComponent<AnzeigenMarker>().targetNumber = NumberToHighlight;
+            }else{
+                Debug.LogError("Child GameObject 'AnzeigenMarker' not found.");
+            }
+        }else {
             Debug.LogWarning($"Target with name {targetName} and type {type} not found.");
         }
     }

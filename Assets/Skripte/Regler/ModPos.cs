@@ -70,6 +70,11 @@ public class ModPos : MonoBehaviour
         }
 
         previousPercent = Percent;
+        
+        if(Time.frameCount % 30 == 0 && Mathf.RoundToInt(nppClient.simulation.Reactor.rodPosition) != 100 - Percent)
+        {
+            UpdateRodPosition();
+        }
 
     }
 	
