@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Diagnostics;
 using System;
+using Unity.VisualScripting;
+using System.Text.RegularExpressions;
 
 /*
 *  Stores global configuration values and handles various setup tasks:
@@ -12,50 +14,56 @@ public class GlobalConfig : MonoBehaviour
     public static string BASE_URL = "http://localhost:8080/api/";
     public static float CLIENT_UPDATE_INTERVAL = .05f;
 
-    public const bool START_REST_SERVER = false;
+    public bool START_REST_SERVER;
 
 
     private Process javaRestServerProcess;
+    private int restServerPID;
 
     void Start()
     {
         //Start NPP-Rest-Server
-        
-        string restServerExecutablePath = System.IO.Path.Combine(Application.dataPath, "Skripte", "restapi-vr-1.0.jar");
-        UnityEngine.Debug.Log("Rest-Server Path: " + restServerExecutablePath);
-
-        //Rest-Server Path: E:/Unity/Projects/Softwareprojekt_VR-Reaktor-Leitwarte/Assets\Skripte\restapi-vr-1.0.jar
-        
-        ProcessStartInfo javaRestServerStartInfo = new ProcessStartInfo {
-            FileName = "java",
-            Arguments = $"-jar {restServerExecutablePath}",
-            RedirectStandardError = true,
-            RedirectStandardOutput = true,
-            UseShellExecute = false,
-            CreateNoWindow = true
-        };
-
-        javaRestServerProcess = new Process {
-            StartInfo = javaRestServerStartInfo
-        };
         if (START_REST_SERVER)
         {
+            string restServerExecutablePath = System.IO.Path.Combine(Application.dataPath, "Skripte", "restapi-vr-1.0.jar");
+            UnityEngine.Debug.Log("Rest-Server Path: " + restServerExecutablePath);
+          
+            ProcessStartInfo javaRestServerStartInfo = new ProcessStartInfo {
+                FileName = "java",
+                Arguments = $"-jar {restServerExecutablePath}",
+                RedirectStandardError = true,
+                RedirectStandardOutput = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
+            
+            javaRestServerProcess = new Process {
+                StartInfo = javaRestServerStartInfo
+            };
+
             javaRestServerProcess.Start();
+            javaRestServerProcess.OutputDataReceived += (sender, args) => {
+                if (!string.IsNullOrEmpty(args.Data)){
+                    //Log all Rest-Server Data
+                    //UnityEngine.Debug.Log(args.Data);
+                    if (args.Data.Contains("SERVER_PID:")) {
+                        restServerPID = int.Parse(Regex.Match(args.Data, @"SERVER_PID: (\d+)").Groups[1].Value);
+                        UnityEngine.Debug.Log("Rest-Server PID: " + restServerPID);
+                        javaRestServerProcess.CancelOutputRead();
+                    }
+                }
+            }; 
+            javaRestServerProcess.BeginOutputReadLine();
             if (javaRestServerProcess.HasExited)
                 UnityEngine.Debug.LogError("Failed to start NPP-Rest-Server");
             else
                 UnityEngine.Debug.Log("NPP-Rest-Server started");
         }
-    
     }
 
     void Update()
     {
-       // Server output logs
-       //while (!javaRestServerProcess.HasExited && !javaRestServerProcess.StandardOutput.EndOfStream)
-       //{
-       //     UnityEngine.Debug.Log(javaRestServerProcess.StandardOutput.ReadLine());
-        //}
+       
     }
 
     void OnApplicationQuit()
@@ -63,10 +71,20 @@ public class GlobalConfig : MonoBehaviour
         UnityEngine.Debug.Log("Shutting down REST-Server after " + Time.time + " seconds");
         if (START_REST_SERVER && javaRestServerProcess != null && !javaRestServerProcess.HasExited)
         {
-            javaRestServerProcess.Kill();
-            javaRestServerProcess.WaitForExit();
-            UnityEngine.Debug.Log("NPP-Rest-Server process terminated.");
-            javaRestServerProcess.Dispose();
+            try {
+                javaRestServerProcess.Kill();
+                
+                if (restServerPID != 0)
+                    Process.GetProcessById(restServerPID).Kill();
+
+                javaRestServerProcess.WaitForExit(5000);
+                if (javaRestServerProcess.HasExited)
+                    UnityEngine.Debug.Log("NPP-Rest-Server process terminated.");
+            } catch (Exception e) {
+                UnityEngine.Debug.LogError("Failed to stop NPP-Rest-Server: " + e.Message);
+            } finally {
+                javaRestServerProcess.Dispose();
+            }
         }
     }
 }
