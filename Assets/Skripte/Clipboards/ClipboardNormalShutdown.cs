@@ -6,6 +6,8 @@ public class ClipboardNormalShutdown : MonoBehaviour
 {
     private NPPClient nppClient; // Referenz zu NPPClient
     public InputAction actionTrigger;
+	private bool isInteracting = false;
+	private UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor interactor;
 	
 	public InputActionAsset clipboardActions;
 
@@ -18,6 +20,7 @@ public class ClipboardNormalShutdown : MonoBehaviour
             Debug.LogError("NPPClient instance not found in the scene.");
             return;
         }
+		
 		Debug.LogError("NPPClient instance found.");
 		
 		var actionMap = clipboardActions.FindActionMap("Clipboard");
@@ -27,7 +30,7 @@ public class ClipboardNormalShutdown : MonoBehaviour
 			Debug.LogError("Action Map 'Clipboard' not found in InputActionAsset.");
 			return;
 		}
-
+		
 		actionTrigger = actionMap.FindAction("TriggerClipboardScenario");
 		
 		if (actionTrigger == null)
@@ -41,10 +44,21 @@ public class ClipboardNormalShutdown : MonoBehaviour
         if (actionTrigger != null)
         {
 			Debug.LogError("ActionTrigger NOT null.");
-            actionTrigger.Enable();
+            Enable();
+			actionTrigger.Enable();
 			Debug.Log("ActionTrigger enabled.");
             actionTrigger.performed += OnActionTriggered;
         }
+		
+    }
+	
+	private void Enable()
+    {
+		Debug.Log("Enabled Action");
+        var interactable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+		Debug.Log(interactable);
+        interactable.selectEntered.AddListener(OnSelectEntered);
+        interactable.selectExited.AddListener(OnSelectExited);
     }
 
     private void OnDestroy()
@@ -55,11 +69,25 @@ public class ClipboardNormalShutdown : MonoBehaviour
             actionTrigger.Disable();
         }
     }
+	
+	private void OnSelectEntered(SelectEnterEventArgs args)
+    {
+		Debug.Log("Entered Clipboard");
+        isInteracting = true;
+        interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor;
+    }
+
+    private void OnSelectExited(SelectExitEventArgs args)
+    {
+		Debug.Log("Exited Clipboard");
+        isInteracting = false;
+        interactor = null;
+    }
 
     private void OnActionTriggered(InputAction.CallbackContext context)
     {
 		Debug.Log("Action Triggered: " + context.action.name);
-        if (nppClient != null)
+        if (nppClient != null && isInteracting)
         {
             Debug.Log("Setting Normal Shutdown Scenario...");
             nppClient.StartCoroutine(nppClient.SetNormalShutdownScenario());

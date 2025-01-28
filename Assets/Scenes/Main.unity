@@ -3633,6 +3633,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2548517564486451869, guid: e79d9e86128346840ace091c21043441, type: 3}
+      propertyPath: m_Colliders.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3723770997451140220, guid: e79d9e86128346840ace091c21043441, type: 3}
       propertyPath: m_text
       value: "                               Hochfahren\r\n\r\n Ziel:\r\na)\tKraftwerk

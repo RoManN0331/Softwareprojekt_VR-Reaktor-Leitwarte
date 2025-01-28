@@ -13,15 +13,6 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Test",
-                    "type": "Button",
-                    "id": "b6afd1d3-d358-4375-8a75-9838143e3105",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -33,17 +24,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "TriggerClipboardScenario",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "fb8178c4-f557-4994-b6ac-06d5733f5dfd",
-                    "path": "<Keyboard>/#(K)",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Test",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
