@@ -183,7 +183,7 @@ public class NPPClient : MonoBehaviour
 		ModPos modPos = FindObjectOfType<ModPos>();
 		
 		if(modPos != null){
-			modPos.setPercentFromExternal(80);
+			modPos.SetPercentFromExternal(80);
 		}
 		
 		WP1 wp1 = FindObjectOfType<WP1>();
@@ -203,18 +203,6 @@ public class NPPClient : MonoBehaviour
 		{
 			cp.SetPercentFromExternal(90);
 		}
-
-		WV1 wv1 = FindObjectOfType<WV1>();
-		if (wv1 != null)
-		{
-			wv1.SetPercentFromExternal(100); 
-		}
-		
-		WV2 wv2 = FindObjectOfType<WV2>();
-		if (wv2 != null)
-		{
-			wv2.SetPercentFromExternal(0); 
-		}
 		
 		SV1 sv1 = FindObjectOfType<SV1>();
 		if (sv1 != null)
@@ -226,6 +214,18 @@ public class NPPClient : MonoBehaviour
 		if (sv2 != null)
 		{
 			sv2.SetPercentFromExternal(0); 
+		}
+
+		WV1 wv1 = FindObjectOfType<WV1>();
+		if (wv1 != null)
+		{
+			wv1.SetPercentFromExternal(100); 
+		}
+		
+		WV2 wv2 = FindObjectOfType<WV2>();
+		if (wv2 != null)
+		{
+			wv2.SetPercentFromExternal(0); 
 		}
 
 		// API-Befehle für das Szenario ausführen

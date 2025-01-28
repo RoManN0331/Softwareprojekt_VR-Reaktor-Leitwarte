@@ -65,7 +65,7 @@ public class SV2: MonoBehaviour
 
             if (Percent == 100)
             {
-                StartCoroutine(SetPumps("SV2", true));
+                SetValveStatus("SV2", true);
                 Debug.Log("Valve SV2 is open");
                 
                 lightRegler.SetLight(true);
@@ -74,7 +74,7 @@ public class SV2: MonoBehaviour
             else if (Percent == 0)
             
             {
-                StartCoroutine(SetPumps("SV2", false));
+                SetValveStatus("SV2", false);
                 Debug.Log("Valve SV2 is closed");
                 
                 lightRegler.SetLight(false);
@@ -152,24 +152,6 @@ public class SV2: MonoBehaviour
     private void OnSelectExited(SelectExitEventArgs args)
     {
     
-    }
-
-
-    IEnumerator SetPumps(string ValveID, bool value){
-
-
-    UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/valve/{ValveID}?activate={value}", "");
-
-    yield return req.SendWebRequest();
-
-        if (req.result != UnityWebRequest.Result.Success)
-    {
-        Debug.LogError($"Request Error: {req.error}");
-    }
-    else
-    {
-        Debug.Log($"Request Successful: {req.downloadHandler.text}");
-    }
     }
     
     private LightRegler lightRegler;

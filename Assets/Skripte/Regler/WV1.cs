@@ -66,7 +66,7 @@ public class WV1: MonoBehaviour
 
             if (Percent == 100)
             {
-                StartCoroutine(SetValves("WV1", true));
+                SetValveStatus("WV1", true);
                 Debug.Log("Valve WV1 is open");
                 
                 lightRegler.SetLight(true);
@@ -75,7 +75,7 @@ public class WV1: MonoBehaviour
             else if (Percent == 0)
             
             {
-                StartCoroutine(SetValves("WV2", false));
+                SetValveStatus("WV2", false);
                 Debug.Log("Valve WV1 is closed");
                 
                 lightRegler.SetLight(false);
@@ -104,7 +104,7 @@ public class WV1: MonoBehaviour
         }
         else
         {
-            Debug.Log($"Request Successful: {req.downloadHandler.text}");
+            Debug.Log("NPPClient is not initialized.");
         }
     }
 	
