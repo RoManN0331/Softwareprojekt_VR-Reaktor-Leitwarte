@@ -35,7 +35,7 @@ public class SV2: MonoBehaviour
     void Start()
     {
 
-        to_rotate = GameObject.Find("KNOB.SV1");
+        to_rotate = GameObject.Find("KNOB.SV2");
         clientObject = GameObject.Find("NPPclientObject");
 		
 		nppClient = FindObjectOfType<NPPClient>();
@@ -65,14 +65,13 @@ public class SV2: MonoBehaviour
 
             if (Percent == 100)
             {
+                
                 SetValveStatus("SV2", true);
                 Debug.Log("Valve SV2 is open");
                 
                 lightRegler.SetLight(true);
             }
-
             else if (Percent == 0)
-            
             {
                 SetValveStatus("SV2", false);
                 Debug.Log("Valve SV2 is closed");
@@ -109,18 +108,26 @@ public class SV2: MonoBehaviour
 	public void SetPercentFromExternal(int percent)
 	{
 		Percent = Mathf.Clamp(percent, 0, 100); 
-		UpdateRotation(); 
+        /* wird schon von Update() gemacht
+        UpdateRotation();
 
-		if (to_rotate.transform.rotation.eulerAngles.y == EndRotation)
-		{
-			SetValveStatus("WV1", true);
-			Debug.Log("Valve WV1 is open");
-		}
-		else if (to_rotate.transform.rotation.eulerAngles.y == 270)
-		{
-			SetValveStatus("WV1", false);
-			Debug.Log("Valve WV1 is closed");
-		}
+        if (to_rotate.transform.localRotation.eulerAngles.y == EndRotation)
+        {
+            SetValveStatus("SV2", true);
+            Debug.Log("Valve SV2 is open");
+
+            lightRegler.SetLight(true);
+        }
+        else if (to_rotate.transform.localRotation.eulerAngles.y == 270)
+        {
+            SetValveStatus("SV2", false);
+            Debug.Log("Valve SV2 is closed");
+
+            lightRegler.SetLight(false);
+        }
+        previousPercent = Percent;
+
+        */
 	}
 
     private void OnEnable()

@@ -111,18 +111,26 @@ public class WV1: MonoBehaviour
 	public void SetPercentFromExternal(int percent)
 	{
 		Percent = Mathf.Clamp(percent, 0, 100); 
-		UpdateRotation(); 
+        /* wird schon von Update() gemacht
+        UpdateRotation();
 
-		if (to_rotate.transform.rotation.eulerAngles.y == EndRotation)
-		{
-			SetValveStatus("WV1", true);
-			Debug.Log("Valve WV1 is open");
-		}
-		else if (to_rotate.transform.rotation.eulerAngles.y == 270)
-		{
-			SetValveStatus("WV1", false);
-			Debug.Log("Valve WV1 is closed");
-		}
+        if (to_rotate.transform.localRotation.eulerAngles.y == EndRotation)
+        {
+            SetValveStatus("WV1", true);
+            Debug.Log("Valve WV1 is open");
+
+            lightRegler.SetLight(true);
+        }
+        else if (to_rotate.transform.localRotation.eulerAngles.y == 270)
+        {
+            SetValveStatus("WV1", false);
+            Debug.Log("Valve WV1 is closed");
+
+            lightRegler.SetLight(false);
+        }
+        previousPercent = Percent;
+
+        */
 	}
 
 
