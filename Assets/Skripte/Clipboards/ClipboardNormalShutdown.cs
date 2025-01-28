@@ -5,7 +5,9 @@ using UnityEngine.InputSystem;
 public class ClipboardNormalShutdown : MonoBehaviour
 {
     private NPPClient nppClient; // Referenz zu NPPClient
-    public InputActionProperty actionTrigger; 
+    public InputAction actionTrigger;
+	
+	public InputActionAsset clipboardActions;
 
     private void Start()
     {
@@ -16,25 +18,47 @@ public class ClipboardNormalShutdown : MonoBehaviour
             Debug.LogError("NPPClient instance not found in the scene.");
             return;
         }
+		Debug.LogError("NPPClient instance found.");
+		
+		var actionMap = clipboardActions.FindActionMap("Clipboard");
+		
+		if (actionMap == null)
+		{
+			Debug.LogError("Action Map 'Clipboard' not found in InputActionAsset.");
+			return;
+		}
 
-        // Input-Aktion für die G-Taste registrieren
-        if (actionTrigger.action != null)
+		actionTrigger = actionMap.FindAction("TriggerClipboardScenario");
+		
+		if (actionTrigger == null)
+		{
+			Debug.LogError("Action 'TriggerClipboardScenario' not found in Action Map 'Clipboard'.");
+			return;
+		}
+		
+		Debug.Log($"Binding: {actionTrigger.bindings[0].path}");
+		
+        if (actionTrigger != null)
         {
-            actionTrigger.action.performed += ctx => SetScenario();
+			Debug.LogError("ActionTrigger NOT null.");
+            actionTrigger.Enable();
+			Debug.Log("ActionTrigger enabled.");
+            actionTrigger.performed += OnActionTriggered;
         }
     }
 
     private void OnDestroy()
     {
-        // Deregistriere die Input-Aktion, um Speicherlecks zu vermeiden
-        if (actionTrigger.action != null)
+        if (actionTrigger != null)
         {
-            actionTrigger.action.performed -= ctx => SetScenario();
+            actionTrigger.performed -= OnActionTriggered;
+            actionTrigger.Disable();
         }
     }
 
-    private void SetScenario()
+    private void OnActionTriggered(InputAction.CallbackContext context)
     {
+		Debug.Log("Action Triggered: " + context.action.name);
         if (nppClient != null)
         {
             Debug.Log("Setting Normal Shutdown Scenario...");
