@@ -15,7 +15,7 @@ public class NPPClient : MonoBehaviour
     private AnimatorController animatorController;
 
 	// state machine
-	private int scenario = 3;
+	private int scenario = 0;
 	private Boolean loadscenario = false;
 
     private AusfallAnzeigenManager ausfallAnzeigenManager;
@@ -469,7 +469,7 @@ public class NPPClient : MonoBehaviour
 
 			// update animator with new scenario
 
-			if (!loadscenario) {
+			if (loadscenario) {
 				animatorController.updateScenario(scenario);
 				loadscenario = !loadscenario;
 				scenario = 0;
