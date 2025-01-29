@@ -4,9 +4,12 @@ using UnityEngine;
 public class AnimatorController : MonoBehaviour
 {
     private Animator animator;
+    private NPPClient clientScript;
 
     void Awake()
     {
+        clientScript = GameObject.Find("NPPclientObject").GetComponent<NPPClient>();
+
         animator = GetComponent<Animator>();
         if (animator == null)
         {
@@ -40,12 +43,21 @@ public class AnimatorController : MonoBehaviour
         animator.SetInteger("ControlRodsLvl",  (int) state.Reactor.rodPosition);
         animator.SetInteger("ReactorWaterLvl", (int) state.Reactor.waterLevel);
         animator.SetInteger("ReactorPressure", (int) state.Reactor.pressure);
-        //animator.SetBool("Restheat", (int) state.Reactor.restheat);
+        animator.SetInteger("Restheat",        (int) state.Reactor.restheat);
         //Set condenser parameter
         animator.SetInteger("CondenserWaterLvl", (int) state.Condenser.waterLevel);
         animator.SetInteger("CondenserPressure", (int) state.Condenser.pressure);
         //set generator parameter
         animator.SetInteger("GeneratorOutput", (int) state.Generator.power);
+
+        
+    }
+
+    public void updateScenario(int scenario){
+
+        /* update the chosen scenario */
+
+        animator.SetInteger("scenario", scenario);
     }
 
     private ComponentState GetComponent(string name, ComponentHealth health)

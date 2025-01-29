@@ -13,7 +13,11 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     
     public bool Arrow3DEnabled = true;
     
+    public bool Arrow3DBinearEnabled = true;
+
     public bool DirectionArrowOnScreen = true;
+    
+    public bool AnzeigenMarkierungEnabled = true;
     
     public List<GazeGuidingTarget> targets;
     public float pathDisplayDistance = 5.0f;
@@ -30,6 +34,9 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     
     private GameObject arrow3DPrefab; // Reference to the Arrow3D prefab
     private GameObject arrow3DInstance; // Instance of the Arrow3D prefab
+    
+    private GameObject arrow3DBinaerPrefab; // Reference to the Arrow3D prefab
+    private GameObject arrow3DBinaerInstance; // Instance of the Arrow3D prefab
     
     // GazeGuiding for clipboards
 
@@ -63,6 +70,10 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         
         // Load the Arrow3D prefab
         arrow3DPrefab = Resources.Load<GameObject>("Prefabs/Arrow3D");
+        arrow3DBinaerPrefab = Resources.Load<GameObject>("Prefabs/Arrow3DBinaer");
+        
+        // Automatically set all GazeGuidingTarget objects
+        targets = new List<GazeGuidingTarget>(FindObjectsOfType<GazeGuidingTarget>());
     }
 
     private void initUI(GameObject uiInstance)
@@ -90,6 +101,7 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     }
     
     private bool arrow3DInstanceCreated = false; // Flag to track if Arrow3D instance has been created
+    private bool arrow3DBinaerInstanceCreated = false; // Flag to track if Arrow3D instance has been created
     void Update()
     {   
         if (currentTarget != null)
@@ -112,6 +124,11 @@ public class GazeGuidingPathPlayer : MonoBehaviour
                     {
                         Arrow3D();
                         arrow3DInstanceCreated = true;
+                    }
+                    if (!arrow3DBinaerInstanceCreated)
+                    {
+                        Arrow3DBinaer();
+                        arrow3DBinaerInstanceCreated = true;
                     }
                 }
                 else
@@ -165,6 +182,20 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         }
     }
     
+       
+    public void Arrow3DBinaer()
+    {
+        if (Arrow3DBinearEnabled && currentTarget.isTypeOf == GazeGuidingTarget.TargetType.Binaer)
+        {
+            if (arrow3DBinaerInstance == null)
+            {
+                arrow3DBinaerInstance = Instantiate(arrow3DBinaerPrefab, 
+                    currentTarget.transform.position + new Vector3(0, 0.1f, 0), Quaternion.identity);
+            }
+            
+        }
+    }
+    
     public void RemoveArrow3D()
     {
         if (arrow3DInstance != null)
@@ -174,6 +205,14 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         }
 
         arrow3DInstanceCreated = false;
+        
+        if (arrow3DBinaerInstance != null)
+        {
+            Destroy(arrow3DBinaerInstance);
+            arrow3DBinaerInstance = null;
+        }
+        
+        arrow3DBinaerInstanceCreated = false;
     }
     
     
@@ -205,13 +244,26 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         currentTarget = targets.Find(t => t.name == targetName && t.isTypeOf == type);
         if (currentTarget != null)
         {
-            if (Flip3DArrow)
+            if (type == GazeGuidingTarget.TargetType.Genau)
             {
-                arrow3DPrefab.GetComponent<Rotate3DArrow>().flipDirection = true;
-            }
-            else
+                if (Flip3DArrow)
+                {
+                    arrow3DPrefab.GetComponent<Rotate3DArrow>().flipDirection = true;
+                }
+                else
+                {
+                    arrow3DPrefab.GetComponent<Rotate3DArrow>().flipDirection = false;
+                }
+            }else if (type == GazeGuidingTarget.TargetType.Binaer)
             {
-                arrow3DPrefab.GetComponent<Rotate3DArrow>().flipDirection = false;
+                if (Flip3DArrow)
+                {
+                    arrow3DBinaerPrefab.GetComponent<Rotate3DArrowBinaer>().flipDirection = true;
+                }
+                else
+                {
+                    arrow3DBinaerPrefab.GetComponent<Rotate3DArrowBinaer>().flipDirection = false;
+                }
             }
         }
         else
@@ -227,6 +279,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         RemoveArrow3D();
 
         removeDirectionArrow();
+        
+        ClearAnzeigenMarkierung();
         
         DirectionCue.gameObject.SetActive(false);
         DirectionCue2.gameObject.SetActive(false);
@@ -458,40 +512,45 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         resetAction();
     }
 
-    private GazeGuidingTarget anzeigenTarget;
+    private List<GazeGuidingTarget> anzeigenTargets = new List<GazeGuidingTarget>();
+
     public void TriggerAnzeigenMarkierung(string targetName, GazeGuidingTarget.TargetType type, float NumberToHighlight)
     {
-        anzeigenTarget = targets.Find(t => t.name == targetName && t.isTypeOf == type);
-        
-        if (anzeigenTarget != null)
+        if (AnzeigenMarkierungEnabled)
         {
-            Transform anzeigenMarkerTransform = anzeigenTarget.transform.Find("AnzeigenMarker");
-            if (anzeigenMarkerTransform != null)
+            GazeGuidingTarget target = targets.Find(t => t.name == targetName && t.isTypeOf == type);
+            if (target != null)
             {
-                anzeigenMarkerTransform.gameObject.SetActive(true);
-                anzeigenMarkerTransform.GetComponent<AnzeigenMarker>().targetNumber = NumberToHighlight;
+                anzeigenTargets.Add(target);
+                Transform anzeigenMarkerTransform = target.transform.Find("AnzeigenMarker");
+                if (anzeigenMarkerTransform != null && !anzeigenMarkerTransform.gameObject.activeSelf)
+                {
+                    anzeigenMarkerTransform.gameObject.SetActive(true);
+                    anzeigenMarkerTransform.GetComponent<AnzeigenMarker>().targetNumber = NumberToHighlight;
+                }
+                else
+                {
+                    Debug.LogError("Child GameObject 'AnzeigenMarker' not found.");
+                }
             }
             else
             {
-                Debug.LogError("Child GameObject 'AnzeigenMarker' not found.");
+                Debug.LogWarning($"Target with name {targetName} and type {type} not found.");
             }
-        }
-        else
-        {
-            Debug.LogWarning($"Target with name {targetName} and type {type} not found.");
         }
     }
     
     public void ClearAnzeigenMarkierung()
     {
-        if (anzeigenTarget != null)
+        foreach (var target in anzeigenTargets)
         {
-            Transform anzeigenMarkerTransform = anzeigenTarget.transform.Find("AnzeigenMarker");
+            Transform anzeigenMarkerTransform = target.transform.Find("AnzeigenMarker");
             if (anzeigenMarkerTransform != null)
             {
                 anzeigenMarkerTransform.gameObject.SetActive(false);
             }
         }
+        anzeigenTargets.Clear();
     }
 
 

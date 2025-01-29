@@ -13,14 +13,17 @@ public class s1003 : StateMachineBehaviour
     {
         // boiler plate
         gazeGuidingPathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();        
-        gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
+        gazeGuidingPathPlayer.DirectionCueEnabled = true; // Roten Rand Deaktivieren        
 
-
+        gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
+        
         // state specific
 
         gazeGuidingPathPlayer.HighlightClipboard(4);
         target = GameObject.Find("WP1RPM").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("WP1RPM", target.GetComponent<GazeGuidingTarget>().isTypeOf);
+        
+        gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("WP1RPM_display", GazeGuidingTarget.TargetType.Anzeige, 200);
     }
 
     /*

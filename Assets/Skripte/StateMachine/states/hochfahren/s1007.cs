@@ -19,14 +19,18 @@ public class s1007 : StateMachineBehaviour
         gazeGuidingPathPlayer2 = FindObjectOfType<GazeGuidingPathPlayerSecondPath>();        
         gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
 
-
+        gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
+        
         // state specific
 
         gazeGuidingPathPlayer.HighlightClipboard(8);
         target = GameObject.Find("WP1RPM").gameObject;
         target2 = GameObject.Find("ModPos").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("WP1RPM", target.GetComponent<GazeGuidingTarget>().isTypeOf);
-        gazeGuidingPathPlayer2.TriggerTargetNAME("ModPos", target2.GetComponent<GazeGuidingTarget>().isTypeOf);        
+        gazeGuidingPathPlayer2.TriggerTargetNAME("ModPos", target2.GetComponent<GazeGuidingTarget>().isTypeOf);     
+        
+        gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("RWaterLvl", GazeGuidingTarget.TargetType.Anzeige, 2100);
+        gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("Energy", GazeGuidingTarget.TargetType.Anzeige, 700);
     }
 
     /*
@@ -41,5 +45,11 @@ public class s1007 : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         gazeGuidingPathPlayer.removeHighlightFromClipboard();
+        gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
+        gazeGuidingPathPlayer.ClearLine();
+        gazeGuidingPathPlayer2.ClearLine();
+
+        // reset the scenario
+        FindObjectOfType<AnimatorController>().updateScenario(0);
     }
 }

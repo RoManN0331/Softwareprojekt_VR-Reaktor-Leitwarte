@@ -31,17 +31,24 @@ public class CP : MonoBehaviour
     private Vector3 initialInteractorPosition;
     private int initialPercent;
     private int previousPercent;
+	private NPPClient nppClient;
 
     void Start()
     {
+		nppClient = FindObjectOfType<NPPClient>();
+
+        if (nppClient == null)
+        {
+            Debug.LogError("NPPClient instance not found in the scene.");
+            return;
+        }
 
         initialPercent = Percent;
         previousPercent = Percent;
 
         // Calculate the rotation angle based on Percent
-        float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
         // Apply the rotation to the to_rotate object
-        to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
+        UpdateRotation();
         
     }
 
@@ -50,46 +57,59 @@ public class CP : MonoBehaviour
 
         if (isInteracting && interactor != null)
         {
-            // Calculate the rotation of the controller around the z-axis
-            float currentZRotation = interactor.transform.eulerAngles.z;
-            float initialZRotation = initialInteractorRotation.eulerAngles.z;
-            float rotationDifference = Mathf.DeltaAngle(initialZRotation, currentZRotation); 
-            
-            // Update the Percent value based on rotation difference
-            Percent = Mathf.Clamp(initialPercent + (int)(rotationDifference * -0.5f), 0, 100);
-
-            // Calculate the rotation angle based on Percent
-            float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
-
-            // Apply the rotation to the to_rotate object
-            to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
-
-            if (Time.time - lastPressTime > pressCooldown)
-            {
-
-                lastPressTime = Time.time;
-                StartCoroutine(UpdatePump("CP", (int)(Percent*20)));
-            }
-
-        } else if (Percent != previousPercent)
-        {
-            // Calculate the rotation angle based on Percent
-            float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
-            // Apply the rotation to the to_rotate object
-            to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
-
-            if (Time.time - lastPressTime > pressCooldown)
-            {
-
-                lastPressTime = Time.time;
-                StartCoroutine(UpdatePump("CP", (int)(Percent*20)));
-            }
+            HandleRotationInteraction();
         }
-
+        else if (Percent != previousPercent)
+        {
+            UpdateRotation();
+            SendPercentToSimulation();
+        }
         previousPercent = Percent;
 
-
+        if(Time.frameCount % 30 == 0 && Mathf.RoundToInt(nppClient.simulation.CP.rpm) !=  Percent * 20)
+        {
+            SendPercentToSimulation();
+        }
     }
+	
+	private void UpdateRotation()
+    {
+        float angle = Mathf.Lerp(StartRotation, EndRotation, Percent / 100f);
+        to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
+    }
+
+    private void HandleRotationInteraction()
+    {
+
+        float currentZRotation = interactor.transform.eulerAngles.z;
+        float initialZRotation = initialInteractorRotation.eulerAngles.z;
+        float rotationDifference = Mathf.DeltaAngle(initialZRotation, currentZRotation);
+
+        Percent = Mathf.Clamp(initialPercent + (int)(rotationDifference * -0.5f), 0, 100);
+        UpdateRotation();
+        
+        if (Time.time - lastPressTime > pressCooldown)
+        {
+            lastPressTime = Time.time;
+            SendPercentToSimulation();
+        }
+    }
+    
+    private void SendPercentToSimulation()
+    {
+        int rpmValue = Percent * 20; // Convert percent to RPM
+        
+        StartCoroutine(nppClient.UpdatePump("CP", rpmValue));
+    }
+	
+	public void SetPercentFromExternal(int percent)
+	{
+		Percent = Mathf.Clamp(percent, 0, 100); 
+		/*
+		UpdateRotation(); 
+		SendPercentToSimulation();
+		*/
+	}
 
     private void OnEnable()
     {

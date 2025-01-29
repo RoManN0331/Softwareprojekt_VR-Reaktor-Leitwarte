@@ -13,14 +13,15 @@ public class s1006 : StateMachineBehaviour
     {
         // boiler plate
         gazeGuidingPathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();        
-        gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
+        gazeGuidingPathPlayer.DirectionCueEnabled = true; // Roten Rand Deaktivieren        
 
-
+        gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
+        
         // state specific
 
         gazeGuidingPathPlayer.HighlightClipboard(7);
         target = GameObject.Find("SV2").gameObject;
-        gazeGuidingPathPlayer.TriggerTargetNAME("SV2", target.GetComponent<GazeGuidingTarget>().isTypeOf);        
+        gazeGuidingPathPlayer.TriggerTargetNAME("SV2", target.GetComponent<GazeGuidingTarget>().isTypeOf,true);        
     }
 
     /*

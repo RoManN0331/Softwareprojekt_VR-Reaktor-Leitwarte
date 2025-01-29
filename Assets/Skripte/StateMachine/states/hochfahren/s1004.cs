@@ -18,14 +18,23 @@ public class s1004 : StateMachineBehaviour
         gazeGuidingPathPlayer2 = FindAnyObjectByType<GazeGuidingPathPlayerSecondPath>();        
         gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
 
-
+        gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
+        
         // state specific
 
         gazeGuidingPathPlayer.HighlightClipboard(5);
-        target = GameObject.Find("RWaterLvl").gameObject;
+        //target = GameObject.Find("RWaterLvl").gameObject;
         target2 = GameObject.Find("WP1RPM").gameObject;
-        gazeGuidingPathPlayer.TriggerTargetNAME("RWaterLvl", target.GetComponent<GazeGuidingTarget>().isTypeOf);
+        //gazeGuidingPathPlayer.TriggerTargetNAME("RWaterLvl", target.GetComponent<GazeGuidingTarget>().isTypeOf);
         gazeGuidingPathPlayer2.TriggerTargetNAME("WP1RPM", target2.GetComponent<GazeGuidingTarget>().isTypeOf);
+        
+        /* Wäre es nicht Sinnvoller auf Modpos zu zeigen? anstatt RWaterLvl?
+         da es ja sowieso mit dem Pfeil gehighlightet wird */
+        target = GameObject.Find("ModPos").gameObject;
+        gazeGuidingPathPlayer.TriggerTargetNAME("ModPos", target.GetComponent<GazeGuidingTarget>().isTypeOf);
+        
+        
+        gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("RWaterLvl", GazeGuidingTarget.TargetType.Anzeige, 2100);
     }
 
     /*
@@ -40,5 +49,6 @@ public class s1004 : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         gazeGuidingPathPlayer.removeHighlightFromClipboard();
+        gazeGuidingPathPlayer2.ClearLine();
     }
 }

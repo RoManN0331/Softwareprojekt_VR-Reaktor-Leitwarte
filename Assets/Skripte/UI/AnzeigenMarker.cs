@@ -19,6 +19,7 @@ public class AnzeigenMarker : MonoBehaviour
     private float xright = -0.0734f;
 
     private AnzeigeSteuerung anzeigeSteuerung; // Reference to the AnzeigeSteuerung component
+    private AnzeigeSteuerung5 anzeigeSteuerung2; // Reference to the AnzeigeSteuerung component
     void Start()
     {
         // Find the child GameObject named "Pfeil"
@@ -55,8 +56,13 @@ public class AnzeigenMarker : MonoBehaviour
         anzeigeSteuerung = GetComponentInParent<AnzeigeSteuerung>();
         if (anzeigeSteuerung == null)
         {
-            Debug.LogError("AnzeigeSteuerung component not found in parent GameObject.");
+            anzeigeSteuerung2 = GetComponentInParent<AnzeigeSteuerung5>();
+            if (anzeigeSteuerung2 == null)
+            {
+                Debug.LogError("AnzeigeSteuerung component not found in parent GameObject.");
+            }
         }
+        
     }
 
     void Update()
@@ -78,6 +84,14 @@ public class AnzeigenMarker : MonoBehaviour
         {
             // Calculate the x-position based on the targetNumber
             float t = targetNumber / anzeigeSteuerung.end_Number;
+            float newX = Mathf.Lerp(xleft, xright, t);
+            // Update the x-position of the Pfeil
+            pfeilTransform.localPosition = new Vector3(newX, pfeilTransform.localPosition.y, pfeilTransform.localPosition.z);
+        }
+        else if (anzeigeSteuerung2 != null)
+        {
+            // Calculate the x-position based on the targetNumber
+            float t = targetNumber / anzeigeSteuerung2.end_Number;
             float newX = Mathf.Lerp(xleft, xright, t);
             // Update the x-position of the Pfeil
             pfeilTransform.localPosition = new Vector3(newX, pfeilTransform.localPosition.y, pfeilTransform.localPosition.z);

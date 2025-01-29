@@ -13,7 +13,7 @@ public class s3000 : StateMachineBehaviour
     {
         // boiler plate
         gazeGuidingPathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();        
-        gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
+        gazeGuidingPathPlayer.DirectionCueEnabled = true; // Roten Rand Deaktivieren        
 
 
         // state specific
@@ -21,7 +21,9 @@ public class s3000 : StateMachineBehaviour
         gazeGuidingPathPlayer.SetGazeGuidingClipboard("POS3");
         gazeGuidingPathPlayer.HighlightClipboard(1);
         target = GameObject.Find("ModPos").gameObject;
-        gazeGuidingPathPlayer.TriggerTargetNAME("ModPos", target.GetComponent<GazeGuidingTarget>().isTypeOf);
+        gazeGuidingPathPlayer.TriggerTargetNAME("ModPos", target.GetComponent<GazeGuidingTarget>().isTypeOf, true);
+        
+        gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("ModPos_display", GazeGuidingTarget.TargetType.Anzeige, 0);
     }
 
     /*
@@ -34,6 +36,7 @@ public class s3000 : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         gazeGuidingPathPlayer.removeHighlightFromClipboard();
+        gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
     }
     
 }

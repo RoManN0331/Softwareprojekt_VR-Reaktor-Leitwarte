@@ -13,7 +13,7 @@ public class s2006 : StateMachineBehaviour
     {
         // boiler palte
         gazeGuidingPathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
-        gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
+        gazeGuidingPathPlayer.DirectionCueEnabled = true; // Roten Rand Deaktivieren        
 
 
         // state specific
@@ -32,6 +32,11 @@ public class s2006 : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         gazeGuidingPathPlayer.removeHighlightFromClipboard();
+        gazeGuidingPathPlayer.ClearLine();
+
+        // reset the scenario
+        FindObjectOfType<AnimatorController>().updateScenario(0);
+
     }
     
 }

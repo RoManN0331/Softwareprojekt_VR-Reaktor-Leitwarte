@@ -67,8 +67,8 @@ public class WV2: MonoBehaviour
 
             if (Percent == 100)
             {
-                StartCoroutine(SetValves("WV2", true));
-                Debug.Log("Valve WV2 is open");
+                SetValveStatus("WV2", true);
+                // Debug.Log("Valve WV2 is open");
                 
                 lightRegler.SetLight(true);
             }
@@ -80,8 +80,8 @@ public class WV2: MonoBehaviour
                       also die LOKALE rotation ;)   * /
                      */            
             {
-                StartCoroutine(SetValves("WV2", false));
-                Debug.Log("Valve WV2 is closed");
+                SetValveStatus("WV2", false);
+                // Debug.Log("Valve WV2 is closed");
                 
                 lightRegler.SetLight(false);
             }
@@ -100,22 +100,42 @@ public class WV2: MonoBehaviour
         to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
     }
 	
-    IEnumerator SetValves(string ValveID, bool value){
-
-
-        UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}control/valve/{ValveID}?activate={value}", "");
-
-        yield return req.SendWebRequest();
-
-        if (req.result != UnityWebRequest.Result.Success)
+    public void SetValveStatus(string valveId, bool value)
+    {
+        if (nppClient != null)
         {
-            Debug.LogError($"Request Error: {req.error}");
+            StartCoroutine(nppClient.UpdateValveStatus(valveId, value));
         }
         else
         {
-            Debug.Log($"Request Successful: {req.downloadHandler.text}");
+            Debug.Log("NPPClient is not initialized.");
         }
     }
+	
+	public void SetPercentFromExternal(int percent)
+	{
+		Percent = Mathf.Clamp(percent, 0, 100); 
+        /* wird schon von Update() gemacht
+        UpdateRotation();
+
+        if (to_rotate.transform.localRotation.eulerAngles.y == EndRotation)
+        {
+            SetValveStatus("WV2", true);
+            Debug.Log("Valve WV2 is open");
+
+            lightRegler.SetLight(true);
+        }
+        else if (to_rotate.transform.localRotation.eulerAngles.y == 270)
+        {
+            SetValveStatus("WV2", false);
+            Debug.Log("Valve WV2 is closed");
+
+            lightRegler.SetLight(false);
+        }
+        previousPercent = Percent;
+
+        */
+	}
 
 
     private void OnEnable()

@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.Collections;
+using System.Linq;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using TMPro;
+using UnityEditor;
 
 public class FarbenButton : MonoBehaviour
 {
@@ -14,18 +16,32 @@ public class FarbenButton : MonoBehaviour
     public Color[] newColorsEmission; // Array of new colors to apply to materials
     public float emissionIntensity = 1.0f; // Intensity of the emission color
     public TextMeshPro[] textMeshProObjects; // Array of TextMeshPro objects to adjust
-    public Color[] newTextColors; // Array of new colors to apply to TextMeshPro objects
+    public Color newTextColors; // Array of new colors to apply to TextMeshPro objects
 
     private bool isAnimating = false;
     private Color[] originalColors;
     private Color[] originalEmissionColors;
     private Color[] originalTextColors;
 
-    private void OnEnable()
+    private void Start()
     {
-        var interactable = GetComponent<XRSimpleInteractable>();
-        interactable.selectEntered.AddListener(OnSelectEntered);
+        // Find all GameObjects named "AnzeigenMarker"
+        GameObject[] anzeigenMarkers = Resources.FindObjectsOfTypeAll<GameObject>()
+            .Where(go => go.name == "AnzeigenMarker" && !AssetDatabase.Contains(go))
+            .ToArray();
 
+        // Initialize textMeshProObjects with TextMeshPro components of children named "AusrufeZeichen"
+        textMeshProObjects = anzeigenMarkers
+            .SelectMany(marker => marker.GetComponentsInChildren<TextMeshPro>(true))
+            .Where(tmp => tmp.gameObject.name == "AusrufeZeichen")
+            .ToArray();
+
+        // Deactivate all "AnzeigenMarker" objects
+        foreach (var marker in anzeigenMarkers)
+        {
+            marker.SetActive(false);
+        }
+        
         // Save original colors
         originalColors = new Color[materialsEmissionChange.Length];
         originalEmissionColors = new Color[materialsEmissionChange.Length];
@@ -51,6 +67,13 @@ public class FarbenButton : MonoBehaviour
             }
         }
     }
+    
+    
+    private void OnEnable()
+    {
+        var interactable = GetComponent<XRSimpleInteractable>();
+        interactable.selectEntered.AddListener(OnSelectEntered);
+    }
 
     private void OnDisable()
     {
@@ -60,7 +83,7 @@ public class FarbenButton : MonoBehaviour
         // Restore original colors
         for (int i = 0; i < materialsEmissionChange.Length; i++)
         {
-            if (materialsEmissionChange[i] != null)
+            if (materialsEmissionChange[i] != null && i < originalColors.Length && i < originalEmissionColors.Length)
             {
                 materialsEmissionChange[i].color = originalColors[i];
                 if (materialsEmissionChange[i].IsKeywordEnabled("_EMISSION"))
@@ -73,7 +96,7 @@ public class FarbenButton : MonoBehaviour
         // Restore original text colors
         for (int i = 0; i < textMeshProObjects.Length; i++)
         {
-            if (textMeshProObjects[i] != null)
+            if (textMeshProObjects[i] != null && i < originalTextColors.Length)
             {
                 textMeshProObjects[i].color = originalTextColors[i];
             }
@@ -139,9 +162,9 @@ public class FarbenButton : MonoBehaviour
     {
         for (int i = 0; i < textMeshProObjects.Length; i++)
         {
-            if (textMeshProObjects[i] != null && i < newTextColors.Length)
+            if (textMeshProObjects[i] != null)
             {
-                textMeshProObjects[i].color = newTextColors[i];
+                textMeshProObjects[i].color = newTextColors;
             }
         }
     }

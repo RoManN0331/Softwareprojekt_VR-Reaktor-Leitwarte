@@ -1,0 +1,45 @@
+{
+    "name": "ClipbordInputActions",
+    "maps": [
+        {
+            "name": "Clipboard",
+            "id": "302bd2a6-bbb5-4343-b7db-2cf7dd45fb02",
+            "actions": [
+                {
+                    "name": "TriggerClipboardScenario",
+                    "type": "Button",
+                    "id": "83b4f8b8-ff72-4eec-94d4-0abb51d309e6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "247873bc-d92d-4e4f-bbdc-69f196d396a4",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerClipboardScenario",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a7b39632-6e97-4c18-b1cf-10bee14b045e",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerClipboardScenario",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
