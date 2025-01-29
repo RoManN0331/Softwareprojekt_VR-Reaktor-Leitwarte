@@ -24,6 +24,14 @@ public class AusfallAnzeigenManager : MonoBehaviour
             }
         }
     }
+    
+    public void TurnAllOn()
+    {
+        foreach (var anzeige in ausfallAnzeigen)
+        {
+            anzeige.turnOn();
+        }
+    }
 
     public void TurnOff(string name)
     {

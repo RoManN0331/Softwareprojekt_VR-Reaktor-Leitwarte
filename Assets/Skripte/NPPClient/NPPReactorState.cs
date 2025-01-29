@@ -36,6 +36,8 @@ public class ReactorState {
     public bool operational;
     public bool intactact;
     public float rodPosition;
+    public bool overheated;
+    public int restheat;
 }
 
 [Serializable]
