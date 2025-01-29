@@ -19041,6 +19041,8 @@ MonoBehaviour:
       operational: 0
       intactact: 0
       rodPosition: 0
+      overheated: 0
+      restheat: 0
     SV1:
       name: 
       blown: 0
@@ -19113,7 +19115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe32f233c68345e4e9b154a4355096db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  START_REST_SERVER: 1
+  START_REST_SERVER: 0
 --- !u!4 &1238652150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5797865432727159296, guid: f27e218c6b6e37843872d47397808ee9, type: 3}
@@ -21742,6 +21744,7 @@ MonoBehaviour:
   DirectionArrowEnabled: 1
   Arrow3DEnabled: 1
   DirectionArrowOnScreen: 0
+  AnzeigenMarkierungEnabled: 1
   targets: []
   pathDisplayDistance: 0.85
   animationDuration: 1

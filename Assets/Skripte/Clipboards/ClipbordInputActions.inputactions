@@ -26,6 +26,17 @@
                     "action": "TriggerClipboardScenario",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a7b39632-6e97-4c18-b1cf-10bee14b045e",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerClipboardScenario",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

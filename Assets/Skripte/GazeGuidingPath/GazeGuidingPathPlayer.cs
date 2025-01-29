@@ -15,6 +15,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     
     public bool DirectionArrowOnScreen = true;
     
+    public bool AnzeigenMarkierungEnabled = true;
+    
     public List<GazeGuidingTarget> targets;
     public float pathDisplayDistance = 5.0f;
     public float animationDuration = 1.0f; // Duration of the path drawing animation
@@ -463,67 +465,45 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         resetAction();
     }
 
-    private GazeGuidingTarget anzeigenTarget;
-    private GazeGuidingTarget anzeigenTarget2;
+    private List<GazeGuidingTarget> anzeigenTargets = new List<GazeGuidingTarget>();
+
     public void TriggerAnzeigenMarkierung(string targetName, GazeGuidingTarget.TargetType type, float NumberToHighlight)
     {
-        if (anzeigenTarget != null)
+        if (AnzeigenMarkierungEnabled)
         {
-            anzeigenTarget2 = targets.Find(t => t.name == targetName && t.isTypeOf == type);
-        }
-        else
-        {
-            anzeigenTarget = targets.Find(t => t.name == targetName && t.isTypeOf == type);
-        }
-
-        if (anzeigenTarget2 != null)
-        {
-            Transform anzeigenMarkerTransform2 = anzeigenTarget2.transform.Find("AnzeigenMarker");
-            if (anzeigenMarkerTransform2 != null && !anzeigenMarkerTransform2.gameObject.activeSelf)
+            GazeGuidingTarget target = targets.Find(t => t.name == targetName && t.isTypeOf == type);
+            if (target != null)
             {
-                anzeigenMarkerTransform2.gameObject.SetActive(true);
-                anzeigenMarkerTransform2.GetComponent<AnzeigenMarker>().targetNumber = NumberToHighlight;
-            }else
-            {
-                Debug.LogError("Child GameObject 'AnzeigenMarker' not found.");
+                anzeigenTargets.Add(target);
+                Transform anzeigenMarkerTransform = target.transform.Find("AnzeigenMarker");
+                if (anzeigenMarkerTransform != null && !anzeigenMarkerTransform.gameObject.activeSelf)
+                {
+                    anzeigenMarkerTransform.gameObject.SetActive(true);
+                    anzeigenMarkerTransform.GetComponent<AnzeigenMarker>().targetNumber = NumberToHighlight;
+                }
+                else
+                {
+                    Debug.LogError("Child GameObject 'AnzeigenMarker' not found.");
+                }
             }
-        }else if (anzeigenTarget != null)
-        {
-            Transform anzeigenMarkerTransform = anzeigenTarget.transform.Find("AnzeigenMarker");
-            if (anzeigenMarkerTransform != null && !anzeigenMarkerTransform.gameObject.activeSelf)
+            else
             {
-                anzeigenMarkerTransform.gameObject.SetActive(true);
-                anzeigenMarkerTransform.GetComponent<AnzeigenMarker>().targetNumber = NumberToHighlight;
-            }else{
-                Debug.LogError("Child GameObject 'AnzeigenMarker' not found.");
+                Debug.LogWarning($"Target with name {targetName} and type {type} not found.");
             }
-        }else {
-            Debug.LogWarning($"Target with name {targetName} and type {type} not found.");
         }
     }
     
     public void ClearAnzeigenMarkierung()
     {
-        if (anzeigenTarget != null)
+        foreach (var target in anzeigenTargets)
         {
-            Transform anzeigenMarkerTransform = anzeigenTarget.transform.Find("AnzeigenMarker");
+            Transform anzeigenMarkerTransform = target.transform.Find("AnzeigenMarker");
             if (anzeigenMarkerTransform != null)
             {
                 anzeigenMarkerTransform.gameObject.SetActive(false);
             }
         }
-        if (anzeigenTarget2 != null)
-        {
-            Transform anzeigenMarkerTransform2 = anzeigenTarget2.transform.Find("AnzeigenMarker");
-            if (anzeigenMarkerTransform2 != null)
-            {
-                anzeigenMarkerTransform2.gameObject.SetActive(false);
-            }
-        }
-
-        anzeigenTarget = null;
-        anzeigenTarget2 = null;
-
+        anzeigenTargets.Clear();
     }
 
 
