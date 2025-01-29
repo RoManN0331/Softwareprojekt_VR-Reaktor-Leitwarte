@@ -15,10 +15,14 @@ public class s3002 : StateMachineBehaviour
         gazeGuidingPathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();        
         gazeGuidingPathPlayer.DirectionCueEnabled = true; // Roten Rand Deaktivieren        
 
+        gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
+        
         // state specific
         gazeGuidingPathPlayer.HighlightClipboard(3);
         target = GameObject.Find("WP2RPM").gameObject;
-        gazeGuidingPathPlayer.TriggerTargetNAME("WP2RPM", target.GetComponent<GazeGuidingTarget>().isTypeOf);    
+        gazeGuidingPathPlayer.TriggerTargetNAME("WP2RPM", target.GetComponent<GazeGuidingTarget>().isTypeOf, true);   
+        
+        gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("WP2RPM_display", GazeGuidingTarget.TargetType.Anzeige, 800);
     }
 
     /*

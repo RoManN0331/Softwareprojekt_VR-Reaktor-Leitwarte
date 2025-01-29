@@ -464,6 +464,7 @@ public class NPPClient : MonoBehaviour
 		    if(simulation.ComponentHealth.components[10].broken) ausfallAnzeigenManager.TurnOn("KNT");
 		    if(simulation.ComponentHealth.components[11].broken) ausfallAnzeigenManager.TurnOn("AU");
 		    if(simulation.ComponentHealth.components[6].broken) ausfallAnzeigenManager.TurnOn("TBN");
+		    if (simulation.Reactor.overheated) ausfallAnzeigenManager.TurnAllOn();
 	    }
     }
 }

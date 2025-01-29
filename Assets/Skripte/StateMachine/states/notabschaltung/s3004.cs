@@ -18,12 +18,21 @@ public class s3004 : StateMachineBehaviour
         //gazeGuidingPathPlayer2 = FindObjectOfType<GazeGuidingPathPlayerSecondPath>();            
         gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
 
+        gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
+        
         // state specific
         gazeGuidingPathPlayer.HighlightClipboard(5);
         target = GameObject.Find("CPressure").gameObject;
         //target2 = GameObject.Find("RWaterLvl").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("CPressure", target.GetComponent<GazeGuidingTarget>().isTypeOf);
-        //gazeGuidingPathPlayer2.TriggerTargetNAME("RWaterLvl", target2.GetComponent<GazeGuidingTarget>().isTypeOf);  
+        //gazeGuidingPathPlayer2.TriggerTargetNAME("RWaterLvl", target2.GetComponent<GazeGuidingTarget>().isTypeOf); 
+        
+        
+        
+        
+        
+        gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("CPressure", GazeGuidingTarget.TargetType.Anzeige, 0);
+        gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("RPressure", GazeGuidingTarget.TargetType.Anzeige, 0);
     }
 
     /*
@@ -38,6 +47,7 @@ public class s3004 : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         gazeGuidingPathPlayer.removeHighlightFromClipboard();
+        gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
     }
     
 }

@@ -20,6 +20,8 @@ public class s2005 : StateMachineBehaviour
         gazeGuidingPathPlayer.HighlightClipboard(6);
         target = GameObject.Find("CPRPM").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("CPRPM", target.GetComponent<GazeGuidingTarget>().isTypeOf);
+        
+        gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("CPRPM_display", GazeGuidingTarget.TargetType.Anzeige, 0);
     }
 
     /*
@@ -32,6 +34,7 @@ public class s2005 : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         gazeGuidingPathPlayer.removeHighlightFromClipboard();
+        gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
     }
     
 }
