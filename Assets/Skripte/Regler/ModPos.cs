@@ -117,7 +117,7 @@ public class ModPos : MonoBehaviour
 	
 	public void SetPercentFromExternal(int newPercent)
     {
-        Percent = Mathf.Clamp(newPercent, 0, 100);
+        Percent = Mathf.Clamp(100 - newPercent, 0, 100);
         UpdateRotation();
         UpdateRodPosition();
     }
