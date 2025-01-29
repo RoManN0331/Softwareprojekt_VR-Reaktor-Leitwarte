@@ -48,5 +48,8 @@ public class s1007 : StateMachineBehaviour
         gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
         gazeGuidingPathPlayer.ClearLine();
         gazeGuidingPathPlayer2.ClearLine();
+
+        // reset the scenario
+        FindObjectOfType<AnimatorController>().updateScenario(0);
     }
 }

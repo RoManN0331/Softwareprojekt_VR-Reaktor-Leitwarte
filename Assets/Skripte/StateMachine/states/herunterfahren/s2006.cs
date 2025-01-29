@@ -33,6 +33,10 @@ public class s2006 : StateMachineBehaviour
     {
         gazeGuidingPathPlayer.removeHighlightFromClipboard();
         gazeGuidingPathPlayer.ClearLine();
+
+        // reset the scenario
+        FindObjectOfType<AnimatorController>().updateScenario(0);
+
     }
     
 }
