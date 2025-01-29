@@ -69,7 +69,7 @@ public class SV1: MonoBehaviour
                 {
 
                     SetValveStatus("SV1", true);
-                    Debug.Log("Valve SV1 is open");
+                    // Debug.Log("Valve SV1 is open");
                     
                     lightRegler.SetLight(true);
                 }
@@ -78,7 +78,7 @@ public class SV1: MonoBehaviour
                     /*accounts for the orientation of the console*/
                 {
                     SetValveStatus("SV1", false);
-                    Debug.Log("Valve SV1 is closed");
+                    // Debug.Log("Valve SV1 is closed");
                     
                     lightRegler.SetLight(false);
                 }

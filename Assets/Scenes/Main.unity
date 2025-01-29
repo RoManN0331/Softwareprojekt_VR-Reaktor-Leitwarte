@@ -2575,6 +2575,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8386986151540294815, guid: e79d9e86128346840ace091c21043441, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 187051061}
     - targetCorrespondingSourceObject: {fileID: 7989517293468547402, guid: e79d9e86128346840ace091c21043441, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -2584,6 +2587,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1537815775550797034, guid: e79d9e86128346840ace091c21043441, type: 3}
   m_PrefabInstance: {fileID: 187051058}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &187051060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8386986151540294815, guid: e79d9e86128346840ace091c21043441, type: 3}
+  m_PrefabInstance: {fileID: 187051058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &187051061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187051060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d34a74a024d5a54478eb9067a59a0ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionTrigger:
+    m_Name: Action Trigger
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a49c432f-3159-44bf-b02c-7e86679448cc
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  clipboardActions: {fileID: -944628639613478452, guid: 65408fa62bd82fd418498048a4ec2a47, type: 3}
 --- !u!4 &203528708 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5797865432727159296, guid: f27e218c6b6e37843872d47397808ee9, type: 3}
@@ -19041,6 +19071,8 @@ MonoBehaviour:
       operational: 0
       intactact: 0
       rodPosition: 0
+      restheat: 0
+      overheated: 0
     SV1:
       name: 
       blown: 0
@@ -24108,6 +24140,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8386986151540294815, guid: e79d9e86128346840ace091c21043441, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1571183722}
     - targetCorrespondingSourceObject: {fileID: 7989517293468547402, guid: e79d9e86128346840ace091c21043441, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -24117,6 +24152,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1537815775550797034, guid: e79d9e86128346840ace091c21043441, type: 3}
   m_PrefabInstance: {fileID: 1571183719}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1571183721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8386986151540294815, guid: e79d9e86128346840ace091c21043441, type: 3}
+  m_PrefabInstance: {fileID: 1571183719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1571183722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571183721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b403bf6b4cdf40a40b82674baea2f949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionTrigger:
+    m_Name: Action Trigger
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7a00c5e1-4e95-475d-9941-be9f60cc87a3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  clipboardActions: {fileID: -944628639613478452, guid: 65408fa62bd82fd418498048a4ec2a47, type: 3}
 --- !u!1001 &1572149187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37556,6 +37618,7 @@ GameObject:
   - component: {fileID: 4947578598736511884}
   - component: {fileID: 6024760224310381558}
   - component: {fileID: 6024760224310381559}
+  - component: {fileID: 6024760224310381560}
   m_Layer: 0
   m_Name: ReglerBinaer (33)
   m_TagString: SV2
@@ -39859,6 +39922,33 @@ MonoBehaviour:
   ReglerType: 1
   to_rotate: {fileID: 7276077939510197835}
   Percent: 0
+--- !u!114 &6024760224310381560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4458605978852308169}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4976d670c47a6fa458f7c0647e21d478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReglerType: 1
+  to_rotate: {fileID: 7276077939510197835}
+  Percent: 0
+  StartRotation: -90
+  EndRotation: 90
+  lastPressTime: 0
+  pressCooldown: 1
+  interactor: {fileID: 0}
+  isInteracting: 0
+  initialInteractorPosition: {x: 0, y: 0, z: 0}
+  initialPercent: 0
+  nppClient: {fileID: 0}
+  previousPercent: 0
+  initialInteractorRotation: {x: 0, y: 0, z: 0, w: 0}
+  lightRegler: {fileID: 0}
 --- !u!65 &6024760224325134969
 BoxCollider:
   m_ObjectHideFlags: 0

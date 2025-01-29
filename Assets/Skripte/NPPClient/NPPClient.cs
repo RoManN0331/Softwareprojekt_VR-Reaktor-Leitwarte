@@ -187,7 +187,7 @@ public class NPPClient : MonoBehaviour
 		ModPos modPos = FindObjectOfType<ModPos>();
 		
 		if(modPos != null){
-			modPos.SetPercentFromExternal(80);
+			modPos.SetPercentFromExternal(20);
 		}
 		
 		WP1 wp1 = FindObjectOfType<WP1>();
@@ -231,9 +231,24 @@ public class NPPClient : MonoBehaviour
 		{
 			wv2.SetPercentFromExternal(0); 
 		}
+		
+		using (UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}system/normalShutdown",""))
+        {
+            yield return req.SendWebRequest();
 
+            if (req.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError($"Error setting Normal Shutdown Scenario: {req.error}");
+            }
+            else
+            {
+                Debug.Log($"Normal Shutdown Scenario set successfully: {req.downloadHandler.text}");
+            }
+        }
+
+		
 		// API-Befehle für das Szenario ausführen
-		yield return StartCoroutine(SetRodPosition(80)); // Control Rods auf 80%
+		/* yield return StartCoroutine(SetRodPosition(80)); // Control Rods auf 80%
 		yield return StartCoroutine(UpdatePump("WP1", 1500)); // WP1 auf 1500 RPM
 		yield return StartCoroutine(UpdatePump("WP2", 0)); // WP2 auf 0 RPM
 		yield return StartCoroutine(UpdatePump("CP", 1800)); // CP auf 1800 RPM
@@ -241,9 +256,171 @@ public class NPPClient : MonoBehaviour
 		yield return StartCoroutine(UpdateValveStatus("SV1", false)); // SV1 schließen
 		yield return StartCoroutine(UpdateValveStatus("SV2", false)); // SV2 schließen
 		yield return StartCoroutine(UpdateValveStatus("WV1", true)); // WV1 öffnen
-		yield return StartCoroutine(UpdateValveStatus("WV2", false)); // WV2 schließen
+		yield return StartCoroutine(UpdateValveStatus("WV2", false)); // WV2 schließen */
 
 		Debug.Log("Normal Shutdown Scenario applied successfully.");
+	}
+	
+	public IEnumerator SetEmergencyShutdownScenario()
+	{
+		Debug.Log("Setting Emergency Shutdown Scenario via API...");
+		
+		ModPos modPos = FindObjectOfType<ModPos>();
+		
+		if(modPos != null){
+			modPos.SetPercentFromExternal(20);
+		}
+		
+		WP1 wp1 = FindObjectOfType<WP1>();
+		if (wp1 != null)
+		{
+			wp1.SetPercentFromExternal(0);
+		}
+		
+		WP2 wp2 = FindObjectOfType<WP2>();
+		if (wp2 != null)
+		{
+			wp2.SetPercentFromExternal(0);
+		}
+		
+		CP cp = FindObjectOfType<CP>();
+		if (cp != null)
+		{
+			cp.SetPercentFromExternal(90);
+		}
+		
+		SV1 sv1 = FindObjectOfType<SV1>();
+		if (sv1 != null)
+		{
+			sv1.SetPercentFromExternal(0); 
+		}
+		
+		SV2 sv2 = FindObjectOfType<SV2>();
+		if (sv2 != null)
+		{
+			sv2.SetPercentFromExternal(0); 
+		}
+
+		WV1 wv1 = FindObjectOfType<WV1>();
+		if (wv1 != null)
+		{
+			wv1.SetPercentFromExternal(100); 
+		}
+		
+		WV2 wv2 = FindObjectOfType<WV2>();
+		if (wv2 != null)
+		{
+			wv2.SetPercentFromExternal(0); 
+		}
+		
+		using (UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}system/emergencyShutdown",""))
+        {
+            yield return req.SendWebRequest();
+
+            if (req.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError($"Error setting Emergency Shutdown Scenario: {req.error}");
+            }
+            else
+            {
+                Debug.Log($"Emergency Shutdown Scenario set successfully: {req.downloadHandler.text}");
+            }
+        }
+
+		
+		// API-Befehle für das Szenario ausführen
+		/* yield return StartCoroutine(SetRodPosition(80)); // Control Rods auf 80%
+		yield return StartCoroutine(UpdatePump("WP1", 1500)); // WP1 auf 1500 RPM
+		yield return StartCoroutine(UpdatePump("WP2", 0)); // WP2 auf 0 RPM
+		yield return StartCoroutine(UpdatePump("CP", 1800)); // CP auf 1800 RPM
+
+		yield return StartCoroutine(UpdateValveStatus("SV1", false)); // SV1 schließen
+		yield return StartCoroutine(UpdateValveStatus("SV2", false)); // SV2 schließen
+		yield return StartCoroutine(UpdateValveStatus("WV1", true)); // WV1 öffnen
+		yield return StartCoroutine(UpdateValveStatus("WV2", false)); // WV2 schließen */
+
+		Debug.Log("Emergency Shutdown Scenario applied successfully.");
+	}
+	
+	public IEnumerator SetInitialStateScenario()
+	{
+		Debug.Log("Setting Initial State Scenario via API...");
+		
+		ModPos modPos = FindObjectOfType<ModPos>();
+		
+		if(modPos != null){
+			modPos.SetPercentFromExternal(100);
+		}
+		
+		WP1 wp1 = FindObjectOfType<WP1>();
+		if (wp1 != null)
+		{
+			wp1.SetPercentFromExternal(0);
+		}
+		
+		WP2 wp2 = FindObjectOfType<WP2>();
+		if (wp2 != null)
+		{
+			wp2.SetPercentFromExternal(0);
+		}
+		
+		CP cp = FindObjectOfType<CP>();
+		if (cp != null)
+		{
+			cp.SetPercentFromExternal(0);
+		}
+		
+		SV1 sv1 = FindObjectOfType<SV1>();
+		if (sv1 != null)
+		{
+			sv1.SetPercentFromExternal(0); 
+		}
+		
+		SV2 sv2 = FindObjectOfType<SV2>();
+		if (sv2 != null)
+		{
+			sv2.SetPercentFromExternal(0); 
+		}
+
+		WV1 wv1 = FindObjectOfType<WV1>();
+		if (wv1 != null)
+		{
+			wv1.SetPercentFromExternal(0); 
+		}
+		
+		WV2 wv2 = FindObjectOfType<WV2>();
+		if (wv2 != null)
+		{
+			wv2.SetPercentFromExternal(0); 
+		}
+		
+		using (UnityWebRequest req = UnityWebRequest.Put($"{GlobalConfig.BASE_URL}system/initialState",""))
+        {
+            yield return req.SendWebRequest();
+
+            if (req.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError($"Error setting Initial State Scenario: {req.error}");
+            }
+            else
+            {
+                Debug.Log($"Initial State Scenario set successfully: {req.downloadHandler.text}");
+            }
+        }
+
+		
+		// API-Befehle für das Szenario ausführen
+		/* yield return StartCoroutine(SetRodPosition(80)); // Control Rods auf 80%
+		yield return StartCoroutine(UpdatePump("WP1", 1500)); // WP1 auf 1500 RPM
+		yield return StartCoroutine(UpdatePump("WP2", 0)); // WP2 auf 0 RPM
+		yield return StartCoroutine(UpdatePump("CP", 1800)); // CP auf 1800 RPM
+
+		yield return StartCoroutine(UpdateValveStatus("SV1", false)); // SV1 schließen
+		yield return StartCoroutine(UpdateValveStatus("SV2", false)); // SV2 schließen
+		yield return StartCoroutine(UpdateValveStatus("WV1", true)); // WV1 öffnen
+		yield return StartCoroutine(UpdateValveStatus("WV2", false)); // WV2 schließen */
+
+		Debug.Log("Initial State Scenario applied successfully.");
 	}
 
     private IEnumerator UpdateSimulationState()

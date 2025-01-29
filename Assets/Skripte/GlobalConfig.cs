@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 public class GlobalConfig : MonoBehaviour
 {
     public static string BASE_URL = "http://localhost:8080/api/";
-    public static float CLIENT_UPDATE_INTERVAL = .05f;
+    public static float CLIENT_UPDATE_INTERVAL = .1f;
 
     public bool START_REST_SERVER;
 

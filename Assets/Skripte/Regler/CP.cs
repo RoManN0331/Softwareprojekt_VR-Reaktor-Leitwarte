@@ -105,8 +105,10 @@ public class CP : MonoBehaviour
 	public void SetPercentFromExternal(int percent)
 	{
 		Percent = Mathf.Clamp(percent, 0, 100); 
+		/*
 		UpdateRotation(); 
-		SendPercentToSimulation(); 
+		SendPercentToSimulation();
+		*/
 	}
 
     private void OnEnable()

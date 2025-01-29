@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
 
-public class ClipboardNormalShutdown : MonoBehaviour
+public class ClipboardEmergencyShutdown : MonoBehaviour
 {
     private NPPClient nppClient; // Referenz zu NPPClient
     public InputAction actionTrigger;
@@ -66,14 +66,14 @@ public class ClipboardNormalShutdown : MonoBehaviour
 	
 	private void OnSelectEntered(SelectEnterEventArgs args)
     {
-		// Debug.Log("Entered Clipboard");
+		Debug.Log("Entered Clipboard for Emergency Shutdown");
         isInteracting = true;
         interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor;
     }
 
     private void OnSelectExited(SelectExitEventArgs args)
     {
-		// Debug.Log("Exited Clipboard");
+		Debug.Log("Exited Clipboard for Emergency Shutdown");
         isInteracting = false;
         interactor = null;
     }
@@ -81,10 +81,12 @@ public class ClipboardNormalShutdown : MonoBehaviour
     private void OnActionTriggered(InputAction.CallbackContext context)
     {
 		Debug.Log("Action Triggered: " + context.action.name);
+		Debug.Log(isInteracting);
+		Debug.Log(interactor);
         if (nppClient != null && isInteracting)
         {
-            Debug.Log("Setting Normal Shutdown Scenario...");
-            nppClient.StartCoroutine(nppClient.SetNormalShutdownScenario());
+            Debug.Log("Setting Emergency Shutdown Scenario...");
+            nppClient.StartCoroutine(nppClient.SetEmergencyShutdownScenario());
         }
     }
 }

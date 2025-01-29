@@ -101,14 +101,17 @@ public class WP2 : MonoBehaviour
     private void SendPercentToSimulation()
     {
         int rpmValue = Percent * 20; // Convert percent to RPM
+		// Debug.Log($"WP2 has rpmValue of {rpmValue}");
         StartCoroutine(nppClient.UpdatePump("WP2", rpmValue));
     }
 	
 	public void SetPercentFromExternal(int percent)
 	{
-		Percent = Mathf.Clamp(percent, 0, 100); 
+		Percent = Mathf.Clamp(percent, 0, 100);
+		/*
 		UpdateRotation(); 
-		SendPercentToSimulation(); 
+		SendPercentToSimulation();
+		*/
 	}
 
     private void OnEnable()

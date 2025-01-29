@@ -109,7 +109,7 @@ public class ModPos : MonoBehaviour
             lastPressTime = Time.time;
 
             int rodValue = 100 - Percent; 
-            Debug.Log($"Setting rod position to {rodValue}");
+            // Debug.Log($"Setting rod position to {rodValue}");
 
             StartCoroutine(nppClient.SetRodPosition(rodValue));
         }
@@ -118,8 +118,10 @@ public class ModPos : MonoBehaviour
 	public void SetPercentFromExternal(int newPercent)
     {
         Percent = Mathf.Clamp(newPercent, 0, 100);
-        UpdateRotation();
+        /*
+		UpdateRotation();
         UpdateRodPosition();
+		*/
     }
 
     private void OnEnable()

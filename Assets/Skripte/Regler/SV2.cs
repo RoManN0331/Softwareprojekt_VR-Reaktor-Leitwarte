@@ -67,14 +67,14 @@ public class SV2: MonoBehaviour
             {
                 
                 SetValveStatus("SV2", true);
-                Debug.Log("Valve SV2 is open");
+                // Debug.Log("Valve SV2 is open");
                 
                 lightRegler.SetLight(true);
             }
             else if (Percent == 0)
             {
                 SetValveStatus("SV2", false);
-                Debug.Log("Valve SV2 is closed");
+                // Debug.Log("Valve SV2 is closed");
                 
                 lightRegler.SetLight(false);
             }
