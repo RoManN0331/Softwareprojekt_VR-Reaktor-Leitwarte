@@ -21743,6 +21743,7 @@ MonoBehaviour:
   DirectionCueFadeDuration: 0.175
   DirectionArrowEnabled: 1
   Arrow3DEnabled: 1
+  Arrow3DBinearEnabled: 1
   DirectionArrowOnScreen: 0
   AnzeigenMarkierungEnabled: 1
   targets: []
@@ -27224,6 +27225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DirectionArrowEnabled: 1
   Arrow3DEnabled: 1
+  Arrow3DBinearEnabled: 1
   targets: []
   pathDisplayDistance: 0.85
   animationDuration: 1
