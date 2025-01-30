@@ -37,6 +37,28 @@
                     "action": "TriggerClipboardScenario",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2343f349-7bfb-472d-864e-fdfe448a4d63",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerClipboardScenario",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a1803071-7a12-409d-a27d-01676ee36bf2",
+                    "path": "<XRController>{RightHand}/{Primary2DAxisClick}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerClipboardScenario",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

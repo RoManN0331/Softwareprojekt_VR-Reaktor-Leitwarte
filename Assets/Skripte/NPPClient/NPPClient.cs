@@ -13,6 +13,9 @@ public class NPPClient : MonoBehaviour
 
     public NPPReactorState simulation = new NPPReactorState();
     private AnimatorController animatorController;
+	// state machine
+	private int scenario = 0;
+	private Boolean loadscenario = false;
 
     private AusfallAnzeigenManager ausfallAnzeigenManager;
     void Awake()
@@ -258,6 +261,12 @@ public class NPPClient : MonoBehaviour
 		yield return StartCoroutine(UpdateValveStatus("WV1", true)); // WV1 öffnen
 		yield return StartCoroutine(UpdateValveStatus("WV2", false)); // WV2 schließen */
 
+		// state machine
+		if (!loadscenario){
+			scenario = 2;
+			loadscenario = true;
+		}
+
 		Debug.Log("Normal Shutdown Scenario applied successfully.");
 	}
 	
@@ -338,6 +347,12 @@ public class NPPClient : MonoBehaviour
 		yield return StartCoroutine(UpdateValveStatus("SV2", false)); // SV2 schließen
 		yield return StartCoroutine(UpdateValveStatus("WV1", true)); // WV1 öffnen
 		yield return StartCoroutine(UpdateValveStatus("WV2", false)); // WV2 schließen */
+
+		// state machine
+		if (!loadscenario){
+			scenario = 2;
+			loadscenario = true;
+		}
 
 		Debug.Log("Emergency Shutdown Scenario applied successfully.");
 	}
@@ -420,6 +435,12 @@ public class NPPClient : MonoBehaviour
 		yield return StartCoroutine(UpdateValveStatus("WV1", true)); // WV1 öffnen
 		yield return StartCoroutine(UpdateValveStatus("WV2", false)); // WV2 schließen */
 
+		// state machine
+		if (!loadscenario) {
+			scenario = 1;
+			loadscenario = true;
+		}
+
 		Debug.Log("Initial State Scenario applied successfully.");
 	}
 
@@ -444,6 +465,14 @@ public class NPPClient : MonoBehaviour
 
             // Update animator with new state
             animatorController.UpdateAnimatorParameters(simulation);
+
+			// update animator with new scenario
+
+			if (loadscenario) {
+				animatorController.updateScenario(scenario);
+				loadscenario = !loadscenario;
+				scenario = 0;
+			}
     
             //Debug.Log("All states updated at: " + DateTime.Now);
         
