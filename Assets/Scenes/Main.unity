@@ -39937,21 +39937,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4976d670c47a6fa458f7c0647e21d478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReglerType: 1
-  to_rotate: {fileID: 7276077939510197835}
-  Percent: 0
-  StartRotation: -90
-  EndRotation: 90
-  lastPressTime: 0
-  pressCooldown: 1
-  interactor: {fileID: 0}
-  isInteracting: 0
-  initialInteractorPosition: {x: 0, y: 0, z: 0}
-  initialPercent: 0
-  nppClient: {fileID: 0}
-  previousPercent: 0
-  initialInteractorRotation: {x: 0, y: 0, z: 0, w: 0}
-  lightRegler: {fileID: 0}
 --- !u!65 &6024760224325134969
 BoxCollider:
   m_ObjectHideFlags: 0
