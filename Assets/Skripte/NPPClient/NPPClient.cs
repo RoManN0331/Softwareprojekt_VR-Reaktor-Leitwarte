@@ -34,7 +34,8 @@ public class NPPClient : MonoBehaviour
     {
         string response = await GetJsonAsync($"{GlobalConfig.BASE_URL}simulation/reactor");
         simulation.Reactor = JsonConvert.DeserializeObject<ReactorState>(response);
-        //Debug.Log("Reactor State: " + response);
+        // Debug.Log("Reactor State: " + response);
+		
     }
 
     private async Task FetchCondenserState()
@@ -364,7 +365,7 @@ public class NPPClient : MonoBehaviour
 		ModPos modPos = FindObjectOfType<ModPos>();
 		
 		if(modPos != null){
-			modPos.SetPercentFromExternal(100);
+			modPos.SetPercentFromExternal(0);
 		}
 		
 		WP1 wp1 = FindObjectOfType<WP1>();
