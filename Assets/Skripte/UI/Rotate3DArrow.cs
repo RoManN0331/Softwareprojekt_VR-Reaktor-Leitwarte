@@ -25,7 +25,7 @@ public class Rotate3DArrow : MonoBehaviour
         transform.Rotate(0, direction * rotationSpeed * Time.deltaTime, 0);
 
         // Adjust the x scale
-        float xScale = flipDirection ? -0.075f : 0.075f;
+        float xScale = flipDirection ? -Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x);
         transform.localScale = new Vector3(xScale, transform.localScale.y, transform.localScale.z);
 
         // Move the GameObject up and down on the y-axis

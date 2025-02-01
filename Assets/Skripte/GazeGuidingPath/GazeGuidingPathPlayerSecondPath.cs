@@ -99,6 +99,13 @@ public class GazeGuidingPathPlayerSecondPath : MonoBehaviour
                     StopCoroutine(animatePathCoroutine);
                     animatePathCoroutine = null;
                 }
+                isAnimating = false;
+                if (animatePathCoroutine != null)
+                {
+                    StopCoroutine(animatePathCoroutine);
+                    animatePathCoroutine = null;
+                }
+                lineRenderer.positionCount = 0;
             }
         }
     }

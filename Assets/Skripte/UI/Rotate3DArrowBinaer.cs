@@ -29,17 +29,17 @@ public class Rotate3DArrowBinaer : MonoBehaviour
     {
         while (true)
         {
-            float xScale = flipDirection ? -0.075f : 0.075f;
+            float xScale = flipDirection ? -Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x);
             transform.localScale = new Vector3(xScale, transform.localScale.y, transform.localScale.z);
             // Determine the rotation direction
             float direction = flipDirection ? -1f : 1f;
 
             // Rotate 90 degrees smoothly
-            float targetAngle = transform.eulerAngles.y + (90f * direction);
-            while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle)) > 0.1f)
+            float targetAngle = transform.localRotation.eulerAngles.y + (90f * direction);
+            while (Mathf.Abs(Mathf.DeltaAngle(transform.localRotation.eulerAngles.y, targetAngle)) > 0.1f)
             {
                 float step = rotationSpeed * Time.deltaTime;
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, targetAngle, 0), step);
+                transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.Euler(0, targetAngle, 0), step);
                 yield return null;
             }
 

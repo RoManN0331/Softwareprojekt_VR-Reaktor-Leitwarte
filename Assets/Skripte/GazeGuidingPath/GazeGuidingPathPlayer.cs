@@ -147,7 +147,16 @@ public class GazeGuidingPathPlayer : MonoBehaviour
                 if (animatePathCoroutine != null)
                 {
                     StopCoroutine(animatePathCoroutine);
+                    
                     animatePathCoroutine = null;
+                    
+                    isAnimating = false;
+                    if (animatePathCoroutine != null)
+                    {
+                        StopCoroutine(animatePathCoroutine);
+                        animatePathCoroutine = null;
+                    }
+                    lineRenderer.positionCount = 0;
                 }
             }
 
@@ -164,8 +173,37 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             if (DirectionArrowOnScreen)
             {
                 renderDirectionArrow();
+            }else
+            {
+                removeDirectionArrow();
             }
-            
+
+            if (AnzeigenMarkierungEnabled && !Anzeigeninitialized)
+            {
+                for(int i = 0; i < anzeigenTargets.Count; i++)
+                {
+                    Transform anzeigenMarkerTransform = anzeigenTargets[i].transform.Find("AnzeigenMarker");
+                    if (anzeigenMarkerTransform != null)
+                    {
+                        anzeigenMarkerTransform.gameObject.SetActive(true);
+                        anzeigenMarkerTransform.GetComponent<AnzeigenMarker>().targetNumber = anzeigenNumbers[i];
+                    }
+                }
+                Anzeigeninitialized = true;
+            }
+            else if(!AnzeigenMarkierungEnabled && Anzeigeninitialized)
+            {
+                foreach (var target in anzeigenTargets)
+                {
+                    Transform anzeigenMarkerTransform = target.transform.Find("AnzeigenMarker");
+                    if (anzeigenMarkerTransform != null)
+                    {
+                        anzeigenMarkerTransform.gameObject.SetActive(false);
+                    }
+                }
+                Anzeigeninitialized = false;
+            }
+           
         }
     }
     
@@ -513,20 +551,25 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     }
 
     private List<GazeGuidingTarget> anzeigenTargets = new List<GazeGuidingTarget>();
-
+    private List<float> anzeigenNumbers = new List<float>();
+    
+    bool Anzeigeninitialized = false;
     public void TriggerAnzeigenMarkierung(string targetName, GazeGuidingTarget.TargetType type, float NumberToHighlight)
     {
+        GazeGuidingTarget target = targets.Find(t => t.name == targetName && t.isTypeOf == type);
+        if (target != null) anzeigenTargets.Add(target);
+        anzeigenNumbers.Add(NumberToHighlight);
+        
         if (AnzeigenMarkierungEnabled)
         {
-            GazeGuidingTarget target = targets.Find(t => t.name == targetName && t.isTypeOf == type);
             if (target != null)
             {
-                anzeigenTargets.Add(target);
                 Transform anzeigenMarkerTransform = target.transform.Find("AnzeigenMarker");
                 if (anzeigenMarkerTransform != null && !anzeigenMarkerTransform.gameObject.activeSelf)
                 {
                     anzeigenMarkerTransform.gameObject.SetActive(true);
                     anzeigenMarkerTransform.GetComponent<AnzeigenMarker>().targetNumber = NumberToHighlight;
+                    Anzeigeninitialized = true;
                 }
                 else
                 {
@@ -551,6 +594,7 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             }
         }
         anzeigenTargets.Clear();
+        Anzeigeninitialized = false;
     }
 
 
