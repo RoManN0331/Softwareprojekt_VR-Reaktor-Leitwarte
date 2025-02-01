@@ -20,7 +20,7 @@ public class TuerRESET : MonoBehaviour
         {
             foreach (var act in temp.actionAssets )
             {
-                var action = act.FindAction("XRI Right Interaction/Activate");
+                var action = act.FindAction("XRI Right Interaction/Select");
                 trigger = InputActionReference.Create(action);
                 break;
             }

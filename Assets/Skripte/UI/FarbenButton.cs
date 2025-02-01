@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using TMPro;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class FarbenButton : MonoBehaviour
 {
@@ -110,6 +111,7 @@ public class FarbenButton : MonoBehaviour
             StartCoroutine(AnimateTransform());
             ChangeMaterialsEmission();
             ChangeTextMeshProColors();
+            ChangeCueColor();
         }
     }
 
@@ -166,6 +168,29 @@ public class FarbenButton : MonoBehaviour
             {
                 textMeshProObjects[i].color = newTextColors;
             }
+        }
+    }
+
+    private void ChangeCueColor()
+    {
+        // Load the new sprite from the Resources folder
+        Sprite newSprite = Resources.Load<Sprite>("DirectionCueMagenta");
+
+        if (newSprite == null)
+        {
+            Debug.LogError("DirectionCueMagenta.png not found in Resources folder");
+            return;
+        }
+
+        // Find all objects with Image components named DirectionCue and DirectionCue2
+        Image[] directionCues = FindObjectsByType<Image>(FindObjectsSortMode.None)
+            .Where(img => img.gameObject.name == "DirectionCue" || img.gameObject.name == "DirectionCue2")
+            .ToArray();
+
+        // Swap the image with the new sprite
+        foreach (var img in directionCues)
+        {
+            img.sprite = newSprite;
         }
     }
 }
