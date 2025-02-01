@@ -32,8 +32,7 @@ public class FarbenButton : MonoBehaviour
             .ToArray();
 
         // Initialize textMeshProObjects with TextMeshPro components of children named "AusrufeZeichen"
-        textMeshProObjects = anzeigenMarkers
-            .SelectMany(marker => marker.GetComponentsInChildren<TextMeshPro>(true))
+        textMeshProObjects = Resources.FindObjectsOfTypeAll<TextMeshPro>()
             .Where(tmp => tmp.gameObject.name == "AusrufeZeichen")
             .ToArray();
 
@@ -112,6 +111,8 @@ public class FarbenButton : MonoBehaviour
             ChangeMaterialsEmission();
             ChangeTextMeshProColors();
             ChangeCueColor();
+            ChangeColorOfGazeGuidingButtons();
+            ChangeMeltdownColorForLamps();
         }
     }
 
@@ -192,5 +193,20 @@ public class FarbenButton : MonoBehaviour
         {
             img.sprite = newSprite;
         }
+    }
+
+    public void ChangeColorOfGazeGuidingButtons()
+    {
+        Flipper[] flippers = FindObjectsByType<Flipper>(FindObjectsSortMode.None);
+        foreach (var flipper in flippers)
+        {
+            flipper.updateMaterials();
+        }
+    }
+
+    public void ChangeMeltdownColorForLamps()
+    {
+        AusfallAnzeigenManager ausfallAnzeigenManager = FindAnyObjectByType<AusfallAnzeigenManager>();
+        ausfallAnzeigenManager.toChange = Color.magenta;
     }
 }

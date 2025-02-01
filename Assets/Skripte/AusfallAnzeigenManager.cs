@@ -35,14 +35,14 @@ public class AusfallAnzeigenManager : MonoBehaviour
         //Zusätzlich noch Lampen im Raum rot machen
         SetAllLampsToRed();
     }
-    
+    public Color toChange = Color.red;
     public void SetAllLampsToRed()
     {
         Light[] lamps = FindObjectsByType<Light>(FindObjectsSortMode.None);
         foreach (Light lamp in lamps)
         {
             Debug.Log("here");
-            lamp.color = Color.red;
+            lamp.color = toChange;
         }
     }
 
@@ -57,4 +57,6 @@ public class AusfallAnzeigenManager : MonoBehaviour
             }
         }
     }
+    
+    
 }

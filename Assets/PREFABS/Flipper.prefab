@@ -189,7 +189,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419ad0c300032bb419936cb523d08e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 144dfb769bffa904293bda1242fdad5e, type: 2}
   trigger: {fileID: 0}
+  DirectionCueEnabled: 0
+  DirectionArrowEnabled: 0
+  Arrow3DEnabled: 0
+  Arrow3DBinearEnabled: 0
+  DirectionArrowOnScreen: 0
+  AnzeigenMarkierungEnabled: 0
 --- !u!114 &3486295600012388411
 MonoBehaviour:
   m_ObjectHideFlags: 0

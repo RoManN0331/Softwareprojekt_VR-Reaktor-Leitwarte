@@ -12308,6 +12308,7 @@ MonoBehaviour:
   - {fileID: 2026142769}
   - {fileID: 643695282}
   - {fileID: 1610308066}
+  toChange: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &783994366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17627,7 +17628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8976005478508058276, guid: 7af95d8e3eef42b4bb740d6cff6f1327, type: 3}
       propertyPath: newColorsEmission.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8976005478508058276, guid: 7af95d8e3eef42b4bb740d6cff6f1327, type: 3}
       propertyPath: newTextColors.Array.data[0].a
@@ -17862,8 +17863,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8976005478508058276, guid: 7af95d8e3eef42b4bb740d6cff6f1327, type: 3}
+      propertyPath: newColorsEmission.Array.data[5].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976005478508058276, guid: 7af95d8e3eef42b4bb740d6cff6f1327, type: 3}
+      propertyPath: newColorsEmission.Array.data[5].b
+      value: 0.83183813
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976005478508058276, guid: 7af95d8e3eef42b4bb740d6cff6f1327, type: 3}
+      propertyPath: newColorsEmission.Array.data[5].g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976005478508058276, guid: 7af95d8e3eef42b4bb740d6cff6f1327, type: 3}
+      propertyPath: newColorsEmission.Array.data[5].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976005478508058276, guid: 7af95d8e3eef42b4bb740d6cff6f1327, type: 3}
       propertyPath: materialsEmissionChange.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8976005478508058276, guid: 7af95d8e3eef42b4bb740d6cff6f1327, type: 3}
       propertyPath: 'materialsEmissionChange.Array.data[0]'
@@ -17885,6 +17902,14 @@ PrefabInstance:
       propertyPath: 'materialsEmissionChange.Array.data[4]'
       value: 
       objectReference: {fileID: 2100000, guid: 2454d17051449a447aa61d717e772e26, type: 2}
+    - target: {fileID: 8976005478508058276, guid: 7af95d8e3eef42b4bb740d6cff6f1327, type: 3}
+      propertyPath: 'materialsEmissionChange.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b2c124330b1496449829578313ac7911, type: 2}
+    - target: {fileID: 8976005478508058276, guid: 7af95d8e3eef42b4bb740d6cff6f1327, type: 3}
+      propertyPath: 'materialsEmissionChange.Array.data[6]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b2c124330b1496449829578313ac7911, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

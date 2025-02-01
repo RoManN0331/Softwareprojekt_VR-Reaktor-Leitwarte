@@ -11,12 +11,14 @@ public class Flipper : MonoBehaviour
     
     GazeGuidingButtons gazeGuidingButtons;
     
+    public Material mat;
+    
     private void Start()
     {
         gazeGuidingButtons = FindAnyObjectByType<GazeGuidingButtons>();
         
          meshRenderer = GetComponent<MeshRenderer>();
-
+         
          Material mater = meshRenderer.material;
 
          mater.DisableKeyword("_EMISSION");
@@ -181,4 +183,19 @@ public class Flipper : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(targetAngle, 0, 0);
     }
+
+    public void updateMaterials()
+    {
+        meshRenderer.material = mat;
+        Material mater = meshRenderer.material;
+        if (flipped)
+        {
+            mater.EnableKeyword("_EMISSION");
+            
+        }else if(!flipped)
+        {
+            mater.DisableKeyword("_EMISSION");
+        }
+    }
+    
 }
