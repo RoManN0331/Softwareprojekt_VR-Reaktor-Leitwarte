@@ -12,6 +12,8 @@ public class Flipper : MonoBehaviour
     GazeGuidingButtons gazeGuidingButtons;
     
     public Material mat;
+
+    public Material oldmat;
     
     private void Start()
     {
@@ -186,7 +188,22 @@ public class Flipper : MonoBehaviour
 
     public void updateMaterials()
     {
+        oldmat = meshRenderer.material;
         meshRenderer.material = mat;
+        Material mater = meshRenderer.material;
+        if (flipped)
+        {
+            mater.EnableKeyword("_EMISSION");
+            
+        }else if(!flipped)
+        {
+            mater.DisableKeyword("_EMISSION");
+        }
+    }
+    
+    public void revertMaterials()
+    {
+        meshRenderer.material = oldmat;
         Material mater = meshRenderer.material;
         if (flipped)
         {
