@@ -191,13 +191,13 @@ public class NPPClient : MonoBehaviour
 		ModPos modPos = FindObjectOfType<ModPos>();
 		
 		if(modPos != null){
-			modPos.SetPercentFromExternal(20);
+			modPos.SetPercentFromExternal(19);
 		}
 		
 		WP1 wp1 = FindObjectOfType<WP1>();
 		if (wp1 != null)
 		{
-			wp1.SetPercentFromExternal(75);
+			wp1.SetPercentFromExternal(79);
 		}
 		
 		WP2 wp2 = FindObjectOfType<WP2>();
