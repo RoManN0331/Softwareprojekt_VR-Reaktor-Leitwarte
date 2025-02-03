@@ -44,7 +44,9 @@ public class Flipper : MonoBehaviour
         if (Arrow3DEnabled && Arrow3DEnabled == pathPlayer.Arrow3DEnabled) StartCoroutine(FlipWithoutCall()); 
         if (Arrow3DBinearEnabled && Arrow3DBinearEnabled == pathPlayer.Arrow3DBinearEnabled) StartCoroutine(FlipWithoutCall()); 
         if (DirectionArrowOnScreen && DirectionArrowOnScreen == pathPlayer.DirectionArrowOnScreen) StartCoroutine(FlipWithoutCall()); 
-        if (AnzeigenMarkierungEnabled && AnzeigenMarkierungEnabled == pathPlayer.AnzeigenMarkierungEnabled) StartCoroutine(FlipWithoutCall()); 
+        if (AnzeigenMarkierungEnabled && AnzeigenMarkierungEnabled == pathPlayer.AnzeigenMarkierungEnabled) StartCoroutine(FlipWithoutCall());
+        if (HUDEnabled && ifHUDEnabledShouldItBeOn)StartCoroutine(Flip());
+        
     }
     
     public InputActionReference trigger;
@@ -100,6 +102,10 @@ public class Flipper : MonoBehaviour
     
     public bool AnzeigenMarkierungEnabled = false;
     
+    public bool HUDEnabled = false;
+    
+    public bool ifHUDEnabledShouldItBeOn = false;
+    
     
     
     
@@ -125,8 +131,9 @@ public class Flipper : MonoBehaviour
             if (Arrow3DBinearEnabled) gazeGuidingButtons.Arrow3DBinear(true);
             if (DirectionArrowOnScreen) gazeGuidingButtons.DirectionArrowOnScreen(true);
             if (AnzeigenMarkierungEnabled) gazeGuidingButtons.AnzeigenMarkierung(true);
-            
-            
+            if (HUDEnabled) gazeGuidingButtons.HUD(true);
+
+
         }
         else
         {
@@ -143,6 +150,7 @@ public class Flipper : MonoBehaviour
             if (Arrow3DBinearEnabled) gazeGuidingButtons.Arrow3DBinear(false);
             if (DirectionArrowOnScreen) gazeGuidingButtons.DirectionArrowOnScreen(false);
             if (AnzeigenMarkierungEnabled) gazeGuidingButtons.AnzeigenMarkierung(false);
+            if (HUDEnabled) gazeGuidingButtons.HUD(false);
         }
         
         yield return new WaitForSeconds(1f);
@@ -214,5 +222,4 @@ public class Flipper : MonoBehaviour
             mater.DisableKeyword("_EMISSION");
         }
     }
-    
 }

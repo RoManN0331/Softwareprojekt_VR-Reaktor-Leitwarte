@@ -772,9 +772,12 @@ AnimatorStateTransition:
   - m_ConditionMode: 4
     m_ConditionEvent: ReactorWaterLvl
     m_EventTreshold: 2201
-  - m_ConditionMode: 6
+  - m_ConditionMode: 3
     m_ConditionEvent: GeneratorOutput
-    m_EventTreshold: 700
+    m_EventTreshold: 690
+  - m_ConditionMode: 4
+    m_ConditionEvent: GeneratorOutput
+    m_EventTreshold: 710
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5414420023037736801}
   m_Solo: 0
@@ -1220,9 +1223,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 7
+  - m_ConditionMode: 4
     m_ConditionEvent: GeneratorOutput
-    m_EventTreshold: 700
+    m_EventTreshold: 690
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2814602139415362880}
   m_Solo: 0

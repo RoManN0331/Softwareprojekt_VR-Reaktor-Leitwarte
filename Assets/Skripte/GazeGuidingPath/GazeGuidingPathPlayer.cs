@@ -95,8 +95,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         // Set the plane distance to bring the UI closer to the camera
         canvas.planeDistance = 0.05f;
 
-        // Set the sorting order to ensure the UI is rendered on top of other objects
-        canvas.sortingOrder = 100;
+        // Set the sorting order to ensure the UI is rendered on top of other objects but behind the HUD
+        canvas.sortingOrder = 99;
         
     }
     
@@ -630,8 +630,13 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 
             GGClipboard.HighlightTask(index);
             clipboardText.text = GGClipboard.GetFormattedClipboardText();
-        
         }
+        
+        //Give Text to the HUD
+
+        HUD hud = FindAnyObjectByType<HUD>();
+
+        hud.setText(GGClipboard.GetFormattedClipboardText());
     }
 
 
@@ -647,6 +652,11 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 
         GGClipboard = new GazeGuidingClipboard(clipboardText.text);
         }
+        
+        //Clear HUD
+        HUD hud = FindAnyObjectByType<HUD>();
+
+        hud.clearText();
     }
 
     /*

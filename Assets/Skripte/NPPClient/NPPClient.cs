@@ -355,12 +355,12 @@ public class NPPClient : MonoBehaviour
 			loadscenario = true;
 		}
 
-		Debug.Log("Emergency Shutdown Scenario applied successfully.");
+		//Debug.Log("Emergency Shutdown Scenario applied successfully.");
 	}
 	
 	public IEnumerator SetInitialStateScenario()
 	{
-		Debug.Log("Setting Initial State Scenario via API...");
+		//Debug.Log("Setting Initial State Scenario via API...");
 		
 		ModPos modPos = FindObjectOfType<ModPos>();
 		
@@ -420,7 +420,7 @@ public class NPPClient : MonoBehaviour
             }
             else
             {
-                Debug.Log($"Initial State Scenario set successfully: {req.downloadHandler.text}");
+                //Debug.Log($"Initial State Scenario set successfully: {req.downloadHandler.text}");
             }
         }
 
@@ -442,7 +442,7 @@ public class NPPClient : MonoBehaviour
 			loadscenario = true;
 		}
 
-		Debug.Log("Initial State Scenario applied successfully.");
+		//Debug.Log("Initial State Scenario applied successfully.");
 	}
 
     private IEnumerator UpdateSimulationState()

@@ -10,6 +10,8 @@ public class GazeGuidingButtons : MonoBehaviour
     {
         pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
         pathPlayer2 = FindAnyObjectByType<GazeGuidingPathPlayerSecondPath>();
+        
+        HUDPrefab = Resources.Load<GameObject>("Prefabs/UI/HUD");
     }
 
     public void DirectionCue(bool TurnOn)
@@ -44,5 +46,19 @@ public class GazeGuidingButtons : MonoBehaviour
     public void AnzeigenMarkierung(bool TurnOn)
     {
         pathPlayer.AnzeigenMarkierungEnabled = TurnOn;
+    }
+
+    private GameObject HUDPrefab;
+    GameObject HUDInstance;
+    public void HUD(bool TurnOn)
+    {
+        if (TurnOn)
+        {
+            HUDInstance = Instantiate(HUDPrefab);
+        }
+        else
+        {
+            Destroy(HUDInstance);
+        }
     }
 }

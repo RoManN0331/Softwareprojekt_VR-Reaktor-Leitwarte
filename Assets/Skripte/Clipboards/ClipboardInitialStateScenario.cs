@@ -21,7 +21,7 @@ public class ClipboardInitialStateShutdown : MonoBehaviour
             return;
         }
 		
-		Debug.LogError("NPPClient instance found.");
+		//Debug.LogError("NPPClient instance found.");
 		
 		var interactable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         interactable.selectEntered.AddListener(OnSelectEntered);
@@ -43,13 +43,13 @@ public class ClipboardInitialStateShutdown : MonoBehaviour
 			Debug.LogError("Action 'TriggerClipboardScenario' not found in Action Map 'Clipboard'.");
 			return;
 		} else {
-			Debug.LogError("ActionTrigger NOT null.");
+			//Debug.LogError("ActionTrigger NOT null.");
 			actionTrigger.Enable();
-			Debug.Log("ActionTrigger enabled.");
+			//Debug.Log("ActionTrigger enabled.");
             actionTrigger.performed += OnActionTriggered;
 		}
 		
-		Debug.Log($"Binding: {actionTrigger.bindings[0].path}");
+		//Debug.Log($"Binding: {actionTrigger.bindings[0].path}");
 		
        
 		
@@ -80,10 +80,10 @@ public class ClipboardInitialStateShutdown : MonoBehaviour
 
     private void OnActionTriggered(InputAction.CallbackContext context)
     {
-		Debug.Log("Action Triggered: " + context.action.name);
+		//Debug.Log("Action Triggered: " + context.action.name);
         if (nppClient != null && isInteracting)
         {
-            Debug.Log("Setting Initial State Scenario...");
+            //Debug.Log("Setting Initial State Scenario...");
             nppClient.StartCoroutine(nppClient.SetInitialStateScenario());
         }
     }

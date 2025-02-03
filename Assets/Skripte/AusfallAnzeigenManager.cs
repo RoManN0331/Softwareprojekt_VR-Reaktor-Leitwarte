@@ -41,7 +41,6 @@ public class AusfallAnzeigenManager : MonoBehaviour
         Light[] lamps = FindObjectsByType<Light>(FindObjectsSortMode.None);
         foreach (Light lamp in lamps)
         {
-            Debug.Log("here");
             lamp.color = toChange;
         }
     }
