@@ -74,6 +74,13 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         
         // Automatically set all GazeGuidingTarget objects
         targets = new List<GazeGuidingTarget>(FindObjectsOfType<GazeGuidingTarget>());
+        
+        
+        text1 = GameObject.Find("POS1").transform.Find("Clipboard/TEXT").GetComponent<TextMeshPro>();
+        text2 = GameObject.Find("POS2").transform.Find("Clipboard/TEXT").GetComponent<TextMeshPro>();
+        text3 = GameObject.Find("POS3").transform.Find("Clipboard/TEXT").GetComponent<TextMeshPro>();
+        
+        animator = FindObjectOfType<AnimatorController>();
     }
 
     private void initUI(GameObject uiInstance)
@@ -99,7 +106,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         canvas.sortingOrder = 99;
         
     }
-    
+
+    private AnimatorController animator;
     private bool arrow3DInstanceCreated = false; // Flag to track if Arrow3D instance has been created
     private bool arrow3DBinaerInstanceCreated = false; // Flag to track if Arrow3D instance has been created
     void Update()
@@ -205,7 +213,26 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             }
            
         }
+
+        //Stellt wirklich sicher das alles gelöscht wurde, da manche states es nicht richtig hinbekommen :/
+        if (animator.getScenario() == 0 && !reset)
+        {
+            removeHighlightFromClipboard();
+            ClearAnzeigenMarkierung();
+            ClearLine();
+            FindAnyObjectByType<GazeGuidingPathPlayerSecondPath>().ClearLine();
+            UnsetGazeGuidingClipboard();
+            reset = true;
+        }
+        else if(reset && (animator.getScenario() == 1 ||
+                          animator.getScenario() == 2 ||
+                          animator.getScenario() == 3))
+        {
+            reset = false;
+        }
     }
+
+    private bool reset = true;
     
     public void Arrow3D()
     {
@@ -601,15 +628,32 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     /* gazeguiding for clipboards */
 
 
+    private TextMeshPro text1;
+    private TextMeshPro text2;
+    private TextMeshPro text3;
+    
+    private string initalText;
+    private bool init = false;
     public void SetGazeGuidingClipboard (string clipboardName){
 
         /* activates gaze guiding for clipboard clipboardName */
 
-        clipboardText = GameObject.Find(clipboardName).transform.Find("Clipboard/TEXT").GetComponent<TextMeshPro>();
+        
+        //Clipboards wurden nicht gefunden, wenn sie gehalten wurden?? -> vorher alle clipboards initialisieren
+        if (clipboardName.Equals("POS1")) clipboardText = text1;
+        if (clipboardName.Equals("POS2")) clipboardText = text2;
+        if (clipboardName.Equals("POS3")) clipboardText = text3;
+        
+        
+        if (!init)
+        {
+            initalText = clipboardText.text;
+            init = true;
+        }
         GGClipboard = new GazeGuidingClipboard(clipboardText.text);
     }
 
-        public void UnsetGazeGuidingClipboard(){
+    public void UnsetGazeGuidingClipboard(){
 
         /* deactivates gaze guiding for a clipboard */
 
@@ -617,9 +661,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         clipboardText = null;
 
     }
-
+    
     public void HighlightClipboard(int index){
-
         /* highlights a portion of the text on the clipboard specified by index */
 
         if (GGClipboard == null || clipboardText == null){
@@ -650,7 +693,9 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             
         } else {
 
-        GGClipboard = new GazeGuidingClipboard(clipboardText.text);
+            GGClipboard = new GazeGuidingClipboard(initalText);
+            clipboardText.text = initalText;
+            init = false;
         }
         
         //Clear HUD

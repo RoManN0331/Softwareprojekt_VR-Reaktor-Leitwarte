@@ -36,6 +36,6 @@ public class s1001 : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        gazeGuidingPathPlayer.removeHighlightFromClipboard();   
+         
     }
 }

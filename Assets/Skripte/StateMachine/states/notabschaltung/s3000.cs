@@ -16,6 +16,7 @@ public class s3000 : StateMachineBehaviour
         gazeGuidingPathPlayer.DirectionCueEnabled = true; // Roten Rand Deaktivieren        
 
 
+        
         // state specific
 
         gazeGuidingPathPlayer.SetGazeGuidingClipboard("POS3");
@@ -35,7 +36,7 @@ public class s3000 : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        gazeGuidingPathPlayer.removeHighlightFromClipboard();
+        
         gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
     }
     

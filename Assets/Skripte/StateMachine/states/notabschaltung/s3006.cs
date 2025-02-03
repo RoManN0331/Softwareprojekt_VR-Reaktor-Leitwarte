@@ -21,6 +21,8 @@ public class s3006 : StateMachineBehaviour
         gazeGuidingPathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
         gazeGuidingPathPlayer2 = FindObjectOfType<GazeGuidingPathPlayerSecondPath>();            
         gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
+        
+        gazeGuidingPathPlayer.removeHighlightFromClipboard();  
 
         // state specific
         gazeGuidingPathPlayer.HighlightClipboard(7);

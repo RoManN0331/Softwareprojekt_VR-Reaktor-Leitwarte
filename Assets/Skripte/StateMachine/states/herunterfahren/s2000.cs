@@ -44,7 +44,6 @@ public class s2000 : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        gazeGuidingPathPlayer.removeHighlightFromClipboard();  
         gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
         gazeGuidingPathPlayer2.ClearLine();
     }

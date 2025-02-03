@@ -351,7 +351,7 @@ public class NPPClient : MonoBehaviour
 
 		// state machine
 		if (!loadscenario){
-			scenario = 2;
+			scenario = 3;
 			loadscenario = true;
 		}
 

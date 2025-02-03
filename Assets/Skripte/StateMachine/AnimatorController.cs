@@ -65,4 +65,21 @@ public class AnimatorController : MonoBehaviour
         ComponentState component = health.components.FirstOrDefault(c => c.name == name);
         return (component == null) ? new ComponentState { name = name, status = false } : component;
     }
+
+    public int getScenario()
+    {
+        switch (animator.GetInteger("scenario"))
+        {
+            case 0:
+                return 0;
+            case 1:
+                return 1;
+            case 2:
+                return 2;
+            case 3:
+                return 3;
+        }
+
+        return 0;
+    }
 }
