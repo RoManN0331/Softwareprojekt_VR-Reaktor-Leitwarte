@@ -314,7 +314,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 6
     m_ConditionEvent: CPRPM
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -1286,10 +1286,10 @@ AnimatorStateTransition:
     m_EventTreshold: 1999
   - m_ConditionMode: 4
     m_ConditionEvent: GeneratorOutput
-    m_EventTreshold: 221
+    m_EventTreshold: 301
   - m_ConditionMode: 3
     m_ConditionEvent: GeneratorOutput
-    m_EventTreshold: 179
+    m_EventTreshold: 99
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -720466248463532204}
   m_Solo: 0
@@ -1351,10 +1351,10 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: GeneratorOutput
-    m_EventTreshold: 180
+    m_EventTreshold: 100
   - m_ConditionMode: 3
     m_ConditionEvent: GeneratorOutput
-    m_EventTreshold: 220
+    m_EventTreshold: 300
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1647636963619841136}
   m_Solo: 0
