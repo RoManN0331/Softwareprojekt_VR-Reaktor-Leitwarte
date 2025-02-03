@@ -51,6 +51,6 @@ public class s1007 : StateMachineBehaviour
         gazeGuidingPathPlayer2.ClearLine();
 
         // reset the scenario
-        FindObjectOfType<AnimatorController>().updateScenario(0);
+        FindObjectOfType<AnimatorController>().updateScenario(2);
     }
 }
