@@ -209,7 +209,7 @@ public class NPPClient : MonoBehaviour
 		CP cp = FindObjectOfType<CP>();
 		if (cp != null)
 		{
-			cp.SetPercentFromExternal(90);
+			cp.SetPercentFromExternal(80);
 		}
 		
 		SV1 sv1 = FindObjectOfType<SV1>();
