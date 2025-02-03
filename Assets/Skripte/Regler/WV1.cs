@@ -75,7 +75,7 @@ public class WV1: MonoBehaviour
             else if (Percent == 0)
             
             {
-                SetValveStatus("WV2", false);
+                SetValveStatus("WV1", false);
                 // Debug.Log("Valve WV1 is closed");
                 
                 lightRegler.SetLight(false);
