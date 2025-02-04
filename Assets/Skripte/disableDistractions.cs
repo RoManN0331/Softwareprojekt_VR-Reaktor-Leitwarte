@@ -6,7 +6,13 @@ public class disableDistractions : MonoBehaviour
     public bool disableDistractionsOnStart = false;
     void Start()
     {
-        if (disableDistractionsOnStart)
+        if(disableDistractionsOnStart) disableDistraction(true);
+        
+    }
+    
+    
+    public void disableDistraction(bool value){
+        if (value)
         {
             foreach (GameObject distraction in distractions)
             {
@@ -16,7 +22,16 @@ public class disableDistractions : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            foreach (GameObject distraction in distractions)
+            {
+                foreach (Transform child in distraction.transform)
+                {
+                    child.gameObject.SetActive(true);
+                }
+            }
+        }
     }
-
 
 }

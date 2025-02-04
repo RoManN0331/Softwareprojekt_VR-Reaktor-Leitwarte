@@ -46,7 +46,8 @@ public class Flipper : MonoBehaviour
         if (DirectionArrowOnScreen && DirectionArrowOnScreen == pathPlayer.DirectionArrowOnScreen) StartCoroutine(FlipWithoutCall()); 
         if (AnzeigenMarkierungEnabled && AnzeigenMarkierungEnabled == pathPlayer.AnzeigenMarkierungEnabled) StartCoroutine(FlipWithoutCall());
         if (HUDEnabled && ifHUDEnabledShouldItBeOn)StartCoroutine(Flip());
-        
+        if (distractionsEnabled && ifdistractionsEnabledShouldItBeOn) StartCoroutine(Flip());
+
     }
     
     public InputActionReference trigger;
@@ -105,9 +106,10 @@ public class Flipper : MonoBehaviour
     public bool HUDEnabled = false;
     
     public bool ifHUDEnabledShouldItBeOn = false;
+
+    public bool distractionsEnabled = false;
     
-    
-    
+    public bool ifdistractionsEnabledShouldItBeOn = false;
     
     private bool flipped = false;
     private IEnumerator Flip()
@@ -132,6 +134,7 @@ public class Flipper : MonoBehaviour
             if (DirectionArrowOnScreen) gazeGuidingButtons.DirectionArrowOnScreen(true);
             if (AnzeigenMarkierungEnabled) gazeGuidingButtons.AnzeigenMarkierung(true);
             if (HUDEnabled) gazeGuidingButtons.HUD(true);
+            if (distractionsEnabled) FindAnyObjectByType<disableDistractions>().disableDistraction(true);
 
 
         }
@@ -151,6 +154,7 @@ public class Flipper : MonoBehaviour
             if (DirectionArrowOnScreen) gazeGuidingButtons.DirectionArrowOnScreen(false);
             if (AnzeigenMarkierungEnabled) gazeGuidingButtons.AnzeigenMarkierung(false);
             if (HUDEnabled) gazeGuidingButtons.HUD(false);
+            if (distractionsEnabled) FindAnyObjectByType<disableDistractions>().disableDistraction(false);
         }
         
         yield return new WaitForSeconds(1f);
