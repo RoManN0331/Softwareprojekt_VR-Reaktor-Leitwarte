@@ -191,13 +191,13 @@ public class NPPClient : MonoBehaviour
 		ModPos modPos = FindObjectOfType<ModPos>();
 		
 		if(modPos != null){
-			modPos.SetPercentFromExternal(19);
+			modPos.SetPercentFromExternal(16);
 		}
 		
 		WP1 wp1 = FindObjectOfType<WP1>();
 		if (wp1 != null)
 		{
-			wp1.SetPercentFromExternal(79);
+			wp1.SetPercentFromExternal(72);
 		}
 		
 		WP2 wp2 = FindObjectOfType<WP2>();
@@ -209,7 +209,7 @@ public class NPPClient : MonoBehaviour
 		CP cp = FindObjectOfType<CP>();
 		if (cp != null)
 		{
-			cp.SetPercentFromExternal(80);
+			cp.SetPercentFromExternal(50);
 		}
 		
 		SV1 sv1 = FindObjectOfType<SV1>();
@@ -278,13 +278,13 @@ public class NPPClient : MonoBehaviour
 		ModPos modPos = FindObjectOfType<ModPos>();
 		
 		if(modPos != null){
-			modPos.SetPercentFromExternal(20);
+			modPos.SetPercentFromExternal(11);
 		}
 		
 		WP1 wp1 = FindObjectOfType<WP1>();
 		if (wp1 != null)
 		{
-			wp1.SetPercentFromExternal(0);
+			wp1.SetPercentFromExternal(72);
 		}
 		
 		WP2 wp2 = FindObjectOfType<WP2>();
@@ -296,13 +296,13 @@ public class NPPClient : MonoBehaviour
 		CP cp = FindObjectOfType<CP>();
 		if (cp != null)
 		{
-			cp.SetPercentFromExternal(90);
+			cp.SetPercentFromExternal(50);
 		}
 		
 		SV1 sv1 = FindObjectOfType<SV1>();
 		if (sv1 != null)
 		{
-			sv1.SetPercentFromExternal(0); 
+			sv1.SetPercentFromExternal(100); 
 		}
 		
 		SV2 sv2 = FindObjectOfType<SV2>();
