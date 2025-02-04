@@ -28,7 +28,7 @@ public class NPPClient : MonoBehaviour
         StartCoroutine(UpdateSimulationState());
         
         ausfallAnzeigenManager = FindObjectOfType<AusfallAnzeigenManager>();
-    }
+	}
 
     private async Task FetchReactorState()
     {
@@ -443,6 +443,51 @@ public class NPPClient : MonoBehaviour
 		}
 
 		//Debug.Log("Initial State Scenario applied successfully.");
+	}
+
+	public IEnumerator ResetSimulation(){
+		//Reset Simulation via API call
+		Debug.Log("Resetting Simulation");
+		using (UnityWebRequest req = UnityWebRequest.PostWwwForm($"{GlobalConfig.BASE_URL}system/restart",""))
+		{
+			yield return req.SendWebRequest();
+
+			if (req.result != UnityWebRequest.Result.Success)
+			{
+				Debug.LogError($"Error resetting Simulation: {req.error}");
+			}
+			else
+			{
+				Debug.Log($"Simulation reset successfully: {req.downloadHandler.text}");
+			}
+		}
+
+		//Reset controls
+		FindObjectOfType<ModPos>().SetPercentFromExternal(0);
+		FindObjectOfType<WP1>().SetPercentFromExternal(0); 
+		FindObjectOfType<WP2>().SetPercentFromExternal(0); 
+		FindObjectOfType<CP>().SetPercentFromExternal(0); 
+		FindObjectOfType<SV1>().SetPercentFromExternal(0); 
+		FindObjectOfType<SV2>().SetPercentFromExternal(0); 
+		FindObjectOfType<WV1>().SetPercentFromExternal(0); 
+		FindObjectOfType<WV2>().SetPercentFromExternal(0);
+
+		//Reset Lamps
+		ausfallAnzeigenManager.TurnAllOff();		
+
+		//Reset Clipboard positions
+		for (int i = 0; i < 3; i++){
+			Transform initialClipboardPos = GameObject.Find("POS" + (i+1)).transform;
+			initialClipboardPos.transform.Find("Clipboard")
+			.gameObject.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+        }
+		animatorController.Reset();
+
+		//Reset Scenario
+		scenario = 0;
+		animatorController.updateScenario(scenario);
+
+
 	}
 
     private IEnumerator UpdateSimulationState()

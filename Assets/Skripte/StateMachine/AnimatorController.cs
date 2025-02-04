@@ -60,6 +60,10 @@ public class AnimatorController : MonoBehaviour
         animator.SetInteger("scenario", scenario);
     }
 
+    public void Reset(){
+        animator.Play("initial", 0, 0);
+    }
+
     private ComponentState GetComponent(string name, ComponentHealth health)
     {
         ComponentState component = health.components.FirstOrDefault(c => c.name == name);
