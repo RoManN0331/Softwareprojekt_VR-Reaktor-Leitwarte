@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class GazeGuidingPathPlayer : MonoBehaviour
@@ -74,6 +76,13 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         
         // Automatically set all GazeGuidingTarget objects
         targets = new List<GazeGuidingTarget>(FindObjectsOfType<GazeGuidingTarget>());
+        
+        
+        text1 = GameObject.Find("POS1").transform.Find("Clipboard/TEXT").GetComponent<TextMeshPro>();
+        text2 = GameObject.Find("POS2").transform.Find("Clipboard/TEXT").GetComponent<TextMeshPro>();
+        text3 = GameObject.Find("POS3").transform.Find("Clipboard/TEXT").GetComponent<TextMeshPro>();
+        
+        animator = FindObjectOfType<AnimatorController>();
     }
 
     private void initUI(GameObject uiInstance)
@@ -95,11 +104,12 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         // Set the plane distance to bring the UI closer to the camera
         canvas.planeDistance = 0.05f;
 
-        // Set the sorting order to ensure the UI is rendered on top of other objects
-        canvas.sortingOrder = 100;
+        // Set the sorting order to ensure the UI is rendered on top of other objects but behind the HUD
+        canvas.sortingOrder = 99;
         
     }
-    
+
+    private AnimatorController animator;
     private bool arrow3DInstanceCreated = false; // Flag to track if Arrow3D instance has been created
     private bool arrow3DBinaerInstanceCreated = false; // Flag to track if Arrow3D instance has been created
     void Update()
@@ -147,7 +157,16 @@ public class GazeGuidingPathPlayer : MonoBehaviour
                 if (animatePathCoroutine != null)
                 {
                     StopCoroutine(animatePathCoroutine);
+                    
                     animatePathCoroutine = null;
+                    
+                    isAnimating = false;
+                    if (animatePathCoroutine != null)
+                    {
+                        StopCoroutine(animatePathCoroutine);
+                        animatePathCoroutine = null;
+                    }
+                    lineRenderer.positionCount = 0;
                 }
             }
 
@@ -164,10 +183,58 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             if (DirectionArrowOnScreen)
             {
                 renderDirectionArrow();
+            }else
+            {
+                removeDirectionArrow();
             }
-            
+
+            if (AnzeigenMarkierungEnabled && !Anzeigeninitialized)
+            {
+                for(int i = 0; i < anzeigenTargets.Count; i++)
+                {
+                    Transform anzeigenMarkerTransform = anzeigenTargets[i].transform.Find("AnzeigenMarker");
+                    if (anzeigenMarkerTransform != null)
+                    {
+                        anzeigenMarkerTransform.gameObject.SetActive(true);
+                        anzeigenMarkerTransform.GetComponent<AnzeigenMarker>().targetNumber = anzeigenNumbers[i];
+                    }
+                }
+                Anzeigeninitialized = true;
+            }
+            else if(!AnzeigenMarkierungEnabled && Anzeigeninitialized)
+            {
+                foreach (var target in anzeigenTargets)
+                {
+                    Transform anzeigenMarkerTransform = target.transform.Find("AnzeigenMarker");
+                    if (anzeigenMarkerTransform != null)
+                    {
+                        anzeigenMarkerTransform.gameObject.SetActive(false);
+                    }
+                }
+                Anzeigeninitialized = false;
+            }
+           
+        }
+
+        //Stellt wirklich sicher das alles gelöscht wurde, da manche states es nicht richtig hinbekommen :/
+        if (animator.getScenario() == 0 && !reset)
+        {
+            removeHighlightFromClipboard();
+            ClearAnzeigenMarkierung();
+            ClearLine();
+            FindAnyObjectByType<GazeGuidingPathPlayerSecondPath>().ClearLine();
+            UnsetGazeGuidingClipboard();
+            reset = true;
+        }
+        else if(reset && (animator.getScenario() == 1 ||
+                          animator.getScenario() == 2 ||
+                          animator.getScenario() == 3))
+        {
+            reset = false;
         }
     }
+
+    private bool reset = true;
     
     public void Arrow3D()
     {
@@ -242,6 +309,10 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     {
         ClearLine();
         currentTarget = targets.Find(t => t.name == targetName && t.isTypeOf == type);
+
+        if (targetName == "WP1RPM" || targetName == "WP2RPM" || targetName == "CPRPM" || targetName == "ModPos")
+            setDisplayHighlight(targetName);
+
         if (currentTarget != null)
         {
             if (type == GazeGuidingTarget.TargetType.Genau)
@@ -281,6 +352,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         removeDirectionArrow();
         
         ClearAnzeigenMarkierung();
+
+        unsetDisplayHighlight();
         
         DirectionCue.gameObject.SetActive(false);
         DirectionCue2.gameObject.SetActive(false);
@@ -302,6 +375,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         ClearLine();
         currentTarget = targets[0];
     }
+
+
     public void triggerTEST2(bool Flip3DArrow)
     {
         ClearLine();
@@ -513,20 +588,26 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     }
 
     private List<GazeGuidingTarget> anzeigenTargets = new List<GazeGuidingTarget>();
+    private List<float> anzeigenNumbers = new List<float>();
+    
+    bool Anzeigeninitialized = false;
 
     public void TriggerAnzeigenMarkierung(string targetName, GazeGuidingTarget.TargetType type, float NumberToHighlight)
     {
+        GazeGuidingTarget target = targets.Find(t => t.name == targetName && t.isTypeOf == type);
+        if (target != null) anzeigenTargets.Add(target);
+        anzeigenNumbers.Add(NumberToHighlight);
+        
         if (AnzeigenMarkierungEnabled)
         {
-            GazeGuidingTarget target = targets.Find(t => t.name == targetName && t.isTypeOf == type);
             if (target != null)
             {
-                anzeigenTargets.Add(target);
                 Transform anzeigenMarkerTransform = target.transform.Find("AnzeigenMarker");
                 if (anzeigenMarkerTransform != null && !anzeigenMarkerTransform.gameObject.activeSelf)
                 {
                     anzeigenMarkerTransform.gameObject.SetActive(true);
                     anzeigenMarkerTransform.GetComponent<AnzeigenMarker>().targetNumber = NumberToHighlight;
+                    Anzeigeninitialized = true;
                 }
                 else
                 {
@@ -551,21 +632,40 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             }
         }
         anzeigenTargets.Clear();
+        Anzeigeninitialized = false;
     }
 
+    /*******************************
+    ** gazeguiding for clipboards **
+    *******************************/
 
-    /* gazeguiding for clipboards */
 
-
+    private TextMeshPro text1;
+    private TextMeshPro text2;
+    private TextMeshPro text3;
+    
+    private string initalText;
+    private bool init = false;
     public void SetGazeGuidingClipboard (string clipboardName){
 
         /* activates gaze guiding for clipboard clipboardName */
 
-        clipboardText = GameObject.Find(clipboardName).transform.Find("Clipboard/TEXT").GetComponent<TextMeshPro>();
+        
+        //Clipboards wurden nicht gefunden, wenn sie gehalten wurden?? -> vorher alle clipboards initialisieren
+        if (clipboardName.Equals("POS1")) clipboardText = text1;
+        if (clipboardName.Equals("POS2")) clipboardText = text2;
+        if (clipboardName.Equals("POS3")) clipboardText = text3;
+        
+        
+        if (!init)
+        {
+            initalText = clipboardText.text;
+            init = true;
+        }
         GGClipboard = new GazeGuidingClipboard(clipboardText.text);
     }
 
-        public void UnsetGazeGuidingClipboard(){
+    public void UnsetGazeGuidingClipboard(){
 
         /* deactivates gaze guiding for a clipboard */
 
@@ -573,9 +673,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         clipboardText = null;
 
     }
-
+    
     public void HighlightClipboard(int index){
-
         /* highlights a portion of the text on the clipboard specified by index */
 
         if (GGClipboard == null || clipboardText == null){
@@ -586,8 +685,13 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 
             GGClipboard.HighlightTask(index);
             clipboardText.text = GGClipboard.GetFormattedClipboardText();
-        
         }
+        
+        //Give Text to the HUD
+
+        HUD hud = FindAnyObjectByType<HUD>();
+
+        hud.setText(GGClipboard.GetFormattedClipboardText());
     }
 
 
@@ -601,25 +705,369 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             
         } else {
 
-        GGClipboard = new GazeGuidingClipboard(clipboardText.text);
+            GGClipboard = new GazeGuidingClipboard(initalText);
+            clipboardText.text = initalText;
+            init = false;
         }
+        
+        //Clear HUD
+        HUD hud = FindAnyObjectByType<HUD>();
+
+        hud.clearText();
     }
 
-    /*
-    public void removeHighlightFromClipboard(int index){
 
-        // removes highlight for Task index 
+    /**********************************
+    ** Highlighting displays utility **
+    **********************************/
 
-        if (GGClipboard == null || clipboardText == null){
+    private bool WP1RPMisGlowing = false;
+    private bool WP2RPMisGlowing = false;
+    private bool CPRPMisGlowing = false;
+    private bool ControlRodsisGlowing = false;
+    private bool EnergyisGlowing = false;
+    private bool RPressureisGlowing = false;
+    private bool CPressureisGlowing = false;
+    private bool RWaterLvlisGlowing = false;
+    private bool CWaterLvlisGlowing = false;
 
-            Debug.LogError("No clipboard set for gaze guiding");
+
+    private void setDisplayHighlight(string targetName)
+    {
+
+        Debug.Log("setDisplayHighlight");
+        /* toggles highlight for displays when setting pumps or moderator position */
+
+        if(targetName == "WP1RPM")
+        {
+            /* sets highlight for the rpm display for WP1, reactor and condenser water levels*/
+
+            if (!WP1RPMisGlowing)
+            {
+                GameObject.Find("WP1RPM_display").GetComponent<Glow>().setGlowing();
+                WP1RPMisGlowing = true;
+            }
             
-        } else {
+            if (!RWaterLvlisGlowing)
+            {
+                GameObject.Find("RWaterLvl").GetComponent<Glow>().setGlowing();
+                RWaterLvlisGlowing = true;
+            }
+            
+            if (!CWaterLvlisGlowing)
+            {
+                GameObject.Find("CWaterLvl").GetComponent<Glow>().setGlowing();
+                CWaterLvlisGlowing = true;
 
-            GGClipboard.removeHighlightFromTask(index);
-            clipboardText.text = GGClipboard.GetFormattedClipboardText();
+            }
+        }
+        else if (targetName == "WP2RPM")
+        {
+            /* sets highlight for the rpm display for WP2, reactor and condenser water levels*/
+
+            if (!WP2RPMisGlowing)
+            {
+                GameObject.Find("WP2RPM_display").GetComponent<Glow>().setGlowing();
+                WP2RPMisGlowing = true;                    
+            }
+            
+            if (!RWaterLvlisGlowing)
+            {
+                GameObject.Find("RWaterLvl").GetComponent<Glow>().setGlowing();
+                RWaterLvlisGlowing = true;
+            }
+
+            
+            if (!CWaterLvlisGlowing)
+            {
+                GameObject.Find("CWaterLvl").GetComponent<Glow>().setGlowing();
+                CWaterLvlisGlowing = true;
+            }
+        }
+        else if (targetName == "CPRPM")
+        {
+            Debug.Log("CP");
+
+            /* sets hightlight for the rpm display for CP, condenser pressure and condenser water level */
+            if (!CPRPMisGlowing)
+            {
+                GameObject.Find("CPRPM_display").GetComponent<Glow>().setGlowing();
+                CPRPMisGlowing = true;
+                Debug.Log("CPRPMisGlowing");
+            }
+            
+            if (!CPressureisGlowing)
+            {
+                GameObject.Find("CPressure").GetComponent<Glow>().setGlowing();
+                CPressureisGlowing = true;
+                Debug.Log("CPressureisGlowing");
+            }
+            
+            if (!CWaterLvlisGlowing)
+            {
+                GameObject.Find("CWaterLvl").GetComponent<Glow>().setGlowing();
+                CWaterLvlisGlowing = true;
+                Debug.Log("CWaterLvlisGlowing");
+            }
+
+        }
+        else if (targetName == "ModPos")
+        {
+            /* sets highlight for moderator position, reactor water and reactor pressure level */
+
+            if (!ControlRodsisGlowing)
+            {
+                GameObject.Find("controlRods").GetComponent<Glow>().setGlowing();
+                ControlRodsisGlowing = true;
+            }
+
+            if (!RWaterLvlisGlowing)
+            {
+                GameObject.Find("RWaterLvl").GetComponent<Glow>().setGlowing();
+                RWaterLvlisGlowing = true;
+            }
+            
+            if (!RPressureisGlowing)
+            {
+                GameObject.Find("RPressure").GetComponent<Glow>().setGlowing();
+                RPressureisGlowing = true;
+            }
+            
+            if (!EnergyisGlowing)
+            {
+                GameObject.Find("Energy").GetComponent<Glow>().setGlowing();
+                EnergyisGlowing = true;
+            }
         }
     }
-    */
+
+    public void unsetDisplayHighlight()
+    {
+        if (WP1RPMisGlowing)
+        {
+            GameObject.Find("WP1RPM_display").GetComponent<Glow>().setGlowing();
+            WP1RPMisGlowing = false;
+        }
+        if (WP2RPMisGlowing)
+        { 
+            GameObject.Find("WP2RPM_display").GetComponent<Glow>().setGlowing();
+            WP2RPMisGlowing = false;
+        }
+        if (CPRPMisGlowing)
+        {
+            GameObject.Find("CPRPM_display").GetComponent<Glow>().setGlowing();
+            CPRPMisGlowing = false;
+        }
+        if (ControlRodsisGlowing)
+        {
+            GameObject.Find("controlRods").GetComponent<Glow>().setGlowing();
+            ControlRodsisGlowing = false;
+        }
+        if (EnergyisGlowing)
+        {
+            GameObject.Find("Energy").GetComponent<Glow>().setGlowing();
+            EnergyisGlowing = false;
+        }
+        if (RPressureisGlowing)
+        {
+            GameObject.Find("RPressure").GetComponent<Glow>().setGlowing();
+            RPressureisGlowing = false;
+        }
+        if (CPressureisGlowing)
+        {
+            GameObject.Find("CPressure").GetComponent<Glow>().setGlowing();
+            CPressureisGlowing = false;
+        }
+        if (RWaterLvlisGlowing)
+        {
+            GameObject.Find("RWaterLvl").GetComponent<Glow>().setGlowing();
+            RWaterLvlisGlowing = false;
+        }
+        if (CWaterLvlisGlowing)
+        {
+            GameObject.Find("CWaterLvl").GetComponent<Glow>().setGlowing();
+            CWaterLvlisGlowing = false;
+        }
+    }
+
+
+    /***********************************
+    ** toggling visibility of objects **
+    ***********************************/
+
+
+    public bool detached = false;
+    private bool checkCullingMask = true;
+
+
+    public void SetDetach(bool on)
+    {
+        if (on)
+            {
+                if (checkCullingMask && (Camera.main.cullingMask & (1 << LayerMask.NameToLayer("detached"))) != 0)
+                {
+                    /* checks camera settings on initialization */
+
+                    Camera.main.cullingMask = Camera.main.cullingMask & ~(1 << LayerMask.NameToLayer("detached"));
+                    checkCullingMask = false;
+                }
+
+                GameObject.Find("Anzeigen").GetComponent<ChangeLayer>().setLayer("detached");
+                GameObject.Find("Regler").GetComponent<ChangeLayer>().setLayer("detached");
+                detached = true;
+            }
+        else
+            {
+                GameObject.Find("Anzeigen").GetComponent<ChangeLayer>().setLayer("Default");
+                GameObject.Find("Regler").GetComponent<ChangeLayer>().setLayer("Default");
+                detached = false;
+            }
+    }
+
+    public void ToggleObjectVisibility(string target, bool on)
+    {
+        /*  toggles an objects visibility by moving it between layers */
+
+        if (on)
+            GameObject.Find(target).GetComponent<ChangeLayer>().setLayer("Ddefault");
+        else
+            GameObject.Find(target).GetComponent<ChangeLayer>().setLayer("detached");
+    }
+
+
+    /****************
+    ** camera blur **
+    ****************/
+
+
+    public bool blur = false;
+    private Camera focusCamera;
+    private Volume mainVolume;
+    private Volume focusVolume;
+
+
+    public void SetBlur(bool on)
+    {
+        if (on)
+            BlurCamera();
+        else
+            UnblurCamera();
+    }
+
+    public void ToggleBlur(string target, bool on)
+    {
+        if (on)
+            GameObject.Find(target).GetComponent<ChangeLayer>().setLayer("Focused");
+        else
+            GameObject.Find(target).GetComponent<ChangeLayer>().setLayer("Default");
+    }
+
+    private void BlurCamera()
+    {
+        Debug.Log("Blurring Camera");
+
+        /* sets up the blur effect */
+
+        if(GameObject.Find("FocusCamera"))
+            focusCamera = GameObject.Find("FocusCamera").GetComponent<Camera>();
+        else
+            Debug.LogError("Focus Camera not found");
+
+
+        // setting the culling Mask of main camera to exclude "focused" and "detached"
+        
+        Camera.main.cullingMask = Camera.main.cullingMask & ~(1 << LayerMask.NameToLayer("Focused"));
+        Camera.main.cullingMask = Camera.main.cullingMask & ~(1 << LayerMask.NameToLayer("Detached"));
+    
+        // setting occlusion culling for main camera
+
+        if (!Camera.main.useOcclusionCulling)
+            Camera.main.useOcclusionCulling = true;
+    
+        // setting the Depth of Field for main camera
+
+        if (Camera.main.GetComponent<Volume>())
+        {
+            mainVolume = Camera.main.GetComponent<Volume>();
+            
+            if (!mainVolume.enabled)
+                mainVolume.enabled = true;
+
+            if (mainVolume.profile.TryGet(out DepthOfField mainDepth))
+            {
+                mainDepth.active = true;
+                mainDepth.focusDistance.overrideState = true;
+                mainDepth.focusDistance.value = 0.9f;
+                mainDepth.focalLength.overrideState = true;
+                mainDepth.focalLength.value = 80;
+                mainDepth.aperture.overrideState = true;
+                mainDepth.aperture.value = 32f;
+            } else {
+                Debug.LogWarning("Depth of Field not found in Main Camera Volume");
+            }
+        }
+
+        // setting up the focus camera
+
+        if (!focusCamera.enabled)
+            focusCamera.enabled = true;
+
+        // setting the culling mask of focus camera to only include "focused"
+
+        focusCamera.cullingMask = 1 << LayerMask.NameToLayer("Focused");
+
+        // setting occlusing culling for focus camera
+
+        if (!focusCamera.useOcclusionCulling)
+            focusCamera.useOcclusionCulling = true;
+        
+        // setting the Depth of Field for focus camera
+
+        if(focusCamera.GetComponent<Volume>())
+        {
+            focusVolume = focusCamera.GetComponent<Volume>();
+
+            if (!focusVolume.enabled)
+                focusVolume.enabled = true;
+            
+            if (focusVolume.profile.TryGet(out DepthOfField focusDepth))
+            {
+                focusDepth.active = true;
+                focusDepth.focusDistance.overrideState = true;
+                focusDepth.focusDistance.value = 0.75f;
+                focusDepth.focalLength.overrideState = true;
+                focusDepth.focalLength.value = 30.7f;
+                focusDepth.aperture.overrideState = true;
+                focusDepth.aperture.value = 5.6f;
+            } else {
+                Debug.LogWarning("Depth of Field not found in Focus Camera Volume");
+            }
+        }
+
+        // ToDo setup controllers here instead of editor
+
+        //GameObject.Find("GazeGuidingController").GetComponent<ChangeLayer>().setLayer("Focused");
+        //GameObject.Find("Clipboardstand").GetComponent<ChangeLayer>().setLayer("Focused");
+
+        blur = true;
+    }
+
+
+    private void UnblurCamera()
+    {
+        Debug.Log("Unblurring Camera");
+        // disable the Volume on main camera
+        if(Camera.main.GetComponent<Volume>().enabled)
+            Camera.main.GetComponent<Volume>().enabled = false;
+
+        // disable focusd camera
+        if (focusCamera.enabled)
+            focusCamera.GetComponent<Volume>().enabled = false;
+
+        //GameObject.Find("GazeGuidingController").GetComponent<ChangeLayer>().setLayer("Default");
+        //GameObject.Find("Clipboardstand").GetComponent<ChangeLayer>().setLayer("Default");
+
+        blur = false;
+    }
 
 }

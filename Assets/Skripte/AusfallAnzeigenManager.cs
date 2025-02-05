@@ -31,6 +31,18 @@ public class AusfallAnzeigenManager : MonoBehaviour
         {
             anzeige.turnOn();
         }
+        
+        //Zusätzlich noch Lampen im Raum rot machen
+        SetAllLampsToRed();
+    }
+    public Color toChange = Color.red;
+    public void SetAllLampsToRed()
+    {
+        Light[] lamps = FindObjectsByType<Light>(FindObjectsSortMode.None);
+        foreach (Light lamp in lamps)
+        {
+            lamp.color = toChange;
+        }
     }
 
     public void TurnOff(string name)
@@ -44,4 +56,13 @@ public class AusfallAnzeigenManager : MonoBehaviour
             }
         }
     }
+
+    public void TurnAllOff()
+    {
+        foreach (var anzeige in ausfallAnzeigen)
+        {
+            anzeige.turnOff();
+        }
+    }  
+    
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -82,6 +83,49 @@ public class AnzeigeSteuerung5 : MonoBehaviour
         setBar(3);
         setBar(4);
         
+        StartCoroutine(AnimatePercentage());
+    }
+
+    private float CHANGEpercentageanimate;
+    //initalisiere alle meshes
+    private IEnumerator AnimatePercentage()
+    {
+        CHANGEpercentageanimate = CHANGEpercentage;
+        float duration = 1.0f; // Duration for the animation
+        float elapsedTime = 0f;
+        
+        // Animate from 0 to 100
+        while (elapsedTime < duration)
+        {
+            CHANGEpercentage = Mathf.Lerp(0, 100, elapsedTime / duration);
+            UpdateBars();
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Animate from 100 to 0
+        elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            CHANGEpercentage = Mathf.Lerp(100, 0, elapsedTime / duration);
+            UpdateBars();
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Animate to the desired CHANGEpercentage
+        float targetPercentage = CHANGEpercentageanimate; // Replace with the desired value
+        elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            CHANGEpercentage = Mathf.Lerp(0, targetPercentage, elapsedTime / duration);
+            UpdateBars();
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Set to the final desired CHANGEpercentage
+        CHANGEpercentage = targetPercentage;
         UpdateBars();
     }
 
@@ -173,50 +217,63 @@ public class AnzeigeSteuerung5 : MonoBehaviour
     {
         CHANGEpercentage = Mathf.Clamp(CHANGEpercentage,0 ,100);
         
-        if (CHANGEpercentage <= percentage8)
+        if (Mathf.Abs(animatePercentage - CHANGEpercentage) < 1)
+        {
+            return;
+        }
+        else if (animatePercentage < CHANGEpercentage)
+        {
+            animatePercentage++;
+        }
+        else if (animatePercentage > CHANGEpercentage)
+        {
+            animatePercentage--;
+        }
+        
+        if (animatePercentage <= percentage8)
         {
             setBar(0);
         }
 
-        if (CHANGEpercentage >= percentage8 && CHANGEpercentage <= percentage9)
+        if (animatePercentage >= percentage8 && animatePercentage <= percentage9)
         {
             setBar(1);
             isBar1Reset = false;
         }
-        else if (CHANGEpercentage < percentage8 && !isBar1Reset)
+        else if (animatePercentage < percentage8 && !isBar1Reset)
         {
             ResetBar(1);
             isBar1Reset = true;
         }
 
-        if (CHANGEpercentage >= percentage9 && CHANGEpercentage <= percentage)
+        if (animatePercentage >= percentage9 && animatePercentage <= percentage)
         {
             setBar(2);
             isBar2Reset = false;
         }
-        else if (CHANGEpercentage < percentage9 && !isBar2Reset)
+        else if (animatePercentage < percentage9 && !isBar2Reset)
         {
             ResetBar(2);
             isBar2Reset = true;
         }
         
-        if (CHANGEpercentage >= percentage && CHANGEpercentage <= percentage2)
+        if (animatePercentage >= percentage && animatePercentage <= percentage2)
         {
             setBar(3);
             isBar3Reset = false;
         }
-        else if (CHANGEpercentage < percentage && !isBar3Reset)
+        else if (animatePercentage < percentage && !isBar3Reset)
         {
             ResetBar(3);
             isBar3Reset = true;
         }
         
-        if (CHANGEpercentage >= percentage2 && CHANGEpercentage <= percentage3)
+        if (animatePercentage >= percentage2 && animatePercentage <= percentage3)
         {
             setBar(4);
             isBar4Reset = false;
         }
-        else if (CHANGEpercentage < percentage2 && !isBar4Reset)
+        else if (animatePercentage < percentage2 && !isBar4Reset)
         {
             ResetBar(4);
             isBar4Reset = true;
@@ -256,8 +313,11 @@ public class AnzeigeSteuerung5 : MonoBehaviour
         
     }
 
+    private float animatePercentage;
     private void setBar(int ID)
     {
+            
+        
         Vector3[] vertices = null;
         float t = 0;
         int minIndex1 = 0, minIndex2 = 0, maxIndex = 0;
@@ -308,9 +368,9 @@ public class AnzeigeSteuerung5 : MonoBehaviour
                 break;
         }
 
-        if (CHANGEpercentage < percentage)
+        if (animatePercentage < percentage)
         {
-            t = 1 - (CHANGEpercentage / 100f);
+            t = 1 - (animatePercentage / 100f);
         }
         else
         {
@@ -326,20 +386,22 @@ public class AnzeigeSteuerung5 : MonoBehaviour
         switch (ID)
         {
             case 0:
-                lastPercentage8 = CHANGEpercentage;
+                lastPercentage8 = animatePercentage;
                 break;
             case 1:
-                lastPercentage9 = CHANGEpercentage;
+                lastPercentage9 = animatePercentage;
                 break;
             case 2:
-                lastPercentage = CHANGEpercentage;
+                lastPercentage = animatePercentage;
                 break;
             case 3:
-                lastPercentage2 = CHANGEpercentage;
+                lastPercentage2 = animatePercentage;
                 break;
             case 4:
-                lastPercentage3 = CHANGEpercentage;
+                lastPercentage3 = animatePercentage;
                 break;
         }
     }
+    
+    
 }

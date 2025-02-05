@@ -21,7 +21,7 @@ public class ClipboardEmergencyShutdown : MonoBehaviour
             return;
         }
 		
-		Debug.Log("NPPClient instance found.");
+		//Debug.LogError("NPPClient instance found.");
 		
 		var interactable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         interactable.selectEntered.AddListener(OnSelectEntered);
@@ -43,13 +43,13 @@ public class ClipboardEmergencyShutdown : MonoBehaviour
 			Debug.LogError("Action 'TriggerClipboardScenario' not found in Action Map 'Clipboard'.");
 			return;
 		} else {
-			Debug.Log("ActionTrigger NOT null.");
+			//Debug.LogError("ActionTrigger NOT null.");
 			actionTrigger.Enable();
-			Debug.Log("ActionTrigger enabled.");
+			//Debug.Log("ActionTrigger enabled.");
             actionTrigger.performed += OnActionTriggered;
 		}
 		
-		Debug.Log($"Binding: {actionTrigger.bindings[0].path}");
+		//Debug.Log($"Binding: {actionTrigger.bindings[0].path}");
 		
        
 		
@@ -66,23 +66,23 @@ public class ClipboardEmergencyShutdown : MonoBehaviour
 	
 	private void OnSelectEntered(SelectEnterEventArgs args)
     {
-		Debug.Log("Entered Clipboard for Emergency Shutdown");
+		//Debug.Log("Entered Clipboard for Emergency Shutdown");
         isInteracting = true;
         interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor;
     }
 
     private void OnSelectExited(SelectExitEventArgs args)
     {
-		Debug.Log("Exited Clipboard for Emergency Shutdown");
+		//Debug.Log("Exited Clipboard for Emergency Shutdown");
         isInteracting = false;
         interactor = null;
     }
 
     private void OnActionTriggered(InputAction.CallbackContext context)
     {
-		Debug.Log("Action Triggered: " + context.action.name);
-		Debug.Log(isInteracting);
-		Debug.Log(interactor);
+		//Debug.Log("Action Triggered: " + context.action.name);
+		//Debug.Log(isInteracting);
+		//Debug.Log(interactor);
         if (nppClient != null && isInteracting)
         {
             Debug.Log("Setting Emergency Shutdown Scenario...");

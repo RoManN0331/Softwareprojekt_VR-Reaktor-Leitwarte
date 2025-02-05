@@ -22,22 +22,40 @@ public class s3003 : StateMachineBehaviour
         gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
         
         gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
+        gazeGuidingPathPlayer.removeHighlightFromClipboard();  
 
         // state specific
         gazeGuidingPathPlayer.HighlightClipboard(4);
+
         target = GameObject.Find("WP2RPM").gameObject;
-        target2 = GameObject.Find("RWaterLvl").gameObject;
-        
         gazeGuidingPathPlayer.TriggerTargetNAME("WP2RPM", target.GetComponent<GazeGuidingTarget>().isTypeOf,true);
         
-        gazeGuidingPathPlayer2.TriggerTargetNAME("RWaterLvl", target2.GetComponent<GazeGuidingTarget>().isTypeOf);   
-        
+        // show arrows        
         gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("RWaterLvl", GazeGuidingTarget.TargetType.Anzeige, 2100);
+
+        if (gazeGuidingPathPlayer.blur)
+        {
+            gazeGuidingPathPlayer.ToggleBlur("WP2RPM", true);
+            gazeGuidingPathPlayer.ToggleBlur("WP2RPM_display", true);
+            gazeGuidingPathPlayer.ToggleBlur("RWaterLvl", true);
+            gazeGuidingPathPlayer.ToggleBlur("CWaterLvl", true);
+        }
+
+        if (gazeGuidingPathPlayer.detached)
+        {
+            gazeGuidingPathPlayer.ToggleObjectVisibility("WP2RPM", true);
+            gazeGuidingPathPlayer.ToggleObjectVisibility("WP2RPM_display", true);
+            gazeGuidingPathPlayer.ToggleObjectVisibility("RWaterLvl", true);
+            gazeGuidingPathPlayer.ToggleObjectVisibility("CWaterLvl", true);
+        }
     }
 
     
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+
+        /* Entfernen?! */
+
         //Wenn Wasserstand steigt -> WP2 zudrehen
         if (simulation.Reactor.waterLevel > 2100)
         {
@@ -52,8 +70,25 @@ public class s3003 : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        gazeGuidingPathPlayer.removeHighlightFromClipboard();
         gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
+        gazeGuidingPathPlayer.unsetDisplayHighlight();
+
+        if (gazeGuidingPathPlayer.blur)
+        {
+            gazeGuidingPathPlayer.ToggleBlur("WP2RPM", false);
+            gazeGuidingPathPlayer.ToggleBlur("WP2RPM_display", false);
+            gazeGuidingPathPlayer.ToggleBlur("RWaterLvl", false);
+            gazeGuidingPathPlayer.ToggleBlur("CWaterLvl", false);
+        }
+
+        if (gazeGuidingPathPlayer.detached)
+        {
+            gazeGuidingPathPlayer.ToggleObjectVisibility("WP2RPM", false);
+            gazeGuidingPathPlayer.ToggleObjectVisibility("WP2RPM_display", false);
+            gazeGuidingPathPlayer.ToggleObjectVisibility("RWaterLvl", false);
+            gazeGuidingPathPlayer.ToggleObjectVisibility("CWaterLvl", false);
+        }
+
     }
     
 }

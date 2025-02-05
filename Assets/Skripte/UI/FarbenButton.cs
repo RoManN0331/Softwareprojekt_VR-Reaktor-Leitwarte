@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using TMPro;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class FarbenButton : MonoBehaviour
 {
@@ -31,8 +32,7 @@ public class FarbenButton : MonoBehaviour
             .ToArray();
 
         // Initialize textMeshProObjects with TextMeshPro components of children named "AusrufeZeichen"
-        textMeshProObjects = anzeigenMarkers
-            .SelectMany(marker => marker.GetComponentsInChildren<TextMeshPro>(true))
+        textMeshProObjects = Resources.FindObjectsOfTypeAll<TextMeshPro>()
             .Where(tmp => tmp.gameObject.name == "AusrufeZeichen")
             .ToArray();
 
@@ -103,13 +103,30 @@ public class FarbenButton : MonoBehaviour
         }
     }
 
+    private bool colorBlindModeActivated = false;
+    
     private void OnSelectEntered(SelectEnterEventArgs args)
     {
-        if (!isAnimating)
+        if (!isAnimating && !colorBlindModeActivated)
         {
             StartCoroutine(AnimateTransform());
             ChangeMaterialsEmission();
             ChangeTextMeshProColors();
+            ChangeCueColor();
+            ChangeColorOfGazeGuidingButtons();
+            ChangeMeltdownColorForLamps();
+            colorBlindModeActivated = true;
+        }else if (!isAnimating && colorBlindModeActivated)
+        {
+            // Restore original colors
+            
+            StartCoroutine(AnimateTransform());
+            revertChangeMaterialsEmission();
+            revertChangeTextMeshProColors();
+            revertChangeCueColor();
+            revertChangeColorOfGazeGuidingButtons();
+            revertChangeMeltdownColorForLamps();
+            colorBlindModeActivated = false;
         }
     }
 
@@ -157,6 +174,21 @@ public class FarbenButton : MonoBehaviour
             }
         }
     }
+    
+    private void revertChangeMaterialsEmission()
+    {
+        for (int i = 0; i < materialsEmissionChange.Length; i++)
+        {
+            if (materialsEmissionChange[i] != null && i < originalColors.Length && i < originalEmissionColors.Length)
+            {
+                materialsEmissionChange[i].color = originalColors[i];
+                if (materialsEmissionChange[i].IsKeywordEnabled("_EMISSION"))
+                {
+                    materialsEmissionChange[i].SetColor("_EmissionColor", originalEmissionColors[i]);
+                }
+            }
+        }
+    }
 
     private void ChangeTextMeshProColors()
     {
@@ -167,5 +199,92 @@ public class FarbenButton : MonoBehaviour
                 textMeshProObjects[i].color = newTextColors;
             }
         }
+    }
+    
+    private void revertChangeTextMeshProColors()
+    {
+        for (int i = 0; i < textMeshProObjects.Length; i++)
+        {
+            if (textMeshProObjects[i] != null)
+            {
+                textMeshProObjects[i].color = Color.red;
+            }
+        }
+    }
+    
+
+    private void ChangeCueColor()
+    {
+        // Load the new sprite from the Resources folder
+        Sprite newSprite = Resources.Load<Sprite>("DirectionCueMagenta");
+
+        if (newSprite == null)
+        {
+            Debug.LogError("DirectionCueMagenta.png not found in Resources folder");
+            return;
+        }
+
+        // Find all objects with Image components named DirectionCue and DirectionCue2
+        Image[] directionCues = FindObjectsByType<Image>(FindObjectsSortMode.None)
+            .Where(img => img.gameObject.name == "DirectionCue" || img.gameObject.name == "DirectionCue2")
+            .ToArray();
+
+        // Swap the image with the new sprite
+        foreach (var img in directionCues)
+        {
+            img.sprite = newSprite;
+        }
+    }
+
+    private void revertChangeCueColor()
+    {
+        Sprite newSprite = Resources.Load<Sprite>("DirectionCue");
+
+        if (newSprite == null)
+        {
+            Debug.LogError("DirectionCue.png not found in Resources folder");
+            return;
+        }
+
+        // Find all objects with Image components named DirectionCue and DirectionCue2
+        Image[] directionCues = FindObjectsByType<Image>(FindObjectsSortMode.None)
+            .Where(img => img.gameObject.name == "DirectionCue" || img.gameObject.name == "DirectionCue2")
+            .ToArray();
+
+        // Swap the image with the new sprite
+        foreach (var img in directionCues)
+        {
+            img.sprite = newSprite;
+        }
+    }
+
+    public void ChangeColorOfGazeGuidingButtons()
+    {
+        Flipper[] flippers = FindObjectsByType<Flipper>(FindObjectsSortMode.None);
+        foreach (var flipper in flippers)
+        {
+            flipper.updateMaterials();
+        }
+    }
+    
+    public void revertChangeColorOfGazeGuidingButtons()
+    {
+        Flipper[] flippers = FindObjectsByType<Flipper>(FindObjectsSortMode.None);
+        foreach (var flipper in flippers)
+        {
+            flipper.revertMaterials();
+        }
+    }
+
+    public void ChangeMeltdownColorForLamps()
+    {
+        AusfallAnzeigenManager ausfallAnzeigenManager = FindAnyObjectByType<AusfallAnzeigenManager>();
+        ausfallAnzeigenManager.toChange = Color.magenta;
+    }
+    
+    public void revertChangeMeltdownColorForLamps()
+    {
+        AusfallAnzeigenManager ausfallAnzeigenManager = FindAnyObjectByType<AusfallAnzeigenManager>();
+        ausfallAnzeigenManager.toChange = Color.white;
     }
 }

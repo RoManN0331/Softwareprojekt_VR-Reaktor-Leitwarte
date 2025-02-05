@@ -13,14 +13,17 @@ public class TuerRESET : MonoBehaviour
 {
     public InputActionReference trigger;
 
+    NPPClient nppClient;
+
     private void Start()
     {
+        nppClient = FindObjectOfType<NPPClient>();
         InputActionManager temp = FindObjectOfType<InputActionManager>();
         if (temp != null && temp.actionAssets.Count > 0)
         {
             foreach (var act in temp.actionAssets )
             {
-                var action = act.FindAction("XRI Right Interaction/Activate");
+                var action = act.FindAction("XRI Right Interaction/Select");
                 trigger = InputActionReference.Create(action);
                 break;
             }
@@ -67,6 +70,8 @@ public class TuerRESET : MonoBehaviour
     private IEnumerator HandleDoorInteraction()
     {
         isCooldown = true;
+        // Reset the simulation
+        StartCoroutine(nppClient.ResetSimulation());
 
         // Smoothly rotate to 40 degrees on the Z axis over 0.5 seconds
         yield return RotateToAngle(40, 0.35f);

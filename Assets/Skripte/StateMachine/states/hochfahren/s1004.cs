@@ -19,22 +19,32 @@ public class s1004 : StateMachineBehaviour
         gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
 
         gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
+        gazeGuidingPathPlayer.removeHighlightFromClipboard();  
         
         // state specific
 
-        gazeGuidingPathPlayer.HighlightClipboard(5);
-        //target = GameObject.Find("RWaterLvl").gameObject;
-        target2 = GameObject.Find("WP1RPM").gameObject;
-        //gazeGuidingPathPlayer.TriggerTargetNAME("RWaterLvl", target.GetComponent<GazeGuidingTarget>().isTypeOf);
-        gazeGuidingPathPlayer2.TriggerTargetNAME("WP1RPM", target2.GetComponent<GazeGuidingTarget>().isTypeOf);
-        
-        /* Wäre es nicht Sinnvoller auf Modpos zu zeigen? anstatt RWaterLvl?
-         da es ja sowieso mit dem Pfeil gehighlightet wird */
+        gazeGuidingPathPlayer.HighlightClipboard(5);        
         target = GameObject.Find("ModPos").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("ModPos", target.GetComponent<GazeGuidingTarget>().isTypeOf);
         
-        
+        //either or
         gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("RWaterLvl", GazeGuidingTarget.TargetType.Anzeige, 2100);
+
+        if (gazeGuidingPathPlayer.blur)
+        {
+            gazeGuidingPathPlayer.ToggleBlur("ModPos", true);
+            gazeGuidingPathPlayer.ToggleBlur("controlRods", true);
+            gazeGuidingPathPlayer.ToggleBlur("RPressure", true);
+            gazeGuidingPathPlayer.ToggleBlur("RWaterLvl", true);
+        }
+
+        if (gazeGuidingPathPlayer.detached)
+        {
+            gazeGuidingPathPlayer.ToggleObjectVisibility("ModPos", true);
+            gazeGuidingPathPlayer.ToggleObjectVisibility("controlRods", true);
+            gazeGuidingPathPlayer.ToggleObjectVisibility("RPressure", true);
+            gazeGuidingPathPlayer.ToggleObjectVisibility("RWaterLvl", true);
+        }
     }
 
     /*
@@ -47,8 +57,23 @@ public class s1004 : StateMachineBehaviour
     */
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        gazeGuidingPathPlayer.removeHighlightFromClipboard();
-        gazeGuidingPathPlayer2.ClearLine();
+    {        
+        gazeGuidingPathPlayer.unsetDisplayHighlight();
+
+        if (gazeGuidingPathPlayer.blur)
+        {
+            gazeGuidingPathPlayer.ToggleBlur("ModPos", false);
+            gazeGuidingPathPlayer.ToggleBlur("controlRods", false);
+            gazeGuidingPathPlayer.ToggleBlur("RPressure", false);
+            gazeGuidingPathPlayer.ToggleBlur("RWaterLvl", false);
+        }
+
+        if (gazeGuidingPathPlayer.detached)
+        {
+            gazeGuidingPathPlayer.ToggleObjectVisibility("ModPos", false);
+            gazeGuidingPathPlayer.ToggleObjectVisibility("controlRods", false);
+            gazeGuidingPathPlayer.ToggleObjectVisibility("RPressure", false);
+            gazeGuidingPathPlayer.ToggleObjectVisibility("RWaterLvl", false);
+        }
     }
 }

@@ -16,7 +16,7 @@ public class Energylvl : MonoBehaviour
 
             clientObject = GameObject.Find("NPPclientObject");
             anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Generator.power/1500*100;
-            Debug.Log("Energy: " + anzeigeSteuerung.CHANGEpercentage);
+            //Debug.Log("Energy: " + anzeigeSteuerung.CHANGEpercentage);
         }
         
     }

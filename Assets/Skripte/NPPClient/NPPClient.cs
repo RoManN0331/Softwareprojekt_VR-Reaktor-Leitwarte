@@ -13,7 +13,6 @@ public class NPPClient : MonoBehaviour
 
     public NPPReactorState simulation = new NPPReactorState();
     private AnimatorController animatorController;
-
 	// state machine
 	private int scenario = 0;
 	private Boolean loadscenario = false;
@@ -29,13 +28,14 @@ public class NPPClient : MonoBehaviour
         StartCoroutine(UpdateSimulationState());
         
         ausfallAnzeigenManager = FindObjectOfType<AusfallAnzeigenManager>();
-    }
+	}
 
     private async Task FetchReactorState()
     {
         string response = await GetJsonAsync($"{GlobalConfig.BASE_URL}simulation/reactor");
         simulation.Reactor = JsonConvert.DeserializeObject<ReactorState>(response);
-        //Debug.Log("Reactor State: " + response);
+        // Debug.Log("Reactor State: " + response);
+		
     }
 
     private async Task FetchCondenserState()
@@ -191,13 +191,13 @@ public class NPPClient : MonoBehaviour
 		ModPos modPos = FindObjectOfType<ModPos>();
 		
 		if(modPos != null){
-			modPos.SetPercentFromExternal(20);
+			modPos.SetPercentFromExternal(19);
 		}
 		
 		WP1 wp1 = FindObjectOfType<WP1>();
 		if (wp1 != null)
 		{
-			wp1.SetPercentFromExternal(75);
+			wp1.SetPercentFromExternal(79);
 		}
 		
 		WP2 wp2 = FindObjectOfType<WP2>();
@@ -209,13 +209,13 @@ public class NPPClient : MonoBehaviour
 		CP cp = FindObjectOfType<CP>();
 		if (cp != null)
 		{
-			cp.SetPercentFromExternal(90);
+			cp.SetPercentFromExternal(80);
 		}
 		
 		SV1 sv1 = FindObjectOfType<SV1>();
 		if (sv1 != null)
 		{
-			sv1.SetPercentFromExternal(0); 
+			sv1.SetPercentFromExternal(100); 
 		}
 		
 		SV2 sv2 = FindObjectOfType<SV2>();
@@ -351,21 +351,21 @@ public class NPPClient : MonoBehaviour
 
 		// state machine
 		if (!loadscenario){
-			scenario = 2;
+			scenario = 3;
 			loadscenario = true;
 		}
 
-		Debug.Log("Emergency Shutdown Scenario applied successfully.");
+		//Debug.Log("Emergency Shutdown Scenario applied successfully.");
 	}
 	
 	public IEnumerator SetInitialStateScenario()
 	{
-		Debug.Log("Setting Initial State Scenario via API...");
+		//Debug.Log("Setting Initial State Scenario via API...");
 		
 		ModPos modPos = FindObjectOfType<ModPos>();
 		
 		if(modPos != null){
-			modPos.SetPercentFromExternal(100);
+			modPos.SetPercentFromExternal(0);
 		}
 		
 		WP1 wp1 = FindObjectOfType<WP1>();
@@ -420,7 +420,7 @@ public class NPPClient : MonoBehaviour
             }
             else
             {
-                Debug.Log($"Initial State Scenario set successfully: {req.downloadHandler.text}");
+                //Debug.Log($"Initial State Scenario set successfully: {req.downloadHandler.text}");
             }
         }
 
@@ -442,7 +442,52 @@ public class NPPClient : MonoBehaviour
 			loadscenario = true;
 		}
 
-		Debug.Log("Initial State Scenario applied successfully.");
+		//Debug.Log("Initial State Scenario applied successfully.");
+	}
+
+	public IEnumerator ResetSimulation(){
+		//Reset Simulation via API call
+		Debug.Log("Resetting Simulation");
+		using (UnityWebRequest req = UnityWebRequest.PostWwwForm($"{GlobalConfig.BASE_URL}system/restart",""))
+		{
+			yield return req.SendWebRequest();
+
+			if (req.result != UnityWebRequest.Result.Success)
+			{
+				Debug.LogError($"Error resetting Simulation: {req.error}");
+			}
+			else
+			{
+				Debug.Log($"Simulation reset successfully: {req.downloadHandler.text}");
+			}
+		}
+
+		//Reset controls
+		FindObjectOfType<ModPos>().SetPercentFromExternal(0);
+		FindObjectOfType<WP1>().SetPercentFromExternal(0); 
+		FindObjectOfType<WP2>().SetPercentFromExternal(0); 
+		FindObjectOfType<CP>().SetPercentFromExternal(0); 
+		FindObjectOfType<SV1>().SetPercentFromExternal(0); 
+		FindObjectOfType<SV2>().SetPercentFromExternal(0); 
+		FindObjectOfType<WV1>().SetPercentFromExternal(0); 
+		FindObjectOfType<WV2>().SetPercentFromExternal(0);
+
+		//Reset Lamps
+		ausfallAnzeigenManager.TurnAllOff();		
+
+		//Reset Clipboard positions
+		for (int i = 0; i < 3; i++){
+			Transform initialClipboardPos = GameObject.Find("POS" + (i+1)).transform;
+			initialClipboardPos.transform.Find("Clipboard")
+			.gameObject.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+        }
+		animatorController.Reset();
+
+		//Reset Scenario
+		scenario = 0;
+		animatorController.updateScenario(scenario);
+
+
 	}
 
     private IEnumerator UpdateSimulationState()
