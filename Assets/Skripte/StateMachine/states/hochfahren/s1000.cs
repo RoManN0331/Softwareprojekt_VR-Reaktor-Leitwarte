@@ -13,7 +13,7 @@ public class s1000 : StateMachineBehaviour
     {
         // boiler palte
         gazeGuidingPathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
-        gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
+        gazeGuidingPathPlayer.DirectionCueEnabled = true; // Roten Rand Deaktivieren        
 
         gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
 
