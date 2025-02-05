@@ -86,7 +86,7 @@ public class ModPos : MonoBehaviour
         float rotationDifference = Mathf.DeltaAngle(initialZRotation, currentZRotation);
 
         // Update the Percent value based on rotation difference
-        Percent = Mathf.Clamp(initialPercent + (int)(rotationDifference * -0.5f), 0, 100);
+        Percent = Mathf.Clamp(initialPercent + (int)(rotationDifference * -0.35f), 0, 100);
 
         UpdateRotation();
         UpdateRodPosition();

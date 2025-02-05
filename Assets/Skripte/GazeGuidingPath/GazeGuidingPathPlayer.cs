@@ -310,8 +310,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         ClearLine();
         currentTarget = targets.Find(t => t.name == targetName && t.isTypeOf == type);
 
-        if (targetName == "WP1RPM" || targetName == "WP2RPM" || targetName == "CPRPM" || targetName == "ModPos")
-            setDisplayHighlight(targetName);
+        //if (targetName == "WP1RPM" || targetName == "WP2RPM" || targetName == "CPRPM" || targetName == "ModPos")
+            //setDisplayHighlight(targetName);
 
         if (currentTarget != null)
         {
@@ -691,7 +691,7 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 
         HUD hud = FindAnyObjectByType<HUD>();
 
-        hud.setText(GGClipboard.GetFormattedClipboardText());
+        if(hud != null) hud.setText(GGClipboard.GetFormattedClipboardText());
     }
 
 
@@ -713,7 +713,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         //Clear HUD
         HUD hud = FindAnyObjectByType<HUD>();
 
-        hud.clearText();
+        if(hud != null) hud.clearText();
+
     }
 
 

@@ -15,6 +15,17 @@ public class HUD : MonoBehaviour
         {
             Debug.LogError("Text component not found!");
         }
+        // Find the main camera in the XR Origin (XR Rig) > Camera Offset > Main Camera
+        Camera mainCamera = GameObject.Find("XR Origin (XR Rig)/Camera Offset/Main Camera").GetComponent<Camera>();
+
+        // Set the render camera of the Canvas component
+        Canvas canvas = transform.parent.GetComponent<Canvas>();
+        canvas.worldCamera = mainCamera;
+        // Set the plane distance to bring the UI closer to the camera
+        canvas.planeDistance = 0.05f;
+
+        // Set the sorting order to ensure the UI is rendered on top of other objects but behind the HUD
+        canvas.sortingOrder = 99;
     }
 
     public void setText(string inputText)
