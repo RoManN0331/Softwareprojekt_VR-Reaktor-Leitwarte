@@ -73,6 +73,8 @@ public class TuerRESET : MonoBehaviour
         // Reset the simulation
         StartCoroutine(nppClient.ResetSimulation());
 
+        FindAnyObjectByType<AusfallAnzeigenManager>().SetAllLampsToWhite();
+        
         // Smoothly rotate to 40 degrees on the Z axis over 0.5 seconds
         yield return RotateToAngle(40, 0.35f);
 

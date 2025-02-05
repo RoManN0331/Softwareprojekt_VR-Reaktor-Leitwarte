@@ -44,6 +44,15 @@ public class AusfallAnzeigenManager : MonoBehaviour
             lamp.color = toChange;
         }
     }
+    
+    public void SetAllLampsToWhite()
+    {
+        Light[] lamps = FindObjectsByType<Light>(FindObjectsSortMode.None);
+        foreach (Light lamp in lamps)
+        {
+            lamp.color = Color.white;
+        }
+    }
 
     public void TurnOff(string name)
     {
