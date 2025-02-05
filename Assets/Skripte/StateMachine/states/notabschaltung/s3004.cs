@@ -23,17 +23,26 @@ public class s3004 : StateMachineBehaviour
         
         // state specific
         gazeGuidingPathPlayer.HighlightClipboard(5);
+        
         target = GameObject.Find("CPressure").gameObject;
-        //target2 = GameObject.Find("RWaterLvl").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("CPressure", target.GetComponent<GazeGuidingTarget>().isTypeOf);
-        //gazeGuidingPathPlayer2.TriggerTargetNAME("RWaterLvl", target2.GetComponent<GazeGuidingTarget>().isTypeOf); 
         
-        
-        
-        
-        
+        // show arrows
         gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("CPressure", GazeGuidingTarget.TargetType.Anzeige, 0);
         gazeGuidingPathPlayer.TriggerAnzeigenMarkierung("RPressure", GazeGuidingTarget.TargetType.Anzeige, 0);
+    
+        if (gazeGuidingPathPlayer.blur)
+        {
+            gazeGuidingPathPlayer.ToggleBlur("RPressure", true);
+            gazeGuidingPathPlayer.ToggleBlur("CPressure", true);
+        }
+
+        if (gazeGuidingPathPlayer.detached)
+        {
+            gazeGuidingPathPlayer.ToggleObjectVisibility("RPressure", true);
+            gazeGuidingPathPlayer.ToggleObjectVisibility("CPressure", true);
+        }
+    
     }
 
     /*
@@ -48,6 +57,19 @@ public class s3004 : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
+        gazeGuidingPathPlayer.unsetDisplayHighlight();
+
+        if (gazeGuidingPathPlayer.blur)
+        {
+            gazeGuidingPathPlayer.ToggleBlur("RPressure", false);
+            gazeGuidingPathPlayer.ToggleBlur("CPressure", false);
+        }
+
+        if (gazeGuidingPathPlayer.detached)
+        {
+            gazeGuidingPathPlayer.ToggleObjectVisibility("RPressure", false);
+            gazeGuidingPathPlayer.ToggleObjectVisibility("CPressure", false);
+        }
     }
     
 }

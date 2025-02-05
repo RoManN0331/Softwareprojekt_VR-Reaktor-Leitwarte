@@ -15,12 +15,24 @@ public class s2006 : StateMachineBehaviour
         gazeGuidingPathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
         gazeGuidingPathPlayer.DirectionCueEnabled = true; // Roten Rand Deaktivieren        
 
-        gazeGuidingPathPlayer.removeHighlightFromClipboard();  
+        gazeGuidingPathPlayer.removeHighlightFromClipboard();
+          
 
         // state specific
         gazeGuidingPathPlayer.HighlightClipboard(7);
+
         target = GameObject.Find("SV2").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("SV2", target.GetComponent<GazeGuidingTarget>().isTypeOf);
+
+        if (gazeGuidingPathPlayer.blur)
+        {
+            gazeGuidingPathPlayer.ToggleBlur("SV2", true);
+        }
+
+        if (gazeGuidingPathPlayer.detached)
+        {
+            gazeGuidingPathPlayer.ToggleObjectVisibility("SV2", true);
+        }
     }
 
     /*
@@ -34,6 +46,16 @@ public class s2006 : StateMachineBehaviour
     {
         gazeGuidingPathPlayer.removeHighlightFromClipboard();
         gazeGuidingPathPlayer.ClearLine();
+
+        if (gazeGuidingPathPlayer.blur)
+        {
+            gazeGuidingPathPlayer.ToggleBlur("SV2", false);
+        }
+
+        if (gazeGuidingPathPlayer.detached)
+        {
+            gazeGuidingPathPlayer.ToggleObjectVisibility("SV2", false);
+        }
 
         // reset the scenario
         FindObjectOfType<AnimatorController>().updateScenario(0);

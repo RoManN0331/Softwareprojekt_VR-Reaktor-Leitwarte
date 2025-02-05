@@ -46,6 +46,9 @@ public class Flipper : MonoBehaviour
         if (DirectionArrowOnScreen && DirectionArrowOnScreen == pathPlayer.DirectionArrowOnScreen) StartCoroutine(FlipWithoutCall()); 
         if (AnzeigenMarkierungEnabled && AnzeigenMarkierungEnabled == pathPlayer.AnzeigenMarkierungEnabled) StartCoroutine(FlipWithoutCall());
         if (HUDEnabled && ifHUDEnabledShouldItBeOn)StartCoroutine(Flip());
+        if (DetachEnabled && DetachEnabled == pathPlayer.detached) StartCoroutine(FlipWithoutCall());
+        if (BlurEnabled && BlurEnabled == pathPlayer.blur) StartCoroutine(FlipWithoutCall());
+        
         if (distractionsEnabled && ifdistractionsEnabledShouldItBeOn) StartCoroutine(Flip());
 
     }
@@ -107,8 +110,11 @@ public class Flipper : MonoBehaviour
     
     public bool ifHUDEnabledShouldItBeOn = false;
 
+    public bool DetachEnabled = false;
     public bool distractionsEnabled = false;
     
+    public bool BlurEnabled = false;
+     
     public bool ifdistractionsEnabledShouldItBeOn = false;
     
     private bool flipped = false;
@@ -134,6 +140,8 @@ public class Flipper : MonoBehaviour
             if (DirectionArrowOnScreen) gazeGuidingButtons.DirectionArrowOnScreen(true);
             if (AnzeigenMarkierungEnabled) gazeGuidingButtons.AnzeigenMarkierung(true);
             if (HUDEnabled) gazeGuidingButtons.HUD(true);
+            if (DetachEnabled) gazeGuidingButtons.TriggerDetach(true);
+            if (BlurEnabled) gazeGuidingButtons.TriggerBlur(true);
             if (distractionsEnabled) FindAnyObjectByType<disableDistractions>().disableDistraction(true);
 
 
@@ -154,6 +162,8 @@ public class Flipper : MonoBehaviour
             if (DirectionArrowOnScreen) gazeGuidingButtons.DirectionArrowOnScreen(false);
             if (AnzeigenMarkierungEnabled) gazeGuidingButtons.AnzeigenMarkierung(false);
             if (HUDEnabled) gazeGuidingButtons.HUD(false);
+            if (DetachEnabled) gazeGuidingButtons.TriggerDetach(false);
+            if (BlurEnabled) gazeGuidingButtons.TriggerBlur(false);
             if (distractionsEnabled) FindAnyObjectByType<disableDistractions>().disableDistraction(false);
         }
         

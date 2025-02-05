@@ -17,10 +17,22 @@ public class s2001 : StateMachineBehaviour
         gazeGuidingPathPlayer.removeHighlightFromClipboard();  
 
         
+        
         // state specific
         gazeGuidingPathPlayer.HighlightClipboard(2);
+        
         target = GameObject.Find("SV2").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("SV2", target.GetComponent<GazeGuidingTarget>().isTypeOf);
+    
+        if (gazeGuidingPathPlayer.blur)
+        {
+            gazeGuidingPathPlayer.ToggleBlur("SV2", true);
+        }
+
+        if (gazeGuidingPathPlayer.detached)
+        {
+            gazeGuidingPathPlayer.ToggleObjectVisibility("SV2", true);
+        }    
     }
 
     /*
@@ -32,7 +44,17 @@ public class s2001 : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        gazeGuidingPathPlayer.unsetDisplayHighlight();
+
+        if (gazeGuidingPathPlayer.blur)
+        {
+            gazeGuidingPathPlayer.ToggleBlur("SV2", false);
+        }
+
+        if (gazeGuidingPathPlayer.detached)
+        {
+            gazeGuidingPathPlayer.ToggleObjectVisibility("SV2", false);
+        }        
     }
     
 }

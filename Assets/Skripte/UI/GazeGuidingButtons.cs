@@ -48,6 +48,17 @@ public class GazeGuidingButtons : MonoBehaviour
         pathPlayer.AnzeigenMarkierungEnabled = TurnOn;
     }
 
+    public void TriggerBlur(bool state)
+    {
+        pathPlayer.SetBlur(state);
+    }
+
+    public void TriggerDetach(bool state)
+    {
+        pathPlayer.SetDetach(state);
+    }
+
+
     private GameObject HUDPrefab;
     GameObject HUDInstance;
     public void HUD(bool TurnOn)

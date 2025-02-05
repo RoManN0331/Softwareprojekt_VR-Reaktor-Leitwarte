@@ -21,8 +21,19 @@ public class s1002 : StateMachineBehaviour
         // state specific
 
         gazeGuidingPathPlayer.HighlightClipboard(3);
+        
         target = GameObject.Find("WV1").gameObject;
         gazeGuidingPathPlayer.TriggerTargetNAME("WV1", target.GetComponent<GazeGuidingTarget>().isTypeOf);
+
+        if (gazeGuidingPathPlayer.blur)
+        {
+            gazeGuidingPathPlayer.ToggleBlur("WV1", true);
+        }
+
+        if (gazeGuidingPathPlayer.detached)
+            {
+                gazeGuidingPathPlayer.ToggleObjectVisibility("WV1", true);
+            }
     }
 
     /*
@@ -34,7 +45,18 @@ public class s1002 : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        gazeGuidingPathPlayer.unsetDisplayHighlight();
+
+        if (gazeGuidingPathPlayer.blur)
+        {
+            gazeGuidingPathPlayer.ToggleBlur("WV1", false);
+        }
+
+        if (gazeGuidingPathPlayer.detached)
+            {
+                gazeGuidingPathPlayer.ToggleObjectVisibility("WV1", false);
+            }
+
     }
 
 }
