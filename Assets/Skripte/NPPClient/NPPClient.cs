@@ -191,12 +191,14 @@ public class NPPClient : MonoBehaviour
 		ModPos modPos = FindObjectOfType<ModPos>();
 		
 		if(modPos != null){
+			//produziert zu wenig Strom
 			modPos.SetPercentFromExternal(16);
 		}
 		
 		WP1 wp1 = FindObjectOfType<WP1>();
 		if (wp1 != null)
 		{
+			//Wassertank steigt zu schnell, kaum Zeit um zu reagieren mit dem Setup lieber so 70%?
 			wp1.SetPercentFromExternal(72);
 		}
 		
@@ -209,6 +211,8 @@ public class NPPClient : MonoBehaviour
 		CP cp = FindObjectOfType<CP>();
 		if (cp != null)
 		{
+			//sollte eigentlich auf 80 stehen, da 1600 in der Hochfahr Checkliste steht.
+			// -> 80% von 2000 = 1600
 			cp.SetPercentFromExternal(50);
 		}
 		
@@ -296,6 +300,8 @@ public class NPPClient : MonoBehaviour
 		CP cp = FindObjectOfType<CP>();
 		if (cp != null)
 		{
+			//sollte eigentlich auf 80 stehen, da 1600 in der Hochfahr Checkliste steht.
+			// -> 80% von 2000 = 1600
 			cp.SetPercentFromExternal(50);
 		}
 		
