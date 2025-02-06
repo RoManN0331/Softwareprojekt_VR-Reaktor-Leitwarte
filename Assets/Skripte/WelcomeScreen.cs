@@ -14,11 +14,11 @@ public class WelcomeScreen : MonoBehaviour
 
     private string[] infoTexts = new string[] {
         "Sie befinden sich in der Steuerzentrale eines Kernreaktors. Ihre Aufgaben umfassen die Überwachung der Systeme, die Steuerung der Energieproduktion und die Gewährleistung der Sicherheit. Ihnen stehen folgende Elemente zur Verfügung:",
-        "📟 Hauptkonsole:\n Zentrale Steuereinheit zur Regulierung des Reaktors und Überwachung der Systemparameter.",
-        "💡 Statuslampen:\n Informieren Sie über den aktuellen Zustand der Reaktorkomponenten.",
-        "📋 Clipboards:\n Standartverfahren verschiedener Szenarien. ",
-        "🔍 Gazeguiding Panel:\n Es stehen eine Reihe von unterstüzenden Führungselementen zur Verfügung. Diese Können nach belieben ausgewählt werden",
-        "🚪 Tür:\n Vollständiges Zurücksetzen der Simulation, um verschiedene Szenarien erneut zu durchlaufen oder Fehler zu korrigieren.",
+        "📟 Hauptkonsole:\nZentrale Steuereinheit zur Regulierung des Reaktors und Überwachung der Systemparameter.",
+        "💡 Statuslampen:\nInformieren Sie über den aktuellen Zustand der Reaktorkomponenten.",
+        "📋 Clipboards:\nStandartverfahren verschiedener Szenarien. Starten Sie ein Szenario durch Betätigen der () Taste",
+        "🔍 Gazeguiding Panel:\nEs stehen eine Reihe von unterstüzenden Führungselementen zur Verfügung. Diese Können nach belieben ausgewählt werden",
+        "🚪 Tür:\nVollständiges Zurücksetzen der Simulation, um verschiedene Szenarien erneut zu durchlaufen oder Fehler zu korrigieren.",
         "Machen Sie sich bereit, die Kontrolle zu übernehmen - die Sicherheit des Reaktors liegt in Ihren Händen! 🔥⚡"
     };
 

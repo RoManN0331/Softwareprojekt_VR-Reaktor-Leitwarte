@@ -72,6 +72,7 @@ public class AusfallAnzeigenManager : MonoBehaviour
         {
             anzeige.turnOff();
         }
+        SetAllLampsToWhite();
     }  
     
 }
