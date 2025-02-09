@@ -16,7 +16,7 @@ public class GazeGuidingButtons : MonoBehaviour
 
     public void DirectionCue(bool TurnOn)
     {
-        pathPlayer.DirectionCueEnabled = TurnOn;
+        pathPlayer.DirectionCueEnabledGlobal = TurnOn;
     }
 
 

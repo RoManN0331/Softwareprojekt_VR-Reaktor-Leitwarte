@@ -15,6 +15,39 @@ public class Flipper : MonoBehaviour
 
     public Material oldmat;
     
+    
+    // IN INSPECTOR ONLY SELECT ONE OF THE FOLLOWING OPTIONS
+    public bool DirectionCueEnabled = false;
+    
+    public bool DirectionArrowEnabled = false;    
+    
+    public bool Arrow3DEnabled = false;
+    
+    public bool Arrow3DBinearEnabled = false;
+
+    public bool DirectionArrowOnScreen = false;
+    
+    public bool AnzeigenMarkierungEnabled = false;
+    
+    public bool HUDEnabled = false;
+    
+    public bool ifHUDEnabledShouldItBeOn = false;
+
+    public bool DetachEnabled = false;
+    public bool distractionsEnabled = false;
+    
+    public bool BlurEnabled = false;
+     
+    public bool ifdistractionsEnabledShouldItBeOn = false;
+
+    public bool clipboardHighlight;
+    
+    public bool clipboardHighlightShouldItBeOn = false;
+    
+    private bool flipped = false;
+    
+    
+    
     private void Start()
     {
         gazeGuidingButtons = FindAnyObjectByType<GazeGuidingButtons>();
@@ -48,8 +81,9 @@ public class Flipper : MonoBehaviour
         if (HUDEnabled && ifHUDEnabledShouldItBeOn)StartCoroutine(Flip());
         if (DetachEnabled && DetachEnabled == pathPlayer.detached) StartCoroutine(FlipWithoutCall());
         if (BlurEnabled && BlurEnabled == pathPlayer.blur) StartCoroutine(FlipWithoutCall());
-        
         if (distractionsEnabled && ifdistractionsEnabledShouldItBeOn) StartCoroutine(Flip());
+        
+        if (clipboardHighlight && clipboardHighlightShouldItBeOn) StartCoroutine(Flip());
 
     }
     
@@ -92,32 +126,6 @@ public class Flipper : MonoBehaviour
         isHovering = false;
     }
     
-    
-    // IN INSPECTOR ONLY SELECT ONE OF THE FOLLOWING OPTIONS
-    public bool DirectionCueEnabled = false;
-    
-    public bool DirectionArrowEnabled = false;    
-    
-    public bool Arrow3DEnabled = false;
-    
-    public bool Arrow3DBinearEnabled = false;
-
-    public bool DirectionArrowOnScreen = false;
-    
-    public bool AnzeigenMarkierungEnabled = false;
-    
-    public bool HUDEnabled = false;
-    
-    public bool ifHUDEnabledShouldItBeOn = false;
-
-    public bool DetachEnabled = false;
-    public bool distractionsEnabled = false;
-    
-    public bool BlurEnabled = false;
-     
-    public bool ifdistractionsEnabledShouldItBeOn = false;
-    
-    private bool flipped = false;
     private IEnumerator Flip()
     {
         isCooldown = true;
@@ -143,6 +151,13 @@ public class Flipper : MonoBehaviour
             if (DetachEnabled) gazeGuidingButtons.TriggerDetach(true);
             if (BlurEnabled) gazeGuidingButtons.TriggerBlur(true);
             if (distractionsEnabled) FindAnyObjectByType<disableDistractions>().disableDistraction(true);
+            if (clipboardHighlight)
+            {
+                GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
+                pathPlayer.ClipBoardTextColor = "<color=#00FF00>";
+                pathPlayer.removeHighlightFromClipboardForButton();
+            }
+            
 
 
         }
@@ -165,6 +180,12 @@ public class Flipper : MonoBehaviour
             if (DetachEnabled) gazeGuidingButtons.TriggerDetach(false);
             if (BlurEnabled) gazeGuidingButtons.TriggerBlur(false);
             if (distractionsEnabled) FindAnyObjectByType<disableDistractions>().disableDistraction(false);
+            if (clipboardHighlight)
+            {
+                GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
+                pathPlayer.ClipBoardTextColor = "<color=#000000>";
+                pathPlayer.removeHighlightFromClipboardForButton();
+            }
         }
         
         yield return new WaitForSeconds(1f);

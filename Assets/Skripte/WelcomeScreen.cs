@@ -29,7 +29,7 @@ public class WelcomeScreen : MonoBehaviour
             return;          
         }
         backButton.SetActive(false);
-        confirmButton.SetActive(false);
+        confirmButton.SetActive(true);
         scrollPanel.GetComponent<TextMeshProUGUI>().text = infoTexts[0];
     }
 
@@ -50,7 +50,7 @@ public class WelcomeScreen : MonoBehaviour
         if (currentTextIndex == infoTexts.Length - 2)
         {
             forwardButton.SetActive(false);
-            confirmButton.SetActive(true);
+            //confirmButton.SetActive(true);
         }
         if (currentTextIndex >= 0)
         {
@@ -72,7 +72,7 @@ public class WelcomeScreen : MonoBehaviour
         if (currentTextIndex < infoTexts.Length - 1)
         {
             forwardButton.SetActive(true);
-            confirmButton.SetActive(false);
+            //confirmButton.SetActive(false);
         }
     }
 

@@ -26,8 +26,19 @@ public class HUD : MonoBehaviour
 
         // Set the sorting order to ensure the UI is rendered on top of other objects but behind the HUD
         canvas.sortingOrder = 99;
+        
+        // Set the parent transform as a child of the current camera
+        transform.parent.SetParent(mainCamera.transform);
+        
+        // Search for the sibling transform named "Hintergrund" and set it to inactive
+        sibling = transform.parent.Find("Hintergrund");
+        if (sibling != null)
+        {
+            sibling.gameObject.SetActive(false);
+        }
     }
 
+    private Transform sibling;
     public void setText(string inputText)
     {
         // Remove new lines
@@ -38,6 +49,11 @@ public class HUD : MonoBehaviour
         {
             text.text = match.Groups[1].Value;
             //Debug.Log("Extracted Text: " + match.Groups[1].Value);
+            
+            if (sibling != null && !match.Groups[1].Value.Equals(""))
+            {
+                sibling.gameObject.SetActive(true);
+            }
         }
         else
         {

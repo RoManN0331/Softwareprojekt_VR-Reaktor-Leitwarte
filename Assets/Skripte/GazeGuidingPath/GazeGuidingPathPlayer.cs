@@ -8,7 +8,10 @@ using UnityEngine.UI;
 
 public class GazeGuidingPathPlayer : MonoBehaviour
 {
+    public bool DirectionCueEnabledGlobal = true;
+    
     public bool DirectionCueEnabled = true;
+    
     public float DirectionCueFadeDuration = 1f;
     
     public bool DirectionArrowEnabled = true;    
@@ -20,6 +23,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     public bool DirectionArrowOnScreen = true;
     
     public bool AnzeigenMarkierungEnabled = true;
+    
+    public bool ClipboardHighlightEnabled = true;
     
     public List<GazeGuidingTarget> targets;
     public float pathDisplayDistance = 5.0f;
@@ -43,7 +48,7 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     // GazeGuiding for clipboards
 
     private TextMeshPro clipboardText;
-    private GazeGuidingClipboard GGClipboard;
+    public GazeGuidingClipboard GGClipboard;
 
 
     void Start()
@@ -170,7 +175,7 @@ public class GazeGuidingPathPlayer : MonoBehaviour
                 }
             }
 
-            if (Time.frameCount % 4 == 0 && DirectionCueEnabled)
+            if (Time.frameCount % 4 == 0 && DirectionCueEnabled && DirectionCueEnabledGlobal)
             {
                 calcDirectionCue();
             }
@@ -180,6 +185,12 @@ public class GazeGuidingPathPlayer : MonoBehaviour
                 DirectionCue2.gameObject.SetActive(false);
             }
 
+            if (!DirectionCueEnabledGlobal)
+            {
+                DirectionCue.gameObject.SetActive(false);
+                DirectionCue2.gameObject.SetActive(false);
+            }
+            
             if (DirectionArrowOnScreen)
             {
                 renderDirectionArrow();
@@ -646,11 +657,17 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     
     private string initalText;
     private bool init = false;
+    
+    public string ClipBoardTextColor = "<color=#00FF00>";
+    
+    
+    public string lastClipboardName = "";
     public void SetGazeGuidingClipboard (string clipboardName){
 
         /* activates gaze guiding for clipboard clipboardName */
 
-        
+    
+        lastClipboardName = clipboardName;
         //Clipboards wurden nicht gefunden, wenn sie gehalten wurden?? -> vorher alle clipboards initialisieren
         if (clipboardName.Equals("POS1")) clipboardText = text1;
         if (clipboardName.Equals("POS2")) clipboardText = text2;
@@ -662,7 +679,7 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             initalText = clipboardText.text;
             init = true;
         }
-        GGClipboard = new GazeGuidingClipboard(clipboardText.text);
+        GGClipboard = new GazeGuidingClipboard(clipboardText.text, ClipBoardTextColor);
     }
 
     public void UnsetGazeGuidingClipboard(){
@@ -671,12 +688,14 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 
         GGClipboard = null;
         clipboardText = null;
-
+        lastClipboardName = "";
     }
     
     public void HighlightClipboard(int index){
         /* highlights a portion of the text on the clipboard specified by index */
-
+        
+        lastindex = index;
+        
         if (GGClipboard == null || clipboardText == null){
 
             Debug.LogError("No clipboard set for gaze guiding");
@@ -705,7 +724,7 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             
         } else {
 
-            GGClipboard = new GazeGuidingClipboard(initalText);
+            GGClipboard = new GazeGuidingClipboard(initalText, ClipBoardTextColor);
             clipboardText.text = initalText;
             init = false;
         }
@@ -715,8 +734,22 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 
         if(hud != null) hud.clearText();
 
+        lastindex = 0;
+
     }
 
+    private int lastindex = 0;
+    public void removeHighlightFromClipboardForButton(){
+
+        /* removes highlighting by reinitialising the clipboard */
+
+        if (!lastClipboardName.Equals(""))
+        {
+            SetGazeGuidingClipboard(lastClipboardName);
+            if(lastindex != 0) HighlightClipboard(lastindex);
+        }
+    }
+    
 
     /**********************************
     ** Highlighting displays utility **

@@ -4,14 +4,15 @@ using System.Text.RegularExpressions;
 public class GazeGuidingClipboard
 {
     private const float DISTANCE_THRESHOLD = 1.0f;
-    private const string HIGHLIGHT_TEXT_COLOR = "<color=#00FF00>";
+    public  string HIGHLIGHT_TEXT_COLOR = "<color=#00FF00>";
     private string informationText;
     private string[] taskList;
 
 
     // Parse clipboard text into task information and checklist
-    public GazeGuidingClipboard(String clipboardText)
+    public GazeGuidingClipboard(String clipboardText, string Color)
     {
+        HIGHLIGHT_TEXT_COLOR = Color;
         clipboardText = Regex.Replace(clipboardText, @"<color=.*?>|</color>", string.Empty, RegexOptions.Multiline);
         // Split clipboard into information and checklist
         string[] clipboard = Regex.Split(clipboardText, @"Checkliste");
