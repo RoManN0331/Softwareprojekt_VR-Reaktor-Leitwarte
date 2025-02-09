@@ -112,6 +112,11 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         // Set the sorting order to ensure the UI is rendered on top of other objects but behind the HUD
         canvas.sortingOrder = 99;
         
+        // Set the transform as a child of the current camera
+        
+        // Set the transform as a child of the current camera
+        uiInstance.transform.SetParent(mainCamera.transform);
+        
     }
 
     private AnimatorController animator;
