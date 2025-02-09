@@ -71,6 +71,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+.idea/
 /.idea/
 /.vscode
 .idea/.idea.Softwareprojekt_VR-Reaktor-Leitwarte/.idea/vcs.xml
