@@ -1,4 +1,4 @@
-# Gaze Guiding Elemente
+# Unterstützende Elemente und Gaze Guiding
 
 - [Rotationspfeile](#rotationspfeile)
 - [3D Pfeil](#3d-pfeil)
@@ -10,6 +10,9 @@
 - [Blur Effekte](#objekt-blur)
 
 <hr>
+
+## Hilfsmittel und Gaze Guiding Panel
+<img src="gg_panel.jpg" alt="Hilfsmittel und Gaze Guiding Panel"/>
 
 ## Rotationspfeile
 <img src="gg_spin_arrow.jpg" alt="Rotationspfeile"/>
