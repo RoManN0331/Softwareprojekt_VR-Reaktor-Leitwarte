@@ -1,9 +1,9 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WelcomeScreen : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject forwardButton;
     public GameObject backButton;
     public GameObject confirmButton;
@@ -12,11 +12,12 @@ public class WelcomeScreen : MonoBehaviour
 
     public bool DISABLE_WELCOME_SCREEN = false;
 
+    public InputActionAsset clipbaordInputAction;
     private string[] infoTexts = new string[] {
         "Sie befinden sich in der Steuerzentrale eines Kernreaktors. Ihre Aufgaben umfassen die Überwachung der Systeme, die Steuerung der Energieproduktion und die Gewährleistung der Sicherheit. Ihnen stehen folgende Elemente zur Verfügung:",
         "📟 Hauptkonsole:\nZentrale Steuereinheit zur Regulierung des Reaktors und Überwachung der Systemparameter.",
         "💡 Statuslampen:\nInformieren Sie über den aktuellen Zustand der Reaktorkomponenten.",
-        "📋 Clipboards:\nStandartverfahren verschiedener Szenarien. Starten Sie ein Szenario durch Betätigen der () Taste",
+        "📋 Clipboards:\nStandartverfahren verschiedener Szenarien. Starten Sie ein Szenario durch Betätigen der <color=#00aaaa>{INPUT_BTN}</color> Taste",
         "🔍 Gazeguiding Panel:\nEs stehen eine Reihe von unterstüzenden Gaze-Guiding Elementen zur Verfügung. Diese Können nach belieben ausgewählt werden",
         "🚪 Tür:\nVollständiges Zurücksetzen der Simulation, um verschiedene Szenarien erneut zu durchlaufen oder Fehler zu korrigieren.",
         "Machen Sie sich bereit, die Kontrolle zu übernehmen - die Sicherheit des Reaktors liegt in Ihren Händen! 🔥⚡"
@@ -24,6 +25,10 @@ public class WelcomeScreen : MonoBehaviour
 
     void Start()
     {
+        //Replace {INPUT_BTN} with actual button
+        InputAction action = clipbaordInputAction.FindAction("Clipboard/TriggerClipboardScenario");
+        infoTexts[3] = infoTexts[3].Replace("{INPUT_BTN}", action.GetBindingDisplayString(4));
+        
         if (DISABLE_WELCOME_SCREEN){
             this.gameObject.SetActive(false);
             return;          
@@ -33,12 +38,7 @@ public class WelcomeScreen : MonoBehaviour
         scrollPanel.GetComponent<TextMeshProUGUI>().text = infoTexts[0];
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // Display the next text of the infoTexts array
     public void Next()
     {
         int currentTextIndex = System.Array.IndexOf(infoTexts, scrollPanel.GetComponent<TextMeshProUGUI>().text);
@@ -58,6 +58,7 @@ public class WelcomeScreen : MonoBehaviour
         }
     }
 
+    // Display the previous text of the infoTexts array
     public void Previous()
     {
         int currentTextIndex = System.Array.IndexOf(infoTexts, scrollPanel.GetComponent<TextMeshProUGUI>().text);
@@ -76,6 +77,7 @@ public class WelcomeScreen : MonoBehaviour
         }
     }
 
+    // Hide welcome screen
     public void Confirm()
     {
         this.gameObject.SetActive(false);
