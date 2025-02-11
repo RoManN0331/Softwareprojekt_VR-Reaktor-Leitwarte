@@ -16,7 +16,7 @@ public class s2006 : StateMachineBehaviour
         gazeGuidingPathPlayer.DirectionCueEnabled = true; // Roten Rand Deaktivieren        
 
         gazeGuidingPathPlayer.removeHighlightFromClipboard();
-          
+        gazeGuidingPathPlayer.unsetDisplayHighlight();
 
         // state specific
         gazeGuidingPathPlayer.HighlightClipboard(7);

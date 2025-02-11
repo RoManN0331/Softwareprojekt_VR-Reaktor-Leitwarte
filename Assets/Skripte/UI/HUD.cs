@@ -64,5 +64,6 @@ public class HUD : MonoBehaviour
     public void clearText()
     {
         text.text = "";
+        sibling.gameObject.SetActive(false);
     }
 }

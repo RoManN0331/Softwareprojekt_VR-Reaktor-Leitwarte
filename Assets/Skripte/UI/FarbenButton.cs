@@ -27,8 +27,13 @@ public class FarbenButton : MonoBehaviour
     private void Start()
     {
         // Find all GameObjects named "AnzeigenMarker"
+        // Find all GameObjects named "AnzeigenMarker"
         GameObject[] anzeigenMarkers = Resources.FindObjectsOfTypeAll<GameObject>()
-            .Where(go => go.name == "AnzeigenMarker" && !AssetDatabase.Contains(go))
+            .Where(go => go.name == "AnzeigenMarker" 
+        #if UNITY_EDITOR
+                         && !AssetDatabase.Contains(go)
+        #endif
+            )
             .ToArray();
 
         // Initialize textMeshProObjects with TextMeshPro components of children named "AusrufeZeichen"

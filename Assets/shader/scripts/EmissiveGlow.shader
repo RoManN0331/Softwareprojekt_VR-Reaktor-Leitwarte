@@ -33,23 +33,25 @@ Shader "Custom/EmissiveGlow"
             #pragma instancing_options assumeuniformscaling nomatrices  // optional performance setting for GPU instancing
 
 
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            // #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "UnityCG.cginc"
             #include "UnityShaderVariables.cginc"
             #include "UnityInstancing.cginc"
 
-            struct Attributes
+           struct Attributes
             {
                 float4 positionOS : POSITION;
+                float3 normalOS   : NORMAL;
                 float2 uv         : TEXCOORD0;
-                UNITY_VERTEX_INPUT_INSTANCE_ID                          // for instancing in single-pass stereo rendering (input)
+                UNITY_VERTEX_INPUT_INSTANCE_ID                         // for instancing in single-pass stereo rendering (input)
             };
 
-            struct Varyings
+             struct Varyings
             {
                 float4 positionCS : SV_POSITION;
+                float3 normalWS   : TEXCOORD1;
                 float2 uv         : TEXCOORD0;
-                UNITY_VERTEX_OUTPUT_STEREO                              // for instancing in single-pass stereo rendering (output)
+                UNITY_VERTEX_OUTPUT_STEREO                            // for instancing in single-pass stereo rendering (output)
             };
 
             sampler2D _MainTex;
@@ -67,6 +69,7 @@ Shader "Custom/EmissiveGlow"
 
                 OUT.positionCS = UnityObjectToClipPos(IN.positionOS);
                 OUT.uv = TRANSFORM_TEX(IN.uv, _MainTex);
+                OUT.normalWS = normalize(mul((float3x3)unity_ObjectToWorld, IN.normalOS));
                 return OUT;
             }
 
@@ -79,6 +82,13 @@ Shader "Custom/EmissiveGlow"
                 // note: if finalAlpha < 1 we have partial transparency
 
                 float4 baseColor = tex2D(_MainTex, IN.uv);
+
+                if (_GlowStrength == 0)
+                {
+                    // Display the main texture normally when GlowStrength is 0
+                    return 0;
+                }
+
                 float4 glowColor = _GlowColor * _GlowStrength;
                 float3 finalRGB = baseColor.rgb + glowColor.rgb;
                 float finalAlpha = saturate(baseColor.a + glowColor.a);

@@ -21,7 +21,7 @@ public class s1007 : StateMachineBehaviour
 
         gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
         gazeGuidingPathPlayer.removeHighlightFromClipboard();  
-        
+        gazeGuidingPathPlayer.unsetDisplayHighlight();
         // state specific
 
         gazeGuidingPathPlayer.HighlightClipboard(8);

@@ -15,6 +15,7 @@ public class s2004 : StateMachineBehaviour
         gazeGuidingPathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
         gazeGuidingPathPlayer.DirectionCueEnabled = true; // Roten Rand Deaktivieren        
 
+        gazeGuidingPathPlayer.unsetDisplayHighlight();
         gazeGuidingPathPlayer.removeHighlightFromClipboard();  
         
         
@@ -44,7 +45,6 @@ public class s2004 : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        gazeGuidingPathPlayer.unsetDisplayHighlight();
 
         if (gazeGuidingPathPlayer.blur)
         {

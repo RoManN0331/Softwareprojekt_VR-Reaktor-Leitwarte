@@ -20,7 +20,7 @@ public class s1004 : StateMachineBehaviour
 
         gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
         gazeGuidingPathPlayer.removeHighlightFromClipboard();  
-        
+        gazeGuidingPathPlayer.unsetDisplayHighlight();
         // state specific
 
         gazeGuidingPathPlayer.HighlightClipboard(5);        
@@ -58,7 +58,6 @@ public class s1004 : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {        
-        gazeGuidingPathPlayer.unsetDisplayHighlight();
 
         if (gazeGuidingPathPlayer.blur)
         {

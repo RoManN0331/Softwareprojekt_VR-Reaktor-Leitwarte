@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Glow : MonoBehaviour{
@@ -16,7 +17,7 @@ public class Glow : MonoBehaviour{
     [SerializeField] private float glowStrength_on = 1.5f;
     private float glowStrength_off = 0.0f;
     private bool isGlowing = false;
-    
+
     private Renderer objectRenderer;
     private Material mats;
 
@@ -42,20 +43,31 @@ public class Glow : MonoBehaviour{
 
     public void setGlowing()
     {
-        /*turns the glow on*/
-
         if (!isGlowing)
         {
-            Debug.Log(mats.GetFloat("_GlowStrength"));
-            mats.SetFloat("_GlowStrength", glowStrength_on);
+            StartCoroutine(AnimateGlow(glowStrength_off, glowStrength_on, 1.0f)); // 1 second duration
             isGlowing = true;
-
         }
         else
         {
-            Debug.Log(mats.GetFloat("_GlowStrength"));
-            mats.SetFloat("_GlowStrength", glowStrength_off);
+            StartCoroutine(AnimateGlow(glowStrength_on, glowStrength_off, 1.0f)); // 1 second duration
             isGlowing = false;
         }
+    }
+
+
+    private IEnumerator AnimateGlow(float startValue, float endValue, float duration)
+    {
+        float elapsedTime = 0.0f;
+
+        while (elapsedTime < duration)
+        {
+            float currentGlow = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
+            mats.SetFloat("_GlowStrength", currentGlow);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        mats.SetFloat("_GlowStrength", endValue);
     }
 }

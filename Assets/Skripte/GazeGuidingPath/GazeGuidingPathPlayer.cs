@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class GazeGuidingPathPlayer : MonoBehaviour
@@ -25,6 +26,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     public bool AnzeigenMarkierungEnabled = true;
     
     public bool ClipboardHighlightEnabled = true;
+    
+    public bool DisplayHighlightEnabled = true;
     
     public List<GazeGuidingTarget> targets;
     private GazeGuidingTarget currentTarget;
@@ -424,8 +427,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         // locating the gaze guiding target for the component specified in targetName
         currentTarget = targets.Find(t => t.name == targetName && t.isTypeOf == type);
 
-        //if (targetName == "WP1RPM" || targetName == "WP2RPM" || targetName == "CPRPM" || targetName == "ModPos")
-            //setDisplayHighlight(targetName);
+        if (targetName == "WP1RPM" || targetName == "WP2RPM" || targetName == "CPRPM" || targetName == "ModPos")
+            setDisplayHighlight(targetName);
 
         if (currentTarget != null)
         {
@@ -946,10 +949,9 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 
     private void setDisplayHighlight(string targetName)
     {
-
+        if(!DisplayHighlightEnabled) return;
         Debug.Log("setDisplayHighlight");
         /* toggles highlight for displays when setting pumps or moderator position */
-
         if(targetName == "WP1RPM")
         {
             /* sets highlight for the rpm display for WP1, reactor and condenser water levels*/

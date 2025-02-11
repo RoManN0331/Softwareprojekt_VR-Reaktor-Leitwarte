@@ -1482,6 +1482,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 468c7deec3e4bfc35b38303cee1f6663, type: 2}
   - {fileID: 2100000, guid: 149957cdee99c3a4eafbac480ea5a5da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -2006,6 +2007,7 @@ MonoBehaviour:
   percentage2: 80
   toManiuplateRED: {fileID: 1927945511555575645}
   percentage3: 100
+  isDIGITAL: 0
 --- !u!114 &8631340814552967218
 MonoBehaviour:
   m_ObjectHideFlags: 0

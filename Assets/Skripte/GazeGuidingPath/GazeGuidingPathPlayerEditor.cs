@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
-
+/*
 [CustomEditor(typeof(GazeGuidingPathPlayer))]
 public class GazeGuidingPathPlayerEditor : Editor
 {
@@ -60,4 +60,4 @@ public class GazeGuidingPathPlayerEditor : Editor
         
         serializedObject.ApplyModifiedProperties();
     }
-}
+}*/

@@ -2021,7 +2021,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 8c7693035adf3d747bbe63fbd377df40, type: 2}
     - target: {fileID: 4748524605165298120, guid: 0a9a82371ed2bb6499542d39ef2b1a92, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748524605165298120, guid: 0a9a82371ed2bb6499542d39ef2b1a92, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 468c7deec3e4bfc35b38303cee1f6663, type: 2}
+    - target: {fileID: 4748524605165298120, guid: 0a9a82371ed2bb6499542d39ef2b1a92, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 149957cdee99c3a4eafbac480ea5a5da, type: 2}
     - target: {fileID: 6921530007538369591, guid: 0a9a82371ed2bb6499542d39ef2b1a92, type: 3}

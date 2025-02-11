@@ -44,6 +44,10 @@ public class Flipper : MonoBehaviour
     
     public bool clipboardHighlightShouldItBeOn = false;
     
+    public bool AnzeigenHighlight = false;
+        
+    public bool AnzeigenHighlightShouldItBeOn = false;
+        
     private bool flipped = false;
     
     
@@ -82,6 +86,8 @@ public class Flipper : MonoBehaviour
         if (DetachEnabled && DetachEnabled == pathPlayer.detached) StartCoroutine(FlipWithoutCall());
         if (BlurEnabled && BlurEnabled == pathPlayer.blur) StartCoroutine(FlipWithoutCall());
         if (distractionsEnabled && ifdistractionsEnabledShouldItBeOn) StartCoroutine(Flip());
+        
+        if(AnzeigenHighlight && AnzeigenHighlightShouldItBeOn) StartCoroutine(Flip());
         
         if (clipboardHighlight && clipboardHighlightShouldItBeOn) StartCoroutine(Flip());
 
@@ -158,6 +164,13 @@ public class Flipper : MonoBehaviour
                 pathPlayer.removeHighlightFromClipboardForButton();
             }
             
+            if (AnzeigenHighlight)
+            {
+                GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
+                pathPlayer.DisplayHighlightEnabled = true;
+                pathPlayer.unsetDisplayHighlight();
+            }
+            
 
 
         }
@@ -185,6 +198,12 @@ public class Flipper : MonoBehaviour
                 GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
                 pathPlayer.ClipBoardTextColor = "<color=#000000>";
                 pathPlayer.removeHighlightFromClipboardForButton();
+            }
+
+            if (AnzeigenHighlight)
+            {
+                GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
+                pathPlayer.DisplayHighlightEnabled = false;
             }
         }
         

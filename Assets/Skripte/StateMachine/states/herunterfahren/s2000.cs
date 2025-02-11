@@ -17,8 +17,9 @@ public class s2000 : StateMachineBehaviour
         // boiler plate
         gazeGuidingPathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
         gazeGuidingPathPlayer2 = FindObjectOfType<GazeGuidingPathPlayerSecondPath>();        
-        gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren        
-
+        gazeGuidingPathPlayer.DirectionCueEnabled = false; // Roten Rand Deaktivieren      
+        
+        gazeGuidingPathPlayer.unsetDisplayHighlight();
         gazeGuidingPathPlayer.ClearAnzeigenMarkierung();
         // state specific
 
