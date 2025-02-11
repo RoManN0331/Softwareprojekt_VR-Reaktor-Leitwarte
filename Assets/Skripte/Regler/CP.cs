@@ -114,22 +114,30 @@ public class CP : MonoBehaviour
 /// This method computes the rotation of the handle based on the rotation of the interactor and calls UpdateRotation() to update the rotation of the switch as well as SendPercentToSimulation() to intiate a call to the REST Server to update the simulation.
 /// </summary>
 
-    private void HandleRotationInteraction()
+private void HandleRotationInteraction()
+{
+    Quaternion currentRotation = interactor.transform.rotation;
+    Quaternion initialRotation = initialInteractorRotation;
+    Quaternion rotationDifference = Quaternion.Inverse(initialRotation) * currentRotation;
+
+    float angle;
+    Vector3 axis;
+    rotationDifference.ToAngleAxis(out angle, out axis);
+
+    if (axis.z < 0)
     {
-
-        float currentZRotation = interactor.transform.eulerAngles.z;
-        float initialZRotation = initialInteractorRotation.eulerAngles.z;
-        float rotationDifference = Mathf.DeltaAngle(initialZRotation, currentZRotation);
-
-        Percent = Mathf.Clamp(initialPercent + (int)(rotationDifference * -0.5f), 0, 100);
-        UpdateRotation();
-        
-        if (Time.time - lastPressTime > pressCooldown)
-        {
-            lastPressTime = Time.time;
-            SendPercentToSimulation();
-        }
+        angle = -angle;
     }
+
+    Percent = Mathf.Clamp(initialPercent + (int)(angle * -0.5f), 0, 100);
+    UpdateRotation();
+    
+    if (Time.time - lastPressTime > pressCooldown)
+    {
+        lastPressTime = Time.time;
+        SendPercentToSimulation();
+    }
+}
 
 /// <summary>
 /// This method initiates a call to the REST Server to update the simulation with the current RPM value of the condenser pump.

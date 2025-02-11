@@ -120,13 +120,22 @@ public class WP2 : MonoBehaviour
 
     private void HandleRotationInteraction()
     {
-        float currentZRotation = interactor.transform.eulerAngles.z;
-        float initialZRotation = initialInteractorRotation.eulerAngles.z;
-        float rotationDifference = Mathf.DeltaAngle(initialZRotation, currentZRotation);
+        Quaternion currentRotation = interactor.transform.rotation;
+        Quaternion initialRotation = initialInteractorRotation;
+        Quaternion rotationDifference = Quaternion.Inverse(initialRotation) * currentRotation;
 
-        Percent = Mathf.Clamp(initialPercent + (int)(rotationDifference * -0.5f), 0, 100);
+        float angle;
+        Vector3 axis;
+        rotationDifference.ToAngleAxis(out angle, out axis);
+
+        if (axis.z < 0)
+        {
+            angle = -angle;
+        }
+
+        Percent = Mathf.Clamp(initialPercent + (int)(angle * -0.5f), 0, 100);
         UpdateRotation();
-
+    
         if (Time.time - lastPressTime > pressCooldown)
         {
             lastPressTime = Time.time;

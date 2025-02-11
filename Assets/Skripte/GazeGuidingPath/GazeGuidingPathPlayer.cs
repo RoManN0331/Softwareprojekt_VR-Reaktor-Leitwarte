@@ -1132,7 +1132,6 @@ public class GazeGuidingPathPlayer : MonoBehaviour
                 GameObject.Find("Regler").GetComponent<ChangeLayer>().setLayer("detached");
                 detached = true;
             }
-    private
         else
             {
                 GameObject.Find("Anzeigen").GetComponent<ChangeLayer>().setLayer("Default");

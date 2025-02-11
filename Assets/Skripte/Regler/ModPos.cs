@@ -123,15 +123,22 @@ public class ModPos : MonoBehaviour
 
 	private void HandleInteractorRotation()
     {
-        // Calculate the rotation of the controller around the z-axis
-        float currentZRotation = interactor.transform.eulerAngles.z;
-        float initialZRotation = initialInteractorRotation.eulerAngles.z;
-        float rotationDifference = Mathf.DeltaAngle(initialZRotation, currentZRotation);
+        Quaternion currentRotation = interactor.transform.rotation;
+        Quaternion initialRotation = initialInteractorRotation;
+        Quaternion rotationDifference = Quaternion.Inverse(initialRotation) * currentRotation;
 
-        // Update the Percent value based on rotation difference
-        Percent = Mathf.Clamp(initialPercent + (int)(rotationDifference * -0.35f), 0, 100);
+        float angle;
+        Vector3 axis;
+        rotationDifference.ToAngleAxis(out angle, out axis);
 
+        if (axis.z < 0)
+        {
+            angle = -angle;
+        }
+
+        Percent = Mathf.Clamp(initialPercent + (int)(angle * -0.35f), 0, 100);
         UpdateRotation();
+        
         UpdateRodPosition();
     }
 
