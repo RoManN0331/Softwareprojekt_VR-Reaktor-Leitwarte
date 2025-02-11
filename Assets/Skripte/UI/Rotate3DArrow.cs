@@ -3,6 +3,17 @@ using UnityEngine;
 
 public class Rotate3DArrow : MonoBehaviour
 {
+
+    /// <summary>
+    /// This class implements a 3 dimensional rotating arrow as a visual cue indicating the direction the player is supposed to turn a continuous switch. 
+    /// </summary>
+
+    /// <param name="rotationSpeed">float specifying the speed by which the arrow is rotating</param>
+    /// <param name="flipDirection">boolean specifying the direction the arrow is rotating in</param>
+    /// <param name="moveSpeed">float specifying the speed of vertical movements</param>
+    /// <param name="moveAmount">float specifying the amount of vertical movement</param>
+    /// <param name="initialY">float specifying the initial y position</param>
+
     public float rotationSpeed = 235f; // Rotation speed in degrees per second
     public bool flipDirection = false; // Boolean to flip the rotation direction
     
@@ -11,10 +22,18 @@ public class Rotate3DArrow : MonoBehaviour
 
     private float initialY; // Initial y position
 
+/// <summary>
+/// This method initialises the arrow's position.
+/// <summary>
+
     void Start()
     {
         initialY = transform.localPosition.y; // Store the initial y position
     }
+
+/// <summary>
+/// This method updates the arrow's position for each frame, rotating the arrow continuously in the direction specified in flipDirection (false: clockwise, true: counterclockwise).
+/// </summary>
 
     void Update()
     {

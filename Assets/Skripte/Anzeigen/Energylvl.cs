@@ -6,8 +6,12 @@ public class Energylvl : MonoBehaviour
 
     private GameObject clientObject;
 
+/// <summary>
+/// Start () initializes the display update procedure by fetching the AnzeigeSteuerung script and if successful, fetching the NPPClient script. 
+/// The AnzeigeSteuerung Script is responsible for updating the display with the energy level supplied by the generator. Because no maximum energy level is set within the simulation a value of 1500 was chosen and the update of the energy level is computed by the following formula: current energy level / 1500 * 100.
+/// The NPPClient Script is responsible for fetching the current energy level supplied by the generator from the simulation via the REST Server API. The current water level is stored in Generator.power field of the NPPReactorState object simulation.
+/// </summary>
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         anzeigeSteuerung = GetComponent<AnzeigeSteuerung>();
@@ -21,7 +25,10 @@ public class Energylvl : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+/// <summary>
+/// Update() updates the display for the energy level within each frame by fetching the energy level stored in the Generator.power field of the NPPClient Scripts simulation object and updating the energy level by computing: current energy level / 1500 * 100.
+/// </summary>
+
     void Update()
     {
         anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Generator.power/1500*100;

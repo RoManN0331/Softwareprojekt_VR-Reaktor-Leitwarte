@@ -2,7 +2,13 @@ using UnityEngine;
 
 public class GazeGuidingTarget : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    /// <summary>
+    /// This class is used to define objects within the scene as targets for GazeGuidingPathPlayer and GazeGuidingPathPlayerSecondPath.
+    /// </summary>
+
+    /// <param name="isTypeOf"> Enum defining the type of the object the script is attached to </param>
+
     public TargetType isTypeOf;
     
     public enum TargetType
