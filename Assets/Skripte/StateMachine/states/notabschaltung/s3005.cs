@@ -32,8 +32,8 @@ public class s3005 : StateMachineBehaviour
         gazeGuidingPathPlayer.HighlightClipboard(6);
         target = GameObject.Find("WV1").gameObject;
         target2 = GameObject.Find("WV2").gameObject;
-        gazeGuidingPathPlayer.TriggerTargetNAME("WV1", target.GetComponent<GazeGuidingTarget>().isTypeOf);
-        gazeGuidingPathPlayer2.TriggerTargetNAME("WV2", target2.GetComponent<GazeGuidingTarget>().isTypeOf);
+        gazeGuidingPathPlayer.TriggerTargetNAME("WV1", target.GetComponent<GazeGuidingTarget>().isTypeOf, true);
+        gazeGuidingPathPlayer2.TriggerTargetNAME("WV2", target2.GetComponent<GazeGuidingTarget>().isTypeOf, true);
 
         WVstatus = true;
 
@@ -64,8 +64,8 @@ public class s3005 : StateMachineBehaviour
             {
                 target = GameObject.Find("WV1").gameObject;
                 target2 = GameObject.Find("WV2").gameObject;
-                gazeGuidingPathPlayer.TriggerTargetNAME("WV1", target.GetComponent<GazeGuidingTarget>().isTypeOf);
-                gazeGuidingPathPlayer2.TriggerTargetNAME("WV2", target2.GetComponent<GazeGuidingTarget>().isTypeOf);
+                gazeGuidingPathPlayer.TriggerTargetNAME("WV1", target.GetComponent<GazeGuidingTarget>().isTypeOf, true);
+                gazeGuidingPathPlayer2.TriggerTargetNAME("WV2", target2.GetComponent<GazeGuidingTarget>().isTypeOf, true);
                 SVstatus = false;
                 WVstatus = true;
             }
@@ -75,8 +75,8 @@ public class s3005 : StateMachineBehaviour
             {
                 target = GameObject.Find("SV1").gameObject;
                 target2 = GameObject.Find("SV2").gameObject;
-                gazeGuidingPathPlayer.TriggerTargetNAME("SV1", target.GetComponent<GazeGuidingTarget>().isTypeOf);
-                gazeGuidingPathPlayer2.TriggerTargetNAME("SV2", target2.GetComponent<GazeGuidingTarget>().isTypeOf);
+                gazeGuidingPathPlayer.TriggerTargetNAME("SV1", target.GetComponent<GazeGuidingTarget>().isTypeOf, true);
+                gazeGuidingPathPlayer2.TriggerTargetNAME("SV2", target2.GetComponent<GazeGuidingTarget>().isTypeOf, true);
                 SVstatus = true;
                 WVstatus = false;
             }

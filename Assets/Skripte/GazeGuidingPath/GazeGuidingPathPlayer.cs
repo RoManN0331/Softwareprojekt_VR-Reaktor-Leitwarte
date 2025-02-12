@@ -38,8 +38,6 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     private Coroutine animatePathCoroutine;
     private bool isAnimating = false;
 
-    
-
 /// <param name="DirectionCue">Image rendered in calcDirectionCue() if angle to target is > 30</param>
 /// <param name="DirectionCue2">Image rendered in calcDirectionCue() if angle to target is > 160</param>
 /// <param name="arrow3DPrefab"> Reference to the Arrow3D prefab used to render continuous rotational 3DArrows</param>
