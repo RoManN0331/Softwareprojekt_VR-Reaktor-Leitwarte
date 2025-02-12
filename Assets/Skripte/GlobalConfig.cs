@@ -25,7 +25,13 @@ public class GlobalConfig : MonoBehaviour
         //Start NPP-Rest-Server
         if (START_REST_SERVER)
         {
-            string restServerExecutablePath = System.IO.Path.Combine(Application.dataPath, "Skripte", "restapi-vr-1.1.jar");
+            string restServerExecutablePath;
+            
+        #if UNITY_EDITOR
+            restServerExecutablePath = System.IO.Path.Combine(Application.dataPath, "Skripte", "restapi-vr-1.1.jar");
+        #else
+            restServerExecutablePath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "RestServer", "restapi-vr-1.1.jar");
+        #endif
             UnityEngine.Debug.Log("Rest-Server Path: " + restServerExecutablePath);
           
             ProcessStartInfo javaRestServerStartInfo = new ProcessStartInfo {

@@ -20602,7 +20602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe32f233c68345e4e9b154a4355096db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  START_REST_SERVER: 0
+  START_REST_SERVER: 1
 --- !u!114 &1234566475
 MonoBehaviour:
   m_ObjectHideFlags: 0
