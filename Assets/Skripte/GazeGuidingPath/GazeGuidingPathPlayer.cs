@@ -421,6 +421,7 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 /// <param name="type"> Enum specifying the type of rotary switch the player is suppsed to use </param>
 /// <param name="Flip3DArrow"> Boolean indicating the direction in which the 3D arrow should rotate </param>
 
+    [FormerlySerializedAs("lastCalleHighlight")]public string lastCalledHighlight = "";
 
     public void TriggerTargetNAME(string targetName,  GazeGuidingTarget.TargetType type, bool Flip3DArrow = false)
     {
@@ -430,7 +431,13 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         currentTarget = targets.Find(t => t.name == targetName && t.isTypeOf == type);
 
         if (targetName == "WP1RPM" || targetName == "WP2RPM" || targetName == "CPRPM" || targetName == "ModPos")
+        {
             setDisplayHighlight(targetName);
+            
+            // Zwischenspeichern des letzten Calls um auf Abruf wieder die Highlights zu aktivieren, wenn sie deaktiviert wurden
+            lastCalledHighlight = targetName;
+        }
+
 
         if (currentTarget != null)
         {
@@ -472,6 +479,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 
     public void ClearLine()
     {
+        lastCalledHighlight = "";
+        
         // Remove the Arrow3D instance
         RemoveArrow3D();                            // removes 3D rotating arrow
 
@@ -766,7 +775,6 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 
     public void TriggerAnzeigenMarkierung(string targetName, GazeGuidingTarget.TargetType type, float NumberToHighlight)
     {
-
         // locating the gaze guiding target for the component specified in targetName
 
         GazeGuidingTarget target = targets.Find(t => t.name == targetName && t.isTypeOf == type);
@@ -814,6 +822,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
                 anzeigenMarkerTransform.gameObject.SetActive(false);
             }
         }
+        
+        anzeigenNumbers.Clear();
         anzeigenTargets.Clear();
         Anzeigeninitialized = false;
     }
@@ -949,7 +959,7 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 /// <param name="targetName"> String containing the name of the component that is currently being used </param>
 
 
-    private void setDisplayHighlight(string targetName)
+    public void setDisplayHighlight(string targetName)
     {
         if(!DisplayHighlightEnabled) return;
         Debug.Log("setDisplayHighlight");

@@ -169,6 +169,7 @@ public class Flipper : MonoBehaviour
                 GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
                 pathPlayer.DisplayHighlightEnabled = true;
                 pathPlayer.unsetDisplayHighlight();
+                pathPlayer.setDisplayHighlight(pathPlayer.lastCalledHighlight);
             }
             
 
@@ -204,6 +205,7 @@ public class Flipper : MonoBehaviour
             {
                 GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
                 pathPlayer.DisplayHighlightEnabled = false;
+                pathPlayer.unsetDisplayHighlight();
             }
         }
         
