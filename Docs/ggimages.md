@@ -7,7 +7,9 @@
 - [Direction Cues](#direction-cues)
 - [Head Up Display](#head-up-display)
 - [Clipboard](#clipboard)
-- [Blur Effekte](#objekt-blur)
+- [Detach](#detach)
+- [Blur](#blur)
+- [Display Highlights](#display-highlights)
 
 <hr>
 
@@ -42,6 +44,13 @@
 <img src="gg_clipboard.jpg" alt="Clipboard Highlights"/>
 
 
-## Blur Effekte
-<img src="gg_blur.jpg" alt="Blur Effekte"/>
+## Detach
+<img src="gg_detach.jpg" alt="Detach"/>
 
+## Blur
+<img src="gg_blur.jpg" alt="Blur"/>
+
+
+
+## Display Highlights
+<img src="gg_object_highlight.jpg" alt="Display Highlights"/>
