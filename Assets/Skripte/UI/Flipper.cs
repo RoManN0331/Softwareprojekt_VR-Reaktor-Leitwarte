@@ -96,7 +96,6 @@ public class Flipper : MonoBehaviour
         interactable.selectExited.RemoveListener(OnSelectExited);
     }
     
-    private UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor interactor;
 
     private bool alreadyClicked = false;
     private void OnSelectEntered(SelectEnterEventArgs args)
@@ -107,11 +106,18 @@ public class Flipper : MonoBehaviour
             alreadyClicked = true;
         }
     }
-
+    private bool CoroutineRunning = false;
     private void OnSelectExited(SelectExitEventArgs args)
     {
-            alreadyClicked = false;
-            interactor = null;
+        if(!CoroutineRunning) StartCoroutine(ResetAlreadyClicked());
+    }
+    
+    private IEnumerator ResetAlreadyClicked()
+    {
+        CoroutineRunning = true;
+        yield return new WaitForSeconds(1.5f);
+        alreadyClicked = false;
+        CoroutineRunning = false;
     }
     
     private IEnumerator Flip()
