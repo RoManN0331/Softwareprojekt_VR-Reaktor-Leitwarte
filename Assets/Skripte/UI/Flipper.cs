@@ -156,21 +156,9 @@ public class Flipper : MonoBehaviour
             if (HUDEnabled) gazeGuidingButtons.HUD(true);
             if (DetachEnabled) gazeGuidingButtons.TriggerDetach(true);
             if (BlurEnabled) gazeGuidingButtons.TriggerBlur(true);
-            if (distractionsEnabled) FindAnyObjectByType<disableDistractions>().disableDistraction(true);
-            if (clipboardHighlight)
-            {
-                GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
-                pathPlayer.ClipBoardTextColor = "<color=#00FF00>";
-                pathPlayer.removeHighlightFromClipboardForButton();
-            }
-            
-            if (AnzeigenHighlight)
-            {
-                GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
-                pathPlayer.DisplayHighlightEnabled = true;
-                pathPlayer.unsetDisplayHighlight();
-                pathPlayer.setDisplayHighlight(pathPlayer.lastCalledHighlight);
-            }
+            if (distractionsEnabled) gazeGuidingButtons.Distractions(true);
+            if (clipboardHighlight) gazeGuidingButtons.ClipboardHighlight(true);
+            if (AnzeigenHighlight) gazeGuidingButtons.AnzeigenHighlight(true);
             
 
 
@@ -193,20 +181,9 @@ public class Flipper : MonoBehaviour
             if (HUDEnabled) gazeGuidingButtons.HUD(false);
             if (DetachEnabled) gazeGuidingButtons.TriggerDetach(false);
             if (BlurEnabled) gazeGuidingButtons.TriggerBlur(false);
-            if (distractionsEnabled) FindAnyObjectByType<disableDistractions>().disableDistraction(false);
-            if (clipboardHighlight)
-            {
-                GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
-                pathPlayer.ClipBoardTextColor = "<color=#000000>";
-                pathPlayer.removeHighlightFromClipboardForButton();
-            }
-
-            if (AnzeigenHighlight)
-            {
-                GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
-                pathPlayer.DisplayHighlightEnabled = false;
-                pathPlayer.unsetDisplayHighlight();
-            }
+            if (distractionsEnabled) gazeGuidingButtons.Distractions(false);
+            if (clipboardHighlight) gazeGuidingButtons.ClipboardHighlight(false);
+            if (AnzeigenHighlight) gazeGuidingButtons.AnzeigenHighlight(false);
         }
         
         yield return new WaitForSeconds(1f);

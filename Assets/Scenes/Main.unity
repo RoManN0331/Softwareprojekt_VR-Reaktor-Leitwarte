@@ -24471,6 +24471,7 @@ MonoBehaviour:
   lineMaterial: {fileID: 2100000, guid: 9c8b90ff3b396b64e9ef60f86215f919, type: 2}
   detached: 0
   blur: 0
+  lastCalledHighlight: 
   ClipBoardTextColor: <color=#00FF00>
   lastClipboardName: 
 --- !u!1 &1432616319 stripped

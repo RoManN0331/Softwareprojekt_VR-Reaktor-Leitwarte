@@ -899,13 +899,27 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 
             GGClipboard.HighlightTask(index);
             clipboardText.text = GGClipboard.GetFormattedClipboardText();
-        }
-        
-        //Give Text to the HUD
+            
+            //Give Text to the HUD
 
+            giveTexttoHUD();
+        }
+    }
+
+/// <summary>
+/// Sets the highlighted text on the HUD.
+/// </summary>
+
+    public void giveTexttoHUD(){
         HUD hud = FindAnyObjectByType<HUD>();
 
-        if(hud != null) hud.setText(GGClipboard.GetFormattedClipboardText());
+        if (hud != null)
+        {
+            if(GGClipboard != null && clipboardText != null)
+            {
+                hud.setText(GGClipboard.GetFormattedClipboardText());
+            }
+        }
     }
 
 /// <summary>

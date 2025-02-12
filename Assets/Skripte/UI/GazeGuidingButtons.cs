@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GazeGuidingButtons : MonoBehaviour
@@ -57,6 +58,44 @@ public class GazeGuidingButtons : MonoBehaviour
     {
         pathPlayer.SetDetach(state);
     }
+    
+    public void Distractions(bool state)
+    {
+        FindAnyObjectByType<disableDistractions>().disableDistraction(state);
+    }
+    
+    public void ClipboardHighlight(bool state)
+    {
+        if (state)
+        {
+            GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
+            pathPlayer.ClipBoardTextColor = "<color=#00FF00>";
+            pathPlayer.removeHighlightFromClipboardForButton();
+        }
+        else
+        {
+            GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
+            pathPlayer.ClipBoardTextColor = "<color=#000000>";
+            pathPlayer.removeHighlightFromClipboardForButton();
+        }
+    }
+    
+    public void AnzeigenHighlight(bool state)
+    {
+        if (state)
+        {
+            GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
+            pathPlayer.DisplayHighlightEnabled = true;
+            pathPlayer.unsetDisplayHighlight();
+            pathPlayer.setDisplayHighlight(pathPlayer.lastCalledHighlight);
+        }
+        else
+        {
+            GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
+            pathPlayer.DisplayHighlightEnabled = false;
+            pathPlayer.unsetDisplayHighlight();
+        }
+    }
 
 
     private GameObject HUDPrefab;
@@ -66,10 +105,18 @@ public class GazeGuidingButtons : MonoBehaviour
         if (TurnOn)
         {
             HUDInstance = Instantiate(HUDPrefab);
+            StartCoroutine(DelayedGiveTextToHUD());
         }
         else
         {
             Destroy(HUDInstance);
         }
+    }
+    
+    private IEnumerator DelayedGiveTextToHUD()
+    {
+        GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
+        yield return new WaitForSeconds(1f);
+        pathPlayer.giveTexttoHUD();
     }
 }
