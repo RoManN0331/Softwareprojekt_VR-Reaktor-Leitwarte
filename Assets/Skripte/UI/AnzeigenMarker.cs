@@ -1,28 +1,45 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// This class implements graphical cues to highlight a specific display that show the value the player is supposed to manipulate and to mark the target value that the player is supposed to set. 
+/// </summary>
 public class AnzeigenMarker : MonoBehaviour
 {
-    public float moveSpeed = 3f; // Speed of the up and down movement
-    public float moveAmount = 0.015f; // Amount of movement on the y-axis
-    public float fontSizeSpeed = 2f; // Speed of the font size change
-    public float fontSizeAmount = 0.1f; // Amount of font size change
-
+    /// <param name="moveSpeed">float specifying the speed of vertical movements</param>
+    public float moveSpeed = 3f;            
+    /// <param name="moveAmount">float specifying the amount of vertical movement</param>
+    public float moveAmount = 0.015f;
+    /// <param name="fontSizeSpeed">float specifying the speed of the font size change</param>
+    public float fontSizeSpeed = 2f;        
+    /// <param name="fontSizeAmount">float specifying the amount of font size change</param>
+    public float fontSizeAmount = 0.1f;     
+    /// <param name="targetNumber">float used to calculate the position of the arrow pointing to the target value</param>
     public float targetNumber = 1000;
-
+    /// <param name="pfeilTransform"> Transfom for animating the arrow pointing to the target value</param>
     private Transform pfeilTransform;
+    /// <param name="textMeshPro">TextMeshPro used to mark the display by an !</param>
     private TextMeshPro textMeshPro;
-    private float initialY; // Initial y position
-    private float initialFontSize; // Initial font size
-
+    /// <param name="initialY">float specifying the initial y position of the arrow pointing to the target value</param>
+    private float initialY;
+    /// <param name="initialFontSize">float specifying the initial font size set for the TextMeshPro</param>
+    private float initialFontSize;
+    /// <param name="xleft">float specifying the leftmost position of the arrow indicating the target value</param>
     private float xleft = 0.0611f;
+    /// <param name="xright">float specifying the rightmost position of the arrow indicating the target value</param>
     private float xright = -0.0734f;
+    /// <param name="anzeigeSteuerung">AnzeigeSteuerung used to get upper limit of the display to calculate the target number</param>
+    private AnzeigeSteuerung anzeigeSteuerung;
+    /// <param name="anzeigeSteuerung2">AnzeigeSteuerung5 used to get upper limit of the display to calculate the target number</param>
+    private AnzeigeSteuerung5 anzeigeSteuerung2;
 
-    private AnzeigeSteuerung anzeigeSteuerung; // Reference to the AnzeigeSteuerung component
-    private AnzeigeSteuerung5 anzeigeSteuerung2; // Reference to the AnzeigeSteuerung component
+    /// <summary>
+    /// This method initialises the arrow pointing to the target value, the ! marking the display and the control component (AnzeigeSteuerung) of the display.
+    /// <summary>
     void Start()
     {
         // Find the child GameObject named "Pfeil"
+        
         pfeilTransform = transform.Find("Pfeil");
         if (pfeilTransform != null)
         {
@@ -34,6 +51,7 @@ public class AnzeigenMarker : MonoBehaviour
         }
 
         // Find the TextMeshPro component in the child GameObject named "AusrufeZeichen"
+
         Transform ausrufeZeichenTransform = transform.Find("AusrufeZeichen");
         if (ausrufeZeichenTransform != null)
         {
@@ -53,6 +71,7 @@ public class AnzeigenMarker : MonoBehaviour
         }
         
         // Find the AnzeigeSteuerung component in the parent GameObject
+        
         anzeigeSteuerung = GetComponentInParent<AnzeigeSteuerung>();
         if (anzeigeSteuerung == null)
         {
@@ -65,6 +84,9 @@ public class AnzeigenMarker : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// This method updates the arrow's position marking the target value and the font size of the ! marking the display.
+    /// </summary>
     void Update()
     {
         if (pfeilTransform != null)

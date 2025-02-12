@@ -768,16 +768,16 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: ReactorWaterLvl
-    m_EventTreshold: 1999
+    m_EventTreshold: 1899
   - m_ConditionMode: 4
     m_ConditionEvent: ReactorWaterLvl
-    m_EventTreshold: 2201
+    m_EventTreshold: 2301
   - m_ConditionMode: 3
     m_ConditionEvent: GeneratorOutput
-    m_EventTreshold: 690
+    m_EventTreshold: 670
   - m_ConditionMode: 4
     m_ConditionEvent: GeneratorOutput
-    m_EventTreshold: 710
+    m_EventTreshold: 730
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5414420023037736801}
   m_Solo: 0
@@ -1097,7 +1097,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: ReactorWaterLvl
-    m_EventTreshold: 1999
+    m_EventTreshold: 1900
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2814602139415362880}
   m_Solo: 0
@@ -1225,7 +1225,10 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: GeneratorOutput
-    m_EventTreshold: 690
+    m_EventTreshold: 671
+  - m_ConditionMode: 3
+    m_ConditionEvent: GeneratorOutput
+    m_EventTreshold: 729
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2814602139415362880}
   m_Solo: 0
@@ -1639,7 +1642,7 @@ AnimatorController:
   - m_Name: scenario
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 1
+    m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: Restheat
@@ -1671,10 +1674,10 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: ReactorWaterLvl
-    m_EventTreshold: 2201
+    m_EventTreshold: 2301
   - m_ConditionMode: 3
     m_ConditionEvent: ReactorWaterLvl
-    m_EventTreshold: 1999
+    m_EventTreshold: 1899
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1592999514340142004}
   m_Solo: 0
@@ -2602,7 +2605,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: WP1RPM
-    m_EventTreshold: 210
+    m_EventTreshold: 220
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8518960413598478396}
   m_Solo: 0
@@ -2767,7 +2770,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: CPRPM
-    m_EventTreshold: 1610
+    m_EventTreshold: 1640
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1799459141552987267}
   m_Solo: 0
@@ -2885,7 +2888,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: ReactorWaterLvl
-    m_EventTreshold: 2200
+    m_EventTreshold: 2300
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5583324756245824202}
   m_Solo: 0
@@ -3001,7 +3004,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: ReactorWaterLvl
-    m_EventTreshold: 1999
+    m_EventTreshold: 1900
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5583324756245824202}
   m_Solo: 0

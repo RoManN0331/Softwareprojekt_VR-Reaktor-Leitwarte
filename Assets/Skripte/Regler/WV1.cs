@@ -4,40 +4,57 @@ using System.Collections;
 using UnityEngine.InputSystem;
 using UnityEngine.Networking;
 
+/// <summary>
+/// This class is used to control water valve 1 in the NPP simulation.
+/// </summary>
 public class WV1: MonoBehaviour
 {
-
+    ///<summary>Defines two types of rotary switches binary and exact</summary>
     private enum ReglerTypeEnum
     {
         Genau = 0,
         Binaer = 1
     }
+    ///<param name="ReglerType"> Specifies the type of rotary switch</param>
     private ReglerTypeEnum ReglerType = ReglerTypeEnum.Binaer;
-
+    ///<param name="to_rotate">specifies the handle the player must interact with to rotate the switch</param>
     GameObject to_rotate;
-
+    [Range(0, 100)]
+    ///<param name="Percent">int specifying the percentage the switch has been rotated based on its leftmost position</param>
     public int Percent = 0;
-
-    private GameObject clientObject;
-
+    ///<param name="StartRotation">int specifying the angle of the switches leftmost position</param>
     private int StartRotation = -90;
+    ///<param name="EndRotation">int specifying the angle of the switches rightmost position</param>
     private int EndRotation = 0;
+    ///<param name="lastPressTime">float specifying when the switch was last interacted with</param>
     private float lastPressTime = 0f;
-    private float pressCooldown = 1f; // 1 second cooldown
-
+    ///<param name="pressCooldown">float specifying a cooldown between interactions with the switch</param>
+    private float pressCooldown = 1f;
+    ///<param name="interactor">Interactor</param>
     private UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor interactor;
-    //private bool isInteracting = false;
+    ///<param name="isInteracting">boolean tracking if the player is interacting with the switch</param>
+    private bool isInteracting = false;
+    ///<param name="initialInteractorPosition">Vector3 specifying the initial Position of the Interactor</param>
     private Vector3 initialInteractorPosition;
+    ///<param name="initialPercent">int specifying the initinal percentage the switch has already been rotated</param>
     private int initialPercent;
+    ///<param name="previousPercent">int specifying the percentage the switch has been rotated in the last frame</param>
     private int previousPercent;
-	
+    ///<param name="lightRegler">LoghtRegler to switch on lights</param>
+    private LightRegler lightRegler;
+    ///<param name="nppClient">Reference to the NPPClient instance in the scene</param>
 	private NPPClient nppClient;
 
+    private GameObject clientObject;    // deprecated
+
+    /// <summary>
+    /// This method initializes the WV1 instance, sets the initial rotation of the switch and initializes the switches lamp.
+    /// </summary>
     void Start()
     {
 
         to_rotate = GameObject.Find("KNOB.WV1");
-        clientObject = GameObject.Find("NPPclientObject");
+        clientObject = GameObject.Find("NPPclientObject");  // deprecated
 		
 		nppClient = FindObjectOfType<NPPClient>();
 
@@ -57,6 +74,10 @@ public class WV1: MonoBehaviour
         initLamp();
     }
 
+/// <summary>
+/// This method updates the rotation of the switch based on the current percentage value. Additionally a call to the REST Server is initiated via SetValveStatus() to update the simulation.
+/// </summary>
+
     void Update()
     {
 
@@ -67,8 +88,6 @@ public class WV1: MonoBehaviour
             if (Percent == 100)
             {
                 SetValveStatus("WV1", true);
-                // Debug.Log("Valve WV1 is open");
-                
                 lightRegler.SetLight(true);
             }
 
@@ -76,8 +95,6 @@ public class WV1: MonoBehaviour
             
             {
                 SetValveStatus("WV1", false);
-                // Debug.Log("Valve WV1 is closed");
-                
                 lightRegler.SetLight(false);
             }
 
@@ -86,7 +103,11 @@ public class WV1: MonoBehaviour
         previousPercent = Percent;
                 
     }
-	
+
+/// <summary>
+/// This method updates the rotation of the switch.
+/// </summary>
+
 	private void UpdateRotation()
     {
         // Calculate the rotation angle based on Percent
@@ -95,7 +116,13 @@ public class WV1: MonoBehaviour
         // Apply the rotation to the to_rotate object
         to_rotate.transform.localRotation = Quaternion.Euler(0, angle, 0);
     }
-	
+
+/// <summary>
+/// This method initiates a call to the REST Server to update the simulation with the current status of water valve 1.
+/// </summary>
+/// <param name="valveId">string containing the Id of the valve as specified on the REST Server </param>
+/// <param name="value"> boolean the valve will be set to</param>
+
 	public void SetValveStatus(string valveId, bool value)
     {
         if (nppClient != null)
@@ -107,32 +134,20 @@ public class WV1: MonoBehaviour
             Debug.Log("NPPClient is not initialized.");
         }
     }
-	
+
+/// <summary>
+/// This method sets the percentage value of the switch based on an external input.
+/// </summary>
+/// <param name="percent">int specifying the percentage value to set the switch to</param>
+
 	public void SetPercentFromExternal(int percent)
 	{
 		Percent = Mathf.Clamp(percent, 0, 100); 
-        /* wird schon von Update() gemacht
-        UpdateRotation();
-
-        if (to_rotate.transform.localRotation.eulerAngles.y == EndRotation)
-        {
-            SetValveStatus("WV1", true);
-            Debug.Log("Valve WV1 is open");
-
-            lightRegler.SetLight(true);
-        }
-        else if (to_rotate.transform.localRotation.eulerAngles.y == 270)
-        {
-            SetValveStatus("WV1", false);
-            Debug.Log("Valve WV1 is closed");
-
-            lightRegler.SetLight(false);
-        }
-        previousPercent = Percent;
-
-        */
 	}
 
+/// <summary>
+/// This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events.
+/// </summary>
 
     private void OnEnable()
     {
@@ -141,6 +156,10 @@ public class WV1: MonoBehaviour
         interactable.selectExited.AddListener(OnSelectExited);
     }
 
+/// <summary>
+/// This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events.
+/// </summary>
+
     private void OnDisable()
     {
         var interactable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable>();
@@ -148,6 +167,10 @@ public class WV1: MonoBehaviour
         interactable.selectExited.RemoveListener(OnSelectExited);
     }
 
+/// <summary>
+/// This method is called when an interactor enters the object and sets the interactor and initialInteractorRotation values.
+/// </summary>
+/// <param name="args">SelectEnterEventArgs to pass event specific arguments upon entering the interaction</param>
 
     private void OnSelectEntered(SelectEnterEventArgs args)
     {
@@ -160,12 +183,20 @@ public class WV1: MonoBehaviour
         }
     }
 
+/// <summary>
+/// This method is called when an interactor exits the object and resets the isInteracting and interactor values.
+/// </summary>
+/// <param name="args">SelectExitEventArgs to pass event specific arguments upon exiting the interaction</param>
+
     private void OnSelectExited(SelectExitEventArgs args)
     {
     
     }
     
-    private LightRegler lightRegler;
+/// <summary>
+/// This method initialises the switches lamp.
+/// </summary>
+
     private void initLamp()
     {
         // Find the child GameObject named "Lampe"

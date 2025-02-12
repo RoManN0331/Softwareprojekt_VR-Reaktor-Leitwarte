@@ -4,6 +4,9 @@ using UnityEditor;
 [CustomEditor(typeof(GazeGuidingPathPlayer))]
 public class GazeGuidingPathPlayerEditor : Editor
 {
+
+// This Method is used for testing the GazeGuidingPathPlayer inside the unity editor. Not added to Documentation.
+
     public override void OnInspectorGUI()
     {
         GazeGuidingPathPlayer script = (GazeGuidingPathPlayer)target;

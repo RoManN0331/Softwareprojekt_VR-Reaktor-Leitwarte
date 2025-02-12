@@ -3,8 +3,20 @@ using UnityEngine;
 
 public class AnimatorController : MonoBehaviour
 {
+
+    /// <summary>
+    /// This class is used to update the animator parameters based on the state of the simulation stored in an NPPReactorState object.
+    /// </summary>
+
+    ///<param name="animator">Animator</param>
+    ///<param name="clientScript">Reference to the NPPClient instance in the scene</param>
+
     private Animator animator;
     private NPPClient clientScript;
+
+    /// <summary>
+    /// This method initializes the Animator.
+    /// </summary>
 
     void Awake()
     {
@@ -16,6 +28,10 @@ public class AnimatorController : MonoBehaviour
             Debug.LogError("Animator not found!");
         }
     }
+
+    /// <summary>
+    /// This method updates the state machine parameters based on the state of the simulation stored in an NPPReactorState object.
+    /// </summary>
 
     public void UpdateAnimatorParameters(NPPReactorState state)
     {
@@ -53,6 +69,11 @@ public class AnimatorController : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// This method updates the scenario parameter of the state machine.
+    /// </summary>
+    /// <param name="scenario">int specifying the scenario the player has chosen</param>
+
     public void updateScenario(int scenario){
 
         /* update the chosen scenario */
@@ -60,15 +81,29 @@ public class AnimatorController : MonoBehaviour
         animator.SetInteger("scenario", scenario);
     }
 
+    /// <summary>
+    /// This method resets the state machine to the initial state.
+    /// </summary>
+
     public void Reset(){
         animator.Play("initial", 0, 0);
     }
+
+    /// <summary>
+    /// This method returns the information stored in ComponentHealt for a component or initialises a new ComponentState.
+    /// </summary>
+    /// <param name="name">string specifying the name of the component</param>
+    /// <param name="health">ComponentHealth object containing the state of all components</param>
 
     private ComponentState GetComponent(string name, ComponentHealth health)
     {
         ComponentState component = health.components.FirstOrDefault(c => c.name == name);
         return (component == null) ? new ComponentState { name = name, status = false } : component;
     }
+
+    /// <summary>
+    /// This method returns the scenario the state machine is currently running.
+    /// </summary>
 
     public int getScenario()
     {

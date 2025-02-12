@@ -9,17 +9,27 @@ using System.Text.RegularExpressions;
 *  Start NPP-Rest-Server
 *  Load scenes
 */
+
+/// <summary>
+/// This class contains global configuration values and handles various initialisation and setup tasks.
+/// </summary>
 public class GlobalConfig : MonoBehaviour
 {
+
+    /// <param name="BASE_URL">base URL of the rest server running the simulation</param>
     public static string BASE_URL = "http://localhost:8080/api/";
+    /// <param name="CLIENT_UPDATE_INTERVAL">Interval in seconds for between two update requests</param>
     public static float CLIENT_UPDATE_INTERVAL = .1f;
-
+    /// <param name="START_REST_SERVER">boolean flag to start the REST server at the start of the VR application</param>
     public bool START_REST_SERVER;
-
-
+    /// <param name="javaRestServerProcess">Reference to the REST server process </param>
     private Process javaRestServerProcess;
+    /// <param name="restServerPID">PID of the REST server process</param>
     private int restServerPID;
 
+    /// <summary>
+    /// This method starts the REST server if specified by the player.
+    /// </summary>
     void Start()
     {
         //Start NPP-Rest-Server
@@ -61,11 +71,16 @@ public class GlobalConfig : MonoBehaviour
         }
     }
 
+// this method is empty, hence excluded from the documentation
+
     void Update()
     {
-       
+        // pass
     }
 
+    /// <summary>
+    /// This method stops the REST Server when the application is closed, if the server is running.
+    /// </summary>
     void OnApplicationQuit()
     {
         UnityEngine.Debug.Log("Shutting down REST-Server after " + Time.time + " seconds");

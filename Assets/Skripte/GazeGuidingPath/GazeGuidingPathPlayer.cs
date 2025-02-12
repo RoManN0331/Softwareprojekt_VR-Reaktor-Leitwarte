@@ -6,49 +6,71 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
+/// <summary>
+/// This class implements logic for gaze guiding in a virtual environment.
+/// <summary>
 public class GazeGuidingPathPlayer : MonoBehaviour
 {
+    /// <param name="DirectionCueEnabledGlobal">Boolean to enable or disable the red frame indicating the player should turn</param>
+    public bool DirectionCueEnabledGlobal = true;
+    /// <param name="DirectionCueEnabled">Boolean to enable or disable the red frame indicating the player should turn</param>
     public bool DirectionCueEnabled = true;
+    /// <param name="DirectionCueFadeDuration">Float to set the duration of the red frame fade in and out</param>
     public float DirectionCueFadeDuration = 1f;
-    
+    /// <param name="DirectionArrowEnabled">Boolean to enable or disable the 3D arrow indicating the direction the player should turn</param>
     public bool DirectionArrowEnabled = true;    
-    
+    /// <param name="Arrow3DEnabled">Boolean to enable or disable the 3D arrow indicating the direction the player should turn</param>
     public bool Arrow3DEnabled = true;
-    
+    /// <param name="Arrow3DBinearEnabled">Boolean to enable or disable the 3D arrow indicating the direction the player should turn</param>
     public bool Arrow3DBinearEnabled = true;
-
+    /// <param name="DirectionArrowOnScreen">Boolean to enable or disable the 3D arrow indicating the direction the player should turn</param>
     public bool DirectionArrowOnScreen = true;
-    
+    /// <param name="AnzeigenMarkierungEnabled">Boolean to enable or disable the annotation to displays indicating relevant displays and target values</param>
     public bool AnzeigenMarkierungEnabled = true;
+    /// <param name="ClipboardHighlightEnabled">Boolean to enable or disable the highlighting of text on clipboards</param>
+    public bool ClipboardHighlightEnabled = true;
     
+    /// <param name="targets"> List of GazeGuidingTarget objects</param>
     public List<GazeGuidingTarget> targets;
-    public float pathDisplayDistance = 5.0f;
-    public float animationDuration = 1.0f; // Duration of the path drawing animation
-    public Material lineMaterial; 
-    private LineRenderer lineRenderer;
+    /// <param name="currentTarget"> GazeGuidingTarget currently used for gaze guiding</param>
     private GazeGuidingTarget currentTarget;
+    /// <param name="pathDisplayDistance"> Float to set the distance at which a path as visual cue is displayed</param>
+    public float pathDisplayDistance = 5.0f;
+    /// <param name="animationDuration"> Float to set the duration of the path animation</param>
+    public float animationDuration = 1.0f;
+    /// <param name="lineMaterial"> Material used to render a path as visual cue</param>
+    public Material lineMaterial; 
+    /// <param name="lineRenderer"> LineRenderer object used to render a path as visual cue</param>
+    private LineRenderer lineRenderer;
+    /// <param name="animatePathCoroutine"> Coroutine used to animate a path as visual cue</param>
     private Coroutine animatePathCoroutine;
+    /// <param name="isAnimating"> Boolean tracking if a path as visual cue is currently being animated</param>
     private bool isAnimating = false;
 
     //Fügt einen Roten-Rand am Bildschirm ein um den Nutzer zu signalisieren, dass er sich drehen soll
+
+    /// <param name="DirectionCue">Image rendered in calcDirectionCue() if angle to target is > 30</param>
     private Image DirectionCue;
+    /// <param name="DirectionCue2">Image rendered in calcDirectionCue() if angle to target is > 160</param>
     private Image DirectionCue2;
+
+    /// <param name="arrow3DPrefab"> Reference to the Arrow3D prefab used to render continuous rotational 3DArrows</param>    
+    private GameObject arrow3DPrefab; 
+    /// <param name="arrow3DInstance"> Instance of the Arrow3D prefab used to render continuous rotational 3DArrows<param>
+
+    private GameObject arrow3DInstance; 
+    /// <param name="arrow3DBinaerPrefab"> Reference to the Arrow3D prefab used to render binary rotational 3DArrows</param>
     
-    private GameObject arrow3DPrefab; // Reference to the Arrow3D prefab
-    private GameObject arrow3DInstance; // Instance of the Arrow3D prefab
-    
-    private GameObject arrow3DBinaerPrefab; // Reference to the Arrow3D prefab
+    private GameObject arrow3DBinaerPrefab; 
+    /// <param name="arrow3DBinaerInstance"> Instance of the Arrow3D prefab used to render binary rotational 3DArrows<param>
     private GameObject arrow3DBinaerInstance; // Instance of the Arrow3D prefab
     
-    // GazeGuiding for clipboards
-
-    private TextMeshPro clipboardText;
-    private GazeGuidingClipboard GGClipboard;
-
-
+    /// <summary>
+    /// This method starts the gaze guiding path player and performs necessary initialisations. 
+    /// </summary>
     void Start()
     {
-        
+        // initialising the LineRenderer and render material used for rendering the path computed in animatePath()        
         lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.startWidth = 0.03f;
         lineRenderer.endWidth = 0.03f;
@@ -62,7 +84,7 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         // Set texture scale
         lineRenderer.textureScale = new Vector2(2.36f, 0.57f);
         
-        
+        // initialising the UI prefab used 
         // Load and instantiate the UI prefab
         GameObject uiPrefab = Resources.Load<GameObject>("Prefabs/UI/UI");
         GameObject uiInstance = Instantiate(uiPrefab);
@@ -85,6 +107,10 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         animator = FindObjectOfType<AnimatorController>();
     }
 
+    /// <summary>
+    /// This method initialises the necessary components used in calcDirectionCue() and adds them to the UI. 
+    /// </summary>
+    /// <param name="uiInstance">UI instance</param> 
     private void initUI(GameObject uiInstance)
     {
         // Assign the DirectionCue and DirectionCue2 images
@@ -107,11 +133,24 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         // Set the sorting order to ensure the UI is rendered on top of other objects but behind the HUD
         canvas.sortingOrder = 99;
         
+        // Set the transform as a child of the current camera
+        
+        // Set the transform as a child of the current camera
+        uiInstance.transform.SetParent(mainCamera.transform);
+        
     }
 
+    /// <param name="animator"> AnimatorController object used to track the current scenario </param>
     private AnimatorController animator;
-    private bool arrow3DInstanceCreated = false; // Flag to track if Arrow3D instance has been created
-    private bool arrow3DBinaerInstanceCreated = false; // Flag to track if Arrow3D instance has been created
+    /// <param name="arrow3DInstanceCreated"> Flag to track if Arrow3D instance has been created </param>
+    private bool arrow3DInstanceCreated = false; 
+    /// <param name="arrow3DBinaerInstanceCreated"> Flag to track if Arrow3D instance has been created </param>
+    private bool arrow3DBinaerInstanceCreated = false; 
+    
+    
+    /// <summary>
+    /// This method updates all active gaze guiding tools in each frame.
+    /// </summary>
     void Update()
     {   
         if (currentTarget != null)
@@ -170,7 +209,7 @@ public class GazeGuidingPathPlayer : MonoBehaviour
                 }
             }
 
-            if (Time.frameCount % 4 == 0 && DirectionCueEnabled)
+            if (Time.frameCount % 4 == 0 && DirectionCueEnabled && DirectionCueEnabledGlobal)
             {
                 calcDirectionCue();
             }
@@ -180,6 +219,12 @@ public class GazeGuidingPathPlayer : MonoBehaviour
                 DirectionCue2.gameObject.SetActive(false);
             }
 
+            if (!DirectionCueEnabledGlobal)
+            {
+                DirectionCue.gameObject.SetActive(false);
+                DirectionCue2.gameObject.SetActive(false);
+            }
+            
             if (DirectionArrowOnScreen)
             {
                 renderDirectionArrow();
@@ -236,6 +281,9 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 
     private bool reset = true;
     
+    /// <summary>
+    /// This method adds a continuous rotating 3D arrow rendered above an exact rotary switch to indicate the direction in which the player is supposed to turn the switch.
+    /// </summary>
     public void Arrow3D()
     {
         if (Arrow3DEnabled && currentTarget.isTypeOf == GazeGuidingTarget.TargetType.Genau)
@@ -249,7 +297,9 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         }
     }
     
-       
+    /// <summary>
+    /// This method adds a binary rotating 3D arrow rendered above a binary rotary switch to indicate the direction in which the player is supposed to turn the switch.
+    /// </summary>
     public void Arrow3DBinaer()
     {
         if (Arrow3DBinearEnabled && currentTarget.isTypeOf == GazeGuidingTarget.TargetType.Binaer)
@@ -263,6 +313,9 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// This method removes a rotating 3D arrow (continuous or binary) rendered above an exact rotary switch.
+    /// </summary>
     public void RemoveArrow3D()
     {
         if (arrow3DInstance != null)
@@ -283,6 +336,8 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     }
     
     
+    // deprecated, not included in documentation
+
     public void TriggerTarget(GazeGuidingTarget target, bool Flip3DArrow = false)
     {
         ClearLine();
@@ -305,16 +360,27 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     //dadruch wird dann das gazeGuiding auf WP1RPM-anzeige gesetzt
     //die restlichen eingaben sind die GameObjektnamen mit dem GazeGuidingTarget skript
     
+    /// <summary>
+    /// This method sets an object as the current target for the gaze-guiding player and all active gaze guiding tools. Additionally if the target is a rotary switch the method enables a 3D arrow indicating the direction the player is supposed to turn the switch in.
+    /// </summary>
+    /// <param name="targetName"> String containing the name of the switch to target for gaze guiding </param>
+    /// <param name="type"> Enum specifying the type of rotary switch the player is suppsed to use </param>
+    /// <param name="Flip3DArrow"> Boolean indicating the direction in which the 3D arrow should rotate </param>
     public void TriggerTargetNAME(string targetName,  GazeGuidingTarget.TargetType type, bool Flip3DArrow = false)
     {
         ClearLine();
+
+        // locating the gaze guiding target for the component specified in targetName
         currentTarget = targets.Find(t => t.name == targetName && t.isTypeOf == type);
 
-        if (targetName == "WP1RPM" || targetName == "WP2RPM" || targetName == "CPRPM" || targetName == "ModPos")
-            setDisplayHighlight(targetName);
+        //if (targetName == "WP1RPM" || targetName == "WP2RPM" || targetName == "CPRPM" || targetName == "ModPos")
+            //setDisplayHighlight(targetName);
 
         if (currentTarget != null)
         {
+
+            // adding a 3D arrow indicating the direction the player is supposed to turn a rotary switch in
+
             if (type == GazeGuidingTarget.TargetType.Genau)
             {
                 if (Flip3DArrow)
@@ -343,24 +409,26 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         }
     }
     
-    
+    /// <summary>
+    /// This method clears all visual aids for the current target.
+    /// </summary>
     public void ClearLine()
     {
         // Remove the Arrow3D instance
-        RemoveArrow3D();
+        RemoveArrow3D();                            // removes 3D rotating arrow
 
-        removeDirectionArrow();
+        removeDirectionArrow();                     // removes 3D directional arrow
         
-        ClearAnzeigenMarkierung();
+        ClearAnzeigenMarkierung();                  // removes annotations to displays
 
-        unsetDisplayHighlight();
+        unsetDisplayHighlight();                    // removes glow effects from displays
         
-        DirectionCue.gameObject.SetActive(false);
-        DirectionCue2.gameObject.SetActive(false);
+        DirectionCue.gameObject.SetActive(false);   // removes red frame
+        DirectionCue2.gameObject.SetActive(false);  // removes red frame
         
         currentTarget = null;
         isAnimating = false;
-        if (animatePathCoroutine != null)
+        if (animatePathCoroutine != null)           // removes gaze guiding path
         {
             StopCoroutine(animatePathCoroutine);
             animatePathCoroutine = null;
@@ -370,12 +438,16 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         
     }
 
+
+// This method is used for debugging and therefore not included in the documentation
+
     public void triggerTEST()
     {
         ClearLine();
         currentTarget = targets[0];
     }
 
+// This method is used for debugging and therefore not included in the documentation
 
     public void triggerTEST2(bool Flip3DArrow)
     {
@@ -392,6 +464,10 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// This method animates a path of arrows guiding the player towards the component the player is supposed to interact with.
+    /// </summary>
+    /// <param name="targetPosition">Vector3 position of the endpoint of the path </param>
     private IEnumerator AnimatePath(Vector3 targetPosition)
     {
         isAnimating = true;
@@ -426,9 +502,17 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         }
     }
 
+    /// <param name="isDirectionCueFading">Boolean tracking if the first cue is fading out</param>
     private bool isDirectionCueFading = false;
+    /// <param name="isDirectionCueFading2">Boolean tracking if the second cue is fading out</param>
     private bool isDirectionCue2Fading = false;
 
+    /// <summary>
+    /// This method displays a red cue indicating to the player where to turn if the player is facing away from the component the player is supposed to interact with 
+    /// in an angle > 30 degrees. If the angle the player has to turn is > 160 degrees a second cue is rendered indicating the object is behind the player. 
+    /// If the angle the player has to turn is below 30 degrees no cue is rendered. The Method calculates the alpha of the cues based on the angle between the player 
+    /// and the object the player is supposed to interact with, if the current angle is smaller than the old angle the cue begins to fade out.
+    /// </summary>
     public void calcDirectionCue()
     {
         Vector3 directionToTarget = currentTarget.transform.position - transform.position;
@@ -522,9 +606,24 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         }
     }
 
-    //3D-Pfeil wie in Need for Speed
+
+    /// <summary>
+    /// This utility method resets the isDirectionCueFading or isDirectionCue2Fading flag to false via a callback to calcDirectionCue().
+    /// </summary>
+    /// <param name="duration">float specifying a delay before resetAction() is called</param>
+    /// <param name="resetAction">System.Action used to set isDirectionCueFading or isDirectionCue2Fading to false</param>
+    private IEnumerator ResetFadingFlag(float duration, System.Action resetAction)
+    {
+        yield return new WaitForSeconds(duration);
+        resetAction();
+    }
+
+    /// <param name="arrowInstance"> Instance of a directional arrow </param>
     private GameObject arrowInstance; // Store the instance of the arrow
 
+    /// <summary>
+    /// This method renders a directional arrow indicating to the player the direction of the object the player is supposed to interact with.
+    /// </summary>
     public void renderDirectionArrow()
     {
         // Check if an instance already exists
@@ -568,6 +667,9 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// This method is used to remove the directional arrow set in renderDirectionArrow() from the ui.
+    /// </summary>
     public void removeDirectionArrow()
     {
         // Check if an instance exists
@@ -578,26 +680,33 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             arrowInstance = null;
         }
     }
-    
-    
 
-    private IEnumerator ResetFadingFlag(float duration, System.Action resetAction)
-    {
-        yield return new WaitForSeconds(duration);
-        resetAction();
-    }
-
+    /// <param name="anzeigenTargets">List of GazeGuidingTarget objects used for gaze guiding</param>
     private List<GazeGuidingTarget> anzeigenTargets = new List<GazeGuidingTarget>();
+    /// <param name="anzeigenNumbers">List of float values used to calculate the position of a arrow indicating a target value on a display</param>
     private List<float> anzeigenNumbers = new List<float>();
-    
+    /// <param name="Anzeigeninitialized">Boolean tracking whether the displays have been initialised</param>    
     bool Anzeigeninitialized = false;
 
+    /// <summary>
+    /// This method sets an object as the current target for the gaze guiding player and all active gaze guiding tools. If the target is a rotary switch the method enables a 3D arrow indicating the direction the player is supposed to turn the switch in. Additionally the method indicates the display of the value the rotary switch adjusts and adds an arrow to that display indicating the target value the player is supposed to set.
+    /// </summary>
+    /// <param name="targetName"> String containing the name of the component the player is supposed to interact with </param>
+    /// <param name="type"> Enum specifying the type of rotary switch the player is supposed to use </param>
+    /// <param name="NumberToHighlight">Float used to calculate the position of an arrow indicating a target value on a display</param>
     public void TriggerAnzeigenMarkierung(string targetName, GazeGuidingTarget.TargetType type, float NumberToHighlight)
     {
+
+        // locating the gaze guiding target for the component specified in targetName
+
         GazeGuidingTarget target = targets.Find(t => t.name == targetName && t.isTypeOf == type);
+        
         if (target != null) anzeigenTargets.Add(target);
         anzeigenNumbers.Add(NumberToHighlight);
         
+
+        // setting annotation to a display indicating relevant displays and target values 
+
         if (AnzeigenMarkierungEnabled)
         {
             if (target != null)
@@ -621,6 +730,9 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// This method removes annotations to a display associated to a component the player has interacted with. It removes a red ! highlighting the display as well as an arrow indicating the target value the player was supposed to set the associated component to.
+    /// </summary>
     public void ClearAnzeigenMarkierung()
     {
         foreach (var target in anzeigenTargets)
@@ -639,18 +751,37 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     ** gazeguiding for clipboards **
     *******************************/
 
-
+    /// <param name="clipboardText">TextMeshPro</param>
+    private TextMeshPro clipboardText;
+    /// <param name="text1"> TextMeshPro object holding clipboardText for clipboard POS1 </param>
     private TextMeshPro text1;
+    /// <param name="text2"> TextMeshPro object holding clipboardText for clipboard POS2 </param>
     private TextMeshPro text2;
+    /// <param name="text3"> TextMeshPro object holding clipboardText for clipboard POS3 </param>
     private TextMeshPro text3;
-    
+    /// <param name="initialText"> String to store the unformatted text of the active clipboard</param>
     private string initalText;
+    /// <param name="init"> boolean to check if the active clipboard has been initialised </param>
     private bool init = false;
+    /// <param name="lastindex"> Integer tracking the previous index of the clipboard text that was highlighted </param>
+    private int lastindex = 0;
+    /// <param name="GGClipboard">GazeGuidingClipboard</param>
+    public GazeGuidingClipboard GGClipboard;
+    /// <param name="ClipBoardTextColor"> String to store the color of the clipboard text </param>
+    public string ClipBoardTextColor = "<color=#00FF00>";
+    /// <param name="lastClipboardName"> String to store the name of the last clipboard that was highlighted </param>
+    public string lastClipboardName = "";
+
+    /// <sumary>
+    /// Activates highlighting for the text of a specific clipboard by creating a new GazeGuidingClipboard object for its text.
+    /// </summary>
+    /// <param name="clipboardName"> String containing the name of a clipboard</param>
     public void SetGazeGuidingClipboard (string clipboardName){
 
         /* activates gaze guiding for clipboard clipboardName */
 
-        
+    
+        lastClipboardName = clipboardName;
         //Clipboards wurden nicht gefunden, wenn sie gehalten wurden?? -> vorher alle clipboards initialisieren
         if (clipboardName.Equals("POS1")) clipboardText = text1;
         if (clipboardName.Equals("POS2")) clipboardText = text2;
@@ -662,21 +793,29 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             initalText = clipboardText.text;
             init = true;
         }
-        GGClipboard = new GazeGuidingClipboard(clipboardText.text);
+        GGClipboard = new GazeGuidingClipboard(clipboardText.text, ClipBoardTextColor);
     }
 
+
+    // deprecated
     public void UnsetGazeGuidingClipboard(){
 
         /* deactivates gaze guiding for a clipboard */
 
         GGClipboard = null;
         clipboardText = null;
-
+        lastClipboardName = "";
     }
-    
+
+    /// <summary>
+    /// Method to highlight a porton of the text on the clipboard specified by index.                           
+    /// </summary>
+    /// <param name ="index"> Integer specifying the specific portion of text to highlight </param>
     public void HighlightClipboard(int index){
         /* highlights a portion of the text on the clipboard specified by index */
-
+        
+        lastindex = index;
+        
         if (GGClipboard == null || clipboardText == null){
 
             Debug.LogError("No clipboard set for gaze guiding");
@@ -691,10 +830,12 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 
         HUD hud = FindAnyObjectByType<HUD>();
 
-        hud.setText(GGClipboard.GetFormattedClipboardText());
+        if(hud != null) hud.setText(GGClipboard.GetFormattedClipboardText());
     }
 
-
+    /// <summary>
+    /// Method to remove highlighting from the clipboard by reinitialising the respective clipboard without any highlighted text.
+    /// </summary>
     public void removeHighlightFromClipboard(){
 
         /* removes highlighting by reinitialising the clipboard */
@@ -705,7 +846,7 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             
         } else {
 
-            GGClipboard = new GazeGuidingClipboard(initalText);
+            GGClipboard = new GazeGuidingClipboard(initalText, ClipBoardTextColor);
             clipboardText.text = initalText;
             init = false;
         }
@@ -713,25 +854,54 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         //Clear HUD
         HUD hud = FindAnyObjectByType<HUD>();
 
-        hud.clearText();
+        if(hud != null) hud.clearText();
+
+        lastindex = 0;
+
     }
 
+    /// <summary>
+    /// Method to remove highlighting from the clipboard by reinitialising the respective clipboard without any highlighted text. This method is used when the player is no longer looking at the button associated with the clipboard.
+    /// </summary>
+    public void removeHighlightFromClipboardForButton(){
+
+        /* removes highlighting by reinitialising the clipboard */
+
+        if (!lastClipboardName.Equals(""))
+        {
+            SetGazeGuidingClipboard(lastClipboardName);
+            if(lastindex != 0) HighlightClipboard(lastindex);
+        }
+    }
+    
 
     /**********************************
     ** Highlighting displays utility **
     **********************************/
 
+    /// <param name="WP1RPMisGlowing"> boolean tracking whether WP1RPM_display is currently glowing</param>
     private bool WP1RPMisGlowing = false;
+    /// <param name="WP2RPMisGlowing"> boolean tracking whether WP2RPM_display is currently glowing</param>
     private bool WP2RPMisGlowing = false;
+    /// <param name="CPRPMisGlowing"> boolean tracking whether CPRPM_display is currently glowing</param>
     private bool CPRPMisGlowing = false;
+    /// <param name="ControlRodsisGlowing"> boolean tracking whether the controlRods display is currently glowing</param>
     private bool ControlRodsisGlowing = false;
+    /// <param name="EngergyisGlowing"> boolean tracking whether the Energy display is currently glowing</param>
     private bool EnergyisGlowing = false;
+    /// <param name="RPressureisGlowing"> boolean tracking whether the RPressure display is currently glowing</param>
     private bool RPressureisGlowing = false;
+    /// <param name="CPressureisGlowing"> boolean tracking whether the CPressure display is currently glowing</param>
     private bool CPressureisGlowing = false;
+    /// <param name="RWaterLvlisGlowing"> boolean tracking whether the RWaterLvl display is currently glowing</param>
     private bool RWaterLvlisGlowing = false;
+    /// <param name="CWaterLvlisGlowing"> boolean tracking whether the CWaterLvl display is currently glowing</param>
     private bool CWaterLvlisGlowing = false;
 
-
+    /// <summary>
+    /// Utility method to set the glow effect to all displays related to a specific component that is currently being used.
+    /// </summary>
+    /// <param name="targetName"> String containing the name of the component that is currently being used </param>
     private void setDisplayHighlight(string targetName)
     {
 
@@ -841,6 +1011,9 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Utility method to remove the glow effect from all displays.
+    /// </summary>
     public void unsetDisplayHighlight()
     {
         if (WP1RPMisGlowing)
@@ -895,11 +1068,15 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     ** toggling visibility of objects **
     ***********************************/
 
-
+    /// <param name="detached"> boolean tracking whether the detach effect is on (true) / off (false) </param>
     public bool detached = false;
+    /// <param name="checkCullingMask"> boolean to check if main camera is rendering "detached" </param> 
     private bool checkCullingMask = true;
 
-
+    /// <summary>
+    /// Interface to enable the detach effect. Removes all rotary switches and displays on the main console from the "Default" layer rendered by main camera by moving them to an unrendered Layer "detached" and setting the boolean switch detached to true.   
+    /// </summary>
+    /// <param name="on"> boolean switch to enable (true) / disable (false) the detach effect </param>
     public void SetDetach(bool on)
     {
         if (on)
@@ -924,12 +1101,17 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             }
     }
 
+    /// <summary>
+    /// Utility method moving objects between layers to toggle their visibility. Because main camera does not render the detached layer, objects on this layer are invisible (detached from the visible layer) while objects on the Default layer are visible (attached to the visile layer).
+    /// </summary>
+    /// <param name="target"> String containing the name of the object to attach/detach </param>
+    /// <param name="on"> boolean switch for attaching (true) / detaching (false) the target </param>
     public void ToggleObjectVisibility(string target, bool on)
     {
         /*  toggles an objects visibility by moving it between layers */
 
         if (on)
-            GameObject.Find(target).GetComponent<ChangeLayer>().setLayer("Ddefault");
+            GameObject.Find(target).GetComponent<ChangeLayer>().setLayer("Default");
         else
             GameObject.Find(target).GetComponent<ChangeLayer>().setLayer("detached");
     }
@@ -939,13 +1121,19 @@ public class GazeGuidingPathPlayer : MonoBehaviour
     ** camera blur **
     ****************/
 
-
+    /// <param name="blur"> boolean tracking whether the blur effect is on (true) / off (false)  </param>
     public bool blur = false;
+    /// <param name="focusCamera"> Camera object tracking the camera rendering focused objects </param>
     private Camera focusCamera;
+    /// <param name="mainVolume"> Volume object assigned to main camera </param>
     private Volume mainVolume;
+    /// <param name="focusVolume"> Volume object assigned to focus camera </param>
     private Volume focusVolume;
 
-
+    /// <summary>
+    /// Interface to activate or deactivate the blur effect according to the boolean value passed as an argument.
+    /// </summary>
+    /// <param name ="on"> boolean switch for activation (true) / deactivation (false) of the blur effect </param>
     public void SetBlur(bool on)
     {
         if (on)
@@ -954,6 +1142,11 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             UnblurCamera();
     }
 
+    /// <summary>
+    /// Blurs or unblurs an object by moving it between llayers. Objects on the focused layer are not blurred while objects on the default layer are blurred.
+    /// </summary>
+    /// <param name = "target"> name of the object to blur / unblur </param>
+    /// <param name = "on"> boolean switch for blurring (false) / unblurring (true) the target </blur>
     public void ToggleBlur(string target, bool on)
     {
         if (on)
@@ -962,9 +1155,11 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             GameObject.Find(target).GetComponent<ChangeLayer>().setLayer("Default");
     }
 
+    /// <summary>
+    /// Activates the blur effect by setting the focus distance, focal length and aperture of the volumes assigned to main camera, setting the culling mask of main camera and focus camera and setting the blur switch to true.
+    /// </summary>
     private void BlurCamera()
     {
-        Debug.Log("Blurring Camera");
 
         /* sets up the blur effect */
 
@@ -1044,15 +1239,13 @@ public class GazeGuidingPathPlayer : MonoBehaviour
             }
         }
 
-        // ToDo setup controllers here instead of editor
-
-        //GameObject.Find("GazeGuidingController").GetComponent<ChangeLayer>().setLayer("Focused");
-        //GameObject.Find("Clipboardstand").GetComponent<ChangeLayer>().setLayer("Focused");
-
         blur = true;
     }
 
 
+    /// <summary>
+    /// Deactivates the blur effect by deactivating the volume assigned to the main camera as well as deactivating the focus camera and setting the switch for the blur effect to false.
+    /// </summary>
     private void UnblurCamera()
     {
         Debug.Log("Unblurring Camera");
@@ -1063,9 +1256,6 @@ public class GazeGuidingPathPlayer : MonoBehaviour
         // disable focusd camera
         if (focusCamera.enabled)
             focusCamera.GetComponent<Volume>().enabled = false;
-
-        //GameObject.Find("GazeGuidingController").GetComponent<ChangeLayer>().setLayer("Default");
-        //GameObject.Find("Clipboardstand").GetComponent<ChangeLayer>().setLayer("Default");
 
         blur = false;
     }

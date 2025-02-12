@@ -1,10 +1,20 @@
 using UnityEngine;
 
+/// <summary>
+/// This class is used to change the layer of an object and its children.
+/// </summary>
 public class ChangeLayer : MonoBehaviour
 {
+    /// <param name="target"> string specifying the target layer an object is to be moved to</param>
     private string target;
+    /// <param name="propagateChildren"> boolean specifying whether all children of an object are to be moved as well</param>
     private bool propagateChildren = true;
 
+    /// <summary>
+    /// This method moves an object to the layer specified in layer if it exists else returns -1
+    /// </summary>
+    /// <param name="layer"> string specifying the target layer an object is to be moved to</param>
+    /// <param name="propagate"> boolean specifying whether all children of an object are to be moved as well</param>
     public void setLayer(string layer, bool propagate = true)
     {
 
@@ -31,6 +41,11 @@ public class ChangeLayer : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This utility method moves all children of a GameObject to a specific layer by calling itself recursively.
+    /// </summary>
+    /// <param name="obj"> GameObject to be moved to a specific layer </param>
+    /// <param name="target"> int specifying the target layer the object is to be moved to</param>
     private void PropagateChildren(GameObject obj, int target)
     {
         

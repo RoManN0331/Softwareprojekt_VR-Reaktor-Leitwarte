@@ -4,11 +4,22 @@ using System.Collections;
 
 //ziehe dieses skript auf das GameObject, das AnzeigeSteuerung.cs als Komponente hat
 //dadurch wird die Anzeige zufällig verändert
+
+/// <summary>
+/// This class randomizes the values of the AnzeigeSteuerung.cs and AnzeigeSteuerung5.cs scripts.
+/// </summary>
 public class AnzeigeRandomizer : MonoBehaviour
 {
+
+
+    /// <param name="anzeigeSteuerung">Reference to a AnzeigeSteuerung component</param>
     private AnzeigeSteuerung anzeigeSteuerung;
+    /// <param name="anzeigeSteuerung2">Reference to a AnzeigeSteuerung5 component</param>
     private AnzeigeSteuerung5 anzeigeSteuerung2;
 
+    /// <summary>
+    /// This method initialises anzeigeSteuerung and anzeigeSteuerung2.
+    /// </summary>
     void Start()
     {
         anzeigeSteuerung = GetComponent<AnzeigeSteuerung>();
@@ -37,6 +48,9 @@ public class AnzeigeRandomizer : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method sends random input to a display by assigning a random label and interpolating a random change.
+    /// </summary>
     private IEnumerator ChangeValuesOverTime()
     {
         while (true)
@@ -61,6 +75,9 @@ public class AnzeigeRandomizer : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method sends random input to a display by assigning a random label and interpolating a random change.
+    /// </summary>
     private IEnumerator ChangeValuesOverTime2()
     {
         while (true)
@@ -84,7 +101,11 @@ public class AnzeigeRandomizer : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(0, 20));
         }
     }
-    
+
+    /// <summary>
+    /// This method generates a random string of letters, used as a label for a display in ChangeValuesOverTime() or ChangeValuesOverTime2().
+    /// </summary>
+    /// <param name="length"> int specifying the length of the random string</param>
     private string GetRandomLetters(int length)
     {
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
