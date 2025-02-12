@@ -61,18 +61,7 @@ public class Flipper : MonoBehaviour
          Material mater = meshRenderer.material;
 
          mater.DisableKeyword("_EMISSION");
-
-        
-        InputActionManager temp = FindObjectOfType<InputActionManager>();
-        if (temp != null && temp.actionAssets.Count > 0)
-        {
-            foreach (var act in temp.actionAssets )
-            {
-                var action = act.FindAction("XRI Right Interaction/Select");
-                trigger = InputActionReference.Create(action);
-                break;
-            }
-        }
+         
         GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
         
         //INITALISIERE STATE
@@ -93,49 +82,40 @@ public class Flipper : MonoBehaviour
 
     }
     
-    public InputActionReference trigger;
-    
-
-    private void Update()
-    {
-        if (isHovering && !isCooldown && trigger.action.triggered)
-        {
-            StartCoroutine(Flip());
-        }
-    }
-    
-    
-    private bool isCooldown = false;
-    private bool isHovering = false;
-
     private void OnEnable()
     {
         var interactable = GetComponent<XRSimpleInteractable>();
-        interactable.hoverEntered.AddListener(OnHoverEntered);
-        interactable.hoverExited.AddListener(OnHoverExited);
+        interactable.selectEntered.AddListener(OnSelectEntered);
+        interactable.selectExited.AddListener(OnSelectExited);
     }
 
     private void OnDisable()
     {
         var interactable = GetComponent<XRSimpleInteractable>();
-        interactable.hoverEntered.RemoveListener(OnHoverEntered);
-        interactable.hoverExited.RemoveListener(OnHoverExited);
+        interactable.selectEntered.RemoveListener(OnSelectEntered);
+        interactable.selectExited.RemoveListener(OnSelectExited);
+    }
+    
+    private UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor interactor;
+
+    private bool alreadyClicked = false;
+    private void OnSelectEntered(SelectEnterEventArgs args)
+    {
+        if (!alreadyClicked)
+        {
+            StartCoroutine(Flip());
+            alreadyClicked = true;
+        }
     }
 
-    private void OnHoverEntered(HoverEnterEventArgs args)
+    private void OnSelectExited(SelectExitEventArgs args)
     {
-        isHovering = true;
-    }
-
-    private void OnHoverExited(HoverExitEventArgs args)
-    {
-        isHovering = false;
+            alreadyClicked = false;
+            interactor = null;
     }
     
     private IEnumerator Flip()
     {
-        isCooldown = true;
-
         Material mater = meshRenderer.material;
 
         if(!flipped)
@@ -159,8 +139,6 @@ public class Flipper : MonoBehaviour
             if (distractionsEnabled) gazeGuidingButtons.Distractions(true);
             if (clipboardHighlight) gazeGuidingButtons.ClipboardHighlight(true);
             if (AnzeigenHighlight) gazeGuidingButtons.AnzeigenHighlight(true);
-            
-
 
         }
         else
@@ -186,9 +164,6 @@ public class Flipper : MonoBehaviour
             if (AnzeigenHighlight) gazeGuidingButtons.AnzeigenHighlight(false);
         }
         
-        yield return new WaitForSeconds(1f);
-
-        isCooldown = false;
     }
 
     private IEnumerator FlipWithoutCall()
