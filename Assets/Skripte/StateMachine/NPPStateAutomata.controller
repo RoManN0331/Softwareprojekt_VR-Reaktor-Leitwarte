@@ -578,7 +578,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: WP2RPM
-    m_EventTreshold: 790
+    m_EventTreshold: 770
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2341339493007111382}
   m_Solo: 0
@@ -1781,10 +1781,10 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: WP2RPM
-    m_EventTreshold: 811
+    m_EventTreshold: 841
   - m_ConditionMode: 3
     m_ConditionEvent: WP2RPM
-    m_EventTreshold: 789
+    m_EventTreshold: 769
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1359318140977379935}
   m_Solo: 0
@@ -1997,7 +1997,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: ReactorWaterLvl
-    m_EventTreshold: 2200
+    m_EventTreshold: 2300
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1359318140977379935}
   m_Solo: 0
@@ -2147,7 +2147,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: ReactorWaterLvl
-    m_EventTreshold: 2000
+    m_EventTreshold: 1800
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1359318140977379935}
   m_Solo: 0
@@ -2178,7 +2178,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
-  m_ExitTime: 8
+  m_ExitTime: 0.75
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -2577,10 +2577,10 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: ReactorWaterLvl
-    m_EventTreshold: 1999
+    m_EventTreshold: 1799
   - m_ConditionMode: 4
     m_ConditionEvent: ReactorWaterLvl
-    m_EventTreshold: 2201
+    m_EventTreshold: 2301
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -378794904983908264}
   m_Solo: 0
@@ -2795,7 +2795,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: WP2RPM
-    m_EventTreshold: 810
+    m_EventTreshold: 840
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2341339493007111382}
   m_Solo: 0

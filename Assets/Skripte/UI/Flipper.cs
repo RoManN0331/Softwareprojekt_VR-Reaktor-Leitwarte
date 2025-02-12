@@ -54,6 +54,9 @@ public class Flipper : MonoBehaviour
     
     private void Start()
     {
+        // um beide Augen in Windows zu zeigen
+        UnityEngine.XR.XRSettings.gameViewRenderMode = UnityEngine.XR.GameViewRenderMode.OcclusionMesh;
+        
         gazeGuidingButtons = FindAnyObjectByType<GazeGuidingButtons>();
         
          meshRenderer = GetComponent<MeshRenderer>();
