@@ -118,7 +118,7 @@ public class AnzeigeSteuerung : MonoBehaviour
         
         // step 1: animate the bars from 0 to 100, spiking the display within the specified duration i.e. 2 seconds
         
-        while (elapsedTime < duration)flooding
+        while (elapsedTime < duration)
         {
             CHANGEpercentage = Mathf.Lerp(0, 100, elapsedTime / duration);
             UpdateBars();

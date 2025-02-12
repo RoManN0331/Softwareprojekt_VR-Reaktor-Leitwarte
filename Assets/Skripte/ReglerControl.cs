@@ -187,7 +187,8 @@ public class ReglerControl : MonoBehaviour
             // Find the child GameObject named "Lampe"
             Transform lampeTransform = transform.Find("Lampe");
             if (lampeTransform != null)
-            {signalghtRegler>();
+            {
+                lightRegler = lampeTransform.GetComponent<LightRegler>();
             }
             else
             {

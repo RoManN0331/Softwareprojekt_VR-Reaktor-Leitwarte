@@ -205,7 +205,7 @@ public class Flipper : MonoBehaviour
             if (DetachEnabled) gazeGuidingButtons.TriggerDetach(false);
             if (BlurEnabled) gazeGuidingButtons.TriggerBlur(false);
             if (distractionsEnabled) FindAnyObjectByType<disableDistractions>().disableDistraction(false);
-            if (clipboardHighlight)This method initialises the pattern used to separate tasks as well as the canvas where the text will be displayed.
+            if (clipboardHighlight)
             {
                 GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
                 pathPlayer.ClipBoardTextColor = "<color=#000000>";
