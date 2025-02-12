@@ -119,6 +119,10 @@ public class GazeGuidingPathPlayer : MonoBehaviour
 
     void Start()
     {
+        // um beide Augen in Windows zu zeigen
+        UnityEngine.XR.XRSettings.gameViewRenderMode = UnityEngine.XR.GameViewRenderMode.OcclusionMesh;
+        
+        
         // initialising the LineRenderer and render material used for rendering the path computed in animatePath()        
         lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.startWidth = 0.03f;
