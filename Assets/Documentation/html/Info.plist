@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+     <key>CFBundleName</key>
+     <string>NPP VR Simulation</string>
+     <key>CFBundleIdentifier</key>
+     <string>de.uni-trier</string>
+     <key>CFBundleVersion</key>
+     <string>0.1</string>
+     <key>DocSetFeedName</key>
+     <string>NPP VR Simulation Documentation</string>
+     <key>DocSetFeedUrl</key>
+     <string>FeedUrl</string>
+     <key>DocSetPublisherIdentifier</key>
+     <string>de.uni-trier</string>
+     <key>DocSetPublisherName</key>
+     <string>Uni Trier</string>
+     <key>DashDocSetFamily</key>
+     <string>doxy</string>
+     <key>DocSetPlatformFamily</key>
+     <string>doxygen</string>
+</dict>
+</plist>

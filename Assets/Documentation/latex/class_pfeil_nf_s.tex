@@ -1,0 +1,170 @@
+\doxysection{Pfeil\+NfS Class Reference}
+\hypertarget{class_pfeil_nf_s}{}\label{class_pfeil_nf_s}\index{PfeilNfS@{PfeilNfS}}
+
+
+This class implements a directional cue indicating to the player where to turn to find the object the player is supposed to interact with.  
+
+
+Inheritance diagram for Pfeil\+NfS\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pfeil_nf_s}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_pfeil_nf_s_acbb7ea65ada7bcddc41bbde10bc5ba69}{move\+Amount}} = 0.\+0055f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em move\+Amount} & specifies the amount of vertical movement\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_pfeil_nf_s_a43b89431b15f11b90333a76cadfa07e6}{offset}} = -\/0.\+01f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em offset} & offsets the starting position of the arrow\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}} \mbox{\hyperlink{class_pfeil_nf_s_a28429197d418d6e1b36162e54c753382}{target}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em target} & is a reference to a \doxylink{class_gaze_guiding_target}{Gaze\+Guiding\+Target} \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_pfeil_nf_s_ac21b4b63d32981331d98b889d36fde63}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the position of the arrow. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pfeil_nf_s_a27d81340a3b16be69869fb6817d24692}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the arrow\textquotesingle{}s vertical position as well as its orientation, continuously rotating the arrow to point towards the object that the player is supposed to interact with (i.\+e. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_pfeil_nf_s_a0fe2c81793e5a724a457dcd2fb9d2378}{move\+Speed}} = 3f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em move\+Speed} & specifies the speed of vertical movements\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_pfeil_nf_s_a0d06cbfe2edeb5b45c84322277abc6b3}{initialY}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em initialY} & specifies the initial y position of the arrow\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements a directional cue indicating to the player where to turn to find the object the player is supposed to interact with. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pfeil_nf_s_ac21b4b63d32981331d98b889d36fde63}\index{PfeilNfS@{PfeilNfS}!Start@{Start}}
+\index{Start@{Start}!PfeilNfS@{PfeilNfS}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_pfeil_nf_s_ac21b4b63d32981331d98b889d36fde63} 
+void Pfeil\+Nf\+S.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the position of the arrow. 
+
+\Hypertarget{class_pfeil_nf_s_a27d81340a3b16be69869fb6817d24692}\index{PfeilNfS@{PfeilNfS}!Update@{Update}}
+\index{Update@{Update}!PfeilNfS@{PfeilNfS}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_pfeil_nf_s_a27d81340a3b16be69869fb6817d24692} 
+void Pfeil\+Nf\+S.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the arrow\textquotesingle{}s vertical position as well as its orientation, continuously rotating the arrow to point towards the object that the player is supposed to interact with (i.\+e. 
+
+whose \doxylink{class_gaze_guiding_target}{Gaze\+Guiding\+Target} component is set as target). 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_pfeil_nf_s_a0d06cbfe2edeb5b45c84322277abc6b3}\index{PfeilNfS@{PfeilNfS}!initialY@{initialY}}
+\index{initialY@{initialY}!PfeilNfS@{PfeilNfS}}
+\doxysubsubsection{\texorpdfstring{initialY}{initialY}}
+{\footnotesize\ttfamily \label{class_pfeil_nf_s_a0d06cbfe2edeb5b45c84322277abc6b3} 
+float Pfeil\+Nf\+S.\+initialY\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em initialY} & specifies the initial y position of the arrow\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_pfeil_nf_s_acbb7ea65ada7bcddc41bbde10bc5ba69}\index{PfeilNfS@{PfeilNfS}!moveAmount@{moveAmount}}
+\index{moveAmount@{moveAmount}!PfeilNfS@{PfeilNfS}}
+\doxysubsubsection{\texorpdfstring{moveAmount}{moveAmount}}
+{\footnotesize\ttfamily \label{class_pfeil_nf_s_acbb7ea65ada7bcddc41bbde10bc5ba69} 
+float Pfeil\+Nf\+S.\+move\+Amount = 0.\+0055f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Amount} & specifies the amount of vertical movement\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_pfeil_nf_s_a0fe2c81793e5a724a457dcd2fb9d2378}\index{PfeilNfS@{PfeilNfS}!moveSpeed@{moveSpeed}}
+\index{moveSpeed@{moveSpeed}!PfeilNfS@{PfeilNfS}}
+\doxysubsubsection{\texorpdfstring{moveSpeed}{moveSpeed}}
+{\footnotesize\ttfamily \label{class_pfeil_nf_s_a0fe2c81793e5a724a457dcd2fb9d2378} 
+float Pfeil\+Nf\+S.\+move\+Speed = 3f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Speed} & specifies the speed of vertical movements\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_pfeil_nf_s_a43b89431b15f11b90333a76cadfa07e6}\index{PfeilNfS@{PfeilNfS}!offset@{offset}}
+\index{offset@{offset}!PfeilNfS@{PfeilNfS}}
+\doxysubsubsection{\texorpdfstring{offset}{offset}}
+{\footnotesize\ttfamily \label{class_pfeil_nf_s_a43b89431b15f11b90333a76cadfa07e6} 
+float Pfeil\+Nf\+S.\+offset = -\/0.\+01f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em offset} & offsets the starting position of the arrow\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_pfeil_nf_s_a28429197d418d6e1b36162e54c753382}\index{PfeilNfS@{PfeilNfS}!target@{target}}
+\index{target@{target}!PfeilNfS@{PfeilNfS}}
+\doxysubsubsection{\texorpdfstring{target}{target}}
+{\footnotesize\ttfamily \label{class_pfeil_nf_s_a28429197d418d6e1b36162e54c753382} 
+\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}} Pfeil\+Nf\+S.\+target}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & is a reference to a \doxylink{class_gaze_guiding_target}{Gaze\+Guiding\+Target} \\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+UI/\mbox{\hyperlink{_pfeil_nf_s_8cs}{Pfeil\+Nf\+S.\+cs}}\end{DoxyCompactItemize}

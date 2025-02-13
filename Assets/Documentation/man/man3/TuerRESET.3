@@ -1,0 +1,211 @@
+.TH "TuerRESET" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TuerRESET \- This class implements logic to reset the simulation by using the door handle in the scene of the VR application\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "InputActionReference \fBtrigger\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItrigger\fP is a reference to an input action
+.RE
+.PP
+"
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initialises the InputActionReference trigger\&. "
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.RI "This method checks whether the door handle is being hovered over and whether the trigger is being pressed\&. "
+.ti -1c
+.RI "void \fBOnEnable\fP ()"
+.br
+.RI "This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events\&. "
+.ti -1c
+.RI "void \fBOnDisable\fP ()"
+.br
+.RI "This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events\&. "
+.ti -1c
+.RI "void \fBOnHoverEntered\fP (HoverEnterEventArgs args)"
+.br
+.RI "This method is called when the XR interactor looks at the object, i\&.e\&. "
+.ti -1c
+.RI "void \fBOnHoverExited\fP (HoverExitEventArgs args)"
+.br
+.RI "This method is called when the XR interactor is no longer looking at the object, i\&.e\&. "
+.ti -1c
+.RI "IEnumerator \fBHandleDoorInteraction\fP ()"
+.br
+.RI "This method is called when the player interacts with the door handle via the XR interactor to reset the simulation\&. "
+.ti -1c
+.RI "IEnumerator \fBRotateToAngle\fP (float targetAngle, float duration)"
+.br
+.RI "This method is called in \fBHandleDoorInteraction()\fP to rotate the door handle\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBisCooldown\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisCooldown\fP checks if the handle has been used recently 
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBisHovering\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisHovering\fP checks if the XR interactor is hovering over the handle 
+.RE
+.PP
+"
+.ti -1c
+.RI "\fBNPPClient\fP \fBnppClient\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fInppClient\fP is a reference to the \fBNPPClient\fP instance in the scene
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements logic to reset the simulation by using the door handle in the scene of the VR application\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "IEnumerator TuerRESET\&.HandleDoorInteraction ()\fR [private]\fP"
+
+.PP
+This method is called when the player interacts with the door handle via the XR interactor to reset the simulation\&. 
+.SS "void TuerRESET\&.OnDisable ()\fR [private]\fP"
+
+.PP
+This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events\&. 
+.SS "void TuerRESET\&.OnEnable ()\fR [private]\fP"
+
+.PP
+This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events\&. 
+.SS "void TuerRESET\&.OnHoverEntered (HoverEnterEventArgs args)\fR [private]\fP"
+
+.PP
+This method is called when the XR interactor looks at the object, i\&.e\&. points to or moves onto the object \&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP passes event specific arguments upon entering the interaction
+.RE
+.PP
+
+.SS "void TuerRESET\&.OnHoverExited (HoverExitEventArgs args)\fR [private]\fP"
+
+.PP
+This method is called when the XR interactor is no longer looking at the object, i\&.e\&. the interactor moves away\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP passes event specific arguments upon exiting the interaction
+.RE
+.PP
+
+.SS "IEnumerator TuerRESET\&.RotateToAngle (float targetAngle, float duration)\fR [private]\fP"
+
+.PP
+This method is called in \fBHandleDoorInteraction()\fP to rotate the door handle\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItargetAngle\fP specifies the angle to rotate the door handle to
+.br
+\fIduration\fP specifies the duration of the rotation
+.RE
+.PP
+
+.SS "void TuerRESET\&.Start ()\fR [private]\fP"
+
+.PP
+This method initialises the InputActionReference trigger\&. 
+.SS "void TuerRESET\&.Update ()\fR [private]\fP"
+
+.PP
+This method checks whether the door handle is being hovered over and whether the trigger is being pressed\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "bool TuerRESET\&.isCooldown = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisCooldown\fP checks if the handle has been used recently 
+.RE
+.PP
+
+.SS "bool TuerRESET\&.isHovering = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisHovering\fP checks if the XR interactor is hovering over the handle 
+.RE
+.PP
+
+.SS "\fBNPPClient\fP TuerRESET\&.nppClient\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fInppClient\fP is a reference to the \fBNPPClient\fP instance in the scene
+.RE
+.PP
+
+.SS "InputActionReference TuerRESET\&.trigger"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItrigger\fP is a reference to an input action
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

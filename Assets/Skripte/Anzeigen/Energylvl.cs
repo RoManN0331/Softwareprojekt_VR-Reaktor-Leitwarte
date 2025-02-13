@@ -1,17 +1,19 @@
 using UnityEngine;
 
+/// <summary>
+/// This class implements logic for displaying the current power output of the generator.
+/// </summary>
 public class Energylvl : MonoBehaviour
 {
+    /// <param name="anzeigeSteuerung"> is a reference to the displays AnzeigeSteuerung component </param>
     private AnzeigeSteuerung anzeigeSteuerung;
 
+    /// <param name="clientObject"=> is a reference to the scene's clientObject</param>
     private GameObject clientObject;
 
 /// <summary>
-/// Start () initializes the display update procedure by fetching the AnzeigeSteuerung script and if successful, fetching the NPPClient script. 
-/// The AnzeigeSteuerung Script is responsible for updating the display with the energy level supplied by the generator. Because no maximum energy level is set within the simulation a value of 1500 was chosen and the update of the energy level is computed by the following formula: current energy level / 1500 * 100.
-/// The NPPClient Script is responsible for fetching the current energy level supplied by the generator from the simulation via the REST Server API. The current water level is stored in Generator.power field of the NPPReactorState object simulation.
+/// This method initializes the AnzeigeSteuerung component, clientObject and the display by calling the NPPReactorState object in NPPClient to fetch the current power output of the genrator.</summary>
 /// </summary>
-
     void Start()
     {
         anzeigeSteuerung = GetComponent<AnzeigeSteuerung>();
@@ -20,15 +22,13 @@ public class Energylvl : MonoBehaviour
 
             clientObject = GameObject.Find("NPPclientObject");
             anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Generator.power/1500*100;
-            //Debug.Log("Energy: " + anzeigeSteuerung.CHANGEpercentage);
         }
         
     }
 
 /// <summary>
-/// Update() updates the display for the energy level within each frame by fetching the energy level stored in the Generator.power field of the NPPClient Scripts simulation object and updating the energy level by computing: current energy level / 1500 * 100.
+/// This method updates the display by reading the current power output from the Generator.power field of the NPPReactorState object in NPPClient. 
 /// </summary>
-
     void Update()
     {
         anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Generator.power/1500*100;

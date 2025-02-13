@@ -1,0 +1,536 @@
+\doxysection{Gaze\+Guiding\+Path\+Player\+Second\+Path Class Reference}
+\hypertarget{class_gaze_guiding_path_player_second_path}{}\label{class_gaze_guiding_path_player_second_path}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+
+
+This class implements logic for gaze guiding in a virtual environment.  
+
+
+Inheritance diagram for Gaze\+Guiding\+Path\+Player\+Second\+Path\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_gaze_guiding_path_player_second_path}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a6f2cced7ea237daba84fb8944479a2c0}{Arrow3D}} ()
+\begin{DoxyCompactList}\small\item\em This method adds a continuous rotating 3D arrow that is rendered above an exact rotary switch to indicate the direction in which the player is supposed to turn the switch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a0c7dbdd865076b32b414847384d9fb7f}{Arrow3\+DBinaer}} ()
+\begin{DoxyCompactList}\small\item\em This method adds a binary rotating 3D arrow rendered above a binary rotary switch to indicate the direction in which the player is supposed to turn the switch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_afa50a89a9686723345105649ba9f2037}{Remove\+Arrow3D}} ()
+\begin{DoxyCompactList}\small\item\em This method removes a rotating 3D arrow or 3DBinary arrow that is currently being rendered above an exact or a binary rotary switch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a22fe9c05870655c97353cf08384399e6}{Trigger\+Target}} (\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}} target, bool Flip3\+DArrow=false)
+\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_accd8d14b8b6c8710215d8948ef53838a}{Trigger\+Target\+NAME}} (string target\+Name, \mbox{\hyperlink{class_gaze_guiding_target_aa0afbadaf6613155c88b9afed8cae472}{Gaze\+Guiding\+Target.\+Target\+Type}} type, bool Flip3\+DArrow=false)
+\begin{DoxyCompactList}\small\item\em This method sets the current target of a \doxylink{class_gaze_guiding_path_player_second_path}{Gaze\+Guiding\+Path\+Player\+Second\+Path} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_abfaea83682c65cdef5ed56b975fa5e64}{Clear\+Line}} ()
+\begin{DoxyCompactList}\small\item\em This method clears the scene of all visual aids that are currently being rendered. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a7726c6e06f82195accf3d0d0d7c44c3e}{Direction\+Arrow\+Enabled}} = true
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Arrow\+Enabled} & toggles a directional arrow indicating a direction the player should turn to\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a22379575802d61b226eb0b747149e72d}{Arrow3\+DEnabled}} = true
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Arrow3\+DEnabled} & toggles a 3D arrow indicating the direction an exact rotary switch should be turned in\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a1f83e3b72d7ee91ce6ce563f443bf580}{Arrow3\+DBinear\+Enabled}} = true
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Arrow3\+DBinear\+Enabled} & toggles 3D arrow indicating the direction a binary rotary switch should be turned in\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}} $>$ \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a5c13dcda765e0727aef287a213433550}{targets}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Arrow\+On\+Screen} & toggles the on screen display of the directional arrow\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_aaa77c9ccebb064ddc4a1eb1136961169}{path\+Display\+Distance}} = 5.\+0f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em path\+Display\+Distance} & specifies the distance between the player and an animated path that is displayed as visual cue \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_aa3f4df1bec4cecaf37d2c1a52a17df81}{animation\+Duration}} = 1.\+0f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em animation\+Duration} & specifies the duration of the path animation\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Material \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a1c1d327ca25850b8dfa1ed6d23d68925}{line\+Material}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em line\+Material} & is a Material used to render a path as visual cue\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a1a5f7f330da2286c01826513d13b7661}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the \doxylink{class_gaze_guiding_path_player_second_path}{Gaze\+Guiding\+Path\+Player\+Second\+Path}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a6018029d5a523bf786c196a08bf2ce66}{Update}} ()
+\begin{DoxyCompactList}\small\item\em $<$summa\+Qry$>$ This method updates all active gaze-\/guiding tools. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_acad5382505877aa03fd5b48571361a7c}{Animate\+Path}} (Vector3 target\+Position)
+\begin{DoxyCompactList}\small\item\em This method animates a path of arrows guiding the player towards the component set as current\+Target of the \doxylink{class_gaze_guiding_path_player_second_path}{Gaze\+Guiding\+Path\+Player\+Second\+Path}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}} \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_afb96e3e33f5f4f04b966cae2ecbd33ab}{current\+Target}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em current\+Target} & is the currently active \doxylink{class_gaze_guiding_target}{Gaze\+Guiding\+Target} for this \doxylink{class_gaze_guiding_path_player_second_path}{Gaze\+Guiding\+Path\+Player\+Second\+Path}\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Line\+Renderer \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a2506f8dd801aa04794fcfbb55e663fc1}{line\+Renderer}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em line\+Renderer} & is a Line\+Renderer object used to render a path as visual cue\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Coroutine \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a3db0b1de25964f1895c98a6d67f91922}{animate\+Path\+Coroutine}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em animate\+Path\+Coroutine} & is a Coroutine used to animate a path as visual cue\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a1e3f06c771920fc7afa757f551e28644}{is\+Animating}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Animating} & tracks whether a path is currently being animated as visual cue\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_aeba869526f2b683d5b09f4c3755bc60b}{arrow3\+DPrefab}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DPrefab} & is a reference to an Arrow3D prefab used to render continuous rotational 3DArrows\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a5186608d3ca909db6fce9f9165cc1c79}{arrow3\+DInstance}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DInstance} & is an instance of a Arrow3D prefab used to render continuous rotational 3DArrows$<$param$>$ \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a432fb5be92e0a6c447e2ad336d31963f}{arrow3\+DBinaer\+Prefab}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DBinaer\+Prefab} & is a reference to an Arrow3D prefab used to render binary rotational 3DArrows\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a592962e9cba0dfce5be016531ab66c9f}{arrow3\+DBinaer\+Instance}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DBinaer\+Instance} & is an instance of an Arrow3D prefab used to render binary rotational 3DArrows$<$param$>$ \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_ad6ad6fc437c05fae3e0ef1fd304047ad}{arrow3\+DInstance\+Created}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DInstance\+Created} & is a flag tracking whether an Arrow3D instance has been created \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_second_path_a299b9ee0530b128177d3ec22accf05e0}{arrow3\+DBinaer\+Instance\+Created}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DBinaer\+Instance\+Created} & is a flag tracking whether an Arrow3\+DBinary instance has been created \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic for gaze guiding in a virtual environment. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_gaze_guiding_path_player_second_path_acad5382505877aa03fd5b48571361a7c}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!AnimatePath@{AnimatePath}}
+\index{AnimatePath@{AnimatePath}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{AnimatePath()}{AnimatePath()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_acad5382505877aa03fd5b48571361a7c} 
+IEnumerator Gaze\+Guiding\+Path\+Player\+Second\+Path.\+Animate\+Path (\begin{DoxyParamCaption}\item[{Vector3}]{target\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method animates a path of arrows guiding the player towards the component set as current\+Target of the \doxylink{class_gaze_guiding_path_player_second_path}{Gaze\+Guiding\+Path\+Player\+Second\+Path}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Position} & is a Vector3 position of the endpoint of the path \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_path_player_second_path_a6f2cced7ea237daba84fb8944479a2c0}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!Arrow3D@{Arrow3D}}
+\index{Arrow3D@{Arrow3D}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{Arrow3D()}{Arrow3D()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a6f2cced7ea237daba84fb8944479a2c0} 
+void Gaze\+Guiding\+Path\+Player\+Second\+Path.\+Arrow3D (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method adds a continuous rotating 3D arrow that is rendered above an exact rotary switch to indicate the direction in which the player is supposed to turn the switch. 
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_a0c7dbdd865076b32b414847384d9fb7f}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!Arrow3DBinaer@{Arrow3DBinaer}}
+\index{Arrow3DBinaer@{Arrow3DBinaer}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{Arrow3DBinaer()}{Arrow3DBinaer()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a0c7dbdd865076b32b414847384d9fb7f} 
+void Gaze\+Guiding\+Path\+Player\+Second\+Path.\+Arrow3\+DBinaer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method adds a binary rotating 3D arrow rendered above a binary rotary switch to indicate the direction in which the player is supposed to turn the switch. 
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_abfaea83682c65cdef5ed56b975fa5e64}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!ClearLine@{ClearLine}}
+\index{ClearLine@{ClearLine}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{ClearLine()}{ClearLine()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_abfaea83682c65cdef5ed56b975fa5e64} 
+void Gaze\+Guiding\+Path\+Player\+Second\+Path.\+Clear\+Line (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method clears the scene of all visual aids that are currently being rendered. 
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_afa50a89a9686723345105649ba9f2037}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!RemoveArrow3D@{RemoveArrow3D}}
+\index{RemoveArrow3D@{RemoveArrow3D}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{RemoveArrow3D()}{RemoveArrow3D()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_afa50a89a9686723345105649ba9f2037} 
+void Gaze\+Guiding\+Path\+Player\+Second\+Path.\+Remove\+Arrow3D (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method removes a rotating 3D arrow or 3DBinary arrow that is currently being rendered above an exact or a binary rotary switch. 
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_a1a5f7f330da2286c01826513d13b7661}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!Start@{Start}}
+\index{Start@{Start}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a1a5f7f330da2286c01826513d13b7661} 
+void Gaze\+Guiding\+Path\+Player\+Second\+Path.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the \doxylink{class_gaze_guiding_path_player_second_path}{Gaze\+Guiding\+Path\+Player\+Second\+Path}. 
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_a22fe9c05870655c97353cf08384399e6}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!TriggerTarget@{TriggerTarget}}
+\index{TriggerTarget@{TriggerTarget}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{TriggerTarget()}{TriggerTarget()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a22fe9c05870655c97353cf08384399e6} 
+void Gaze\+Guiding\+Path\+Player\+Second\+Path.\+Trigger\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}}}]{target}{, }\item[{bool}]{Flip3\+DArrow}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_accd8d14b8b6c8710215d8948ef53838a}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!TriggerTargetNAME@{TriggerTargetNAME}}
+\index{TriggerTargetNAME@{TriggerTargetNAME}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{TriggerTargetNAME()}{TriggerTargetNAME()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_accd8d14b8b6c8710215d8948ef53838a} 
+void Gaze\+Guiding\+Path\+Player\+Second\+Path.\+Trigger\+Target\+NAME (\begin{DoxyParamCaption}\item[{string}]{target\+Name}{, }\item[{\mbox{\hyperlink{class_gaze_guiding_target_aa0afbadaf6613155c88b9afed8cae472}{Gaze\+Guiding\+Target.\+Target\+Type}}}]{type}{, }\item[{bool}]{Flip3\+DArrow}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+This method sets the current target of a \doxylink{class_gaze_guiding_path_player_second_path}{Gaze\+Guiding\+Path\+Player\+Second\+Path} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Name} & contains the name of a rotary switch that is the new target for the \doxylink{class_gaze_guiding_path_player_second_path}{Gaze\+Guiding\+Path\+Player\+Second\+Path} \\
+\hline
+{\em type} & is an Enum specifying the type of rotary switch passed in target\+Name \\
+\hline
+{\em Flip3\+DArrow} & toggles whether 3D arrows rotate clockwise \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_path_player_second_path_a6018029d5a523bf786c196a08bf2ce66}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!Update@{Update}}
+\index{Update@{Update}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a6018029d5a523bf786c196a08bf2ce66} 
+void Gaze\+Guiding\+Path\+Player\+Second\+Path.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+$<$summa\+Qry$>$ This method updates all active gaze-\/guiding tools. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_gaze_guiding_path_player_second_path_a3db0b1de25964f1895c98a6d67f91922}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!animatePathCoroutine@{animatePathCoroutine}}
+\index{animatePathCoroutine@{animatePathCoroutine}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{animatePathCoroutine}{animatePathCoroutine}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a3db0b1de25964f1895c98a6d67f91922} 
+Coroutine Gaze\+Guiding\+Path\+Player\+Second\+Path.\+animate\+Path\+Coroutine\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em animate\+Path\+Coroutine} & is a Coroutine used to animate a path as visual cue\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_aa3f4df1bec4cecaf37d2c1a52a17df81}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!animationDuration@{animationDuration}}
+\index{animationDuration@{animationDuration}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{animationDuration}{animationDuration}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_aa3f4df1bec4cecaf37d2c1a52a17df81} 
+float Gaze\+Guiding\+Path\+Player\+Second\+Path.\+animation\+Duration = 1.\+0f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em animation\+Duration} & specifies the duration of the path animation\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_a592962e9cba0dfce5be016531ab66c9f}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!arrow3DBinaerInstance@{arrow3DBinaerInstance}}
+\index{arrow3DBinaerInstance@{arrow3DBinaerInstance}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{arrow3DBinaerInstance}{arrow3DBinaerInstance}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a592962e9cba0dfce5be016531ab66c9f} 
+Game\+Object Gaze\+Guiding\+Path\+Player\+Second\+Path.\+arrow3\+DBinaer\+Instance\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DBinaer\+Instance} & is an instance of an Arrow3D prefab used to render binary rotational 3DArrows$<$param$>$ \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_a299b9ee0530b128177d3ec22accf05e0}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!arrow3DBinaerInstanceCreated@{arrow3DBinaerInstanceCreated}}
+\index{arrow3DBinaerInstanceCreated@{arrow3DBinaerInstanceCreated}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{arrow3DBinaerInstanceCreated}{arrow3DBinaerInstanceCreated}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a299b9ee0530b128177d3ec22accf05e0} 
+bool Gaze\+Guiding\+Path\+Player\+Second\+Path.\+arrow3\+DBinaer\+Instance\+Created = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DBinaer\+Instance\+Created} & is a flag tracking whether an Arrow3\+DBinary instance has been created \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_a432fb5be92e0a6c447e2ad336d31963f}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!arrow3DBinaerPrefab@{arrow3DBinaerPrefab}}
+\index{arrow3DBinaerPrefab@{arrow3DBinaerPrefab}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{arrow3DBinaerPrefab}{arrow3DBinaerPrefab}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a432fb5be92e0a6c447e2ad336d31963f} 
+Game\+Object Gaze\+Guiding\+Path\+Player\+Second\+Path.\+arrow3\+DBinaer\+Prefab\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DBinaer\+Prefab} & is a reference to an Arrow3D prefab used to render binary rotational 3DArrows\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_a1f83e3b72d7ee91ce6ce563f443bf580}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!Arrow3DBinearEnabled@{Arrow3DBinearEnabled}}
+\index{Arrow3DBinearEnabled@{Arrow3DBinearEnabled}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{Arrow3DBinearEnabled}{Arrow3DBinearEnabled}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a1f83e3b72d7ee91ce6ce563f443bf580} 
+bool Gaze\+Guiding\+Path\+Player\+Second\+Path.\+Arrow3\+DBinear\+Enabled = true}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Arrow3\+DBinear\+Enabled} & toggles 3D arrow indicating the direction a binary rotary switch should be turned in\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_a22379575802d61b226eb0b747149e72d}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!Arrow3DEnabled@{Arrow3DEnabled}}
+\index{Arrow3DEnabled@{Arrow3DEnabled}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{Arrow3DEnabled}{Arrow3DEnabled}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a22379575802d61b226eb0b747149e72d} 
+bool Gaze\+Guiding\+Path\+Player\+Second\+Path.\+Arrow3\+DEnabled = true}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Arrow3\+DEnabled} & toggles a 3D arrow indicating the direction an exact rotary switch should be turned in\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_a5186608d3ca909db6fce9f9165cc1c79}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!arrow3DInstance@{arrow3DInstance}}
+\index{arrow3DInstance@{arrow3DInstance}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{arrow3DInstance}{arrow3DInstance}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a5186608d3ca909db6fce9f9165cc1c79} 
+Game\+Object Gaze\+Guiding\+Path\+Player\+Second\+Path.\+arrow3\+DInstance\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DInstance} & is an instance of a Arrow3D prefab used to render continuous rotational 3DArrows$<$param$>$ \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_ad6ad6fc437c05fae3e0ef1fd304047ad}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!arrow3DInstanceCreated@{arrow3DInstanceCreated}}
+\index{arrow3DInstanceCreated@{arrow3DInstanceCreated}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{arrow3DInstanceCreated}{arrow3DInstanceCreated}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_ad6ad6fc437c05fae3e0ef1fd304047ad} 
+bool Gaze\+Guiding\+Path\+Player\+Second\+Path.\+arrow3\+DInstance\+Created = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DInstance\+Created} & is a flag tracking whether an Arrow3D instance has been created \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_aeba869526f2b683d5b09f4c3755bc60b}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!arrow3DPrefab@{arrow3DPrefab}}
+\index{arrow3DPrefab@{arrow3DPrefab}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{arrow3DPrefab}{arrow3DPrefab}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_aeba869526f2b683d5b09f4c3755bc60b} 
+Game\+Object Gaze\+Guiding\+Path\+Player\+Second\+Path.\+arrow3\+DPrefab\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DPrefab} & is a reference to an Arrow3D prefab used to render continuous rotational 3DArrows\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_afb96e3e33f5f4f04b966cae2ecbd33ab}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!currentTarget@{currentTarget}}
+\index{currentTarget@{currentTarget}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{currentTarget}{currentTarget}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_afb96e3e33f5f4f04b966cae2ecbd33ab} 
+\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}} Gaze\+Guiding\+Path\+Player\+Second\+Path.\+current\+Target\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Target} & is the currently active \doxylink{class_gaze_guiding_target}{Gaze\+Guiding\+Target} for this \doxylink{class_gaze_guiding_path_player_second_path}{Gaze\+Guiding\+Path\+Player\+Second\+Path}\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_a7726c6e06f82195accf3d0d0d7c44c3e}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!DirectionArrowEnabled@{DirectionArrowEnabled}}
+\index{DirectionArrowEnabled@{DirectionArrowEnabled}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{DirectionArrowEnabled}{DirectionArrowEnabled}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a7726c6e06f82195accf3d0d0d7c44c3e} 
+bool Gaze\+Guiding\+Path\+Player\+Second\+Path.\+Direction\+Arrow\+Enabled = true}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Arrow\+Enabled} & toggles a directional arrow indicating a direction the player should turn to\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_a1e3f06c771920fc7afa757f551e28644}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!isAnimating@{isAnimating}}
+\index{isAnimating@{isAnimating}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{isAnimating}{isAnimating}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a1e3f06c771920fc7afa757f551e28644} 
+bool Gaze\+Guiding\+Path\+Player\+Second\+Path.\+is\+Animating = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Animating} & tracks whether a path is currently being animated as visual cue\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_a1c1d327ca25850b8dfa1ed6d23d68925}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!lineMaterial@{lineMaterial}}
+\index{lineMaterial@{lineMaterial}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{lineMaterial}{lineMaterial}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a1c1d327ca25850b8dfa1ed6d23d68925} 
+Material Gaze\+Guiding\+Path\+Player\+Second\+Path.\+line\+Material}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Material} & is a Material used to render a path as visual cue\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_a2506f8dd801aa04794fcfbb55e663fc1}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!lineRenderer@{lineRenderer}}
+\index{lineRenderer@{lineRenderer}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{lineRenderer}{lineRenderer}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a2506f8dd801aa04794fcfbb55e663fc1} 
+Line\+Renderer Gaze\+Guiding\+Path\+Player\+Second\+Path.\+line\+Renderer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Renderer} & is a Line\+Renderer object used to render a path as visual cue\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_aaa77c9ccebb064ddc4a1eb1136961169}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!pathDisplayDistance@{pathDisplayDistance}}
+\index{pathDisplayDistance@{pathDisplayDistance}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{pathDisplayDistance}{pathDisplayDistance}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_aaa77c9ccebb064ddc4a1eb1136961169} 
+float Gaze\+Guiding\+Path\+Player\+Second\+Path.\+path\+Display\+Distance = 5.\+0f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em path\+Display\+Distance} & specifies the distance between the player and an animated path that is displayed as visual cue \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_second_path_a5c13dcda765e0727aef287a213433550}\index{GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}!targets@{targets}}
+\index{targets@{targets}!GazeGuidingPathPlayerSecondPath@{GazeGuidingPathPlayerSecondPath}}
+\doxysubsubsection{\texorpdfstring{targets}{targets}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_second_path_a5c13dcda765e0727aef287a213433550} 
+List$<$\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}}$>$ Gaze\+Guiding\+Path\+Player\+Second\+Path.\+targets}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Arrow\+On\+Screen} & toggles the on screen display of the directional arrow\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em targets} & is a list of \doxylink{class_gaze_guiding_target}{Gaze\+Guiding\+Target} objects\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Gaze\+Guiding\+Path/\mbox{\hyperlink{_gaze_guiding_path_player_second_path_8cs}{Gaze\+Guiding\+Path\+Player\+Second\+Path.\+cs}}\end{DoxyCompactItemize}

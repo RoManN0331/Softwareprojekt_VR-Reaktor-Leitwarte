@@ -1,0 +1,130 @@
+\doxysection{Anzeige\+Randomizer Class Reference}
+\hypertarget{class_anzeige_randomizer}{}\label{class_anzeige_randomizer}\index{AnzeigeRandomizer@{AnzeigeRandomizer}}
+
+
+This class is responsible for randomizing the values shown on a display.  
+
+
+Inheritance diagram for Anzeige\+Randomizer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_anzeige_randomizer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_anzeige_randomizer_a7b654aa88e9103847389893f755dd8c9}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the anzeige\+Steuerung and anzeige\+Steuerung2 component. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_anzeige_randomizer_a962f3d4683284555abcd732350a344d7}{Change\+Values\+Over\+Time}} ()
+\begin{DoxyCompactList}\small\item\em This method simulates an active display by sending random input to it. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_anzeige_randomizer_a171b51c1ab6f3b1b22c8d30e65f59c95}{Change\+Values\+Over\+Time2}} ()
+\begin{DoxyCompactList}\small\item\em This method simulates an active display by sending random input to it. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_anzeige_randomizer_abdba996c0b41fe36d2634d61e6424efb}{Get\+Random\+Letters}} (int length)
+\begin{DoxyCompactList}\small\item\em This method generates a random string of letters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} \mbox{\hyperlink{class_anzeige_randomizer_a015386e0f97085be82cee422d3554a73}{anzeige\+Steuerung}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & references a \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_anzeige_steuerung5}{Anzeige\+Steuerung5}} \mbox{\hyperlink{class_anzeige_randomizer_af266a8b693b37fb4d99071e3d8b6dfee}{anzeige\+Steuerung2}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung2} & references a \doxylink{class_anzeige_steuerung5}{Anzeige\+Steuerung5} component\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is responsible for randomizing the values shown on a display. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_anzeige_randomizer_a962f3d4683284555abcd732350a344d7}\index{AnzeigeRandomizer@{AnzeigeRandomizer}!ChangeValuesOverTime@{ChangeValuesOverTime}}
+\index{ChangeValuesOverTime@{ChangeValuesOverTime}!AnzeigeRandomizer@{AnzeigeRandomizer}}
+\doxysubsubsection{\texorpdfstring{ChangeValuesOverTime()}{ChangeValuesOverTime()}}
+{\footnotesize\ttfamily \label{class_anzeige_randomizer_a962f3d4683284555abcd732350a344d7} 
+IEnumerator Anzeige\+Randomizer.\+Change\+Values\+Over\+Time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method simulates an active display by sending random input to it. 
+
+\Hypertarget{class_anzeige_randomizer_a171b51c1ab6f3b1b22c8d30e65f59c95}\index{AnzeigeRandomizer@{AnzeigeRandomizer}!ChangeValuesOverTime2@{ChangeValuesOverTime2}}
+\index{ChangeValuesOverTime2@{ChangeValuesOverTime2}!AnzeigeRandomizer@{AnzeigeRandomizer}}
+\doxysubsubsection{\texorpdfstring{ChangeValuesOverTime2()}{ChangeValuesOverTime2()}}
+{\footnotesize\ttfamily \label{class_anzeige_randomizer_a171b51c1ab6f3b1b22c8d30e65f59c95} 
+IEnumerator Anzeige\+Randomizer.\+Change\+Values\+Over\+Time2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method simulates an active display by sending random input to it. 
+
+\Hypertarget{class_anzeige_randomizer_abdba996c0b41fe36d2634d61e6424efb}\index{AnzeigeRandomizer@{AnzeigeRandomizer}!GetRandomLetters@{GetRandomLetters}}
+\index{GetRandomLetters@{GetRandomLetters}!AnzeigeRandomizer@{AnzeigeRandomizer}}
+\doxysubsubsection{\texorpdfstring{GetRandomLetters()}{GetRandomLetters()}}
+{\footnotesize\ttfamily \label{class_anzeige_randomizer_abdba996c0b41fe36d2634d61e6424efb} 
+string Anzeige\+Randomizer.\+Get\+Random\+Letters (\begin{DoxyParamCaption}\item[{int}]{length}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method generates a random string of letters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & specifies the max length of the generated string\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_anzeige_randomizer_a7b654aa88e9103847389893f755dd8c9}\index{AnzeigeRandomizer@{AnzeigeRandomizer}!Start@{Start}}
+\index{Start@{Start}!AnzeigeRandomizer@{AnzeigeRandomizer}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_anzeige_randomizer_a7b654aa88e9103847389893f755dd8c9} 
+void Anzeige\+Randomizer.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the anzeige\+Steuerung and anzeige\+Steuerung2 component. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_anzeige_randomizer_a015386e0f97085be82cee422d3554a73}\index{AnzeigeRandomizer@{AnzeigeRandomizer}!anzeigeSteuerung@{anzeigeSteuerung}}
+\index{anzeigeSteuerung@{anzeigeSteuerung}!AnzeigeRandomizer@{AnzeigeRandomizer}}
+\doxysubsubsection{\texorpdfstring{anzeigeSteuerung}{anzeigeSteuerung}}
+{\footnotesize\ttfamily \label{class_anzeige_randomizer_a015386e0f97085be82cee422d3554a73} 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} Anzeige\+Randomizer.\+anzeige\+Steuerung\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & references a \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_randomizer_af266a8b693b37fb4d99071e3d8b6dfee}\index{AnzeigeRandomizer@{AnzeigeRandomizer}!anzeigeSteuerung2@{anzeigeSteuerung2}}
+\index{anzeigeSteuerung2@{anzeigeSteuerung2}!AnzeigeRandomizer@{AnzeigeRandomizer}}
+\doxysubsubsection{\texorpdfstring{anzeigeSteuerung2}{anzeigeSteuerung2}}
+{\footnotesize\ttfamily \label{class_anzeige_randomizer_af266a8b693b37fb4d99071e3d8b6dfee} 
+\mbox{\hyperlink{class_anzeige_steuerung5}{Anzeige\+Steuerung5}} Anzeige\+Randomizer.\+anzeige\+Steuerung2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung2} & references a \doxylink{class_anzeige_steuerung5}{Anzeige\+Steuerung5} component\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Anzeigen/\mbox{\hyperlink{_anzeige_randomizer_8cs}{Anzeige\+Randomizer.\+cs}}\end{DoxyCompactItemize}

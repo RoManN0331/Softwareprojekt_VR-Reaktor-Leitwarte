@@ -1,0 +1,181 @@
+\doxysection{Global\+Config Class Reference}
+\hypertarget{class_global_config}{}\label{class_global_config}\index{GlobalConfig@{GlobalConfig}}
+
+
+This class contains global configuration values and handles setup tasks.  
+
+
+Inheritance diagram for Global\+Config\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_global_config}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_global_config_aa16da6e2dada1b2972f93b3aa67b9bad}{START\+\_\+\+REST\+\_\+\+SERVER}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em START\+\_\+\+REST\+\_\+\+SERVER} & is a flag to start the REST server at the start of the VR application\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static string \mbox{\hyperlink{class_global_config_af402a50f975c4bad5fceaa6e78ecddc5}{BASE\+\_\+\+URL}} = "{}http\+://localhost\+:8080/api/"{}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em BASE\+\_\+\+URL} & is the base URL of the rest server running the simulation\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+static float \mbox{\hyperlink{class_global_config_a501527e2e53a9fadb7a6d006372c112c}{CLIENT\+\_\+\+UPDATE\+\_\+\+INTERVAL}} = .\+1f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em CLIENT\+\_\+\+UPDATE\+\_\+\+INTERVAL} & is an interval in seconds between two update requests\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_global_config_a448e4fe6242f4191d81c99c41e1a90ef}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method starts the REST server if checked by the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_global_config_a32acaecec52146cdc66cfb7b1ccff2ac}{Update}} ()
+\item 
+void \mbox{\hyperlink{class_global_config_a6ff3380c6ec4ab475f200662b049ee3b}{On\+Application\+Quit}} ()
+\begin{DoxyCompactList}\small\item\em This method stops the REST Server when the application is closed, if the server is running. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Process \mbox{\hyperlink{class_global_config_a8bbd418f5f8f54f8b303201f509ebcf0}{java\+Rest\+Server\+Process}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em java\+Rest\+Server\+Process} & ia s reference to the REST server process \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_global_config_af181cfbf4e5856ef7876c64429d2e5b8}{rest\+Server\+PID}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em rest\+Server\+PID} & is the PID of the REST server process\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class contains global configuration values and handles setup tasks. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_global_config_a6ff3380c6ec4ab475f200662b049ee3b}\index{GlobalConfig@{GlobalConfig}!OnApplicationQuit@{OnApplicationQuit}}
+\index{OnApplicationQuit@{OnApplicationQuit}!GlobalConfig@{GlobalConfig}}
+\doxysubsubsection{\texorpdfstring{OnApplicationQuit()}{OnApplicationQuit()}}
+{\footnotesize\ttfamily \label{class_global_config_a6ff3380c6ec4ab475f200662b049ee3b} 
+void Global\+Config.\+On\+Application\+Quit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method stops the REST Server when the application is closed, if the server is running. 
+
+\Hypertarget{class_global_config_a448e4fe6242f4191d81c99c41e1a90ef}\index{GlobalConfig@{GlobalConfig}!Start@{Start}}
+\index{Start@{Start}!GlobalConfig@{GlobalConfig}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_global_config_a448e4fe6242f4191d81c99c41e1a90ef} 
+void Global\+Config.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method starts the REST server if checked by the player. 
+
+\Hypertarget{class_global_config_a32acaecec52146cdc66cfb7b1ccff2ac}\index{GlobalConfig@{GlobalConfig}!Update@{Update}}
+\index{Update@{Update}!GlobalConfig@{GlobalConfig}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_global_config_a32acaecec52146cdc66cfb7b1ccff2ac} 
+void Global\+Config.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_global_config_af402a50f975c4bad5fceaa6e78ecddc5}\index{GlobalConfig@{GlobalConfig}!BASE\_URL@{BASE\_URL}}
+\index{BASE\_URL@{BASE\_URL}!GlobalConfig@{GlobalConfig}}
+\doxysubsubsection{\texorpdfstring{BASE\_URL}{BASE\_URL}}
+{\footnotesize\ttfamily \label{class_global_config_af402a50f975c4bad5fceaa6e78ecddc5} 
+string Global\+Config.\+BASE\+\_\+\+URL = "{}http\+://localhost\+:8080/api/"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em BASE\+\_\+\+URL} & is the base URL of the rest server running the simulation\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_global_config_a501527e2e53a9fadb7a6d006372c112c}\index{GlobalConfig@{GlobalConfig}!CLIENT\_UPDATE\_INTERVAL@{CLIENT\_UPDATE\_INTERVAL}}
+\index{CLIENT\_UPDATE\_INTERVAL@{CLIENT\_UPDATE\_INTERVAL}!GlobalConfig@{GlobalConfig}}
+\doxysubsubsection{\texorpdfstring{CLIENT\_UPDATE\_INTERVAL}{CLIENT\_UPDATE\_INTERVAL}}
+{\footnotesize\ttfamily \label{class_global_config_a501527e2e53a9fadb7a6d006372c112c} 
+float Global\+Config.\+CLIENT\+\_\+\+UPDATE\+\_\+\+INTERVAL = .\+1f\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em CLIENT\+\_\+\+UPDATE\+\_\+\+INTERVAL} & is an interval in seconds between two update requests\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_global_config_a8bbd418f5f8f54f8b303201f509ebcf0}\index{GlobalConfig@{GlobalConfig}!javaRestServerProcess@{javaRestServerProcess}}
+\index{javaRestServerProcess@{javaRestServerProcess}!GlobalConfig@{GlobalConfig}}
+\doxysubsubsection{\texorpdfstring{javaRestServerProcess}{javaRestServerProcess}}
+{\footnotesize\ttfamily \label{class_global_config_a8bbd418f5f8f54f8b303201f509ebcf0} 
+Process Global\+Config.\+java\+Rest\+Server\+Process\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em java\+Rest\+Server\+Process} & ia s reference to the REST server process \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_global_config_af181cfbf4e5856ef7876c64429d2e5b8}\index{GlobalConfig@{GlobalConfig}!restServerPID@{restServerPID}}
+\index{restServerPID@{restServerPID}!GlobalConfig@{GlobalConfig}}
+\doxysubsubsection{\texorpdfstring{restServerPID}{restServerPID}}
+{\footnotesize\ttfamily \label{class_global_config_af181cfbf4e5856ef7876c64429d2e5b8} 
+int Global\+Config.\+rest\+Server\+PID\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em rest\+Server\+PID} & is the PID of the REST server process\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_global_config_aa16da6e2dada1b2972f93b3aa67b9bad}\index{GlobalConfig@{GlobalConfig}!START\_REST\_SERVER@{START\_REST\_SERVER}}
+\index{START\_REST\_SERVER@{START\_REST\_SERVER}!GlobalConfig@{GlobalConfig}}
+\doxysubsubsection{\texorpdfstring{START\_REST\_SERVER}{START\_REST\_SERVER}}
+{\footnotesize\ttfamily \label{class_global_config_aa16da6e2dada1b2972f93b3aa67b9bad} 
+bool Global\+Config.\+START\+\_\+\+REST\+\_\+\+SERVER}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em START\+\_\+\+REST\+\_\+\+SERVER} & is a flag to start the REST server at the start of the VR application\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\mbox{\hyperlink{_global_config_8cs}{Global\+Config.\+cs}}\end{DoxyCompactItemize}

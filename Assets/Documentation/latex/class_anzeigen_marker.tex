@@ -1,0 +1,346 @@
+\doxysection{Anzeigen\+Marker Class Reference}
+\hypertarget{class_anzeigen_marker}{}\label{class_anzeigen_marker}\index{AnzeigenMarker@{AnzeigenMarker}}
+
+
+This class implements graphical cues to highlight a display the player is supposed to manipulate and to mark the target value that the player is supposed to set.  
+
+
+Inheritance diagram for Anzeigen\+Marker\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_anzeigen_marker}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_anzeigen_marker_ad50a5201d7e7187e3986e53d3906830e}{move\+Speed}} = 3f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em move\+Speed} & sppecifies the speed of vertical movements\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeigen_marker_a35d8e4ac034af6774dd811dc2d4de4f4}{move\+Amount}} = 0.\+015f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em move\+Amount} & specifies the amount of vertical movement\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeigen_marker_af8c780944a7fd3d1966be4d2907cf27f}{font\+Size\+Speed}} = 2f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em font\+Size\+Speed} & specifies the speed of the font size change\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeigen_marker_adecd3dee68119165a7788355e6bb4288}{font\+Size\+Amount}} = 0.\+1f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em font\+Size\+Amount} & specifies the amount of font size change\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeigen_marker_ab48c0bdbc40bbf271c4f3c71f5257c12}{target\+Number}} = 1000
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em target\+Number} & is used to calculate the position of the arrow pointing to the target value\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_anzeigen_marker_a2e5b24e00b1719c3b075236f4dac83d3}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises an arrow pointing to the target value, a "{}!"{} marking the display and the control component (\doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung}) of the display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_anzeigen_marker_a502cbaa783609a9984e0b72de0d30ff2}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the arrow\textquotesingle{}s position marking the target value and the font size of the "{}!"{} marking the display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Transform \mbox{\hyperlink{class_anzeigen_marker_ae61c0c7eeba8615569d59fd94803ba48}{pfeil\+Transform}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em pfeil\+Transform} & is a Transfom for animating the arrow pointing to the target value\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Text\+Mesh\+Pro \mbox{\hyperlink{class_anzeigen_marker_a64869bbb83f5a12945001f0c1eccc958}{text\+Mesh\+Pro}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em text\+Mesh\+Pro} & is a Text\+Mesh\+Pro used to mark the display by an "{}!"{} \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeigen_marker_a6a234845135951a1c2cd3ef62c5bc7d9}{initialY}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em initialY} & specifies the initial y position of the arrow pointing to the target value\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeigen_marker_aec51440f533951ba37a7e1481a18c60d}{initial\+Font\+Size}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em initial\+Font\+Size} & specifies the initial font size set for the Text\+Mesh\+Pro\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeigen_marker_aacdea7cd40079edfc6ef19a357d959f5}{xleft}} = 0.\+0611f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em xleft} & specifies the leftmost position of the arrow indicating the target value\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeigen_marker_aa4b7a6f7d2bd72f9ecbe77e153039892}{xright}} = -\/0.\+0734f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em xright} & specifies the rightmost position of the arrow indicating the target value\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} \mbox{\hyperlink{class_anzeigen_marker_aa6aec5ccc759b8757312e2820f0a03be}{anzeige\+Steuerung}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to an \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} used to get the upper limit of a display to calculate the target number\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_anzeige_steuerung5}{Anzeige\+Steuerung5}} \mbox{\hyperlink{class_anzeigen_marker_a292e1889dd4bd65589df99f452f42825}{anzeige\+Steuerung2}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung2} & is a reference to an \doxylink{class_anzeige_steuerung5}{Anzeige\+Steuerung5} used to get the upper limit of a display to calculate the target number\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements graphical cues to highlight a display the player is supposed to manipulate and to mark the target value that the player is supposed to set. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_anzeigen_marker_a2e5b24e00b1719c3b075236f4dac83d3}\index{AnzeigenMarker@{AnzeigenMarker}!Start@{Start}}
+\index{Start@{Start}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_a2e5b24e00b1719c3b075236f4dac83d3} 
+void Anzeigen\+Marker.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises an arrow pointing to the target value, a "{}!"{} marking the display and the control component (\doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung}) of the display. 
+
+\Hypertarget{class_anzeigen_marker_a502cbaa783609a9984e0b72de0d30ff2}\index{AnzeigenMarker@{AnzeigenMarker}!Update@{Update}}
+\index{Update@{Update}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_a502cbaa783609a9984e0b72de0d30ff2} 
+void Anzeigen\+Marker.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the arrow\textquotesingle{}s position marking the target value and the font size of the "{}!"{} marking the display. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_anzeigen_marker_aa6aec5ccc759b8757312e2820f0a03be}\index{AnzeigenMarker@{AnzeigenMarker}!anzeigeSteuerung@{anzeigeSteuerung}}
+\index{anzeigeSteuerung@{anzeigeSteuerung}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{anzeigeSteuerung}{anzeigeSteuerung}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_aa6aec5ccc759b8757312e2820f0a03be} 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} Anzeigen\+Marker.\+anzeige\+Steuerung\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to an \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} used to get the upper limit of a display to calculate the target number\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeigen_marker_a292e1889dd4bd65589df99f452f42825}\index{AnzeigenMarker@{AnzeigenMarker}!anzeigeSteuerung2@{anzeigeSteuerung2}}
+\index{anzeigeSteuerung2@{anzeigeSteuerung2}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{anzeigeSteuerung2}{anzeigeSteuerung2}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_a292e1889dd4bd65589df99f452f42825} 
+\mbox{\hyperlink{class_anzeige_steuerung5}{Anzeige\+Steuerung5}} Anzeigen\+Marker.\+anzeige\+Steuerung2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung2} & is a reference to an \doxylink{class_anzeige_steuerung5}{Anzeige\+Steuerung5} used to get the upper limit of a display to calculate the target number\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeigen_marker_adecd3dee68119165a7788355e6bb4288}\index{AnzeigenMarker@{AnzeigenMarker}!fontSizeAmount@{fontSizeAmount}}
+\index{fontSizeAmount@{fontSizeAmount}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{fontSizeAmount}{fontSizeAmount}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_adecd3dee68119165a7788355e6bb4288} 
+float Anzeigen\+Marker.\+font\+Size\+Amount = 0.\+1f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em font\+Size\+Amount} & specifies the amount of font size change\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeigen_marker_af8c780944a7fd3d1966be4d2907cf27f}\index{AnzeigenMarker@{AnzeigenMarker}!fontSizeSpeed@{fontSizeSpeed}}
+\index{fontSizeSpeed@{fontSizeSpeed}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{fontSizeSpeed}{fontSizeSpeed}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_af8c780944a7fd3d1966be4d2907cf27f} 
+float Anzeigen\+Marker.\+font\+Size\+Speed = 2f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em font\+Size\+Speed} & specifies the speed of the font size change\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeigen_marker_aec51440f533951ba37a7e1481a18c60d}\index{AnzeigenMarker@{AnzeigenMarker}!initialFontSize@{initialFontSize}}
+\index{initialFontSize@{initialFontSize}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{initialFontSize}{initialFontSize}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_aec51440f533951ba37a7e1481a18c60d} 
+float Anzeigen\+Marker.\+initial\+Font\+Size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\+Font\+Size} & specifies the initial font size set for the Text\+Mesh\+Pro\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeigen_marker_a6a234845135951a1c2cd3ef62c5bc7d9}\index{AnzeigenMarker@{AnzeigenMarker}!initialY@{initialY}}
+\index{initialY@{initialY}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{initialY}{initialY}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_a6a234845135951a1c2cd3ef62c5bc7d9} 
+float Anzeigen\+Marker.\+initialY\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em initialY} & specifies the initial y position of the arrow pointing to the target value\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeigen_marker_a35d8e4ac034af6774dd811dc2d4de4f4}\index{AnzeigenMarker@{AnzeigenMarker}!moveAmount@{moveAmount}}
+\index{moveAmount@{moveAmount}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{moveAmount}{moveAmount}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_a35d8e4ac034af6774dd811dc2d4de4f4} 
+float Anzeigen\+Marker.\+move\+Amount = 0.\+015f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Amount} & specifies the amount of vertical movement\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeigen_marker_ad50a5201d7e7187e3986e53d3906830e}\index{AnzeigenMarker@{AnzeigenMarker}!moveSpeed@{moveSpeed}}
+\index{moveSpeed@{moveSpeed}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{moveSpeed}{moveSpeed}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_ad50a5201d7e7187e3986e53d3906830e} 
+float Anzeigen\+Marker.\+move\+Speed = 3f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Speed} & sppecifies the speed of vertical movements\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeigen_marker_ae61c0c7eeba8615569d59fd94803ba48}\index{AnzeigenMarker@{AnzeigenMarker}!pfeilTransform@{pfeilTransform}}
+\index{pfeilTransform@{pfeilTransform}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{pfeilTransform}{pfeilTransform}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_ae61c0c7eeba8615569d59fd94803ba48} 
+Transform Anzeigen\+Marker.\+pfeil\+Transform\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em pfeil\+Transform} & is a Transfom for animating the arrow pointing to the target value\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeigen_marker_ab48c0bdbc40bbf271c4f3c71f5257c12}\index{AnzeigenMarker@{AnzeigenMarker}!targetNumber@{targetNumber}}
+\index{targetNumber@{targetNumber}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{targetNumber}{targetNumber}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_ab48c0bdbc40bbf271c4f3c71f5257c12} 
+float Anzeigen\+Marker.\+target\+Number = 1000}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Number} & is used to calculate the position of the arrow pointing to the target value\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeigen_marker_a64869bbb83f5a12945001f0c1eccc958}\index{AnzeigenMarker@{AnzeigenMarker}!textMeshPro@{textMeshPro}}
+\index{textMeshPro@{textMeshPro}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{textMeshPro}{textMeshPro}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_a64869bbb83f5a12945001f0c1eccc958} 
+Text\+Mesh\+Pro Anzeigen\+Marker.\+text\+Mesh\+Pro\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em text\+Mesh\+Pro} & is a Text\+Mesh\+Pro used to mark the display by an "{}!"{} \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeigen_marker_aacdea7cd40079edfc6ef19a357d959f5}\index{AnzeigenMarker@{AnzeigenMarker}!xleft@{xleft}}
+\index{xleft@{xleft}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{xleft}{xleft}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_aacdea7cd40079edfc6ef19a357d959f5} 
+float Anzeigen\+Marker.\+xleft = 0.\+0611f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em xleft} & specifies the leftmost position of the arrow indicating the target value\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeigen_marker_aa4b7a6f7d2bd72f9ecbe77e153039892}\index{AnzeigenMarker@{AnzeigenMarker}!xright@{xright}}
+\index{xright@{xright}!AnzeigenMarker@{AnzeigenMarker}}
+\doxysubsubsection{\texorpdfstring{xright}{xright}}
+{\footnotesize\ttfamily \label{class_anzeigen_marker_aa4b7a6f7d2bd72f9ecbe77e153039892} 
+float Anzeigen\+Marker.\+xright = -\/0.\+0734f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em xright} & specifies the rightmost position of the arrow indicating the target value\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+UI/\mbox{\hyperlink{_anzeigen_marker_8cs}{Anzeigen\+Marker.\+cs}}\end{DoxyCompactItemize}

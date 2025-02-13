@@ -1,0 +1,399 @@
+\doxysection{WV1 Class Reference}
+\hypertarget{class_w_v1}{}\label{class_w_v1}\index{WV1@{WV1}}
+
+
+This class is used to control water valve 1 in an NPP simulation.  
+
+
+Inheritance diagram for WV1\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_w_v1}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_w_v1_aff2d7cb456e4bad40c505477d9ec3ca2}{Set\+Valve\+Status}} (string valve\+Id, bool value)
+\begin{DoxyCompactList}\small\item\em This method initiates a call to the REST Server to update the simulation with the current status of water valve 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_w_v1_a6ee63fe9226a4194dadbc67e01145b30}{Set\+Percent\+From\+External}} (int percent)
+\begin{DoxyCompactList}\small\item\em This method sets the percentage value of the switch based on an external input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_w_v1_af44f2c2cffdd5cb4f1bc8f91f5ad3491}{Percent}} = 0
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Percent} & int specifying the percentage the switch has been rotated based on its leftmost position\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_w_v1_aa104cf99684664c99f84a88b88f603de}{Regler\+Type\+Enum}} \{ \mbox{\hyperlink{class_w_v1_aa104cf99684664c99f84a88b88f603deacc7be7321cbf01a5bcde4641c7f6f4b5}{Genau}} = 0
+, \mbox{\hyperlink{class_w_v1_aa104cf99684664c99f84a88b88f603dea4cfcdfbe8cf27aff6e57c51ee947715c}{Binaer}} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em Defines two types of rotary switches binary and exact. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_w_v1_a91529037b395d5b320da9a1e7f5d4f8d}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes the \doxylink{class_w_v1}{WV1} instance, sets the initial rotation of the switch and initializes the switches lamp. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_w_v1_a541284ede97d0de1191d702b760e125b}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the rotation of the switch based on the current value of Percent. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_w_v1_aedc0b1a7529eb2c4af76a34b3501f073}{Update\+Rotation}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the rotation of the switch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_w_v1_ae6c6db22daecc98fe97e8909f79d8eb2}{On\+Enable}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the object is enabled and adds event listeners for the select\+Entered and select\+Exited events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_w_v1_a17c7b7076eef3bb9f233ca6926448cd4}{On\+Disable}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the object is disabled and removes event listeners for the select\+Entered and select\+Exited events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_w_v1_ad6243a511c271593a368d5fba11accd2}{On\+Select\+Entered}} (Select\+Enter\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when an interactor enters the object and sets the interactor and initial\+Interactor\+Rotation values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_w_v1_a11496e6794a695a2e63da3201a8e9e3c}{On\+Select\+Exited}} (Select\+Exit\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when an interactor exits the object and resets the is\+Interacting and interactor values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_w_v1_a235f1dc9d9cc381bfb022082ce54c713}{init\+Lamp}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the switches lamp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_w_v1_aa104cf99684664c99f84a88b88f603de}{Regler\+Type\+Enum}} \mbox{\hyperlink{class_w_v1_af3482f235edcf549029efa931a1eb030}{Regler\+Type}} = \mbox{\hyperlink{class_w_v1_aa104cf99684664c99f84a88b88f603dea4cfcdfbe8cf27aff6e57c51ee947715c}{Regler\+Type\+Enum.\+Binaer}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Regler\+Type} & Specifies the type of rotary switch\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_w_v1_a2f3304ad10d85b1d497df930ccb5f934}{to\+\_\+rotate}}
+\item 
+int \mbox{\hyperlink{class_w_v1_aaebaf27fb69b7bc442206b28d8571096}{Start\+Rotation}} = -\/90
+\begin{DoxyCompactList}\small\item\em param name="{}\+End\+Rotation"{}\texorpdfstring{$>$}{>}int specifying the angle of the switches rightmost position\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_w_v1_af6819e9734ccc85020af574c341bdb6e}{End\+Rotation}} = 0
+\begin{DoxyCompactList}\small\item\em param name="{}last\+Press\+Time"{}\texorpdfstring{$>$}{>}float specifying when the switch was last interacted with\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_w_v1_a52098de6ad2677461a88464ae42fb9b4}{last\+Press\+Time}} = 0f
+\begin{DoxyCompactList}\small\item\em param name="{}press\+Cooldown"{}\texorpdfstring{$>$}{>}float specifying a cooldown between interactions with the switch\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_w_v1_ab3f4942e51831c6e891489c70bd69eb3}{press\+Cooldown}} = 1f
+\begin{DoxyCompactList}\small\item\em param name="{}interactor"{}\texorpdfstring{$>$}{>}Interactor\end{DoxyCompactList}\item 
+Unity\+Engine.\+XR.\+Interaction.\+Toolkit.\+Interactors.\+XRBase\+Interactor \mbox{\hyperlink{class_w_v1_ae7d2f7b3cc80a4a9f0e54bd7560fd851}{interactor}}
+\begin{DoxyCompactList}\small\item\em param name="{}is\+Interacting"{}\texorpdfstring{$>$}{>}boolean tracking if the player is interacting with the switch\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_w_v1_a83092f3b0e5b75af413a721c72259d1c}{is\+Interacting}} = false
+\begin{DoxyCompactList}\small\item\em param name="{}initial\+Interactor\+Position"{}\texorpdfstring{$>$}{>}Vector3 specifying the initial Position of the Interactor\end{DoxyCompactList}\item 
+Vector3 \mbox{\hyperlink{class_w_v1_a06b3249807bc5a9b2f44caa174047885}{initial\+Interactor\+Position}}
+\begin{DoxyCompactList}\small\item\em param name="{}initial\+Percent"{}\texorpdfstring{$>$}{>}int specifying the initinal percentage the switch has already been rotated\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_w_v1_a7399b2defb189ebbf9bbbe3ea20731fe}{initial\+Percent}}
+\begin{DoxyCompactList}\small\item\em param name="{}previous\+Percent"{}\texorpdfstring{$>$}{>}int specifying the percentage the switch has been rotated in the last frame\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_w_v1_a01eb18285afeae61fd02628bd3e92c4a}{previous\+Percent}}
+\begin{DoxyCompactList}\small\item\em param name="{}light\+Regler"{}\texorpdfstring{$>$}{>}Loght\+Regler to switch on lights\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_light_regler}{Light\+Regler}} \mbox{\hyperlink{class_w_v1_a13e1ee0880afb4573667f9d573fc5de0}{light\+Regler}}
+\begin{DoxyCompactList}\small\item\em param name="{}npp\+Client"{}\texorpdfstring{$>$}{>}Reference to the \doxylink{class_n_p_p_client}{NPPClient} instance in the scene\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_n_p_p_client}{NPPClient}} \mbox{\hyperlink{class_w_v1_ad117cbb6545ab44da008b0fead36017d}{npp\+Client}}
+\item 
+Game\+Object \mbox{\hyperlink{class_w_v1_a9a3e8ab42a9a2c3f056bf3e7e74417ff}{client\+Object}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to control water valve 1 in an NPP simulation. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_w_v1_aa104cf99684664c99f84a88b88f603de}\index{WV1@{WV1}!ReglerTypeEnum@{ReglerTypeEnum}}
+\index{ReglerTypeEnum@{ReglerTypeEnum}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{ReglerTypeEnum}{ReglerTypeEnum}}
+{\footnotesize\ttfamily \label{class_w_v1_aa104cf99684664c99f84a88b88f603de} 
+enum \mbox{\hyperlink{class_w_v1_aa104cf99684664c99f84a88b88f603de}{WV1.\+Regler\+Type\+Enum}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Defines two types of rotary switches binary and exact. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Genau@{Genau}!WV1@{WV1}}\index{WV1@{WV1}!Genau@{Genau}}}\Hypertarget{class_w_v1_aa104cf99684664c99f84a88b88f603deacc7be7321cbf01a5bcde4641c7f6f4b5}\label{class_w_v1_aa104cf99684664c99f84a88b88f603deacc7be7321cbf01a5bcde4641c7f6f4b5} 
+Genau&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Binaer@{Binaer}!WV1@{WV1}}\index{WV1@{WV1}!Binaer@{Binaer}}}\Hypertarget{class_w_v1_aa104cf99684664c99f84a88b88f603dea4cfcdfbe8cf27aff6e57c51ee947715c}\label{class_w_v1_aa104cf99684664c99f84a88b88f603dea4cfcdfbe8cf27aff6e57c51ee947715c} 
+Binaer&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_w_v1_a235f1dc9d9cc381bfb022082ce54c713}\index{WV1@{WV1}!initLamp@{initLamp}}
+\index{initLamp@{initLamp}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{initLamp()}{initLamp()}}
+{\footnotesize\ttfamily \label{class_w_v1_a235f1dc9d9cc381bfb022082ce54c713} 
+void WV1.\+init\+Lamp (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the switches lamp. 
+
+\Hypertarget{class_w_v1_a17c7b7076eef3bb9f233ca6926448cd4}\index{WV1@{WV1}!OnDisable@{OnDisable}}
+\index{OnDisable@{OnDisable}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{OnDisable()}{OnDisable()}}
+{\footnotesize\ttfamily \label{class_w_v1_a17c7b7076eef3bb9f233ca6926448cd4} 
+void WV1.\+On\+Disable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the object is disabled and removes event listeners for the select\+Entered and select\+Exited events. 
+
+\Hypertarget{class_w_v1_ae6c6db22daecc98fe97e8909f79d8eb2}\index{WV1@{WV1}!OnEnable@{OnEnable}}
+\index{OnEnable@{OnEnable}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{OnEnable()}{OnEnable()}}
+{\footnotesize\ttfamily \label{class_w_v1_ae6c6db22daecc98fe97e8909f79d8eb2} 
+void WV1.\+On\+Enable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the object is enabled and adds event listeners for the select\+Entered and select\+Exited events. 
+
+\Hypertarget{class_w_v1_ad6243a511c271593a368d5fba11accd2}\index{WV1@{WV1}!OnSelectEntered@{OnSelectEntered}}
+\index{OnSelectEntered@{OnSelectEntered}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{OnSelectEntered()}{OnSelectEntered()}}
+{\footnotesize\ttfamily \label{class_w_v1_ad6243a511c271593a368d5fba11accd2} 
+void WV1.\+On\+Select\+Entered (\begin{DoxyParamCaption}\item[{Select\+Enter\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when an interactor enters the object and sets the interactor and initial\+Interactor\+Rotation values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments upon entering the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_w_v1_a11496e6794a695a2e63da3201a8e9e3c}\index{WV1@{WV1}!OnSelectExited@{OnSelectExited}}
+\index{OnSelectExited@{OnSelectExited}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{OnSelectExited()}{OnSelectExited()}}
+{\footnotesize\ttfamily \label{class_w_v1_a11496e6794a695a2e63da3201a8e9e3c} 
+void WV1.\+On\+Select\+Exited (\begin{DoxyParamCaption}\item[{Select\+Exit\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when an interactor exits the object and resets the is\+Interacting and interactor values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments upon exiting the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_w_v1_a6ee63fe9226a4194dadbc67e01145b30}\index{WV1@{WV1}!SetPercentFromExternal@{SetPercentFromExternal}}
+\index{SetPercentFromExternal@{SetPercentFromExternal}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{SetPercentFromExternal()}{SetPercentFromExternal()}}
+{\footnotesize\ttfamily \label{class_w_v1_a6ee63fe9226a4194dadbc67e01145b30} 
+void WV1.\+Set\+Percent\+From\+External (\begin{DoxyParamCaption}\item[{int}]{percent}{}\end{DoxyParamCaption})}
+
+
+
+This method sets the percentage value of the switch based on an external input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em percent} & specifies the percentage value to set the switch to\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_w_v1_aff2d7cb456e4bad40c505477d9ec3ca2}\index{WV1@{WV1}!SetValveStatus@{SetValveStatus}}
+\index{SetValveStatus@{SetValveStatus}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{SetValveStatus()}{SetValveStatus()}}
+{\footnotesize\ttfamily \label{class_w_v1_aff2d7cb456e4bad40c505477d9ec3ca2} 
+void WV1.\+Set\+Valve\+Status (\begin{DoxyParamCaption}\item[{string}]{valve\+Id}{, }\item[{bool}]{value}{}\end{DoxyParamCaption})}
+
+
+
+This method initiates a call to the REST Server to update the simulation with the current status of water valve 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valve\+Id} & contains the ID of a valve specified on the REST Server \\
+\hline
+{\em value} & sets a valve either to open (true) or closed (false) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_w_v1_a91529037b395d5b320da9a1e7f5d4f8d}\index{WV1@{WV1}!Start@{Start}}
+\index{Start@{Start}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_w_v1_a91529037b395d5b320da9a1e7f5d4f8d} 
+void WV1.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initializes the \doxylink{class_w_v1}{WV1} instance, sets the initial rotation of the switch and initializes the switches lamp. 
+
+\Hypertarget{class_w_v1_a541284ede97d0de1191d702b760e125b}\index{WV1@{WV1}!Update@{Update}}
+\index{Update@{Update}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_w_v1_a541284ede97d0de1191d702b760e125b} 
+void WV1.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the rotation of the switch based on the current value of Percent. 
+
+Additionally a call to the REST Server is initiated via \doxylink{class_w_v1_aff2d7cb456e4bad40c505477d9ec3ca2}{Set\+Valve\+Status()} to update the simulation. \Hypertarget{class_w_v1_aedc0b1a7529eb2c4af76a34b3501f073}\index{WV1@{WV1}!UpdateRotation@{UpdateRotation}}
+\index{UpdateRotation@{UpdateRotation}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{UpdateRotation()}{UpdateRotation()}}
+{\footnotesize\ttfamily \label{class_w_v1_aedc0b1a7529eb2c4af76a34b3501f073} 
+void WV1.\+Update\+Rotation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the rotation of the switch. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_w_v1_a9a3e8ab42a9a2c3f056bf3e7e74417ff}\index{WV1@{WV1}!clientObject@{clientObject}}
+\index{clientObject@{clientObject}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{clientObject}{clientObject}}
+{\footnotesize\ttfamily \label{class_w_v1_a9a3e8ab42a9a2c3f056bf3e7e74417ff} 
+Game\+Object WV1.\+client\+Object\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_w_v1_af6819e9734ccc85020af574c341bdb6e}\index{WV1@{WV1}!EndRotation@{EndRotation}}
+\index{EndRotation@{EndRotation}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{EndRotation}{EndRotation}}
+{\footnotesize\ttfamily \label{class_w_v1_af6819e9734ccc85020af574c341bdb6e} 
+int WV1.\+End\+Rotation = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}last\+Press\+Time"{}\texorpdfstring{$>$}{>}float specifying when the switch was last interacted with
+
+\Hypertarget{class_w_v1_a06b3249807bc5a9b2f44caa174047885}\index{WV1@{WV1}!initialInteractorPosition@{initialInteractorPosition}}
+\index{initialInteractorPosition@{initialInteractorPosition}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{initialInteractorPosition}{initialInteractorPosition}}
+{\footnotesize\ttfamily \label{class_w_v1_a06b3249807bc5a9b2f44caa174047885} 
+Vector3 WV1.\+initial\+Interactor\+Position\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}initial\+Percent"{}\texorpdfstring{$>$}{>}int specifying the initinal percentage the switch has already been rotated
+
+\Hypertarget{class_w_v1_a7399b2defb189ebbf9bbbe3ea20731fe}\index{WV1@{WV1}!initialPercent@{initialPercent}}
+\index{initialPercent@{initialPercent}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{initialPercent}{initialPercent}}
+{\footnotesize\ttfamily \label{class_w_v1_a7399b2defb189ebbf9bbbe3ea20731fe} 
+int WV1.\+initial\+Percent\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}previous\+Percent"{}\texorpdfstring{$>$}{>}int specifying the percentage the switch has been rotated in the last frame
+
+\Hypertarget{class_w_v1_ae7d2f7b3cc80a4a9f0e54bd7560fd851}\index{WV1@{WV1}!interactor@{interactor}}
+\index{interactor@{interactor}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{interactor}{interactor}}
+{\footnotesize\ttfamily \label{class_w_v1_ae7d2f7b3cc80a4a9f0e54bd7560fd851} 
+Unity\+Engine.\+XR.\+Interaction.\+Toolkit.\+Interactors.\+XRBase\+Interactor WV1.\+interactor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}is\+Interacting"{}\texorpdfstring{$>$}{>}boolean tracking if the player is interacting with the switch
+
+\Hypertarget{class_w_v1_a83092f3b0e5b75af413a721c72259d1c}\index{WV1@{WV1}!isInteracting@{isInteracting}}
+\index{isInteracting@{isInteracting}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{isInteracting}{isInteracting}}
+{\footnotesize\ttfamily \label{class_w_v1_a83092f3b0e5b75af413a721c72259d1c} 
+bool WV1.\+is\+Interacting = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}initial\+Interactor\+Position"{}\texorpdfstring{$>$}{>}Vector3 specifying the initial Position of the Interactor
+
+\Hypertarget{class_w_v1_a52098de6ad2677461a88464ae42fb9b4}\index{WV1@{WV1}!lastPressTime@{lastPressTime}}
+\index{lastPressTime@{lastPressTime}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{lastPressTime}{lastPressTime}}
+{\footnotesize\ttfamily \label{class_w_v1_a52098de6ad2677461a88464ae42fb9b4} 
+float WV1.\+last\+Press\+Time = 0f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}press\+Cooldown"{}\texorpdfstring{$>$}{>}float specifying a cooldown between interactions with the switch
+
+\Hypertarget{class_w_v1_a13e1ee0880afb4573667f9d573fc5de0}\index{WV1@{WV1}!lightRegler@{lightRegler}}
+\index{lightRegler@{lightRegler}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{lightRegler}{lightRegler}}
+{\footnotesize\ttfamily \label{class_w_v1_a13e1ee0880afb4573667f9d573fc5de0} 
+\mbox{\hyperlink{class_light_regler}{Light\+Regler}} WV1.\+light\+Regler\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}npp\+Client"{}\texorpdfstring{$>$}{>}Reference to the \doxylink{class_n_p_p_client}{NPPClient} instance in the scene
+
+\Hypertarget{class_w_v1_ad117cbb6545ab44da008b0fead36017d}\index{WV1@{WV1}!nppClient@{nppClient}}
+\index{nppClient@{nppClient}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{nppClient}{nppClient}}
+{\footnotesize\ttfamily \label{class_w_v1_ad117cbb6545ab44da008b0fead36017d} 
+\mbox{\hyperlink{class_n_p_p_client}{NPPClient}} WV1.\+npp\+Client\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_w_v1_af44f2c2cffdd5cb4f1bc8f91f5ad3491}\index{WV1@{WV1}!Percent@{Percent}}
+\index{Percent@{Percent}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{Percent}{Percent}}
+{\footnotesize\ttfamily \label{class_w_v1_af44f2c2cffdd5cb4f1bc8f91f5ad3491} 
+int WV1.\+Percent = 0}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Percent} & int specifying the percentage the switch has been rotated based on its leftmost position\\
+\hline
+\end{DoxyParams}
+
+
+param name="{}\+Start\+Rotation"{}\texorpdfstring{$>$}{>}int specifying the angle of the switches leftmost position\Hypertarget{class_w_v1_ab3f4942e51831c6e891489c70bd69eb3}\index{WV1@{WV1}!pressCooldown@{pressCooldown}}
+\index{pressCooldown@{pressCooldown}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{pressCooldown}{pressCooldown}}
+{\footnotesize\ttfamily \label{class_w_v1_ab3f4942e51831c6e891489c70bd69eb3} 
+float WV1.\+press\+Cooldown = 1f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}interactor"{}\texorpdfstring{$>$}{>}Interactor
+
+\Hypertarget{class_w_v1_a01eb18285afeae61fd02628bd3e92c4a}\index{WV1@{WV1}!previousPercent@{previousPercent}}
+\index{previousPercent@{previousPercent}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{previousPercent}{previousPercent}}
+{\footnotesize\ttfamily \label{class_w_v1_a01eb18285afeae61fd02628bd3e92c4a} 
+int WV1.\+previous\+Percent\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}light\+Regler"{}\texorpdfstring{$>$}{>}Loght\+Regler to switch on lights
+
+\Hypertarget{class_w_v1_af3482f235edcf549029efa931a1eb030}\index{WV1@{WV1}!ReglerType@{ReglerType}}
+\index{ReglerType@{ReglerType}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{ReglerType}{ReglerType}}
+{\footnotesize\ttfamily \label{class_w_v1_af3482f235edcf549029efa931a1eb030} 
+\mbox{\hyperlink{class_w_v1_aa104cf99684664c99f84a88b88f603de}{Regler\+Type\+Enum}} WV1.\+Regler\+Type = \mbox{\hyperlink{class_w_v1_aa104cf99684664c99f84a88b88f603dea4cfcdfbe8cf27aff6e57c51ee947715c}{Regler\+Type\+Enum.\+Binaer}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Regler\+Type} & Specifies the type of rotary switch\\
+\hline
+\end{DoxyParams}
+
+
+param name="{}to\+\_\+rotate"{}\texorpdfstring{$>$}{>}specifies the handle the player must interact with to rotate the switch\Hypertarget{class_w_v1_aaebaf27fb69b7bc442206b28d8571096}\index{WV1@{WV1}!StartRotation@{StartRotation}}
+\index{StartRotation@{StartRotation}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{StartRotation}{StartRotation}}
+{\footnotesize\ttfamily \label{class_w_v1_aaebaf27fb69b7bc442206b28d8571096} 
+int WV1.\+Start\+Rotation = -\/90\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}\+End\+Rotation"{}\texorpdfstring{$>$}{>}int specifying the angle of the switches rightmost position
+
+\Hypertarget{class_w_v1_a2f3304ad10d85b1d497df930ccb5f934}\index{WV1@{WV1}!to\_rotate@{to\_rotate}}
+\index{to\_rotate@{to\_rotate}!WV1@{WV1}}
+\doxysubsubsection{\texorpdfstring{to\_rotate}{to\_rotate}}
+{\footnotesize\ttfamily \label{class_w_v1_a2f3304ad10d85b1d497df930ccb5f934} 
+Game\+Object WV1.\+to\+\_\+rotate\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Regler/\mbox{\hyperlink{_w_v1_8cs}{WV1.\+cs}}\end{DoxyCompactItemize}

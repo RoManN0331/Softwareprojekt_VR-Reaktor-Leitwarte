@@ -1,0 +1,131 @@
+.TH "HUD" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HUD \- This class displays implements logic to display instructions on the \fBHUD\fP for a task the player must perfom to complete a scenario\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetText\fP (string inputText)"
+.br
+.RI "This method extracts text from an input string and adds it to a text component on the canvas\&. "
+.ti -1c
+.RI "void \fBclearText\fP ()"
+.br
+.RI "This method clears the text displayed on the canvas\&. "
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initialises a pattern used to separate tasks and a canvas on which these tasks can be displayed\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "Text \fBtext\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItext\fP is a text that is displayed on a canvas
+.RE
+.PP
+"
+.ti -1c
+.RI "string \fBpattern\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIpattern\fP contains a regular expression
+.RE
+.PP
+"
+.ti -1c
+.RI "Transform \fBsibling\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIsibling\fP Transform
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class displays implements logic to display instructions on the \fBHUD\fP for a task the player must perfom to complete a scenario\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void HUD\&.clearText ()"
+
+.PP
+This method clears the text displayed on the canvas\&. 
+.SS "void HUD\&.setText (string inputText)"
+
+.PP
+This method extracts text from an input string and adds it to a text component on the canvas\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinputText\fP contains the text to be displayed
+.RE
+.PP
+
+.SS "void HUD\&.Start ()\fR [private]\fP"
+
+.PP
+This method initialises a pattern used to separate tasks and a canvas on which these tasks can be displayed\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "string HUD\&.pattern\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIpattern\fP contains a regular expression
+.RE
+.PP
+
+.SS "Transform HUD\&.sibling\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIsibling\fP Transform
+.RE
+.PP
+
+.SS "Text HUD\&.text\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItext\fP is a text that is displayed on a canvas
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

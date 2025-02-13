@@ -1,0 +1,91 @@
+\doxysection{CPRPM Class Reference}
+\hypertarget{class_c_p_r_p_m}{}\label{class_c_p_r_p_m}\index{CPRPM@{CPRPM}}
+
+
+This class implements logic for displaying the current RPM of the condenser pump.  
+
+
+Inheritance diagram for CPRPM\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_c_p_r_p_m}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_p_r_p_m_a5a977e4955f5da13cdacd6761979ae5b}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current RPM of the condenser pump. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_p_r_p_m_a4fd6dc8675aa3ddec37d7be302fb3ab2}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the display by reading the current RPM of the condenser pump from the CP.\+rpm field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} \mbox{\hyperlink{class_c_p_r_p_m_a88369fdfdf3ce923e1cc16ea0a386741}{anzeige\+Steuerung}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_c_p_r_p_m_a0295511a319d85bca87087dab3958cfa}{client\+Object}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic for displaying the current RPM of the condenser pump. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_p_r_p_m_a5a977e4955f5da13cdacd6761979ae5b}\index{CPRPM@{CPRPM}!Start@{Start}}
+\index{Start@{Start}!CPRPM@{CPRPM}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_c_p_r_p_m_a5a977e4955f5da13cdacd6761979ae5b} 
+void CPRPM.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current RPM of the condenser pump. 
+
+\Hypertarget{class_c_p_r_p_m_a4fd6dc8675aa3ddec37d7be302fb3ab2}\index{CPRPM@{CPRPM}!Update@{Update}}
+\index{Update@{Update}!CPRPM@{CPRPM}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_c_p_r_p_m_a4fd6dc8675aa3ddec37d7be302fb3ab2} 
+void CPRPM.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the display by reading the current RPM of the condenser pump from the CP.\+rpm field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_c_p_r_p_m_a88369fdfdf3ce923e1cc16ea0a386741}\index{CPRPM@{CPRPM}!anzeigeSteuerung@{anzeigeSteuerung}}
+\index{anzeigeSteuerung@{anzeigeSteuerung}!CPRPM@{CPRPM}}
+\doxysubsubsection{\texorpdfstring{anzeigeSteuerung}{anzeigeSteuerung}}
+{\footnotesize\ttfamily \label{class_c_p_r_p_m_a88369fdfdf3ce923e1cc16ea0a386741} 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} CPRPM.\+anzeige\+Steuerung\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_c_p_r_p_m_a0295511a319d85bca87087dab3958cfa}\index{CPRPM@{CPRPM}!clientObject@{clientObject}}
+\index{clientObject@{clientObject}!CPRPM@{CPRPM}}
+\doxysubsubsection{\texorpdfstring{clientObject}{clientObject}}
+{\footnotesize\ttfamily \label{class_c_p_r_p_m_a0295511a319d85bca87087dab3958cfa} 
+Game\+Object CPRPM.\+client\+Object\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Anzeigen/\mbox{\hyperlink{_c_p_r_p_m__display_8cs}{CPRPM\+\_\+display.\+cs}}\end{DoxyCompactItemize}

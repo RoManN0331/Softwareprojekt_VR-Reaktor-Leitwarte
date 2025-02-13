@@ -1,0 +1,118 @@
+\doxysection{Change\+Layer Class Reference}
+\hypertarget{class_change_layer}{}\label{class_change_layer}\index{ChangeLayer@{ChangeLayer}}
+
+
+This class implements logic to move objects and their children between layers.  
+
+
+Inheritance diagram for Change\+Layer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_change_layer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_change_layer_aa707fdf3c3c12f22626dc5d150415dec}{set\+Layer}} (string layer, bool propagate=true)
+\begin{DoxyCompactList}\small\item\em This method moves an object to a specific layer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_change_layer_a0936bc5eaba6c18c92b8b3bb27fb8667}{Propagate\+Children}} (Game\+Object obj, int \mbox{\hyperlink{class_change_layer_a4e9e61045bf2464a1bcc95548bc5771f}{target}})
+\begin{DoxyCompactList}\small\item\em This method moves all children of an object to a specific layer by calling itself recursively. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_change_layer_a4e9e61045bf2464a1bcc95548bc5771f}{target}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em target} & specifies the layer an object will be moved to\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_change_layer_a6f1b86d01cd8955f10884d296ad727af}{propagate\+Children}} = true
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em propagate\+Children} & tracks whether all children of an object will be moved\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic to move objects and their children between layers. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_change_layer_a0936bc5eaba6c18c92b8b3bb27fb8667}\index{ChangeLayer@{ChangeLayer}!PropagateChildren@{PropagateChildren}}
+\index{PropagateChildren@{PropagateChildren}!ChangeLayer@{ChangeLayer}}
+\doxysubsubsection{\texorpdfstring{PropagateChildren()}{PropagateChildren()}}
+{\footnotesize\ttfamily \label{class_change_layer_a0936bc5eaba6c18c92b8b3bb27fb8667} 
+void Change\+Layer.\+Propagate\+Children (\begin{DoxyParamCaption}\item[{Game\+Object}]{obj}{, }\item[{int}]{target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method moves all children of an object to a specific layer by calling itself recursively. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & is a reference to an object that will be moved to a specific layer \\
+\hline
+{\em target} & specifies the layer an object will be moved to\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_change_layer_aa707fdf3c3c12f22626dc5d150415dec}\index{ChangeLayer@{ChangeLayer}!setLayer@{setLayer}}
+\index{setLayer@{setLayer}!ChangeLayer@{ChangeLayer}}
+\doxysubsubsection{\texorpdfstring{setLayer()}{setLayer()}}
+{\footnotesize\ttfamily \label{class_change_layer_aa707fdf3c3c12f22626dc5d150415dec} 
+void Change\+Layer.\+set\+Layer (\begin{DoxyParamCaption}\item[{string}]{layer}{, }\item[{bool}]{propagate}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+This method moves an object to a specific layer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer} & specifies the layer an object will be moved to\\
+\hline
+{\em propagate} & tracks whether all children of an object will be moved\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_change_layer_a6f1b86d01cd8955f10884d296ad727af}\index{ChangeLayer@{ChangeLayer}!propagateChildren@{propagateChildren}}
+\index{propagateChildren@{propagateChildren}!ChangeLayer@{ChangeLayer}}
+\doxysubsubsection{\texorpdfstring{propagateChildren}{propagateChildren}}
+{\footnotesize\ttfamily \label{class_change_layer_a6f1b86d01cd8955f10884d296ad727af} 
+bool Change\+Layer.\+propagate\+Children = true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em propagate\+Children} & tracks whether all children of an object will be moved\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_change_layer_a4e9e61045bf2464a1bcc95548bc5771f}\index{ChangeLayer@{ChangeLayer}!target@{target}}
+\index{target@{target}!ChangeLayer@{ChangeLayer}}
+\doxysubsubsection{\texorpdfstring{target}{target}}
+{\footnotesize\ttfamily \label{class_change_layer_a4e9e61045bf2464a1bcc95548bc5771f} 
+string Change\+Layer.\+target\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & specifies the layer an object will be moved to\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Gaze\+Guiding/\mbox{\hyperlink{_change_layer_8cs}{Change\+Layer.\+cs}}\end{DoxyCompactItemize}

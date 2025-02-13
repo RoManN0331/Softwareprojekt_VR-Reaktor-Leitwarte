@@ -1,0 +1,35 @@
+digraph "FarbenButton.OnEnable"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="FarbenButton.OnEnable",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="This method is called when the object is enabled and adds event listeners for the selectEntered and s..."];
+  Node1 -> Node2 [id="edge14_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="FarbenButton.OnSelectEntered",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_farben_button.html#a7c96bd41c1aa046cae6a1f6a9676cc26",tooltip="This method is called when an interactor enters the object and toggles colour blind mode."];
+  Node2 -> Node3 [id="edge15_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="FarbenButton.AnimateTransform",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_farben_button.html#ad89f37a2a802e6648fdae67f2b0d4a05",tooltip="This method animates the button by moving it back and forth calling MoveToPosition()."];
+  Node3 -> Node4 [id="edge16_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="FarbenButton.MoveToPosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_farben_button.html#a13d273656d57db423440dbb09d6bc1c5",tooltip="This method is called in AnimateTransform() to move the button."];
+  Node2 -> Node5 [id="edge17_Node000002_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="FarbenButton.ChangeColor\lOfGazeGuidingButtons",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_farben_button.html#a38f92a85d7a9af16cb291fbc251c964a",tooltip="This method applies a new colour scheme to the GazeGuidingButtons in the scene."];
+  Node2 -> Node6 [id="edge18_Node000002_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="FarbenButton.ChangeCueColor",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_farben_button.html#a5273c2f44cb332c47a2e1e9b69a08cdd",tooltip="This method applies a new colour scheme to the DirectionCue objects in the scene."];
+  Node2 -> Node7 [id="edge19_Node000002_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="FarbenButton.ChangeMaterials\lEmission",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_farben_button.html#a26482a4d839b38ef2251727ec0a03d71",tooltip="This method applies a new emission colour scheme to all the materials in the scene."];
+  Node2 -> Node8 [id="edge20_Node000002_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="FarbenButton.ChangeMeltdown\lColorForLamps",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_farben_button.html#ab1ff5bec4cae2095ee332840fb24531a",tooltip="This method applies a new colour scheme to the lamps signalling the failure of specific components."];
+  Node2 -> Node9 [id="edge21_Node000002_Node000009",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="FarbenButton.ChangeTextMesh\lProColors",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_farben_button.html#a337cc5dbd497bfca375f9fa1fa486427",tooltip="This method applies a new colour scheme to all TextMeshPro objects in the scene."];
+  Node2 -> Node10 [id="edge22_Node000002_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="FarbenButton.revertChange\lColorOfGazeGuidingButtons",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_farben_button.html#a5130a0211e6d183b289a2947aa723695",tooltip="This method reverts the colour scheme of the GazeGuidingButtons in the scene to the original colour s..."];
+  Node2 -> Node11 [id="edge23_Node000002_Node000011",color="steelblue1",style="solid",tooltip=" "];
+  Node11 [id="Node000011",label="FarbenButton.revertChange\lCueColor",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_farben_button.html#a0122bbd21845ccd97262525f95fc8137",tooltip="This method reverts the colour scheme of the DirectionCue objects in the scene back to the original c..."];
+  Node2 -> Node12 [id="edge24_Node000002_Node000012",color="steelblue1",style="solid",tooltip=" "];
+  Node12 [id="Node000012",label="FarbenButton.revertChange\lMaterialsEmission",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_farben_button.html#a75456488b5644938b733daff59792387",tooltip="This method reverts the emission colour scheme of all the materials in the scene to the original colo..."];
+  Node2 -> Node13 [id="edge25_Node000002_Node000013",color="steelblue1",style="solid",tooltip=" "];
+  Node13 [id="Node000013",label="FarbenButton.revertChange\lMeltdownColorForLamps",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_farben_button.html#a85df22e0760592e8ecdfcf9e1716a35f",tooltip="This method reverts the colour scheme of the lamps signalling the failure of specific components to t..."];
+  Node2 -> Node14 [id="edge26_Node000002_Node000014",color="steelblue1",style="solid",tooltip=" "];
+  Node14 [id="Node000014",label="FarbenButton.revertChange\lTextMeshProColors",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_farben_button.html#aedca276c33331f635522de85fa06cbf5",tooltip="This method reverts the colour scheme of all TextMeshPro objects in the scene to the original colour ..."];
+}

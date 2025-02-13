@@ -1,0 +1,651 @@
+.TH "Flipper" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Flipper \- This class implements logic to enable or disable gaze-guiding features via corresponding switches on a gaze-guiding panel in the VR application\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBupdateMaterials\fP ()"
+.br
+.RI "This method updates the materials of a switch that the player has flipped (red when on, grey when off)\&. "
+.ti -1c
+.RI "void \fBrevertMaterials\fP ()"
+.br
+.RI "This method reverts the materials of a switch that the player has flipped to their original state\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "Material \fBmat\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImat\fP is a Material currently assigned to a switch
+.RE
+.PP
+"
+.ti -1c
+.RI "Material \fBoldmat\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIoldmat\fP is a Material previously assigned to a switch
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBDirectionCueEnabled\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionCueEnabled\fP tracks whether the direction cue feature is switched on
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBDirectionArrowEnabled\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionArrowEnabled\fP tracks whether the direction arrow feature is switched on
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBDirectionArrowOnScreen\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionArrowOnScreen\fP tracks whether the direction arrow is shown on screen
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBArrow3DEnabled\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIArrow3DEnabled\fP tracks whether the continuous 3D arrow feature is switched on
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBArrow3DBinearEnabled\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIArrow3DBinearEnabled\fP tracks whether the binary 3D arrow feature is switched on
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBAnzeigenMarkierungEnabled\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIAnzeigenMarkierungEnabled\fP tracks whether display annotations are switched on
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBHUDEnabled\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIHUDEnabled\fP tracks whether the \fBHUD\fP is enabled
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBifHUDEnabledShouldItBeOn\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIifHUDEnabledShouldItBeOn\fP tracks whether the \fBHUD\fP should be on
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBDetachEnabled\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDetachEnabled\fP tracks whether the detach feature is switched on
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBdistractionsEnabled\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIdistractionsEnabled\fP tracks whether distractions are switched on 
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBifdistractionsEnabledShouldItBeOn\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIifdistractionsEnabledShouldItBeOn\fP tracks whether distractions should be on
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBBlurEnabled\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIBlurEnabled\fP tracks whether the blur feature is switched on
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBclipboardHighlight\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIclipboardHighlight\fP tracks whether the clipboard highlight feature is switched on
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBclipboardHighlightShouldItBeOn\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIclipboardHighlightShouldItBeOn\fP tracks whether clipboard highlights should be on
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBAnzeigenHighlight\fP = false"
+.br
+.RI "<param name="AnzeigenHighlight"=> tracks whether the display highlight feature is switched on"
+.ti -1c
+.RI "bool \fBAnzeigenHighlightShouldItBeOn\fP = false"
+.br
+.RI "<param name="AnzeigenHighlightShouldItBeOn"=> tracks whether the display highlight feature should be on "
+.ti -1c
+.RI "InputActionReference \fBtrigger\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItrigger\fP is an InputActionReference referencing a XRI Right Interaction/Select
+.RE
+.PP
+"
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method sets up input actions and initialises the gaze-guiding features' states based on the settings in the \fBGazeGuidingPathPlayer\fP instance\&. "
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.RI "This method updates the state of the gaze-guiding features based on the player's interaction with the switches on the gaze-guiding panel\&. "
+.ti -1c
+.RI "void \fBOnEnable\fP ()"
+.br
+.RI "This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events\&. "
+.ti -1c
+.RI "void \fBOnDisable\fP ()"
+.br
+.RI "This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events\&. "
+.ti -1c
+.RI "void \fBOnHoverEntered\fP (HoverEnterEventArgs args)"
+.br
+.RI "This method is called when the XR interactor looks at the object, i\&.e\&. "
+.ti -1c
+.RI "void \fBOnHoverExited\fP (HoverExitEventArgs args)"
+.br
+.RI "This method is called when the XR interactor is no longer looking at the object, i\&.e\&. "
+.ti -1c
+.RI "IEnumerator \fBFlip\fP ()"
+.br
+.RI "This method toggles gaze-guiding features on or off when the player flips the appropriate switch on the gaze-guiding panel by calling the corresponding method in gazeGuidingButtons (live switch)\&. "
+.ti -1c
+.RI "IEnumerator \fBFlipWithoutCall\fP ()"
+.br
+.RI "This method rotates a switch the player has flipped on the gaze-guiding panel without making a call to a method in gazeGuidingButtons (dummy switch)\&. "
+.ti -1c
+.RI "IEnumerator \fBRotateToAngle\fP (float targetAngle, float duration)"
+.br
+.RI "This method is called to rotate a switch on the gaze-guiding panel\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "MeshRenderer \fBmeshRenderer\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImeshrenderer\fP is a reference to an objetc's MeshRenderer
+.RE
+.PP
+"
+.ti -1c
+.RI "\fBGazeGuidingButtons\fP \fBgazeGuidingButtons\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIgazeGuidingButtons\fP is a reference to a \fBGazeGuidingButtons\fP instance
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBflipped\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIflipped\fP tracks whether a switch is flipped
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBisCooldown\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisCooldown\fP tracks whether a switch is on cooldown
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBisHovering\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisHovering\fP tracks whether the player is hovering over a switch with the controller
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements logic to enable or disable gaze-guiding features via corresponding switches on a gaze-guiding panel in the VR application\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "IEnumerator Flipper\&.Flip ()\fR [private]\fP"
+
+.PP
+This method toggles gaze-guiding features on or off when the player flips the appropriate switch on the gaze-guiding panel by calling the corresponding method in gazeGuidingButtons (live switch)\&. 
+.SS "IEnumerator Flipper\&.FlipWithoutCall ()\fR [private]\fP"
+
+.PP
+This method rotates a switch the player has flipped on the gaze-guiding panel without making a call to a method in gazeGuidingButtons (dummy switch)\&. 
+.SS "void Flipper\&.OnDisable ()\fR [private]\fP"
+
+.PP
+This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events\&. 
+.SS "void Flipper\&.OnEnable ()\fR [private]\fP"
+
+.PP
+This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events\&. 
+.SS "void Flipper\&.OnHoverEntered (HoverEnterEventArgs args)\fR [private]\fP"
+
+.PP
+This method is called when the XR interactor looks at the object, i\&.e\&. points to or moves onto the object \&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP passes event specific arguments upon entering the interaction
+.RE
+.PP
+
+.SS "void Flipper\&.OnHoverExited (HoverExitEventArgs args)\fR [private]\fP"
+
+.PP
+This method is called when the XR interactor is no longer looking at the object, i\&.e\&. the interactor moves away\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP passes event specific arguments upon exiting the interaction
+.RE
+.PP
+
+.SS "void Flipper\&.revertMaterials ()"
+
+.PP
+This method reverts the materials of a switch that the player has flipped to their original state\&. 
+.SS "IEnumerator Flipper\&.RotateToAngle (float targetAngle, float duration)\fR [private]\fP"
+
+.PP
+This method is called to rotate a switch on the gaze-guiding panel\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItargetAngle\fP specifies the angle to rotate a switch to
+.br
+\fIduration\fP specifies the duration of the rotation of a switch
+.RE
+.PP
+
+.SS "void Flipper\&.Start ()\fR [private]\fP"
+
+.PP
+This method sets up input actions and initialises the gaze-guiding features' states based on the settings in the \fBGazeGuidingPathPlayer\fP instance\&. 
+.SS "void Flipper\&.Update ()\fR [private]\fP"
+
+.PP
+This method updates the state of the gaze-guiding features based on the player's interaction with the switches on the gaze-guiding panel\&. 
+.SS "void Flipper\&.updateMaterials ()"
+
+.PP
+This method updates the materials of a switch that the player has flipped (red when on, grey when off)\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "bool Flipper\&.AnzeigenHighlight = false"
+
+.PP
+<param name="AnzeigenHighlight"=> tracks whether the display highlight feature is switched on
+.SS "bool Flipper\&.AnzeigenHighlightShouldItBeOn = false"
+
+.PP
+<param name="AnzeigenHighlightShouldItBeOn"=> tracks whether the display highlight feature should be on 
+.SS "bool Flipper\&.AnzeigenMarkierungEnabled = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIAnzeigenMarkierungEnabled\fP tracks whether display annotations are switched on
+.RE
+.PP
+
+.SS "bool Flipper\&.Arrow3DBinearEnabled = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIArrow3DBinearEnabled\fP tracks whether the binary 3D arrow feature is switched on
+.RE
+.PP
+
+.SS "bool Flipper\&.Arrow3DEnabled = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIArrow3DEnabled\fP tracks whether the continuous 3D arrow feature is switched on
+.RE
+.PP
+
+.SS "bool Flipper\&.BlurEnabled = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIBlurEnabled\fP tracks whether the blur feature is switched on
+.RE
+.PP
+
+.SS "bool Flipper\&.clipboardHighlight"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIclipboardHighlight\fP tracks whether the clipboard highlight feature is switched on
+.RE
+.PP
+
+.SS "bool Flipper\&.clipboardHighlightShouldItBeOn = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIclipboardHighlightShouldItBeOn\fP tracks whether clipboard highlights should be on
+.RE
+.PP
+
+.SS "bool Flipper\&.DetachEnabled = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDetachEnabled\fP tracks whether the detach feature is switched on
+.RE
+.PP
+
+.SS "bool Flipper\&.DirectionArrowEnabled = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionArrowEnabled\fP tracks whether the direction arrow feature is switched on
+.RE
+.PP
+
+.SS "bool Flipper\&.DirectionArrowOnScreen = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionArrowOnScreen\fP tracks whether the direction arrow is shown on screen
+.RE
+.PP
+
+.SS "bool Flipper\&.DirectionCueEnabled = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionCueEnabled\fP tracks whether the direction cue feature is switched on
+.RE
+.PP
+
+.SS "bool Flipper\&.distractionsEnabled = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIdistractionsEnabled\fP tracks whether distractions are switched on 
+.RE
+.PP
+
+.SS "bool Flipper\&.flipped = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIflipped\fP tracks whether a switch is flipped
+.RE
+.PP
+
+.SS "\fBGazeGuidingButtons\fP Flipper\&.gazeGuidingButtons\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIgazeGuidingButtons\fP is a reference to a \fBGazeGuidingButtons\fP instance
+.RE
+.PP
+
+.SS "bool Flipper\&.HUDEnabled = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIHUDEnabled\fP tracks whether the \fBHUD\fP is enabled
+.RE
+.PP
+
+.SS "bool Flipper\&.ifdistractionsEnabledShouldItBeOn = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIifdistractionsEnabledShouldItBeOn\fP tracks whether distractions should be on
+.RE
+.PP
+
+.SS "bool Flipper\&.ifHUDEnabledShouldItBeOn = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIifHUDEnabledShouldItBeOn\fP tracks whether the \fBHUD\fP should be on
+.RE
+.PP
+
+.SS "bool Flipper\&.isCooldown = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisCooldown\fP tracks whether a switch is on cooldown
+.RE
+.PP
+
+.SS "bool Flipper\&.isHovering = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisHovering\fP tracks whether the player is hovering over a switch with the controller
+.RE
+.PP
+
+.SS "Material Flipper\&.mat"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImat\fP is a Material currently assigned to a switch
+.RE
+.PP
+
+.SS "MeshRenderer Flipper\&.meshRenderer\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImeshrenderer\fP is a reference to an objetc's MeshRenderer
+.RE
+.PP
+
+.SS "Material Flipper\&.oldmat"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIoldmat\fP is a Material previously assigned to a switch
+.RE
+.PP
+
+.SS "InputActionReference Flipper\&.trigger"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItrigger\fP is an InputActionReference referencing a XRI Right Interaction/Select
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

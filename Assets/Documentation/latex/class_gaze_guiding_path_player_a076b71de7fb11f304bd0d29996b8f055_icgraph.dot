@@ -1,0 +1,27 @@
+digraph "GazeGuidingPathPlayer.unsetDisplayHighlight"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="GazeGuidingPathPlayer.unset\lDisplayHighlight",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="This method removes a glow effect from all displays it is currently applied to."];
+  Node1 -> Node2 [id="edge10_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="GazeGuidingPathPlayer.ClearLine",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_gaze_guiding_path_player.html#a5e575f6f812ccec44cf0224f24a4d34f",tooltip="This method clears the scene of all visual aids that are currently being rendered."];
+  Node2 -> Node3 [id="edge11_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="GazeGuidingPathPlayer.Trigger\lTarget",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_gaze_guiding_path_player.html#acae814561f1133ae7924fdf93cea6ee5",tooltip=" "];
+  Node2 -> Node4 [id="edge12_Node000002_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="GazeGuidingPathPlayer.Trigger\lTargetNAME",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_gaze_guiding_path_player.html#a38d64359d68341004bf09e08552a7059",tooltip="This method sets the current target of a GazeGuidingPathPlayer instance."];
+  Node2 -> Node5 [id="edge13_Node000002_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="GazeGuidingPathPlayer.triggerTEST",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_gaze_guiding_path_player.html#a87d52be10f77fee6e8bc4ee711ef3e83",tooltip=" "];
+  Node2 -> Node6 [id="edge14_Node000002_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="GazeGuidingPathPlayer.trigger\lTEST2",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_gaze_guiding_path_player.html#a9d9011343e428d41c9ecd4be2c67edc8",tooltip=" "];
+  Node2 -> Node7 [id="edge15_Node000002_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="GazeGuidingPathPlayer.Update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_gaze_guiding_path_player.html#a717d6f66883fec93930d0a3a9344a4d4",tooltip="This method updates all active gaze-guiding tools."];
+  Node1 -> Node8 [id="edge16_Node000001_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="Flipper.Flip",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_flipper.html#a79a6a3483ba974096106ff09e879b7b5",tooltip="This method toggles gaze-guiding features on or off when the player flips the appropriate switch on t..."];
+  Node8 -> Node9 [id="edge17_Node000008_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="Flipper.Start",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_flipper.html#a31fb6b9a26dff9407966639f9c6d69b0",tooltip="This method sets up input actions and initialises the gaze-guiding features' states based on the sett..."];
+  Node8 -> Node10 [id="edge18_Node000008_Node000010",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="Flipper.Update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_flipper.html#a764009689ccde98f855291a5b2bee954",tooltip="This method updates the state of the gaze-guiding features based on the player's interaction with the..."];
+}

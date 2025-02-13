@@ -1,0 +1,372 @@
+\doxysection{NPPClient Class Reference}
+\hypertarget{class_n_p_p_client}{}\label{class_n_p_p_client}\index{NPPClient@{NPPClient}}
+
+
+This class implements logic for connecting to the REST Server running the simulation and fetching the current state of the simulation\textquotesingle{}s components.  
+
+
+Inheritance diagram for NPPClient\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_n_p_p_client}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IEnumerator \mbox{\hyperlink{class_n_p_p_client_a9a6b6dcb4d7d99fa662d52b4a24837fe}{Update\+Pump}} (string id, int value)
+\begin{DoxyCompactList}\small\item\em This method updates a pump\textquotesingle{}s speed by sending a request with the pump id and the taget RPM to the REST server. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_n_p_p_client_a3a0ccf733798e920df6a4bb325ed2ba2}{Update\+Valve\+Status}} (string valve\+Id, bool value)
+\begin{DoxyCompactList}\small\item\em This method updates a valve\textquotesingle{}s status by sending a request with the valve id and the target status to the REST server. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_n_p_p_client_aba209de866873540586f3d70f0f1e109}{Set\+Rod\+Position}} (int value)
+\begin{DoxyCompactList}\small\item\em This method sets the control rods\textquotesingle{} position by sending a request with the target position to the REST server. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_n_p_p_client_ab483b9d598a2b44d142baa90e4aba643}{Set\+Initial\+State\+Scenario}} ()
+\begin{DoxyCompactList}\small\item\em This method loads the normal startup scenario. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_n_p_p_client_aeb73c8dc8db1a00c535d18c51c49e8a9}{Set\+Normal\+Shutdown\+Scenario}} ()
+\begin{DoxyCompactList}\small\item\em This method loads the normal shutdown scenario. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_n_p_p_client_a04c477b80b7cae1d9f808672102d05a9}{Set\+Emergency\+Shutdown\+Scenario}} ()
+\begin{DoxyCompactList}\small\item\em This method loads the emergency shutdown scenario. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_n_p_p_client_ae407cab1d2964b080177ca75a94e6ed2}{Reset\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em This method resets the simulation and the state machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_n_p_p_reactor_state}{NPPReactor\+State}} \mbox{\hyperlink{class_n_p_p_client_a279f1de469ea1942a9a8c3d8d1b775f1}{simulation}} = new \mbox{\hyperlink{class_n_p_p_reactor_state}{NPPReactor\+State}}()
+\begin{DoxyCompactList}\small\item\em param name="{}scenario"{}\texorpdfstring{$>$}{>} specifies the scenario the user has chosen (0\+: no scenario chosen)\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_n_p_p_client_a7b0c1016065470aa94600f8a1ddd894e}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em This method fetches the \doxylink{class_animator_controller}{Animator\+Controller}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_n_p_p_client_a8cf1cfc9c27b94aaa373ee0b5724ecba}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the simulations update process by calling \doxylink{class_n_p_p_client_a3fab7c6e67c4a6baf4eced7c07fbdc37}{Update\+Simulation\+State()}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_n_p_p_client_a2cd6348ea9114f985d8077f096365d64}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method is called every frame to check for component failures and eventually update their failure lamps. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_n_p_p_client_a73fa1bc894fdd2f74d69c8ff35f03634}{Fetch\+Reactor\+State}} ()
+\begin{DoxyCompactList}\small\item\em This method fetches the state of the reactor from the REST server. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_n_p_p_client_a61803baef3252b57f8e8c29174300a62}{Fetch\+Condenser\+State}} ()
+\begin{DoxyCompactList}\small\item\em This method fetches the state of the condenser from the REST server. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_n_p_p_client_add7c9d83a5e7bd31f4ffe2d61cf49e5f}{Fetch\+Generator\+State}} ()
+\begin{DoxyCompactList}\small\item\em This method fetches the state of the generator from the REST server. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_n_p_p_client_a14ca945414cd1186e6b3f82c363beb85}{Fetch\+Component\+Health}} ()
+\begin{DoxyCompactList}\small\item\em This method fetches the health of the components from the REST server. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_n_p_p_client_ab56368ae86f41b63cc47a28f2c032e96}{Fetch\+Pumps}} ()
+\begin{DoxyCompactList}\small\item\em This method fetches the state of each pump from the REST server. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_n_p_p_client_a62a73306dc8040b3724215ff2ddbe818}{Fetch\+Valves}} ()
+\begin{DoxyCompactList}\small\item\em This method fetches the state of each valve from the REST server. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_n_p_p_client_a600d722ab5805183ee3b88beb2e97ccd}{Fetch\+System\+Status}} ()
+\begin{DoxyCompactList}\small\item\em This method fetches the status of the simulation from the REST server. \end{DoxyCompactList}\item 
+async Task$<$ string $>$ \mbox{\hyperlink{class_n_p_p_client_a0a8db7e40f0eab04f40923a00d73d25e}{Get\+Json\+Async}} (string url)
+\begin{DoxyCompactList}\small\item\em This method fetches JSON data from the REST server. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_n_p_p_client_a3fab7c6e67c4a6baf4eced7c07fbdc37}{Update\+Simulation\+State}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the simulation state by fetching all data from the REST server and updating the animator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_n_p_p_client_af077940574285f3df051804addf82b97}{scenario}} = 0
+\begin{DoxyCompactList}\small\item\em param name="{}loadscenario"{}\texorpdfstring{$>$}{>} tracks whether a scenario is currently being loaded\end{DoxyCompactList}\item 
+Boolean \mbox{\hyperlink{class_n_p_p_client_a4f685803f975081a57a405a753929784}{loadscenario}} = false
+\begin{DoxyCompactList}\small\item\em param name="{}animator\+Controller"{}\texorpdfstring{$>$}{>} is a reference to an \doxylink{class_animator_controller}{Animator\+Controller} object\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_animator_controller}{Animator\+Controller}} \mbox{\hyperlink{class_n_p_p_client_a7d556ca9d38d544c55adf8518b0e4b0a}{animator\+Controller}}
+\begin{DoxyCompactList}\small\item\em param name="{}ausfall\+Anzeigen\+Manager"{}\texorpdfstring{$>$}{>} is a reference to an \doxylink{class_ausfall_anzeigen_manager}{Ausfall\+Anzeigen\+Manager} object\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_ausfall_anzeigen_manager}{Ausfall\+Anzeigen\+Manager}} \mbox{\hyperlink{class_n_p_p_client_a7211f3ec43760d970d74b9223007e0e3}{ausfall\+Anzeigen\+Manager}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static readonly Http\+Client \mbox{\hyperlink{class_n_p_p_client_ac2836164fc251f374f3b012726c7381e}{client}} = new Http\+Client()
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em client} & is a reference to a Http\+Client object\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic for connecting to the REST Server running the simulation and fetching the current state of the simulation\textquotesingle{}s components. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_n_p_p_client_a7b0c1016065470aa94600f8a1ddd894e}\index{NPPClient@{NPPClient}!Awake@{Awake}}
+\index{Awake@{Awake}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a7b0c1016065470aa94600f8a1ddd894e} 
+void NPPClient.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method fetches the \doxylink{class_animator_controller}{Animator\+Controller}. 
+
+\Hypertarget{class_n_p_p_client_a14ca945414cd1186e6b3f82c363beb85}\index{NPPClient@{NPPClient}!FetchComponentHealth@{FetchComponentHealth}}
+\index{FetchComponentHealth@{FetchComponentHealth}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{FetchComponentHealth()}{FetchComponentHealth()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a14ca945414cd1186e6b3f82c363beb85} 
+async Task NPPClient.\+Fetch\+Component\+Health (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method fetches the health of the components from the REST server. 
+
+\Hypertarget{class_n_p_p_client_a61803baef3252b57f8e8c29174300a62}\index{NPPClient@{NPPClient}!FetchCondenserState@{FetchCondenserState}}
+\index{FetchCondenserState@{FetchCondenserState}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{FetchCondenserState()}{FetchCondenserState()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a61803baef3252b57f8e8c29174300a62} 
+async Task NPPClient.\+Fetch\+Condenser\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method fetches the state of the condenser from the REST server. 
+
+\Hypertarget{class_n_p_p_client_add7c9d83a5e7bd31f4ffe2d61cf49e5f}\index{NPPClient@{NPPClient}!FetchGeneratorState@{FetchGeneratorState}}
+\index{FetchGeneratorState@{FetchGeneratorState}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{FetchGeneratorState()}{FetchGeneratorState()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_add7c9d83a5e7bd31f4ffe2d61cf49e5f} 
+async Task NPPClient.\+Fetch\+Generator\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method fetches the state of the generator from the REST server. 
+
+\Hypertarget{class_n_p_p_client_ab56368ae86f41b63cc47a28f2c032e96}\index{NPPClient@{NPPClient}!FetchPumps@{FetchPumps}}
+\index{FetchPumps@{FetchPumps}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{FetchPumps()}{FetchPumps()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_ab56368ae86f41b63cc47a28f2c032e96} 
+async Task NPPClient.\+Fetch\+Pumps (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method fetches the state of each pump from the REST server. 
+
+\Hypertarget{class_n_p_p_client_a73fa1bc894fdd2f74d69c8ff35f03634}\index{NPPClient@{NPPClient}!FetchReactorState@{FetchReactorState}}
+\index{FetchReactorState@{FetchReactorState}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{FetchReactorState()}{FetchReactorState()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a73fa1bc894fdd2f74d69c8ff35f03634} 
+async Task NPPClient.\+Fetch\+Reactor\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method fetches the state of the reactor from the REST server. 
+
+\Hypertarget{class_n_p_p_client_a600d722ab5805183ee3b88beb2e97ccd}\index{NPPClient@{NPPClient}!FetchSystemStatus@{FetchSystemStatus}}
+\index{FetchSystemStatus@{FetchSystemStatus}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{FetchSystemStatus()}{FetchSystemStatus()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a600d722ab5805183ee3b88beb2e97ccd} 
+async Task NPPClient.\+Fetch\+System\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method fetches the status of the simulation from the REST server. 
+
+\Hypertarget{class_n_p_p_client_a62a73306dc8040b3724215ff2ddbe818}\index{NPPClient@{NPPClient}!FetchValves@{FetchValves}}
+\index{FetchValves@{FetchValves}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{FetchValves()}{FetchValves()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a62a73306dc8040b3724215ff2ddbe818} 
+async Task NPPClient.\+Fetch\+Valves (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method fetches the state of each valve from the REST server. 
+
+\Hypertarget{class_n_p_p_client_a0a8db7e40f0eab04f40923a00d73d25e}\index{NPPClient@{NPPClient}!GetJsonAsync@{GetJsonAsync}}
+\index{GetJsonAsync@{GetJsonAsync}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{GetJsonAsync()}{GetJsonAsync()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a0a8db7e40f0eab04f40923a00d73d25e} 
+async Task$<$ string $>$ NPPClient.\+Get\+Json\+Async (\begin{DoxyParamCaption}\item[{string}]{url}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method fetches JSON data from the REST server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & contains the server URL\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_n_p_p_client_ae407cab1d2964b080177ca75a94e6ed2}\index{NPPClient@{NPPClient}!ResetSimulation@{ResetSimulation}}
+\index{ResetSimulation@{ResetSimulation}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{ResetSimulation()}{ResetSimulation()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_ae407cab1d2964b080177ca75a94e6ed2} 
+IEnumerator NPPClient.\+Reset\+Simulation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method resets the simulation and the state machine. 
+
+\Hypertarget{class_n_p_p_client_a04c477b80b7cae1d9f808672102d05a9}\index{NPPClient@{NPPClient}!SetEmergencyShutdownScenario@{SetEmergencyShutdownScenario}}
+\index{SetEmergencyShutdownScenario@{SetEmergencyShutdownScenario}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{SetEmergencyShutdownScenario()}{SetEmergencyShutdownScenario()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a04c477b80b7cae1d9f808672102d05a9} 
+IEnumerator NPPClient.\+Set\+Emergency\+Shutdown\+Scenario (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method loads the emergency shutdown scenario. 
+
+\Hypertarget{class_n_p_p_client_ab483b9d598a2b44d142baa90e4aba643}\index{NPPClient@{NPPClient}!SetInitialStateScenario@{SetInitialStateScenario}}
+\index{SetInitialStateScenario@{SetInitialStateScenario}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{SetInitialStateScenario()}{SetInitialStateScenario()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_ab483b9d598a2b44d142baa90e4aba643} 
+IEnumerator NPPClient.\+Set\+Initial\+State\+Scenario (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method loads the normal startup scenario. 
+
+\Hypertarget{class_n_p_p_client_aeb73c8dc8db1a00c535d18c51c49e8a9}\index{NPPClient@{NPPClient}!SetNormalShutdownScenario@{SetNormalShutdownScenario}}
+\index{SetNormalShutdownScenario@{SetNormalShutdownScenario}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{SetNormalShutdownScenario()}{SetNormalShutdownScenario()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_aeb73c8dc8db1a00c535d18c51c49e8a9} 
+IEnumerator NPPClient.\+Set\+Normal\+Shutdown\+Scenario (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method loads the normal shutdown scenario. 
+
+\Hypertarget{class_n_p_p_client_aba209de866873540586f3d70f0f1e109}\index{NPPClient@{NPPClient}!SetRodPosition@{SetRodPosition}}
+\index{SetRodPosition@{SetRodPosition}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{SetRodPosition()}{SetRodPosition()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_aba209de866873540586f3d70f0f1e109} 
+IEnumerator NPPClient.\+Set\+Rod\+Position (\begin{DoxyParamCaption}\item[{int}]{value}{}\end{DoxyParamCaption})}
+
+
+
+This method sets the control rods\textquotesingle{} position by sending a request with the target position to the REST server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & specifies the target position \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_n_p_p_client_a8cf1cfc9c27b94aaa373ee0b5724ecba}\index{NPPClient@{NPPClient}!Start@{Start}}
+\index{Start@{Start}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a8cf1cfc9c27b94aaa373ee0b5724ecba} 
+void NPPClient.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the simulations update process by calling \doxylink{class_n_p_p_client_a3fab7c6e67c4a6baf4eced7c07fbdc37}{Update\+Simulation\+State()}. 
+
+\Hypertarget{class_n_p_p_client_a2cd6348ea9114f985d8077f096365d64}\index{NPPClient@{NPPClient}!Update@{Update}}
+\index{Update@{Update}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a2cd6348ea9114f985d8077f096365d64} 
+void NPPClient.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called every frame to check for component failures and eventually update their failure lamps. 
+
+\Hypertarget{class_n_p_p_client_a9a6b6dcb4d7d99fa662d52b4a24837fe}\index{NPPClient@{NPPClient}!UpdatePump@{UpdatePump}}
+\index{UpdatePump@{UpdatePump}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{UpdatePump()}{UpdatePump()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a9a6b6dcb4d7d99fa662d52b4a24837fe} 
+IEnumerator NPPClient.\+Update\+Pump (\begin{DoxyParamCaption}\item[{string}]{id}{, }\item[{int}]{value}{}\end{DoxyParamCaption})}
+
+
+
+This method updates a pump\textquotesingle{}s speed by sending a request with the pump id and the taget RPM to the REST server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & contains a pump\textquotesingle{}s ID\\
+\hline
+{\em value} & specifies the target RPM \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_n_p_p_client_a3fab7c6e67c4a6baf4eced7c07fbdc37}\index{NPPClient@{NPPClient}!UpdateSimulationState@{UpdateSimulationState}}
+\index{UpdateSimulationState@{UpdateSimulationState}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{UpdateSimulationState()}{UpdateSimulationState()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a3fab7c6e67c4a6baf4eced7c07fbdc37} 
+IEnumerator NPPClient.\+Update\+Simulation\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the simulation state by fetching all data from the REST server and updating the animator. 
+
+\Hypertarget{class_n_p_p_client_a3a0ccf733798e920df6a4bb325ed2ba2}\index{NPPClient@{NPPClient}!UpdateValveStatus@{UpdateValveStatus}}
+\index{UpdateValveStatus@{UpdateValveStatus}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{UpdateValveStatus()}{UpdateValveStatus()}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a3a0ccf733798e920df6a4bb325ed2ba2} 
+IEnumerator NPPClient.\+Update\+Valve\+Status (\begin{DoxyParamCaption}\item[{string}]{valve\+Id}{, }\item[{bool}]{value}{}\end{DoxyParamCaption})}
+
+
+
+This method updates a valve\textquotesingle{}s status by sending a request with the valve id and the target status to the REST server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valve\+Id} & contains the valve ID\\
+\hline
+{\em value} & specifies the target status \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_n_p_p_client_a7d556ca9d38d544c55adf8518b0e4b0a}\index{NPPClient@{NPPClient}!animatorController@{animatorController}}
+\index{animatorController@{animatorController}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{animatorController}{animatorController}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a7d556ca9d38d544c55adf8518b0e4b0a} 
+\mbox{\hyperlink{class_animator_controller}{Animator\+Controller}} NPPClient.\+animator\+Controller\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}ausfall\+Anzeigen\+Manager"{}\texorpdfstring{$>$}{>} is a reference to an \doxylink{class_ausfall_anzeigen_manager}{Ausfall\+Anzeigen\+Manager} object
+
+\Hypertarget{class_n_p_p_client_a7211f3ec43760d970d74b9223007e0e3}\index{NPPClient@{NPPClient}!ausfallAnzeigenManager@{ausfallAnzeigenManager}}
+\index{ausfallAnzeigenManager@{ausfallAnzeigenManager}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{ausfallAnzeigenManager}{ausfallAnzeigenManager}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a7211f3ec43760d970d74b9223007e0e3} 
+\mbox{\hyperlink{class_ausfall_anzeigen_manager}{Ausfall\+Anzeigen\+Manager}} NPPClient.\+ausfall\+Anzeigen\+Manager\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_n_p_p_client_ac2836164fc251f374f3b012726c7381e}\index{NPPClient@{NPPClient}!client@{client}}
+\index{client@{client}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{client}{client}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_ac2836164fc251f374f3b012726c7381e} 
+readonly Http\+Client NPPClient.\+client = new Http\+Client()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & is a reference to a Http\+Client object\\
+\hline
+\end{DoxyParams}
+
+
+param name="{}simulation"{}\texorpdfstring{$>$}{>} is a reference to a \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} storing the current state for every component of the simulation\Hypertarget{class_n_p_p_client_a4f685803f975081a57a405a753929784}\index{NPPClient@{NPPClient}!loadscenario@{loadscenario}}
+\index{loadscenario@{loadscenario}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{loadscenario}{loadscenario}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a4f685803f975081a57a405a753929784} 
+Boolean NPPClient.\+loadscenario = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}animator\+Controller"{}\texorpdfstring{$>$}{>} is a reference to an \doxylink{class_animator_controller}{Animator\+Controller} object
+
+\Hypertarget{class_n_p_p_client_af077940574285f3df051804addf82b97}\index{NPPClient@{NPPClient}!scenario@{scenario}}
+\index{scenario@{scenario}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{scenario}{scenario}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_af077940574285f3df051804addf82b97} 
+int NPPClient.\+scenario = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}loadscenario"{}\texorpdfstring{$>$}{>} tracks whether a scenario is currently being loaded
+
+\Hypertarget{class_n_p_p_client_a279f1de469ea1942a9a8c3d8d1b775f1}\index{NPPClient@{NPPClient}!simulation@{simulation}}
+\index{simulation@{simulation}!NPPClient@{NPPClient}}
+\doxysubsubsection{\texorpdfstring{simulation}{simulation}}
+{\footnotesize\ttfamily \label{class_n_p_p_client_a279f1de469ea1942a9a8c3d8d1b775f1} 
+\mbox{\hyperlink{class_n_p_p_reactor_state}{NPPReactor\+State}} NPPClient.\+simulation = new \mbox{\hyperlink{class_n_p_p_reactor_state}{NPPReactor\+State}}()}
+
+
+
+param name="{}scenario"{}\texorpdfstring{$>$}{>} specifies the scenario the user has chosen (0\+: no scenario chosen)
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+NPPClient/\mbox{\hyperlink{_n_p_p_client_8cs}{NPPClient.\+cs}}\end{DoxyCompactItemize}

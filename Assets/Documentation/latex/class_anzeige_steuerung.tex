@@ -1,0 +1,939 @@
+\doxysection{Anzeige\+Steuerung Class Reference}
+\hypertarget{class_anzeige_steuerung}{}\label{class_anzeige_steuerung}\index{AnzeigeSteuerung@{AnzeigeSteuerung}}
+
+
+This class implements the basic functions to create displays that distinguish between three value ranges\+: normal (white), abnormal (orange), and critical (red).  
+
+
+Inheritance diagram for Anzeige\+Steuerung\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_anzeige_steuerung}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_anzeige_steuerung_ab9840b044f5385115ed8e63aaaec6eb6}{start\+\_\+\+Number}} = 0
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+\+Number} & specifies the lower bound of the display\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeige_steuerung_abd05ed3f5e3104728eaa0681788a19f9}{end\+\_\+\+Number}} = 2000
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em end\+\_\+\+Number} & specifies the upper bound of the display\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_anzeige_steuerung_a97c009d5063d75ac19fd6d9f99e257e6}{komponente}} = "{}WP1"{}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em komponente} & specifies the component corresponding to the display\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeige_steuerung_a2ea5672b15ed884cfae85318c7dd1e59}{CHANGEpercentage}} = 0f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em CHANGEpercentage} & specifies the current percentage\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Mesh\+Filter \mbox{\hyperlink{class_anzeige_steuerung_a72bb5412bf5ecb0eeaa45a5e6c789430}{to\+Maniuplate\+NORMAL}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em to\+Maniuplate\+NORMAL} & is the Mesh\+Filter component of the normal Mesh\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_anzeige_steuerung_a70668e068e588cdc373933d14dd13ba7}{percentage}} = 50
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em percentage} & specifies the current percentage to be indicated by the normal bar\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Mesh\+Filter \mbox{\hyperlink{class_anzeige_steuerung_ae6c25fdaa79e433142ff8aa8c0aa43f5}{to\+Maniuplate\+ORANGE}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em to\+Maniuplate\+ORANGE} & is the Mesh\+Filter component of the orange Mesh\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_anzeige_steuerung_a15f219e670b94f5b285301b4d28499bb}{percentage2}} = 50
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em percentage2} & specifies the current percentage to be indicated by the orange bar\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Mesh\+Filter \mbox{\hyperlink{class_anzeige_steuerung_a7f77ad02bbe46e508210eae95f6db14a}{to\+Maniuplate\+RED}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em to\+Maniuplate\+RED} & is the Mesh\+Filter component of the red Mesh\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_anzeige_steuerung_a86dfc6294bde43845b0598c307ebbde7}{percentage3}} = 50
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em percentage3} & specifies the current percentage to be indicated by the red bar\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_anzeige_steuerung_a4cd089a69ba7086d935da09bcf2357d9}{is\+DIGITAL}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+DIGITAL} & tracks whether the display is digital\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_anzeige_steuerung_ac13c0256e0d826ac48f3b010ec505a85}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the display. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_anzeige_steuerung_afa94d03917bd2803615174d0fa14c09c}{Animate\+Percentage}} ()
+\begin{DoxyCompactList}\small\item\em This method animates the display\textquotesingle{}s bar in three steps. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_anzeige_steuerung_af64b4c013db23e85a2b7224a40deb4e1}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the display\textquotesingle{}s bar if the current frame\textquotesingle{}s percentage is different from last frame\textquotesingle{}s percentage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_anzeige_steuerung_aba7114a9c1e2f26c175eb27cbbbb12ca}{Initialize\+Text}} (string \mbox{\hyperlink{class_anzeige_steuerung_a97c009d5063d75ac19fd6d9f99e257e6}{komponente}}, float start\+Number, float end\+Number)
+\begin{DoxyCompactList}\small\item\em This method labels the scale of the display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_anzeige_steuerung_a3e7eb4933f1cb86459892779e14fb254}{Set\+Text}} (Transform parent, string child\+Name, string text)
+\begin{DoxyCompactList}\small\item\em This method sets a text to a child component of the display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_anzeige_steuerung_a9a334e7ae922fbdef7ff909ef04fd0cf}{Initialize\+Mesh}} (Mesh\+Filter mesh\+Filter, ref Mesh mesh, ref Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_anzeige_steuerung_a829e039225877a21594ed76c22b22aab}{original\+Vertices}}, ref int \mbox{\hyperlink{class_anzeige_steuerung_afe9bb4dc138e5587404360469f4ae7de}{min\+Index1}}, ref int \mbox{\hyperlink{class_anzeige_steuerung_a75fc9539b8c805b01414858a8d85694c}{min\+Index2}}, ref int \mbox{\hyperlink{class_anzeige_steuerung_a2f3b664eefa828cec178f7d0d68ca33d}{max\+Index}}, ref float \mbox{\hyperlink{class_anzeige_steuerung_ada0953a33a30e8e7d68d302f91e0712b}{last\+Percentage}}, int \mbox{\hyperlink{class_anzeige_steuerung_a70668e068e588cdc373933d14dd13ba7}{percentage}})
+\begin{DoxyCompactList}\small\item\em This method initializes the meshes of the display\textquotesingle{}s bar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_anzeige_steuerung_a2ea95ec382234601fc6efaa6571a9244}{Update\+Bars}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the display\textquotesingle{}s bar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_anzeige_steuerung_a438d391d4bad5ee8b99f56b09aa0da7e}{Reset\+Bar}} (int ID)
+\begin{DoxyCompactList}\small\item\em This method resets the display\textquotesingle{}s bar by changing the mesh. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_anzeige_steuerung_a52786149cb8bea1351a315fe7accdeea}{set\+Bar}} (int ID)
+\begin{DoxyCompactList}\small\item\em This method animates the display\textquotesingle{}s bar by changing the mesh, vertices and indices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Mesh \mbox{\hyperlink{class_anzeige_steuerung_afcbdbbd10fa4c919a9b0d4b32dd6e5ec}{mesh\+NORMAL}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em mesh\+NORMAL} & is the Mesh component of the normal Mesh\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_anzeige_steuerung_a829e039225877a21594ed76c22b22aab}{original\+Vertices}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em original\+Vertices} & is an array of Vector3s containing the original vertices of the normal Mesh\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeige_steuerung_ada0953a33a30e8e7d68d302f91e0712b}{last\+Percentage}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em last\+Percentage} & specifies the percentage indicated by the normal bar in the previous frame\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_anzeige_steuerung_afe9bb4dc138e5587404360469f4ae7de}{min\+Index1}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em min\+Index1} & specifies the index of the first minimum vertex of the normal Mesh (lower vertex)\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_anzeige_steuerung_a75fc9539b8c805b01414858a8d85694c}{min\+Index2}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em min\+Index2} & specifies the index of the second minimum vertex of the normal Mesh (upper vertex)\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_anzeige_steuerung_a2f3b664eefa828cec178f7d0d68ca33d}{max\+Index}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em max\+Index} & specifies the index of the maximum vertex of the normal Mesh\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Mesh \mbox{\hyperlink{class_anzeige_steuerung_a3a4ba2f3814397758e67349f036fc90d}{mesh\+ORANGE}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em mesh\+ORANGE} & is the Mesh component of the orange Mesh\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_anzeige_steuerung_a3cf0131a0907a6251296449dbef6ff29}{original\+Vertices2}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em original\+Vertices2} & is an array of Vector3s containing the original vertices of the orange Mesh\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeige_steuerung_a9331b57b4209312ea5c4404baa2e59ef}{last\+Percentage2}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em last\+Percentage2} & specifies the percentage indicated by the orange bar in the previous frame\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_anzeige_steuerung_a05c3fc3d50b526e1ddadda5dff4bbee5}{min\+Index12}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em min\+Index12} & specifies the index of the first minimum vertex of the orange Mesh (lower vertex)\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_anzeige_steuerung_ac83501f06e55a0fc9915db3de6b159aa}{min\+Index22}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em min\+Index22} & specifies the index of the second minimum vertex of the orange organge Mesh (upper vertex)\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_anzeige_steuerung_ad787dc462193eada8f767d29b64a20f5}{max\+Index2}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em max\+Index2} & specifies the index of the maximum vertex of the orange Mesh\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Mesh \mbox{\hyperlink{class_anzeige_steuerung_a5962391f571c69fc39f5541210bb0508}{mesh\+RED}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em mesh\+RED} & is the Mesh component of the red Mesh\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_anzeige_steuerung_a0e08cb76f56669c01c38d0b0e4fe345a}{original\+Vertices3}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em original\+Vertices3} & is an array of Vector3s containing the original vertices of the red Mesh\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeige_steuerung_ab39cf8a77cd0bcbbeb4a0fb715bcc19d}{last\+Percentage3}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em last\+Percentage3} & specifies the percentage indicated by the red bar in the previous frame\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_anzeige_steuerung_ab1a31fa2b43b1f8a788f58d5a3737128}{min\+Index13}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em min\+Index13} & specifies the index of the first minimum vertex of the red Mesh (lower vertex)\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_anzeige_steuerung_a8954f63010aef08c12124d47ce7a6c25}{min\+Index23}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em min\+Index23} & specifies the index of the second minimum vertex of the red Mesh (upper vertex)\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_anzeige_steuerung_a872ff9249486fe1ad42c45811aa50a93}{max\+Index3}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em max\+Index3} & specifies the index of the maximum vertex of the red Mesh\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeige_steuerung_a1ef496c26a7bd67e6c95a76e07daa4f7}{CHANGEpercentageanimate}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em CHANGEpercentageanimate} & specifies the percentage indicated by display\textquotesingle{}s bar in the current frame\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Text\+Mesh\+Pro \mbox{\hyperlink{class_anzeige_steuerung_ab1371aebfb91423eb1819cc2ac03eec4}{Digital\+Text}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Digital\+Text} & is a reference to a Text\+Mesh\+Pro component\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_anzeige_steuerung_a198d8400341c9db13862e34dab5f9f39}{is\+Bar1\+Reset}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Bar1\+Reset} & tracks whether the first bar has been reset \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_anzeige_steuerung_a34e688689e976eefead1e489da0c56ee}{is\+Bar2\+Reset}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Bar2\+Reset} & tracks whether the second bar has been reset \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_anzeige_steuerung_acf59c1a751028ca3c43aa2f8856499a9}{animate\+Percentage}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em animate\+Percentage} & specifies the current value that is being animated in \doxylink{class_anzeige_steuerung_a52786149cb8bea1351a315fe7accdeea}{set\+Bar()}\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements the basic functions to create displays that distinguish between three value ranges\+: normal (white), abnormal (orange), and critical (red). 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_anzeige_steuerung_afa94d03917bd2803615174d0fa14c09c}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!AnimatePercentage@{AnimatePercentage}}
+\index{AnimatePercentage@{AnimatePercentage}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{AnimatePercentage()}{AnimatePercentage()}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_afa94d03917bd2803615174d0fa14c09c} 
+IEnumerator Anzeige\+Steuerung.\+Animate\+Percentage (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method animates the display\textquotesingle{}s bar in three steps. 
+
+First the bar is set to indicate 100\%. Then the bar is set to inndicate 0\%. Finally the bar is set to indicate the actual value CHANGEpercentage. \Hypertarget{class_anzeige_steuerung_a9a334e7ae922fbdef7ff909ef04fd0cf}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!InitializeMesh@{InitializeMesh}}
+\index{InitializeMesh@{InitializeMesh}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{InitializeMesh()}{InitializeMesh()}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a9a334e7ae922fbdef7ff909ef04fd0cf} 
+void Anzeige\+Steuerung.\+Initialize\+Mesh (\begin{DoxyParamCaption}\item[{Mesh\+Filter}]{mesh\+Filter}{, }\item[{ref Mesh}]{mesh}{, }\item[{ref Vector3\mbox{[}$\,$\mbox{]}}]{original\+Vertices}{, }\item[{ref int}]{min\+Index1}{, }\item[{ref int}]{min\+Index2}{, }\item[{ref int}]{max\+Index}{, }\item[{ref float}]{last\+Percentage}{, }\item[{int}]{percentage}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initializes the meshes of the display\textquotesingle{}s bar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh\+Filter} & is the Mesh\+Filter component of the bar\\
+\hline
+{\em mesh} & is the Mesh component of the bar\\
+\hline
+{\em original\+Vertices} & is an array of Vector3s containing the original vertices of the Mesh\\
+\hline
+{\em min\+Index1} & specifies the index of the first minimum vertex of the Mesh (lower vertex)\\
+\hline
+{\em min\+Index2} & specifies the index of the second minimum vertex of the Mesh (upper vertex)\\
+\hline
+{\em max\+Index} & specifies the index of the maximum vertex of the Mesh\\
+\hline
+{\em last\+Percentage} & specifies the previous percentage indicated by the bar\\
+\hline
+{\em percentage} & specifies the current percentage to be indicated bar\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_anzeige_steuerung_aba7114a9c1e2f26c175eb27cbbbb12ca}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!InitializeText@{InitializeText}}
+\index{InitializeText@{InitializeText}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{InitializeText()}{InitializeText()}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_aba7114a9c1e2f26c175eb27cbbbb12ca} 
+void Anzeige\+Steuerung.\+Initialize\+Text (\begin{DoxyParamCaption}\item[{string}]{komponente}{, }\item[{float}]{start\+Number}{, }\item[{float}]{end\+Number}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method labels the scale of the display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em komponente} & contains the name of the component the display corresponds to\\
+\hline
+{\em start\+Number} & specifies the lower bound for the display\\
+\hline
+{\em end\+Number} & specifies the upper bound of the display\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_anzeige_steuerung_a438d391d4bad5ee8b99f56b09aa0da7e}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!ResetBar@{ResetBar}}
+\index{ResetBar@{ResetBar}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{ResetBar()}{ResetBar()}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a438d391d4bad5ee8b99f56b09aa0da7e} 
+void Anzeige\+Steuerung.\+Reset\+Bar (\begin{DoxyParamCaption}\item[{int}]{ID}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method resets the display\textquotesingle{}s bar by changing the mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ID} & specifies the bar to be reset\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_anzeige_steuerung_a52786149cb8bea1351a315fe7accdeea}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!setBar@{setBar}}
+\index{setBar@{setBar}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{setBar()}{setBar()}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a52786149cb8bea1351a315fe7accdeea} 
+void Anzeige\+Steuerung.\+set\+Bar (\begin{DoxyParamCaption}\item[{int}]{ID}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method animates the display\textquotesingle{}s bar by changing the mesh, vertices and indices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ID} & specifies the bar to be animated\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_anzeige_steuerung_a3e7eb4933f1cb86459892779e14fb254}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!SetText@{SetText}}
+\index{SetText@{SetText}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{SetText()}{SetText()}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a3e7eb4933f1cb86459892779e14fb254} 
+void Anzeige\+Steuerung.\+Set\+Text (\begin{DoxyParamCaption}\item[{Transform}]{parent}{, }\item[{string}]{child\+Name}{, }\item[{string}]{text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method sets a text to a child component of the display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & is a Transform of a Anzeige\+Basic object\\
+\hline
+{\em child\+Name} & contains the name of a subcomponent of an Anzeige\+Basic object\\
+\hline
+{\em text} & contains the text that will be set to a subcomponent of an Anzeige\+Basic object \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_anzeige_steuerung_ac13c0256e0d826ac48f3b010ec505a85}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!Start@{Start}}
+\index{Start@{Start}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_ac13c0256e0d826ac48f3b010ec505a85} 
+void Anzeige\+Steuerung.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the display. 
+
+It initiates the initialisation of the meshes and the bars, and starts the animation. \Hypertarget{class_anzeige_steuerung_af64b4c013db23e85a2b7224a40deb4e1}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!Update@{Update}}
+\index{Update@{Update}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_af64b4c013db23e85a2b7224a40deb4e1} 
+void Anzeige\+Steuerung.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the display\textquotesingle{}s bar if the current frame\textquotesingle{}s percentage is different from last frame\textquotesingle{}s percentage. 
+
+\Hypertarget{class_anzeige_steuerung_a2ea95ec382234601fc6efaa6571a9244}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!UpdateBars@{UpdateBars}}
+\index{UpdateBars@{UpdateBars}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{UpdateBars()}{UpdateBars()}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a2ea95ec382234601fc6efaa6571a9244} 
+void Anzeige\+Steuerung.\+Update\+Bars (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the display\textquotesingle{}s bar. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_anzeige_steuerung_acf59c1a751028ca3c43aa2f8856499a9}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!animatePercentage@{animatePercentage}}
+\index{animatePercentage@{animatePercentage}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{animatePercentage}{animatePercentage}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_acf59c1a751028ca3c43aa2f8856499a9} 
+float Anzeige\+Steuerung.\+animate\+Percentage\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em animate\+Percentage} & specifies the current value that is being animated in \doxylink{class_anzeige_steuerung_a52786149cb8bea1351a315fe7accdeea}{set\+Bar()}\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a2ea5672b15ed884cfae85318c7dd1e59}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!CHANGEpercentage@{CHANGEpercentage}}
+\index{CHANGEpercentage@{CHANGEpercentage}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{CHANGEpercentage}{CHANGEpercentage}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a2ea5672b15ed884cfae85318c7dd1e59} 
+float Anzeige\+Steuerung.\+CHANGEpercentage = 0f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em CHANGEpercentage} & specifies the current percentage\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a1ef496c26a7bd67e6c95a76e07daa4f7}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!CHANGEpercentageanimate@{CHANGEpercentageanimate}}
+\index{CHANGEpercentageanimate@{CHANGEpercentageanimate}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{CHANGEpercentageanimate}{CHANGEpercentageanimate}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a1ef496c26a7bd67e6c95a76e07daa4f7} 
+float Anzeige\+Steuerung.\+CHANGEpercentageanimate\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em CHANGEpercentageanimate} & specifies the percentage indicated by display\textquotesingle{}s bar in the current frame\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_ab1371aebfb91423eb1819cc2ac03eec4}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!DigitalText@{DigitalText}}
+\index{DigitalText@{DigitalText}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{DigitalText}{DigitalText}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_ab1371aebfb91423eb1819cc2ac03eec4} 
+Text\+Mesh\+Pro Anzeige\+Steuerung.\+Digital\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Digital\+Text} & is a reference to a Text\+Mesh\+Pro component\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_abd05ed3f5e3104728eaa0681788a19f9}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!end\_Number@{end\_Number}}
+\index{end\_Number@{end\_Number}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{end\_Number}{end\_Number}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_abd05ed3f5e3104728eaa0681788a19f9} 
+float Anzeige\+Steuerung.\+end\+\_\+\+Number = 2000}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em end\+\_\+\+Number} & specifies the upper bound of the display\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a198d8400341c9db13862e34dab5f9f39}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!isBar1Reset@{isBar1Reset}}
+\index{isBar1Reset@{isBar1Reset}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{isBar1Reset}{isBar1Reset}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a198d8400341c9db13862e34dab5f9f39} 
+bool Anzeige\+Steuerung.\+is\+Bar1\+Reset = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Bar1\+Reset} & tracks whether the first bar has been reset \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a34e688689e976eefead1e489da0c56ee}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!isBar2Reset@{isBar2Reset}}
+\index{isBar2Reset@{isBar2Reset}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{isBar2Reset}{isBar2Reset}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a34e688689e976eefead1e489da0c56ee} 
+bool Anzeige\+Steuerung.\+is\+Bar2\+Reset = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Bar2\+Reset} & tracks whether the second bar has been reset \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a4cd089a69ba7086d935da09bcf2357d9}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!isDIGITAL@{isDIGITAL}}
+\index{isDIGITAL@{isDIGITAL}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{isDIGITAL}{isDIGITAL}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a4cd089a69ba7086d935da09bcf2357d9} 
+bool Anzeige\+Steuerung.\+is\+DIGITAL = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+DIGITAL} & tracks whether the display is digital\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a97c009d5063d75ac19fd6d9f99e257e6}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!komponente@{komponente}}
+\index{komponente@{komponente}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{komponente}{komponente}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a97c009d5063d75ac19fd6d9f99e257e6} 
+string Anzeige\+Steuerung.\+komponente = "{}WP1"{}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em komponente} & specifies the component corresponding to the display\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_ada0953a33a30e8e7d68d302f91e0712b}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!lastPercentage@{lastPercentage}}
+\index{lastPercentage@{lastPercentage}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{lastPercentage}{lastPercentage}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_ada0953a33a30e8e7d68d302f91e0712b} 
+float Anzeige\+Steuerung.\+last\+Percentage\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em last\+Percentage} & specifies the percentage indicated by the normal bar in the previous frame\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a9331b57b4209312ea5c4404baa2e59ef}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!lastPercentage2@{lastPercentage2}}
+\index{lastPercentage2@{lastPercentage2}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{lastPercentage2}{lastPercentage2}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a9331b57b4209312ea5c4404baa2e59ef} 
+float Anzeige\+Steuerung.\+last\+Percentage2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em last\+Percentage2} & specifies the percentage indicated by the orange bar in the previous frame\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_ab39cf8a77cd0bcbbeb4a0fb715bcc19d}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!lastPercentage3@{lastPercentage3}}
+\index{lastPercentage3@{lastPercentage3}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{lastPercentage3}{lastPercentage3}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_ab39cf8a77cd0bcbbeb4a0fb715bcc19d} 
+float Anzeige\+Steuerung.\+last\+Percentage3\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em last\+Percentage3} & specifies the percentage indicated by the red bar in the previous frame\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a2f3b664eefa828cec178f7d0d68ca33d}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!maxIndex@{maxIndex}}
+\index{maxIndex@{maxIndex}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{maxIndex}{maxIndex}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a2f3b664eefa828cec178f7d0d68ca33d} 
+int Anzeige\+Steuerung.\+max\+Index\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+Index} & specifies the index of the maximum vertex of the normal Mesh\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_ad787dc462193eada8f767d29b64a20f5}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!maxIndex2@{maxIndex2}}
+\index{maxIndex2@{maxIndex2}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{maxIndex2}{maxIndex2}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_ad787dc462193eada8f767d29b64a20f5} 
+int Anzeige\+Steuerung.\+max\+Index2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+Index2} & specifies the index of the maximum vertex of the orange Mesh\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a872ff9249486fe1ad42c45811aa50a93}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!maxIndex3@{maxIndex3}}
+\index{maxIndex3@{maxIndex3}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{maxIndex3}{maxIndex3}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a872ff9249486fe1ad42c45811aa50a93} 
+int Anzeige\+Steuerung.\+max\+Index3\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+Index3} & specifies the index of the maximum vertex of the red Mesh\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_afcbdbbd10fa4c919a9b0d4b32dd6e5ec}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!meshNORMAL@{meshNORMAL}}
+\index{meshNORMAL@{meshNORMAL}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{meshNORMAL}{meshNORMAL}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_afcbdbbd10fa4c919a9b0d4b32dd6e5ec} 
+Mesh Anzeige\+Steuerung.\+mesh\+NORMAL\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh\+NORMAL} & is the Mesh component of the normal Mesh\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a3a4ba2f3814397758e67349f036fc90d}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!meshORANGE@{meshORANGE}}
+\index{meshORANGE@{meshORANGE}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{meshORANGE}{meshORANGE}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a3a4ba2f3814397758e67349f036fc90d} 
+Mesh Anzeige\+Steuerung.\+mesh\+ORANGE\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh\+ORANGE} & is the Mesh component of the orange Mesh\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a5962391f571c69fc39f5541210bb0508}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!meshRED@{meshRED}}
+\index{meshRED@{meshRED}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{meshRED}{meshRED}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a5962391f571c69fc39f5541210bb0508} 
+Mesh Anzeige\+Steuerung.\+mesh\+RED\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh\+RED} & is the Mesh component of the red Mesh\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_afe9bb4dc138e5587404360469f4ae7de}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!minIndex1@{minIndex1}}
+\index{minIndex1@{minIndex1}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{minIndex1}{minIndex1}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_afe9bb4dc138e5587404360469f4ae7de} 
+int Anzeige\+Steuerung.\+min\+Index1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Index1} & specifies the index of the first minimum vertex of the normal Mesh (lower vertex)\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a05c3fc3d50b526e1ddadda5dff4bbee5}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!minIndex12@{minIndex12}}
+\index{minIndex12@{minIndex12}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{minIndex12}{minIndex12}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a05c3fc3d50b526e1ddadda5dff4bbee5} 
+int Anzeige\+Steuerung.\+min\+Index12\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Index12} & specifies the index of the first minimum vertex of the orange Mesh (lower vertex)\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_ab1a31fa2b43b1f8a788f58d5a3737128}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!minIndex13@{minIndex13}}
+\index{minIndex13@{minIndex13}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{minIndex13}{minIndex13}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_ab1a31fa2b43b1f8a788f58d5a3737128} 
+int Anzeige\+Steuerung.\+min\+Index13\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Index13} & specifies the index of the first minimum vertex of the red Mesh (lower vertex)\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a75fc9539b8c805b01414858a8d85694c}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!minIndex2@{minIndex2}}
+\index{minIndex2@{minIndex2}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{minIndex2}{minIndex2}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a75fc9539b8c805b01414858a8d85694c} 
+int Anzeige\+Steuerung.\+min\+Index2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Index2} & specifies the index of the second minimum vertex of the normal Mesh (upper vertex)\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_ac83501f06e55a0fc9915db3de6b159aa}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!minIndex22@{minIndex22}}
+\index{minIndex22@{minIndex22}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{minIndex22}{minIndex22}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_ac83501f06e55a0fc9915db3de6b159aa} 
+int Anzeige\+Steuerung.\+min\+Index22\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Index22} & specifies the index of the second minimum vertex of the orange organge Mesh (upper vertex)\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a8954f63010aef08c12124d47ce7a6c25}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!minIndex23@{minIndex23}}
+\index{minIndex23@{minIndex23}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{minIndex23}{minIndex23}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a8954f63010aef08c12124d47ce7a6c25} 
+int Anzeige\+Steuerung.\+min\+Index23\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Index23} & specifies the index of the second minimum vertex of the red Mesh (upper vertex)\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a829e039225877a21594ed76c22b22aab}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!originalVertices@{originalVertices}}
+\index{originalVertices@{originalVertices}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{originalVertices}{originalVertices}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a829e039225877a21594ed76c22b22aab} 
+Vector3 \mbox{[}$\,$\mbox{]} Anzeige\+Steuerung.\+original\+Vertices\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em original\+Vertices} & is an array of Vector3s containing the original vertices of the normal Mesh\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a3cf0131a0907a6251296449dbef6ff29}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!originalVertices2@{originalVertices2}}
+\index{originalVertices2@{originalVertices2}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{originalVertices2}{originalVertices2}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a3cf0131a0907a6251296449dbef6ff29} 
+Vector3 \mbox{[}$\,$\mbox{]} Anzeige\+Steuerung.\+original\+Vertices2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em original\+Vertices2} & is an array of Vector3s containing the original vertices of the orange Mesh\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a0e08cb76f56669c01c38d0b0e4fe345a}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!originalVertices3@{originalVertices3}}
+\index{originalVertices3@{originalVertices3}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{originalVertices3}{originalVertices3}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a0e08cb76f56669c01c38d0b0e4fe345a} 
+Vector3 \mbox{[}$\,$\mbox{]} Anzeige\+Steuerung.\+original\+Vertices3\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em original\+Vertices3} & is an array of Vector3s containing the original vertices of the red Mesh\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a70668e068e588cdc373933d14dd13ba7}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!percentage@{percentage}}
+\index{percentage@{percentage}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{percentage}{percentage}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a70668e068e588cdc373933d14dd13ba7} 
+int Anzeige\+Steuerung.\+percentage = 50}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em percentage} & specifies the current percentage to be indicated by the normal bar\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a15f219e670b94f5b285301b4d28499bb}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!percentage2@{percentage2}}
+\index{percentage2@{percentage2}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{percentage2}{percentage2}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a15f219e670b94f5b285301b4d28499bb} 
+int Anzeige\+Steuerung.\+percentage2 = 50}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em percentage2} & specifies the current percentage to be indicated by the orange bar\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a86dfc6294bde43845b0598c307ebbde7}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!percentage3@{percentage3}}
+\index{percentage3@{percentage3}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{percentage3}{percentage3}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a86dfc6294bde43845b0598c307ebbde7} 
+int Anzeige\+Steuerung.\+percentage3 = 50}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em percentage3} & specifies the current percentage to be indicated by the red bar\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_ab9840b044f5385115ed8e63aaaec6eb6}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!start\_Number@{start\_Number}}
+\index{start\_Number@{start\_Number}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{start\_Number}{start\_Number}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_ab9840b044f5385115ed8e63aaaec6eb6} 
+float Anzeige\+Steuerung.\+start\+\_\+\+Number = 0}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+\+Number} & specifies the lower bound of the display\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a72bb5412bf5ecb0eeaa45a5e6c789430}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!toManiuplateNORMAL@{toManiuplateNORMAL}}
+\index{toManiuplateNORMAL@{toManiuplateNORMAL}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{toManiuplateNORMAL}{toManiuplateNORMAL}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a72bb5412bf5ecb0eeaa45a5e6c789430} 
+Mesh\+Filter Anzeige\+Steuerung.\+to\+Maniuplate\+NORMAL}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Maniuplate\+NORMAL} & is the Mesh\+Filter component of the normal Mesh\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_ae6c25fdaa79e433142ff8aa8c0aa43f5}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!toManiuplateORANGE@{toManiuplateORANGE}}
+\index{toManiuplateORANGE@{toManiuplateORANGE}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{toManiuplateORANGE}{toManiuplateORANGE}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_ae6c25fdaa79e433142ff8aa8c0aa43f5} 
+Mesh\+Filter Anzeige\+Steuerung.\+to\+Maniuplate\+ORANGE}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Maniuplate\+ORANGE} & is the Mesh\+Filter component of the orange Mesh\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_anzeige_steuerung_a7f77ad02bbe46e508210eae95f6db14a}\index{AnzeigeSteuerung@{AnzeigeSteuerung}!toManiuplateRED@{toManiuplateRED}}
+\index{toManiuplateRED@{toManiuplateRED}!AnzeigeSteuerung@{AnzeigeSteuerung}}
+\doxysubsubsection{\texorpdfstring{toManiuplateRED}{toManiuplateRED}}
+{\footnotesize\ttfamily \label{class_anzeige_steuerung_a7f77ad02bbe46e508210eae95f6db14a} 
+Mesh\+Filter Anzeige\+Steuerung.\+to\+Maniuplate\+RED}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Maniuplate\+RED} & is the Mesh\+Filter component of the red Mesh\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Anzeigen/\mbox{\hyperlink{_anzeige_steuerung_8cs}{Anzeige\+Steuerung.\+cs}}\end{DoxyCompactItemize}

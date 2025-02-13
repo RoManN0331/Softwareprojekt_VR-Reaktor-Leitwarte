@@ -1,0 +1,91 @@
+\doxysection{RWater Class Reference}
+\hypertarget{class_r_water}{}\label{class_r_water}\index{RWater@{RWater}}
+
+
+This class implements logic for displaying the current water level inside the reactor tank.  
+
+
+Inheritance diagram for RWater\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_r_water}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_r_water_a97f6b6078019c48bf7aa78d8299b0b22}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current water level inside the reactor tank. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_water_a047c3b718439923bcd80dde0c24e7e56}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the display by reading the current water level inside the reactor tank from the Reactor.\+water\+Level field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_anzeige_steuerung5}{Anzeige\+Steuerung5}} \mbox{\hyperlink{class_r_water_a7349f94e744009fc802ff14bfdc60c0a}{anzeige\+Steuerung}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_r_water_a4bd615b5c94071b1798c070749672428}{client\+Object}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic for displaying the current water level inside the reactor tank. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_r_water_a97f6b6078019c48bf7aa78d8299b0b22}\index{RWater@{RWater}!Start@{Start}}
+\index{Start@{Start}!RWater@{RWater}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_r_water_a97f6b6078019c48bf7aa78d8299b0b22} 
+void RWater.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current water level inside the reactor tank. 
+
+\Hypertarget{class_r_water_a047c3b718439923bcd80dde0c24e7e56}\index{RWater@{RWater}!Update@{Update}}
+\index{Update@{Update}!RWater@{RWater}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_r_water_a047c3b718439923bcd80dde0c24e7e56} 
+void RWater.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the display by reading the current water level inside the reactor tank from the Reactor.\+water\+Level field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_r_water_a7349f94e744009fc802ff14bfdc60c0a}\index{RWater@{RWater}!anzeigeSteuerung@{anzeigeSteuerung}}
+\index{anzeigeSteuerung@{anzeigeSteuerung}!RWater@{RWater}}
+\doxysubsubsection{\texorpdfstring{anzeigeSteuerung}{anzeigeSteuerung}}
+{\footnotesize\ttfamily \label{class_r_water_a7349f94e744009fc802ff14bfdc60c0a} 
+\mbox{\hyperlink{class_anzeige_steuerung5}{Anzeige\+Steuerung5}} RWater.\+anzeige\+Steuerung\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_r_water_a4bd615b5c94071b1798c070749672428}\index{RWater@{RWater}!clientObject@{clientObject}}
+\index{clientObject@{clientObject}!RWater@{RWater}}
+\doxysubsubsection{\texorpdfstring{clientObject}{clientObject}}
+{\footnotesize\ttfamily \label{class_r_water_a4bd615b5c94071b1798c070749672428} 
+Game\+Object RWater.\+client\+Object\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Anzeigen/\mbox{\hyperlink{_r_water_8cs}{RWater.\+cs}}\end{DoxyCompactItemize}

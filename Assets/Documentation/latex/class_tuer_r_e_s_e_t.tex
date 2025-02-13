@@ -1,0 +1,241 @@
+\doxysection{Tuer\+RESET Class Reference}
+\hypertarget{class_tuer_r_e_s_e_t}{}\label{class_tuer_r_e_s_e_t}\index{TuerRESET@{TuerRESET}}
+
+
+This class implements logic to reset the simulation by using the door handle in the scene of the VR application.  
+
+
+Inheritance diagram for Tuer\+RESET\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_tuer_r_e_s_e_t}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Input\+Action\+Reference \mbox{\hyperlink{class_tuer_r_e_s_e_t_aeb1a41c1b2cb8ff7f5f213f40b19153a}{trigger}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em trigger} & is a reference to an input action\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_tuer_r_e_s_e_t_a488b29484d34355d589e880319422b9f}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the Input\+Action\+Reference trigger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tuer_r_e_s_e_t_a7a8019a01540455a02fcebf64813c58b}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method checks whether the door handle is being hovered over and whether the trigger is being pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tuer_r_e_s_e_t_a7378ee6af561ae8136860f1a2068cc70}{On\+Enable}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the object is enabled and adds event listeners for the select\+Entered and select\+Exited events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tuer_r_e_s_e_t_a95597620b4f69d88305555b1978e8374}{On\+Disable}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the object is disabled and removes event listeners for the select\+Entered and select\+Exited events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tuer_r_e_s_e_t_a922152332338c08e3008d94ecf2352f0}{On\+Hover\+Entered}} (Hover\+Enter\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when the XR interactor looks at the object, i.\+e. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tuer_r_e_s_e_t_aa802e7829731b94b75f5c30b5d8b34b1}{On\+Hover\+Exited}} (Hover\+Exit\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when the XR interactor is no longer looking at the object, i.\+e. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_tuer_r_e_s_e_t_a840bbea4030ccce1852f7541439b66c0}{Handle\+Door\+Interaction}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the player interacts with the door handle via the XR interactor to reset the simulation. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_tuer_r_e_s_e_t_a85f9ed5e6aea8edeaa1ac86468abdcf2}{Rotate\+To\+Angle}} (float target\+Angle, float duration)
+\begin{DoxyCompactList}\small\item\em This method is called in \doxylink{class_tuer_r_e_s_e_t_a840bbea4030ccce1852f7541439b66c0}{Handle\+Door\+Interaction()} to rotate the door handle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_tuer_r_e_s_e_t_a6733a7b1ec2e6573f5194bf39cd0a9ba}{is\+Cooldown}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Cooldown} & checks if the handle has been used recently \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_tuer_r_e_s_e_t_abb8a1a2665bfb405dfc873f61b6ee345}{is\+Hovering}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Hovering} & checks if the XR interactor is hovering over the handle \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_n_p_p_client}{NPPClient}} \mbox{\hyperlink{class_tuer_r_e_s_e_t_aff3bcfbf74df8ef739ffe1316ec28042}{npp\+Client}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em npp\+Client} & is a reference to the \doxylink{class_n_p_p_client}{NPPClient} instance in the scene\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic to reset the simulation by using the door handle in the scene of the VR application. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tuer_r_e_s_e_t_a840bbea4030ccce1852f7541439b66c0}\index{TuerRESET@{TuerRESET}!HandleDoorInteraction@{HandleDoorInteraction}}
+\index{HandleDoorInteraction@{HandleDoorInteraction}!TuerRESET@{TuerRESET}}
+\doxysubsubsection{\texorpdfstring{HandleDoorInteraction()}{HandleDoorInteraction()}}
+{\footnotesize\ttfamily \label{class_tuer_r_e_s_e_t_a840bbea4030ccce1852f7541439b66c0} 
+IEnumerator Tuer\+RESET.\+Handle\+Door\+Interaction (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the player interacts with the door handle via the XR interactor to reset the simulation. 
+
+\Hypertarget{class_tuer_r_e_s_e_t_a95597620b4f69d88305555b1978e8374}\index{TuerRESET@{TuerRESET}!OnDisable@{OnDisable}}
+\index{OnDisable@{OnDisable}!TuerRESET@{TuerRESET}}
+\doxysubsubsection{\texorpdfstring{OnDisable()}{OnDisable()}}
+{\footnotesize\ttfamily \label{class_tuer_r_e_s_e_t_a95597620b4f69d88305555b1978e8374} 
+void Tuer\+RESET.\+On\+Disable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the object is disabled and removes event listeners for the select\+Entered and select\+Exited events. 
+
+\Hypertarget{class_tuer_r_e_s_e_t_a7378ee6af561ae8136860f1a2068cc70}\index{TuerRESET@{TuerRESET}!OnEnable@{OnEnable}}
+\index{OnEnable@{OnEnable}!TuerRESET@{TuerRESET}}
+\doxysubsubsection{\texorpdfstring{OnEnable()}{OnEnable()}}
+{\footnotesize\ttfamily \label{class_tuer_r_e_s_e_t_a7378ee6af561ae8136860f1a2068cc70} 
+void Tuer\+RESET.\+On\+Enable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the object is enabled and adds event listeners for the select\+Entered and select\+Exited events. 
+
+\Hypertarget{class_tuer_r_e_s_e_t_a922152332338c08e3008d94ecf2352f0}\index{TuerRESET@{TuerRESET}!OnHoverEntered@{OnHoverEntered}}
+\index{OnHoverEntered@{OnHoverEntered}!TuerRESET@{TuerRESET}}
+\doxysubsubsection{\texorpdfstring{OnHoverEntered()}{OnHoverEntered()}}
+{\footnotesize\ttfamily \label{class_tuer_r_e_s_e_t_a922152332338c08e3008d94ecf2352f0} 
+void Tuer\+RESET.\+On\+Hover\+Entered (\begin{DoxyParamCaption}\item[{Hover\+Enter\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the XR interactor looks at the object, i.\+e. 
+
+points to or moves onto the object .
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments upon entering the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tuer_r_e_s_e_t_aa802e7829731b94b75f5c30b5d8b34b1}\index{TuerRESET@{TuerRESET}!OnHoverExited@{OnHoverExited}}
+\index{OnHoverExited@{OnHoverExited}!TuerRESET@{TuerRESET}}
+\doxysubsubsection{\texorpdfstring{OnHoverExited()}{OnHoverExited()}}
+{\footnotesize\ttfamily \label{class_tuer_r_e_s_e_t_aa802e7829731b94b75f5c30b5d8b34b1} 
+void Tuer\+RESET.\+On\+Hover\+Exited (\begin{DoxyParamCaption}\item[{Hover\+Exit\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the XR interactor is no longer looking at the object, i.\+e. 
+
+the interactor moves away.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments upon exiting the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tuer_r_e_s_e_t_a85f9ed5e6aea8edeaa1ac86468abdcf2}\index{TuerRESET@{TuerRESET}!RotateToAngle@{RotateToAngle}}
+\index{RotateToAngle@{RotateToAngle}!TuerRESET@{TuerRESET}}
+\doxysubsubsection{\texorpdfstring{RotateToAngle()}{RotateToAngle()}}
+{\footnotesize\ttfamily \label{class_tuer_r_e_s_e_t_a85f9ed5e6aea8edeaa1ac86468abdcf2} 
+IEnumerator Tuer\+RESET.\+Rotate\+To\+Angle (\begin{DoxyParamCaption}\item[{float}]{target\+Angle}{, }\item[{float}]{duration}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called in \doxylink{class_tuer_r_e_s_e_t_a840bbea4030ccce1852f7541439b66c0}{Handle\+Door\+Interaction()} to rotate the door handle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Angle} & specifies the angle to rotate the door handle to\\
+\hline
+{\em duration} & specifies the duration of the rotation\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tuer_r_e_s_e_t_a488b29484d34355d589e880319422b9f}\index{TuerRESET@{TuerRESET}!Start@{Start}}
+\index{Start@{Start}!TuerRESET@{TuerRESET}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_tuer_r_e_s_e_t_a488b29484d34355d589e880319422b9f} 
+void Tuer\+RESET.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the Input\+Action\+Reference trigger. 
+
+\Hypertarget{class_tuer_r_e_s_e_t_a7a8019a01540455a02fcebf64813c58b}\index{TuerRESET@{TuerRESET}!Update@{Update}}
+\index{Update@{Update}!TuerRESET@{TuerRESET}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_tuer_r_e_s_e_t_a7a8019a01540455a02fcebf64813c58b} 
+void Tuer\+RESET.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method checks whether the door handle is being hovered over and whether the trigger is being pressed. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_tuer_r_e_s_e_t_a6733a7b1ec2e6573f5194bf39cd0a9ba}\index{TuerRESET@{TuerRESET}!isCooldown@{isCooldown}}
+\index{isCooldown@{isCooldown}!TuerRESET@{TuerRESET}}
+\doxysubsubsection{\texorpdfstring{isCooldown}{isCooldown}}
+{\footnotesize\ttfamily \label{class_tuer_r_e_s_e_t_a6733a7b1ec2e6573f5194bf39cd0a9ba} 
+bool Tuer\+RESET.\+is\+Cooldown = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Cooldown} & checks if the handle has been used recently \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_tuer_r_e_s_e_t_abb8a1a2665bfb405dfc873f61b6ee345}\index{TuerRESET@{TuerRESET}!isHovering@{isHovering}}
+\index{isHovering@{isHovering}!TuerRESET@{TuerRESET}}
+\doxysubsubsection{\texorpdfstring{isHovering}{isHovering}}
+{\footnotesize\ttfamily \label{class_tuer_r_e_s_e_t_abb8a1a2665bfb405dfc873f61b6ee345} 
+bool Tuer\+RESET.\+is\+Hovering = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Hovering} & checks if the XR interactor is hovering over the handle \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_tuer_r_e_s_e_t_aff3bcfbf74df8ef739ffe1316ec28042}\index{TuerRESET@{TuerRESET}!nppClient@{nppClient}}
+\index{nppClient@{nppClient}!TuerRESET@{TuerRESET}}
+\doxysubsubsection{\texorpdfstring{nppClient}{nppClient}}
+{\footnotesize\ttfamily \label{class_tuer_r_e_s_e_t_aff3bcfbf74df8ef739ffe1316ec28042} 
+\mbox{\hyperlink{class_n_p_p_client}{NPPClient}} Tuer\+RESET.\+npp\+Client\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em npp\+Client} & is a reference to the \doxylink{class_n_p_p_client}{NPPClient} instance in the scene\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_tuer_r_e_s_e_t_aeb1a41c1b2cb8ff7f5f213f40b19153a}\index{TuerRESET@{TuerRESET}!trigger@{trigger}}
+\index{trigger@{trigger}!TuerRESET@{TuerRESET}}
+\doxysubsubsection{\texorpdfstring{trigger}{trigger}}
+{\footnotesize\ttfamily \label{class_tuer_r_e_s_e_t_aeb1a41c1b2cb8ff7f5f213f40b19153a} 
+Input\+Action\+Reference Tuer\+RESET.\+trigger}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em trigger} & is a reference to an input action\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\mbox{\hyperlink{_tuer_r_e_s_e_t_8cs}{Tuer\+RESET.\+cs}}\end{DoxyCompactItemize}

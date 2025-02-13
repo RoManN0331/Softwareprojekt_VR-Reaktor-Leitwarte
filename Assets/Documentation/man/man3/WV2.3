@@ -1,0 +1,308 @@
+.TH "WV2" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+WV2 \- This class is used to control water valve 2 in an NPP simulation\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBReglerTypeEnum\fP { \fBGenau\fP = 0, \fBBinaer\fP = 1 }"
+.br
+.RI "Defines two types of rotary switches binary and exact\&. "
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSetValveStatus\fP (string valveId, bool value)"
+.br
+.RI "This method initiates a call to the REST Server to update the simulation with the current status of water valve 2\&. "
+.ti -1c
+.RI "void \fBSetPercentFromExternal\fP (int percent)"
+.br
+.RI "This method sets the percentage value of the switch based on an external input\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBReglerTypeEnum\fP \fBReglerType\fP = \fBReglerTypeEnum\&.Binaer\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIReglerType\fP Specifies the type of rotary switch
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBPercent\fP = 0"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIPercent\fP int specifying the percentage the switch has been rotated based on its leftmost position
+.RE
+.PP
+"
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initializes the \fBWV2\fP instance, sets the initial rotation of the switch and initializes the switches lamp\&. "
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.RI "This method updates the rotation of the switch based on the current value of Percent\&. "
+.ti -1c
+.RI "void \fBUpdateRotation\fP ()"
+.br
+.RI "This method updates the rotation of the switch\&. "
+.ti -1c
+.RI "void \fBOnEnable\fP ()"
+.br
+.RI "This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events\&. "
+.ti -1c
+.RI "void \fBOnDisable\fP ()"
+.br
+.RI "This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events\&. "
+.ti -1c
+.RI "void \fBOnSelectEntered\fP (SelectEnterEventArgs args)"
+.br
+.RI "This method is called when an interactor enters the object and sets the interactor and initialInteractorRotation values\&. "
+.ti -1c
+.RI "void \fBOnSelectExited\fP (SelectExitEventArgs args)"
+.br
+.RI "This method is called when an interactor exits the object and resets the isInteracting and interactor values\&. "
+.ti -1c
+.RI "void \fBinitLamp\fP ()"
+.br
+.RI "This method initialises the switches lamp\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "GameObject \fBto_rotate\fP"
+.br
+.ti -1c
+.RI "int \fBStartRotation\fP = \-90"
+.br
+.RI "param name="EndRotation">int specifying the angle of the switches rightmost position"
+.ti -1c
+.RI "int \fBEndRotation\fP = 0"
+.br
+.RI "param name="lastPressTime">float specifying when the switch was last interacted with"
+.ti -1c
+.RI "float \fBlastPressTime\fP = 0f"
+.br
+.RI "param name="pressCooldown">float specifying a cooldown between interactions with the switch"
+.ti -1c
+.RI "float \fBpressCooldown\fP = 1f"
+.br
+.RI "param name="interactor">Interactor"
+.ti -1c
+.RI "UnityEngine\&.XR\&.Interaction\&.Toolkit\&.Interactors\&.XRBaseInteractor \fBinteractor\fP"
+.br
+.RI "param name="isInteracting">boolean tracking if the player is interacting with the switch"
+.ti -1c
+.RI "bool \fBisInteracting\fP = false"
+.br
+.RI "param name="initialInteractorPosition">Vector3 specifying the initial Position of the Interactor"
+.ti -1c
+.RI "Vector3 \fBinitialInteractorPosition\fP"
+.br
+.RI "param name="initialPercent">int specifying the initinal percentage the switch has already been rotated"
+.ti -1c
+.RI "int \fBinitialPercent\fP"
+.br
+.RI "param name="previousPercent">int specifying the percentage the switch has been rotated in the last frame"
+.ti -1c
+.RI "int \fBpreviousPercent\fP"
+.br
+.RI "param name="lightRegler">LoghtRegler to switch on lights"
+.ti -1c
+.RI "\fBLightRegler\fP \fBlightRegler\fP"
+.br
+.RI "param name="nppClient">Reference to the \fBNPPClient\fP instance in the scene"
+.ti -1c
+.RI "\fBNPPClient\fP \fBnppClient\fP"
+.br
+.ti -1c
+.RI "GameObject \fBclientObject\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class is used to control water valve 2 in an NPP simulation\&. 
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBWV2\&.ReglerTypeEnum\fP"
+
+.PP
+Defines two types of rotary switches binary and exact\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIGenau \fP
+.TP
+\f(BIBinaer \fP
+.SH "Member Function Documentation"
+.PP 
+.SS "void WV2\&.initLamp ()\fR [private]\fP"
+
+.PP
+This method initialises the switches lamp\&. 
+.SS "void WV2\&.OnDisable ()\fR [private]\fP"
+
+.PP
+This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events\&. 
+.SS "void WV2\&.OnEnable ()\fR [private]\fP"
+
+.PP
+This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events\&. 
+.SS "void WV2\&.OnSelectEntered (SelectEnterEventArgs args)\fR [private]\fP"
+
+.PP
+This method is called when an interactor enters the object and sets the interactor and initialInteractorRotation values\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP passes event specific arguments upon entering the interaction
+.RE
+.PP
+
+.SS "void WV2\&.OnSelectExited (SelectExitEventArgs args)\fR [private]\fP"
+
+.PP
+This method is called when an interactor exits the object and resets the isInteracting and interactor values\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP passes event specific arguments upon exiting the interaction
+.RE
+.PP
+
+.SS "void WV2\&.SetPercentFromExternal (int percent)"
+
+.PP
+This method sets the percentage value of the switch based on an external input\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpercent\fP specifies the percentage value to set the switch to
+.RE
+.PP
+
+.SS "void WV2\&.SetValveStatus (string valveId, bool value)"
+
+.PP
+This method initiates a call to the REST Server to update the simulation with the current status of water valve 2\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalveId\fP contains the ID of a valve specified on the REST Server 
+.br
+\fIvalue\fP sets a valve either to open (true) or closed (false) 
+.RE
+.PP
+
+.SS "void WV2\&.Start ()\fR [private]\fP"
+
+.PP
+This method initializes the \fBWV2\fP instance, sets the initial rotation of the switch and initializes the switches lamp\&. 
+.SS "void WV2\&.Update ()\fR [private]\fP"
+
+.PP
+This method updates the rotation of the switch based on the current value of Percent\&. Additionally a call to the REST Server is initiated via \fBSetValveStatus()\fP to update the simulation\&. 
+.SS "void WV2\&.UpdateRotation ()\fR [private]\fP"
+
+.PP
+This method updates the rotation of the switch\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "GameObject WV2\&.clientObject\fR [private]\fP"
+
+.SS "int WV2\&.EndRotation = 0\fR [private]\fP"
+
+.PP
+param name="lastPressTime">float specifying when the switch was last interacted with
+.SS "Vector3 WV2\&.initialInteractorPosition\fR [private]\fP"
+
+.PP
+param name="initialPercent">int specifying the initinal percentage the switch has already been rotated
+.SS "int WV2\&.initialPercent\fR [private]\fP"
+
+.PP
+param name="previousPercent">int specifying the percentage the switch has been rotated in the last frame
+.SS "UnityEngine\&.XR\&.Interaction\&.Toolkit\&.Interactors\&.XRBaseInteractor WV2\&.interactor\fR [private]\fP"
+
+.PP
+param name="isInteracting">boolean tracking if the player is interacting with the switch
+.SS "bool WV2\&.isInteracting = false\fR [private]\fP"
+
+.PP
+param name="initialInteractorPosition">Vector3 specifying the initial Position of the Interactor
+.SS "float WV2\&.lastPressTime = 0f\fR [private]\fP"
+
+.PP
+param name="pressCooldown">float specifying a cooldown between interactions with the switch
+.SS "\fBLightRegler\fP WV2\&.lightRegler\fR [private]\fP"
+
+.PP
+param name="nppClient">Reference to the \fBNPPClient\fP instance in the scene
+.SS "\fBNPPClient\fP WV2\&.nppClient\fR [private]\fP"
+
+.SS "int WV2\&.Percent = 0"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIPercent\fP int specifying the percentage the switch has been rotated based on its leftmost position
+.RE
+.PP
+param name="StartRotation">int specifying the angle of the switches leftmost position
+.SS "float WV2\&.pressCooldown = 1f\fR [private]\fP"
+
+.PP
+param name="interactor">Interactor
+.SS "int WV2\&.previousPercent\fR [private]\fP"
+
+.PP
+param name="lightRegler">LoghtRegler to switch on lights
+.SS "\fBReglerTypeEnum\fP WV2\&.ReglerType = \fBReglerTypeEnum\&.Binaer\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIReglerType\fP Specifies the type of rotary switch
+.RE
+.PP
+param name="to_rotate">specifies the handle the player must interact with to rotate the switch
+.SS "int WV2\&.StartRotation = \-90\fR [private]\fP"
+
+.PP
+param name="EndRotation">int specifying the angle of the switches rightmost position
+.SS "GameObject WV2\&.to_rotate\fR [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

@@ -5,53 +5,65 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Inputs;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
+/// <summary>
+/// This class implements logic to enable or disable gaze-guiding features via corresponding switches on a gaze-guiding panel in the VR application.
+/// </summary>
 public class Flipper : MonoBehaviour
 {
+    /// <param name="meshrenderer">is a reference to an objetc's MeshRenderer</param>
     private MeshRenderer meshRenderer;
     
+    /// <param name="gazeGuidingButtons">is a reference to a GazeGuidingButtons instance</param>
     GazeGuidingButtons gazeGuidingButtons;
     
+    /// <param name="mat">is a Material currently assigned to a switch</param>
     public Material mat;
-
+    /// <param name="oldmat"> is a Material previously assigned to a switch</param>
     public Material oldmat;
     
     
     // IN INSPECTOR ONLY SELECT ONE OF THE FOLLOWING OPTIONS
+
+    /// <param name="DirectionCueEnabled"> tracks whether the direction cue feature is switched on</param>
     public bool DirectionCueEnabled = false;
-    
+    /// <param name="DirectionArrowEnabled"> tracks whether the direction arrow feature is switched on</param>
     public bool DirectionArrowEnabled = false;    
-    
-    public bool Arrow3DEnabled = false;
-    
-    public bool Arrow3DBinearEnabled = false;
-
+    /// <param name="DirectionArrowOnScreen"> tracks whether the direction arrow is shown on screen</param>
     public bool DirectionArrowOnScreen = false;
-    
+    /// <param name="Arrow3DEnabled"> tracks whether the continuous 3D arrow feature is switched on</param>
+    public bool Arrow3DEnabled = false;
+    /// <param name="Arrow3DBinearEnabled"> tracks whether the binary 3D arrow feature is switched on</param>
+    public bool Arrow3DBinearEnabled = false;
+    /// <param name="AnzeigenMarkierungEnabled"> tracks whether display annotations are switched on</param>
     public bool AnzeigenMarkierungEnabled = false;
-    
+    /// <param name="HUDEnabled">tracks whether the HUD is enabled</param>
     public bool HUDEnabled = false;
-    
+    /// <param name="ifHUDEnabledShouldItBeOn"> tracks whether the HUD should be on</param>
     public bool ifHUDEnabledShouldItBeOn = false;
-
+    /// <param name="DetachEnabled"> tracks whether the detach feature is switched on</param>
     public bool DetachEnabled = false;
+    /// <param name="distractionsEnabled"> tracks whether distractions are switched on </param>
     public bool distractionsEnabled = false;
-    
-    public bool BlurEnabled = false;
-     
+    /// <param name="ifdistractionsEnabledShouldItBeOn"> tracks whether distractions should be on</param>
     public bool ifdistractionsEnabledShouldItBeOn = false;
-
+    /// <param name="BlurEnabled"> tracks whether the blur feature is switched on</param>
+    public bool BlurEnabled = false;
+    /// <param name="clipboardHighlight"> tracks whether the clipboard highlight feature is switched on</param>
     public bool clipboardHighlight;
-    
+    /// <param name="clipboardHighlightShouldItBeOn"> tracks whether clipboard highlights should be on</param>
     public bool clipboardHighlightShouldItBeOn = false;
-    
+    /// <param name="AnzeigenHighlight"=> tracks whether the display highlight feature is switched on</param>
     public bool AnzeigenHighlight = false;
-        
+    /// <param name="AnzeigenHighlightShouldItBeOn"=> tracks whether the display highlight feature should be on </param>    
     public bool AnzeigenHighlightShouldItBeOn = false;
-        
+
+    /// <param name="flipped"> tracks whether a switch is flipped</param>    
     private bool flipped = false;
     
     
-    
+    /// <summary>
+    /// This method sets up input actions and initialises the gaze-guiding features' states based on the settings in the GazeGuidingPathPlayer instance.
+    /// </summary>
     private void Start()
     {
         gazeGuidingButtons = FindAnyObjectByType<GazeGuidingButtons>();
@@ -92,10 +104,13 @@ public class Flipper : MonoBehaviour
         if (clipboardHighlight && clipboardHighlightShouldItBeOn) StartCoroutine(Flip());
 
     }
-    
+
+    /// <param name="trigger"> is an InputActionReference referencing a XRI Right Interaction/Select</param>
     public InputActionReference trigger;
     
-
+    /// <summary>
+    /// This method updates the state of the gaze-guiding features based on the player's interaction with the switches on the gaze-guiding panel.
+    /// </summary>
     private void Update()
     {
         if (isHovering && !isCooldown && trigger.action.triggered)
@@ -105,9 +120,14 @@ public class Flipper : MonoBehaviour
     }
     
     
+    /// <param name="isCooldown"> tracks whether a switch is on cooldown</param>
     private bool isCooldown = false;
+    /// <param name="isHovering">tracks whether the player is hovering over a switch with the controller</param>
     private bool isHovering = false;
 
+    /// <summary>
+    /// This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events.
+    /// </summary>   
     private void OnEnable()
     {
         var interactable = GetComponent<XRSimpleInteractable>();
@@ -115,6 +135,9 @@ public class Flipper : MonoBehaviour
         interactable.hoverExited.AddListener(OnHoverExited);
     }
 
+    /// <summary>
+    /// This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events.
+    /// </summary>
     private void OnDisable()
     {
         var interactable = GetComponent<XRSimpleInteractable>();
@@ -122,16 +145,27 @@ public class Flipper : MonoBehaviour
         interactable.hoverExited.RemoveListener(OnHoverExited);
     }
 
+    /// <summary>
+    /// This method is called when the XR interactor looks at the object, i.e. points to or moves onto the object .
+    /// </summary>
+    /// <param name="args"> passes event specific arguments upon entering the interaction</param>
     private void OnHoverEntered(HoverEnterEventArgs args)
     {
         isHovering = true;
     }
 
+    /// <summary>
+    /// This method is called when the XR interactor is no longer looking at the object, i.e. the interactor moves away.
+    /// </summary>
+    /// <param name="args"> passes event specific arguments upon exiting the interaction</param>
     private void OnHoverExited(HoverExitEventArgs args)
     {
         isHovering = false;
     }
     
+    /// <summary>
+    /// This method toggles gaze-guiding features on or off when the player flips the appropriate switch on the gaze-guiding panel by calling the corresponding method in gazeGuidingButtons (live switch). 
+    /// </summary>
     private IEnumerator Flip()
     {
         isCooldown = true;
@@ -214,6 +248,9 @@ public class Flipper : MonoBehaviour
         isCooldown = false;
     }
 
+    /// <summary>
+    /// This method rotates a switch the player has flipped on the gaze-guiding panel without making a call to a method in gazeGuidingButtons (dummy switch).
+    /// </summary>
     private IEnumerator FlipWithoutCall()
     {
         Material mater = meshRenderer.material;
@@ -233,7 +270,12 @@ public class Flipper : MonoBehaviour
             flipped = false;
         }
     }
-    
+
+    /// <summary>
+    /// This method is called to rotate a switch on the gaze-guiding panel.
+    /// </summary>
+    /// <param name="targetAngle"> specifies the angle to rotate a switch to</param>
+    /// <param name="duration"> specifies the duration of the rotation of a switch</param>
     private IEnumerator RotateToAngle(float targetAngle, float duration)
     {
         float startAngle = transform.localRotation.eulerAngles.x;
@@ -250,6 +292,9 @@ public class Flipper : MonoBehaviour
         transform.localRotation = Quaternion.Euler(targetAngle, 0, 0);
     }
 
+    /// <summary>
+    /// This method updates the materials of a switch that the player has flipped (red when on, grey when off).
+    /// </summary>
     public void updateMaterials()
     {
         oldmat = meshRenderer.material;
@@ -264,7 +309,10 @@ public class Flipper : MonoBehaviour
             mater.DisableKeyword("_EMISSION");
         }
     }
-    
+
+    /// <summary>
+    /// This method reverts the materials of a switch that the player has flipped to their original state.
+    /// </summary>    
     public void revertMaterials()
     {
         meshRenderer.material = oldmat;

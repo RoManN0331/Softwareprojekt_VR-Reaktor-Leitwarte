@@ -10,63 +10,111 @@ public class AnzeigeSteuerung5 : MonoBehaviour
     
     [Space(10)]
     
+    /// <param name="start_Number"> specifies the lower bound of the display</param>
     public float start_Number = 0;
+    /// <param name="end_Number"> specifies the upper bound of the display</param>
     public float end_Number = 2000;
+    /// <param name="komponente"> specifies the component corresponding to the display</param>
     public string komponente = "WP1";
     
     [Space(30)]
     
+    /// <param name="CHANGEpercentage"> specifies the current percentage to be indicated by the display's bar</param>
     public float CHANGEpercentage = 0f;
 
     [Space(10)]
     
+    /// <param name="toManipulate8"> is a MeshFilter component of the red lower mesh</param>
     public MeshFilter toManiuplate8;
+    /// <param name="mesh8">is a Mesh component of the red lower mesh</param>
     private Mesh mesh8;
+    /// <param name="originalVertices8"> is an array of Vector3s containing the original vertices of the red lower mesh</param>
     private Vector3[] originalVertices8;
+    /// <param name="lastPercentage8"> specifies the percentage indicated by the red lower bar in the previous frame</param>
     private float lastPercentage8;
+    /// <param name="percentage8"> specifies the current percentage te bo indicated by the red lower bar</param>
     public int percentage8 = 50;
+    /// <param name="minIndex18"> specifies the index of the first minimum vertex of the red lower mesh (lower vertex)</param>
     private int minIndex18;
+    /// <param name="minIndex28"> specifies the index of the second minimum vertex of the red lower mesh (upper vertex)</param>
     private int minIndex28;
+    /// <param name="maxIndex8"> specifies the index of the maximum vertex of the red lower mesh</param>
     private int maxIndex8;
     
+    /// <param name="toManipulate9"> is aMeshFilter component of the lower orange mesh</param>
     public MeshFilter toManiuplate9;
+    /// <param name="mesh9"> is a Mesh component of the lower orange mesh</param>
     private Mesh mesh9;
+    /// <param name="originalVertices9"> is an array of Vector3s containing the original vertices of the lower orange mesh</param>
     private Vector3[] originalVertices9;
+    /// <param name="lastPercentage9"> specifies the percentage indicated by the lower orange bar in the previous frame</param>
     private float lastPercentage9;
+    /// <param name="percentage9"> specifies the current percentage to be indicated by the lower orange bar</param>
     public int percentage9 = 50;
+    /// <param name="minIndex19"> specifies the index of the first minimum vertex of the lower orange mesh (lower vertex)</param>
     private int minIndex19;
+    /// <param name="minIndex29"> specifies the index of the second minimum vertex of the lower orange mesh (upper vertex)</param>
     private int minIndex29;
+    /// <param name="maxIndex9"> specifies the index of the maximum vertex of the lower orange mesh</param>
     private int maxIndex9;
     
+    /// <param name="toManiuplateNORMAL"> is a MeshFilter component of the normal Mesh</param>
     public MeshFilter toManiuplateNORMAL;
+    /// <param name="meshNORMAL"> is a Mesh component of the normal Mesh</param>
     private Mesh meshNORMAL;
+    /// <param name="originalVertices"> is an array of Vector3s containing the original vertices of the normal Mesh</param>
     private Vector3[] originalVertices;
+    /// <param name="lastPercentage"> specifies the percentage indicated by the normal bar in the previous frame</param>
     private float lastPercentage;
+    /// <param name="percentage"> specifies the current percentage to be indicated by the normal bar</param>
     public int percentage = 50;
+    /// <param name="minIndex1"> specifies the index of the first minimum vertex of the normal Mesh (lower vertex)</param>
     private int minIndex1;
+    /// <param name="minIndex2"> specifies the index of the second minimum vertex of the normal Mesh (upper vertex)</param>
     private int minIndex2;
+    /// <param name="maxIndex"> specifies the index of the maximum vertex of the normal Mesh</param>
     private int maxIndex;
 
+     /// <param name="toManiuplateORANGE"> is a MeshFilter component of the upper orange Mesh</param>
     public MeshFilter toManiuplateORANGE;
+    /// <param name="meshORANGE"> is a Mesh component of the upper orange Mesh</param>
     private Mesh meshORANGE;
+    /// <param name="originalVertices2"> an array of Vector3s containing the original vertices of the upper orange Mesh</param>
     private Vector3[] originalVertices2;
+    /// <param name="lastPercentage2"> specifies the percentage indicated by the upper orange bar in the previous frame</param>
     private float lastPercentage2;
+    /// <param name="percentage2"> specifies the current percentage to be indicated by the upper orange bar</param>
     public int percentage2 = 50;
+    /// <param name="minIndex12">specifies the index of the first minimum vertex of the upper orange Mesh (lower vertex)</param>
     private int minIndex12;
+    /// <param name="minIndex22">specifies the index of the second minimum vertex of the upper orange  Mesh (upper vertex)</param>
     private int minIndex22;
+    /// <param name="maxIndex2"> specifies the index of the maximum vertex of the upper orange  Mesh</param>
     private int maxIndex2;
 
+/// <param name="toManiuplateRED"> is a MeshFilter component of the upper red Mesh</param>
     public MeshFilter toManiuplateRED;
+    /// <param name="meshRED">is a Mesh component of the upper red Mesh</param>
     private Mesh meshRED;
+    /// <param name="originalVertices3"> is an array of Vector3s containing the original vertices of the upper red Mesh</param>
     private Vector3[] originalVertices3;
+    /// <param name="lastPercentage3"> specifies the percentage indicated by the upper red bar in the previous frame</param>
     private float lastPercentage3;
+    /// <param name="percentage3"> specifies the current percentage to be indicated by the upper red bar</param>
     public int percentage3 = 50;
+    /// <param name="minIndex13"> specifies the index of the first minimum vertex of the upper red Mesh (lower vertex)</param>
     private int minIndex13;
+    /// <param name="minIndex23"> specifies the index of the second minimum vertex of the upper red  Mesh (upper vertex)</param>
     private int minIndex23;
+    /// <param name="maxIndex3"> specifies the index of the maximum vertex of the upper red Mesh</param>
     private int maxIndex3;
-    
+
+    /// <param name="isDIGITAL">boolean specifying whether the display is digital</param>
     public bool isDIGITAL = false;
     
+    /// <summary>
+    /// This method initialises the display. It initiates the initialisation of the meshes and the bars, and starts the animation.
+    /// </summary>
     void Start()
     {
         InitializeText(komponente, start_Number, end_Number);
@@ -86,15 +134,20 @@ public class AnzeigeSteuerung5 : MonoBehaviour
         StartCoroutine(AnimatePercentage());
     }
 
+    /// <param name="CHANGEpercentageanimate"> specifies the percentage indicated by display's bar in the current frame</param>
     private float CHANGEpercentageanimate;
-    //initalisiere alle meshes
-    private IEnumerator AnimatePercentage()
+
+    /// <summary>
+    /// This method animates the display's bar in three steps. First the bar is set to indicate 100%. Then the bar is set to inndicate 0%. Finally the bar is set to indicate the actual value CHANGEpercentage.
+    /// </summary>
+    private IEnumerator AnimatePercentage()         //initalisiere alle meshes
     {
         CHANGEpercentageanimate = CHANGEpercentage;
         float duration = 1.0f; // Duration for the animation
         float elapsedTime = 0f;
         
-        // Animate from 0 to 100
+        // step 1: animate the bars from 0 to 100, spiking the display within the specified duration i.e. 2 seconds
+
         while (elapsedTime < duration)
         {
             CHANGEpercentage = Mathf.Lerp(0, 100, elapsedTime / duration);
@@ -103,7 +156,8 @@ public class AnzeigeSteuerung5 : MonoBehaviour
             yield return null;
         }
 
-        // Animate from 100 to 0
+        // step 2: animate the bars from 100 to 0, dropping the display within the specified duration i.e. 2 seconds
+
         elapsedTime = 0f;
         while (elapsedTime < duration)
         {
@@ -113,7 +167,8 @@ public class AnzeigeSteuerung5 : MonoBehaviour
             yield return null;
         }
 
-        // Animate to the desired CHANGEpercentage
+        // step 3: animate the bars to the desired CHANGEpercentage within the specified duration i.e. 2 seconds
+
         float targetPercentage = CHANGEpercentageanimate; // Replace with the desired value
         elapsedTime = 0f;
         while (elapsedTime < duration)
@@ -129,6 +184,9 @@ public class AnzeigeSteuerung5 : MonoBehaviour
         UpdateBars();
     }
 
+    /// <summary>
+    /// This method updates the display's bar if the current frame's percentage is different from last frame's percentage.
+    /// </summary>
     void Update()
     {
         if(isDIGITAL) DigitalText.text = Mathf.FloorToInt(CHANGEpercentage * (end_Number / 100f)).ToString();;
@@ -140,8 +198,15 @@ public class AnzeigeSteuerung5 : MonoBehaviour
         }
     }
     
+    /// <param name="DigitalText"> is a reference to a TextMeshPro component</param>    
     private TextMeshPro DigitalText;
     
+    /// <summary>
+    /// This method labels the scale of the display.
+    /// </summary>
+    /// <param name="komponente"> contains the name of the component the display corresponds to</param>
+    /// <param name="startNumber">specifies the lower bound for the display</param>
+    /// <param name="endNumber"> specifies the upper bound of the display</param>
     private void InitializeText(string komponente, float startNumber, float endNumber)
     {
         Transform anzeigeBasic = transform.Find("AnzeigeBasic");
@@ -164,7 +229,12 @@ public class AnzeigeSteuerung5 : MonoBehaviour
     }
 
     
-    
+    /// <summary>
+    /// This method sets a text to a child component of the display.
+    /// </summary>
+    /// <param name="parent"> is a Transform of a AnzeigeBasic object</param>
+    /// <param name="childName"> contains the name of a subcomponent of an AnzeigeBasic object</param>
+    /// <param name="text"> contains the text that will be set to a subcomponent of an AnzeigeBasic object </param>
     private void SetText(Transform parent, string childName, string text)
     {
         Transform child = parent.transform.Find(childName);
@@ -178,6 +248,17 @@ public class AnzeigeSteuerung5 : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// This method initializes the meshes of the display's bar.
+    /// </summary>
+    /// <param name="meshFilter"> is the MeshFilter component of the bar</param>
+    /// <param name="mesh"> is the Mesh component of the bar</param>
+    /// <param name="originalVertices"> is an array of Vector3s containing the original vertices of the Mesh</param>
+    /// <param name="minIndex1"> specifies the index of the first minimum vertex of the Mesh (lower vertex)</param>
+    /// <param name="minIndex2"> specifies the index of the second minimum vertex of the Mesh (upper vertex)</param>
+    /// <param name="maxIndex"> specifies the index of the maximum vertex of the Mesh</param>
+    /// <param name="lastPercentage"> specifies the previous percentage indicated by the bar</param>
+    /// <param name="percentage"> specifies the current percentage to be indicated bar</param>
     private void InitializeMesh(MeshFilter meshFilter, ref Mesh mesh, ref Vector3[] originalVertices, ref int minIndex1, ref int minIndex2, ref int maxIndex, ref float lastPercentage, int percentage)
     {
         if (meshFilter == null) return;
@@ -208,11 +289,18 @@ public class AnzeigeSteuerung5 : MonoBehaviour
         }
     }
 
+    /// <param name="isBar1Reset"> tracks whether the first bar has been reset </param>
     private bool isBar1Reset = false;
+    /// <param name="isBar2Reset"> tracks whether the second bar has been reset </param>
     private bool isBar2Reset = false;
+    /// <param name="isBar3Reset"> tracks whether the third bar has been reset </param>
     private bool isBar3Reset = false;
+    /// <param name="isBar4Reset"> tracks whether the fourth bar has been reset </param>
     private bool isBar4Reset = false;
     
+    /// <summary>
+    /// This method updates the display's bar.
+    /// </summary>  
     private void UpdateBars()
     {
         CHANGEpercentage = Mathf.Clamp(CHANGEpercentage,0 ,100);
@@ -280,6 +368,10 @@ public class AnzeigeSteuerung5 : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// This method resets the display's bar by changing the mesh.
+    /// </summary>
+    /// <param name="ID"> specifies the bar to be reset</param> 
     private void ResetBar(int ID)
     {
         Mesh mesh = null;
@@ -313,7 +405,13 @@ public class AnzeigeSteuerung5 : MonoBehaviour
         
     }
 
+    /// <param name="animatePercentage"> specifies the current value that is being animated in setBar()</param>
     private float animatePercentage;
+
+    /// <summary>
+    /// This method animates the display's bar by changing the mesh, vertices and indices.
+    /// </summary>
+    /// <param name="ID"> specifies the bar to be animated</param>
     private void setBar(int ID)
     {
             

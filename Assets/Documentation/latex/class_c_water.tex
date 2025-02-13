@@ -1,0 +1,91 @@
+\doxysection{CWater Class Reference}
+\hypertarget{class_c_water}{}\label{class_c_water}\index{CWater@{CWater}}
+
+
+This class implements logic for displaying the current water level inside the condenser tank.  
+
+
+Inheritance diagram for CWater\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_c_water}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_water_aa74427585b0cb01359700be3d592e5b5}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current water level inside the condenser tank. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_water_ad40cc137c1f26eb3d6af3b233a33f0dc}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the display by reading the current water level inside the condenser tank from the Condenser.\+water\+Level field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_anzeige_steuerung5}{Anzeige\+Steuerung5}} \mbox{\hyperlink{class_c_water_a06a8d4146ac3e2b5f57c763b1dc60044}{anzeige\+Steuerung}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_c_water_a541bf081209a54f38753478a49a1e3d5}{client\+Object}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic for displaying the current water level inside the condenser tank. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_water_aa74427585b0cb01359700be3d592e5b5}\index{CWater@{CWater}!Start@{Start}}
+\index{Start@{Start}!CWater@{CWater}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_c_water_aa74427585b0cb01359700be3d592e5b5} 
+void CWater.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current water level inside the condenser tank. 
+
+\Hypertarget{class_c_water_ad40cc137c1f26eb3d6af3b233a33f0dc}\index{CWater@{CWater}!Update@{Update}}
+\index{Update@{Update}!CWater@{CWater}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_c_water_ad40cc137c1f26eb3d6af3b233a33f0dc} 
+void CWater.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the display by reading the current water level inside the condenser tank from the Condenser.\+water\+Level field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_c_water_a06a8d4146ac3e2b5f57c763b1dc60044}\index{CWater@{CWater}!anzeigeSteuerung@{anzeigeSteuerung}}
+\index{anzeigeSteuerung@{anzeigeSteuerung}!CWater@{CWater}}
+\doxysubsubsection{\texorpdfstring{anzeigeSteuerung}{anzeigeSteuerung}}
+{\footnotesize\ttfamily \label{class_c_water_a06a8d4146ac3e2b5f57c763b1dc60044} 
+\mbox{\hyperlink{class_anzeige_steuerung5}{Anzeige\+Steuerung5}} CWater.\+anzeige\+Steuerung\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_c_water_a541bf081209a54f38753478a49a1e3d5}\index{CWater@{CWater}!clientObject@{clientObject}}
+\index{clientObject@{clientObject}!CWater@{CWater}}
+\doxysubsubsection{\texorpdfstring{clientObject}{clientObject}}
+{\footnotesize\ttfamily \label{class_c_water_a541bf081209a54f38753478a49a1e3d5} 
+Game\+Object CWater.\+client\+Object\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Anzeigen/\mbox{\hyperlink{_c_water_8cs}{CWater.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,1679 @@
+.TH "GazeGuidingPathPlayer" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GazeGuidingPathPlayer \- This class implements logic for gaze guiding in a virtual environment\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBArrow3D\fP ()"
+.br
+.RI "This method adds a continuous rotating 3D arrow that is rendered above an exact rotary switch to indicate the direction in which the player is supposed to turn the switch\&. "
+.ti -1c
+.RI "void \fBArrow3DBinaer\fP ()"
+.br
+.RI "This method adds a binary rotating 3D arrow rendered above a binary rotary switch to indicate the direction in which the player is supposed to turn the switch\&. "
+.ti -1c
+.RI "void \fBRemoveArrow3D\fP ()"
+.br
+.RI "This method removes a rotating 3D arrow or 3DBinary arrow that is currently being rendered above an exact or a binary rotary switch\&. "
+.ti -1c
+.RI "void \fBTriggerTarget\fP (\fBGazeGuidingTarget\fP target, bool Flip3DArrow=false)"
+.br
+.ti -1c
+.RI "void \fBTriggerTargetNAME\fP (string targetName, \fBGazeGuidingTarget\&.TargetType\fP type, bool Flip3DArrow=false)"
+.br
+.RI "This method sets the current target of a \fBGazeGuidingPathPlayer\fP instance\&. "
+.ti -1c
+.RI "void \fBClearLine\fP ()"
+.br
+.RI "This method clears the scene of all visual aids that are currently being rendered\&. "
+.ti -1c
+.RI "void \fBtriggerTEST\fP ()"
+.br
+.ti -1c
+.RI "void \fBtriggerTEST2\fP (bool Flip3DArrow)"
+.br
+.ti -1c
+.RI "void \fBcalcDirectionCue\fP ()"
+.br
+.RI "This method displays a red cue indicating to the player where to turn if the player is facing away from the currentTarget of the \fBGazeGuidingPathPlayer\fP in an angle > 30 degrees\&. "
+.ti -1c
+.RI "void \fBrenderDirectionArrow\fP ()"
+.br
+.RI "This method renders a directional arrow indicating to the player the direction the currentTarget of the \fBGazeGuidingPathPlayer\fP is in\&. "
+.ti -1c
+.RI "void \fBremoveDirectionArrow\fP ()"
+.br
+.RI "This method is used to remove the directional arrow set in \fBrenderDirectionArrow()\fP from the UI\&. "
+.ti -1c
+.RI "void \fBTriggerAnzeigenMarkierung\fP (string targetName, \fBGazeGuidingTarget\&.TargetType\fP type, float NumberToHighlight)"
+.br
+.RI "This method sets the currentTarget for the \fBGazeGuidingPathPlayer\fP\&. "
+.ti -1c
+.RI "void \fBClearAnzeigenMarkierung\fP ()"
+.br
+.RI "This method removes annotations from a display\&. "
+.ti -1c
+.RI "void \fBSetGazeGuidingClipboard\fP (string clipboardName)"
+.br
+.RI "<sumary> This method activates highlighting for the text of a specific clipboard by creating a new \fBGazeGuidingClipboard\fP object for its text\&. "
+.ti -1c
+.RI "void \fBUnsetGazeGuidingClipboard\fP ()"
+.br
+.ti -1c
+.RI "void \fBHighlightClipboard\fP (int index)"
+.br
+.RI "This method highlights a task specified by index\&. "
+.ti -1c
+.RI "void \fBremoveHighlightFromClipboard\fP ()"
+.br
+.RI "This method removes highlighting from a clipboard by reinitialising the respective clipboard without any highlighted text\&. "
+.ti -1c
+.RI "void \fBremoveHighlightFromClipboardForButton\fP ()"
+.br
+.RI "This method removes highlighting from a clipboard by reinitialising the respective clipboard without any highlighted text\&. "
+.ti -1c
+.RI "void \fBsetDisplayHighlight\fP (string targetName)"
+.br
+.RI "This method enables a glow effect on all displays related to a the component that is the currentTarget of the \fBGazeGuidingPathPlayer\fP\&. "
+.ti -1c
+.RI "void \fBunsetDisplayHighlight\fP ()"
+.br
+.RI "This method removes a glow effect from all displays it is currently applied to\&. "
+.ti -1c
+.RI "void \fBSetDetach\fP (bool on)"
+.br
+.RI "This method enables the detach effect moving all rotary switches and displays on the main console from the "Default" layer (rendered by main camera) to an unrendered Layer "detached"\&. "
+.ti -1c
+.RI "void \fBToggleObjectVisibility\fP (string target, bool on)"
+.br
+.RI "This method moves objects between layers to toggle their visibility, because main camera does not render the layer "detached"\&. "
+.ti -1c
+.RI "void \fBSetBlur\fP (bool on)"
+.br
+.RI "This method toggles the blur effect according to the boolean value passed as an argument\&. "
+.ti -1c
+.RI "void \fBToggleBlur\fP (string target, bool on)"
+.br
+.RI "This method blurs or unblurs an object by moving it between layers\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBDirectionCueEnabledGlobal\fP = true"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionCueEnabledGlobal\fP toggles a red frame (global) indicating that the player should turn
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBDirectionCueEnabled\fP = true"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionCueEnabled\fP toggles a red frame indicating the player should turn
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBDirectionCueFadeDuration\fP = 1f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionCueFadeDuration\fP sets the duration of the red frame's fade in and fade out
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBDirectionArrowEnabled\fP = true"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionArrowEnabled\fP toggles a directional arrow indicating a direction the player should turn to
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBArrow3DEnabled\fP = true"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIArrow3DEnabled\fP toggles a 3D arrow indicating the direction an exact rotary switch should be turned in
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBArrow3DBinearEnabled\fP = true"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIArrow3DBinearEnabled\fP toggles 3D arrow indicating the direction a binary rotary switch should be turned in
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBDirectionArrowOnScreen\fP = true"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionArrowOnScreen\fP toggles the on screen display of the directional arrow
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBAnzeigenMarkierungEnabled\fP = true"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIAnzeigenMarkierungEnabled\fP toggles annotations to displays indicating their relevance and target values
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBClipboardHighlightEnabled\fP = true"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIClipboardHighlightEnabled\fP toggles the highlighting of tasks on clipboards
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBDisplayHighlightEnabled\fP = true"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDisplayHighlightEnabled\fP toggles the highlighting of displays 
+.RE
+.PP
+"
+.ti -1c
+.RI "List< \fBGazeGuidingTarget\fP > \fBtargets\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItargets\fP is a list of \fBGazeGuidingTarget\fP objects
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBpathDisplayDistance\fP = 5\&.0f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIpathDisplayDistance\fP specifies the distance between the player and an animated path that is displayed as visual cue 
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBanimationDuration\fP = 1\&.0f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimationDuration\fP specifies the duration of the path animation
+.RE
+.PP
+"
+.ti -1c
+.RI "Material \fBlineMaterial\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIlineMaterial\fP is a Material used to render a path as visual cue
+.RE
+.PP
+"
+.ti -1c
+.RI "string \fBlastCalledHighlight\fP = ''"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastCalledHighlight\fP contains the name of a previously highlighted object
+.RE
+.PP
+"
+.ti -1c
+.RI "\fBGazeGuidingClipboard\fP \fBGGClipboard\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIGGClipboard\fP is a reference to a \fBGazeGuidingClipboard\fP
+.RE
+.PP
+"
+.ti -1c
+.RI "string \fBClipBoardTextColor\fP = '<color=#00FF00>'"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIClipBoardTextColor\fP contains colour code for normal clipboard text 
+.RE
+.PP
+"
+.ti -1c
+.RI "string \fBlastClipboardName\fP = ''"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastClipboardName\fP contains the name of the previous highlighted clipboard 
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBdetached\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIdetached\fP tracks whether the detach effect is currently applied (true) 
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBblur\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIblur\fP tracks whether the blur effect is switched on (true) 
+.RE
+.PP
+"
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initialises the \fBGazeGuidingPathPlayer\fP\&. "
+.ti -1c
+.RI "void \fBinitUI\fP (GameObject uiInstance)"
+.br
+.RI "This method initialises the necessessary components for \fBcalcDirectionCue()\fP and adds them to the UI\&. "
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.RI "This method updates all active gaze-guiding tools\&. "
+.ti -1c
+.RI "IEnumerator \fBAnimatePath\fP (Vector3 targetPosition)"
+.br
+.RI "This method animates a path of arrows guiding the player towards the component set as currentTarget of the \fBGazeGuidingPathPlayer\fP\&. "
+.ti -1c
+.RI "IEnumerator \fBResetFadingFlag\fP (float duration, System\&.Action resetAction)"
+.br
+.RI "This method resets the isDirectionCueFading or isDirectionCue2Fading flag to false via a callback to \fBcalcDirectionCue()\fP\&. "
+.ti -1c
+.RI "void \fBBlurCamera\fP ()"
+.br
+.RI "This method activates the blur effect by setting the focus distance, focal length and aperture of the volumes assigned to main camera, setting the culling mask of main camera and focus camera and setting the blur switch to true\&. "
+.ti -1c
+.RI "void \fBUnblurCamera\fP ()"
+.br
+.RI "This method deactivates the blur effect by deactivating the volume assigned to main camera as well as deactivating focus camera and setting the switch for the blur effect to false\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBGazeGuidingTarget\fP \fBcurrentTarget\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentTarget\fP is the currently active \fBGazeGuidingTarget\fP for this \fBGazeGuidingPathPlayer\fP
+.RE
+.PP
+"
+.ti -1c
+.RI "LineRenderer \fBlineRenderer\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIlineRenderer\fP is a LineRenderer object used to render a path as visual cue
+.RE
+.PP
+"
+.ti -1c
+.RI "Coroutine \fBanimatePathCoroutine\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimatePathCoroutine\fP is a Coroutine used to animate a path as visual cue
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBisAnimating\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisAnimating\fP tracks whether a path is currently being animated as visual cue
+.RE
+.PP
+"
+.ti -1c
+.RI "Image \fBDirectionCue\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionCue\fP is an image that is being rendered in \fBcalcDirectionCue()\fP if the angle between the player and a target object is > 30 degrees 
+.RE
+.PP
+"
+.ti -1c
+.RI "Image \fBDirectionCue2\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionCue2\fP is an image that is being rendered in \fBcalcDirectionCue()\fP if the angle between the player and a target object is > 160 degrees 
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBarrow3DPrefab\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DPrefab\fP is a reference to an Arrow3D prefab used to render continuous rotational 3DArrows
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBarrow3DInstance\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DInstance\fP is an instance of a Arrow3D prefab used to render continuous rotational 3DArrows<param> 
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBarrow3DBinaerPrefab\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DBinaerPrefab\fP is a reference to an Arrow3D prefab used to render binary rotational 3DArrows
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBarrow3DBinaerInstance\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DBinaerInstance\fP is an instance of an Arrow3D prefab used to render binary rotational 3DArrows<param> 
+.RE
+.PP
+"
+.ti -1c
+.RI "\fBAnimatorController\fP \fBanimator\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimator\fP is refenrence to the \fBAnimatorController\fP object of the scene
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBarrow3DInstanceCreated\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DInstanceCreated\fP is a flag tracking whether an Arrow3D instance has been created 
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBarrow3DBinaerInstanceCreated\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DBinaerInstanceCreated\fP is a flag tracking whether an Arrow3DBinary instance has been created 
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBreset\fP = true"
+.br
+.ti -1c
+.RI "bool \fBisDirectionCueFading\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisDirectionCueFading\fP tracks whether the first cue is fading out
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBisDirectionCue2Fading\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisDirectionCueFading2\fP tracks whether the second cue is fading out
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBarrowInstance\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrowInstance\fP is an instance of a directional arrow 
+.RE
+.PP
+"
+.ti -1c
+.RI "List< \fBGazeGuidingTarget\fP > \fBanzeigenTargets\fP = new List<\fBGazeGuidingTarget\fP>()"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanzeigenTargets\fP is a list of \fBGazeGuidingTarget\fP objects used for gaze guiding
+.RE
+.PP
+"
+.ti -1c
+.RI "List< float > \fBanzeigenNumbers\fP = new List<float>()"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanzeigenNumbers\fP is a list of float values used to calculate the position of an arrow indicating a target value on a display
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBAnzeigeninitialized\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIAnzeigeninitialized\fP tracks whether displays have been initialised
+.RE
+.PP
+"
+.ti -1c
+.RI "TextMeshPro \fBclipboardText\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIclipboardText\fP is a TextMeshPro
+.RE
+.PP
+"
+.ti -1c
+.RI "TextMeshPro \fBtext1\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItext1\fP is a TextMeshPro object containing the clipboardText for clipboard POS1 
+.RE
+.PP
+"
+.ti -1c
+.RI "TextMeshPro \fBtext2\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItext2\fP is a TextMeshPro object containing the clipboardText for clipboard POS2 
+.RE
+.PP
+"
+.ti -1c
+.RI "TextMeshPro \fBtext3\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItext3\fP is a TextMeshPro object containing the clipboardText for clipboard POS3 
+.RE
+.PP
+"
+.ti -1c
+.RI "string \fBinitalText\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIinitialText\fP contains the original unformatted text of the active clipboard
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBinit\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIinit\fP checks whether the active clipboard has been initialised 
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBlastindex\fP = 0"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastindex\fP tracks the index of the previous highlighted task 
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBWP1RPMisGlowing\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIWP1RPMisGlowing\fP tracks whether WP1RPM_display is currently glowing
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBWP2RPMisGlowing\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIWP2RPMisGlowing\fP tracks whether WP2RPM_display is currently glowing
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBCPRPMisGlowing\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fICPRPMisGlowing\fP tracks whether CPRPM_display is currently glowing
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBControlRodsisGlowing\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIControlRodsisGlowing\fP tracks whether the controlRods display is currently glowing
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBEnergyisGlowing\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIEngergyisGlowing\fP tracks whether the Energy display is currently glowing
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBRPressureisGlowing\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIRPressureisGlowing\fP tracks whether the \fBRPressure\fP display is currently glowing
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBCPressureisGlowing\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fICPressureisGlowing\fP tracks whether the \fBCPressure\fP display is currently glowing
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBRWaterLvlisGlowing\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIRWaterLvlisGlowing\fP tracks whether the RWaterLvl display is currently glowing
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBCWaterLvlisGlowing\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fICWaterLvlisGlowing\fP tracks whether the CWaterLvl display is currently glowing
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBcheckCullingMask\fP = true"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIcheckCullingMask\fP checks if main camera is rendering "detached" 
+.RE
+.PP
+"
+.ti -1c
+.RI "Camera \fBfocusCamera\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIfocusCamera\fP is a camera object tracking the camera rendering "Focused" layer 
+.RE
+.PP
+"
+.ti -1c
+.RI "Volume \fBmainVolume\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImainVolume\fP is a Volume object assigned to main camera 
+.RE
+.PP
+"
+.ti -1c
+.RI "Volume \fBfocusVolume\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIfocusVolume\fP is a Volume object assigned to focus camera 
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements logic for gaze guiding in a virtual environment\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "IEnumerator GazeGuidingPathPlayer\&.AnimatePath (Vector3 targetPosition)\fR [private]\fP"
+
+.PP
+This method animates a path of arrows guiding the player towards the component set as currentTarget of the \fBGazeGuidingPathPlayer\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItargetPosition\fP is a Vector3 position of the endpoint of the path 
+.RE
+.PP
+
+.SS "void GazeGuidingPathPlayer\&.Arrow3D ()"
+
+.PP
+This method adds a continuous rotating 3D arrow that is rendered above an exact rotary switch to indicate the direction in which the player is supposed to turn the switch\&. 
+.SS "void GazeGuidingPathPlayer\&.Arrow3DBinaer ()"
+
+.PP
+This method adds a binary rotating 3D arrow rendered above a binary rotary switch to indicate the direction in which the player is supposed to turn the switch\&. 
+.SS "void GazeGuidingPathPlayer\&.BlurCamera ()\fR [private]\fP"
+
+.PP
+This method activates the blur effect by setting the focus distance, focal length and aperture of the volumes assigned to main camera, setting the culling mask of main camera and focus camera and setting the blur switch to true\&. 
+.SS "void GazeGuidingPathPlayer\&.calcDirectionCue ()"
+
+.PP
+This method displays a red cue indicating to the player where to turn if the player is facing away from the currentTarget of the \fBGazeGuidingPathPlayer\fP in an angle > 30 degrees\&. If the angle is > 160 degrees a second cue is being rendered indicating the object is behind the player\&. The Method calculates the alpha of the cues based on the angle between the player and the currentTarget of the \fBGazeGuidingPathPlayer\fP\&. If the current angle is smaller than the old angle the cue begins to fade out\&. 
+.SS "void GazeGuidingPathPlayer\&.ClearAnzeigenMarkierung ()"
+
+.PP
+This method removes annotations from a display\&. It removes a red ! highlighting the display as well as an arrow indicating the target value the player was supposed to set for the component associated with that display\&. 
+.SS "void GazeGuidingPathPlayer\&.ClearLine ()"
+
+.PP
+This method clears the scene of all visual aids that are currently being rendered\&. 
+.SS "void GazeGuidingPathPlayer\&.HighlightClipboard (int index)"
+
+.PP
+This method highlights a task specified by index\&. 
+.br
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP specifies a task to highlight 
+.RE
+.PP
+
+.SS "void GazeGuidingPathPlayer\&.initUI (GameObject uiInstance)\fR [private]\fP"
+
+.PP
+This method initialises the necessessary components for \fBcalcDirectionCue()\fP and adds them to the UI\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIuiInstance\fP is a UI instance
+.RE
+.PP
+
+.SS "void GazeGuidingPathPlayer\&.RemoveArrow3D ()"
+
+.PP
+This method removes a rotating 3D arrow or 3DBinary arrow that is currently being rendered above an exact or a binary rotary switch\&. 
+.SS "void GazeGuidingPathPlayer\&.removeDirectionArrow ()"
+
+.PP
+This method is used to remove the directional arrow set in \fBrenderDirectionArrow()\fP from the UI\&. 
+.SS "void GazeGuidingPathPlayer\&.removeHighlightFromClipboard ()"
+
+.PP
+This method removes highlighting from a clipboard by reinitialising the respective clipboard without any highlighted text\&. 
+.SS "void GazeGuidingPathPlayer\&.removeHighlightFromClipboardForButton ()"
+
+.PP
+This method removes highlighting from a clipboard by reinitialising the respective clipboard without any highlighted text\&. This method is used if the player is no longer looking at the button associated with the clipboard\&. 
+.SS "void GazeGuidingPathPlayer\&.renderDirectionArrow ()"
+
+.PP
+This method renders a directional arrow indicating to the player the direction the currentTarget of the \fBGazeGuidingPathPlayer\fP is in\&. 
+.SS "IEnumerator GazeGuidingPathPlayer\&.ResetFadingFlag (float duration, System\&.Action resetAction)\fR [private]\fP"
+
+.PP
+This method resets the isDirectionCueFading or isDirectionCue2Fading flag to false via a callback to \fBcalcDirectionCue()\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIduration\fP specifies a delay before resetAction() is called
+.br
+\fIresetAction\fP is a System\&.Action used to set isDirectionCueFading or isDirectionCue2Fading to false
+.RE
+.PP
+
+.SS "void GazeGuidingPathPlayer\&.SetBlur (bool on)"
+
+.PP
+This method toggles the blur effect according to the boolean value passed as an argument\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIon\fP toggles the blur effect 
+.RE
+.PP
+
+.SS "void GazeGuidingPathPlayer\&.SetDetach (bool on)"
+
+.PP
+This method enables the detach effect moving all rotary switches and displays on the main console from the "Default" layer (rendered by main camera) to an unrendered Layer "detached"\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIon\fP toggles the detach effect 
+.RE
+.PP
+
+.SS "void GazeGuidingPathPlayer\&.setDisplayHighlight (string targetName)"
+
+.PP
+This method enables a glow effect on all displays related to a the component that is the currentTarget of the \fBGazeGuidingPathPlayer\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItargetName\fP contains the name of a component that is the currentTarget of the \fBGazeGuidingPathPlayer\fP 
+.RE
+.PP
+
+.SS "void GazeGuidingPathPlayer\&.SetGazeGuidingClipboard (string clipboardName)"
+
+.PP
+<sumary> This method activates highlighting for the text of a specific clipboard by creating a new \fBGazeGuidingClipboard\fP object for its text\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIclipboardName\fP contains the name of a clipboard
+.RE
+.PP
+
+.SS "void GazeGuidingPathPlayer\&.Start ()\fR [private]\fP"
+
+.PP
+This method initialises the \fBGazeGuidingPathPlayer\fP\&. 
+.SS "void GazeGuidingPathPlayer\&.ToggleBlur (string target, bool on)"
+
+.PP
+This method blurs or unblurs an object by moving it between layers\&. Objects on the "Focused" layer are not blurred while objects on the "Default" layer are blurred\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItarget\fP contains the name of the object to blur or unblur 
+.br
+\fIon\fP toggles the blurring (false) or unblurring (true) of target 
+.RE
+.PP
+
+.SS "void GazeGuidingPathPlayer\&.ToggleObjectVisibility (string target, bool on)"
+
+.PP
+This method moves objects between layers to toggle their visibility, because main camera does not render the layer "detached"\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItarget\fP contains the name of an object to attacj or detach to the "Default" layer 
+.br
+\fIon\fP toggles the attachment (true) or detachment (false) of target 
+.RE
+.PP
+
+.SS "void GazeGuidingPathPlayer\&.TriggerAnzeigenMarkierung (string targetName, \fBGazeGuidingTarget\&.TargetType\fP type, float NumberToHighlight)"
+
+.PP
+This method sets the currentTarget for the \fBGazeGuidingPathPlayer\fP\&. Additionally the method indicates the display corresponding to the target and adds an arrow indicating the target value the player must set to the display\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItargetName\fP contains the name of a rotary switch 
+.br
+\fItype\fP is an Enum specifying the type of rotary switch passed as targetName 
+.br
+\fINumberToHighlight\fP used to calculate the position of an arrow indicating a target value on a display
+.RE
+.PP
+
+.SS "void GazeGuidingPathPlayer\&.TriggerTarget (\fBGazeGuidingTarget\fP target, bool Flip3DArrow = \fRfalse\fP)"
+
+.SS "void GazeGuidingPathPlayer\&.TriggerTargetNAME (string targetName, \fBGazeGuidingTarget\&.TargetType\fP type, bool Flip3DArrow = \fRfalse\fP)"
+
+.PP
+This method sets the current target of a \fBGazeGuidingPathPlayer\fP instance\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItargetName\fP contains the name of a rotary switch that is the new target for the \fBGazeGuidingPathPlayer\fP 
+.br
+\fItype\fP is an Enum specifying the type of rotary switch passed in targetName 
+.br
+\fIFlip3DArrow\fP toggles whether 3D arrows rotate clockwise 
+.RE
+.PP
+
+.SS "void GazeGuidingPathPlayer\&.triggerTEST ()"
+
+.SS "void GazeGuidingPathPlayer\&.triggerTEST2 (bool Flip3DArrow)"
+
+.SS "void GazeGuidingPathPlayer\&.UnblurCamera ()\fR [private]\fP"
+
+.PP
+This method deactivates the blur effect by deactivating the volume assigned to main camera as well as deactivating focus camera and setting the switch for the blur effect to false\&. 
+.SS "void GazeGuidingPathPlayer\&.unsetDisplayHighlight ()"
+
+.PP
+This method removes a glow effect from all displays it is currently applied to\&. 
+.SS "void GazeGuidingPathPlayer\&.UnsetGazeGuidingClipboard ()"
+
+.SS "void GazeGuidingPathPlayer\&.Update ()\fR [private]\fP"
+
+.PP
+This method updates all active gaze-guiding tools\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "Coroutine GazeGuidingPathPlayer\&.animatePathCoroutine\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimatePathCoroutine\fP is a Coroutine used to animate a path as visual cue
+.RE
+.PP
+
+.SS "float GazeGuidingPathPlayer\&.animationDuration = 1\&.0f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimationDuration\fP specifies the duration of the path animation
+.RE
+.PP
+
+.SS "\fBAnimatorController\fP GazeGuidingPathPlayer\&.animator\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimator\fP is refenrence to the \fBAnimatorController\fP object of the scene
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.Anzeigeninitialized = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIAnzeigeninitialized\fP tracks whether displays have been initialised
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.AnzeigenMarkierungEnabled = true"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIAnzeigenMarkierungEnabled\fP toggles annotations to displays indicating their relevance and target values
+.RE
+.PP
+
+.SS "List<float> GazeGuidingPathPlayer\&.anzeigenNumbers = new List<float>()\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanzeigenNumbers\fP is a list of float values used to calculate the position of an arrow indicating a target value on a display
+.RE
+.PP
+
+.SS "List<\fBGazeGuidingTarget\fP> GazeGuidingPathPlayer\&.anzeigenTargets = new List<\fBGazeGuidingTarget\fP>()\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanzeigenTargets\fP is a list of \fBGazeGuidingTarget\fP objects used for gaze guiding
+.RE
+.PP
+
+.SS "GameObject GazeGuidingPathPlayer\&.arrow3DBinaerInstance\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DBinaerInstance\fP is an instance of an Arrow3D prefab used to render binary rotational 3DArrows<param> 
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.arrow3DBinaerInstanceCreated = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DBinaerInstanceCreated\fP is a flag tracking whether an Arrow3DBinary instance has been created 
+.RE
+.PP
+param name="reset"> tracks whether old visual cues have been removed
+.SS "GameObject GazeGuidingPathPlayer\&.arrow3DBinaerPrefab\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DBinaerPrefab\fP is a reference to an Arrow3D prefab used to render binary rotational 3DArrows
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.Arrow3DBinearEnabled = true"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIArrow3DBinearEnabled\fP toggles 3D arrow indicating the direction a binary rotary switch should be turned in
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.Arrow3DEnabled = true"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIArrow3DEnabled\fP toggles a 3D arrow indicating the direction an exact rotary switch should be turned in
+.RE
+.PP
+
+.SS "GameObject GazeGuidingPathPlayer\&.arrow3DInstance\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DInstance\fP is an instance of a Arrow3D prefab used to render continuous rotational 3DArrows<param> 
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.arrow3DInstanceCreated = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DInstanceCreated\fP is a flag tracking whether an Arrow3D instance has been created 
+.RE
+.PP
+
+.SS "GameObject GazeGuidingPathPlayer\&.arrow3DPrefab\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DPrefab\fP is a reference to an Arrow3D prefab used to render continuous rotational 3DArrows
+.RE
+.PP
+
+.SS "GameObject GazeGuidingPathPlayer\&.arrowInstance\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrowInstance\fP is an instance of a directional arrow 
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.blur = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIblur\fP tracks whether the blur effect is switched on (true) 
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.checkCullingMask = true\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcheckCullingMask\fP checks if main camera is rendering "detached" 
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.ClipboardHighlightEnabled = true"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIClipboardHighlightEnabled\fP toggles the highlighting of tasks on clipboards
+.RE
+.PP
+
+.SS "TextMeshPro GazeGuidingPathPlayer\&.clipboardText\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIclipboardText\fP is a TextMeshPro
+.RE
+.PP
+
+.SS "string GazeGuidingPathPlayer\&.ClipBoardTextColor = '<color=#00FF00>'"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIClipBoardTextColor\fP contains colour code for normal clipboard text 
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.ControlRodsisGlowing = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIControlRodsisGlowing\fP tracks whether the controlRods display is currently glowing
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.CPressureisGlowing = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fICPressureisGlowing\fP tracks whether the \fBCPressure\fP display is currently glowing
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.CPRPMisGlowing = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fICPRPMisGlowing\fP tracks whether CPRPM_display is currently glowing
+.RE
+.PP
+
+.SS "\fBGazeGuidingTarget\fP GazeGuidingPathPlayer\&.currentTarget\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentTarget\fP is the currently active \fBGazeGuidingTarget\fP for this \fBGazeGuidingPathPlayer\fP
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.CWaterLvlisGlowing = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fICWaterLvlisGlowing\fP tracks whether the CWaterLvl display is currently glowing
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.detached = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIdetached\fP tracks whether the detach effect is currently applied (true) 
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.DirectionArrowEnabled = true"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionArrowEnabled\fP toggles a directional arrow indicating a direction the player should turn to
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.DirectionArrowOnScreen = true"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionArrowOnScreen\fP toggles the on screen display of the directional arrow
+.RE
+.PP
+
+.SS "Image GazeGuidingPathPlayer\&.DirectionCue\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionCue\fP is an image that is being rendered in \fBcalcDirectionCue()\fP if the angle between the player and a target object is > 30 degrees 
+.RE
+.PP
+
+.SS "Image GazeGuidingPathPlayer\&.DirectionCue2\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionCue2\fP is an image that is being rendered in \fBcalcDirectionCue()\fP if the angle between the player and a target object is > 160 degrees 
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.DirectionCueEnabled = true"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionCueEnabled\fP toggles a red frame indicating the player should turn
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.DirectionCueEnabledGlobal = true"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionCueEnabledGlobal\fP toggles a red frame (global) indicating that the player should turn
+.RE
+.PP
+
+.SS "float GazeGuidingPathPlayer\&.DirectionCueFadeDuration = 1f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionCueFadeDuration\fP sets the duration of the red frame's fade in and fade out
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.DisplayHighlightEnabled = true"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDisplayHighlightEnabled\fP toggles the highlighting of displays 
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.EnergyisGlowing = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIEngergyisGlowing\fP tracks whether the Energy display is currently glowing
+.RE
+.PP
+
+.SS "Camera GazeGuidingPathPlayer\&.focusCamera\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIfocusCamera\fP is a camera object tracking the camera rendering "Focused" layer 
+.RE
+.PP
+
+.SS "Volume GazeGuidingPathPlayer\&.focusVolume\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIfocusVolume\fP is a Volume object assigned to focus camera 
+.RE
+.PP
+
+.SS "\fBGazeGuidingClipboard\fP GazeGuidingPathPlayer\&.GGClipboard"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIGGClipboard\fP is a reference to a \fBGazeGuidingClipboard\fP
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.init = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIinit\fP checks whether the active clipboard has been initialised 
+.RE
+.PP
+
+.SS "string GazeGuidingPathPlayer\&.initalText\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIinitialText\fP contains the original unformatted text of the active clipboard
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.isAnimating = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisAnimating\fP tracks whether a path is currently being animated as visual cue
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.isDirectionCue2Fading = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisDirectionCueFading2\fP tracks whether the second cue is fading out
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.isDirectionCueFading = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisDirectionCueFading\fP tracks whether the first cue is fading out
+.RE
+.PP
+
+.SS "string GazeGuidingPathPlayer\&.lastCalledHighlight = ''"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastCalledHighlight\fP contains the name of a previously highlighted object
+.RE
+.PP
+
+.SS "string GazeGuidingPathPlayer\&.lastClipboardName = ''"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastClipboardName\fP contains the name of the previous highlighted clipboard 
+.RE
+.PP
+
+.SS "int GazeGuidingPathPlayer\&.lastindex = 0\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastindex\fP tracks the index of the previous highlighted task 
+.RE
+.PP
+
+.SS "Material GazeGuidingPathPlayer\&.lineMaterial"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlineMaterial\fP is a Material used to render a path as visual cue
+.RE
+.PP
+
+.SS "LineRenderer GazeGuidingPathPlayer\&.lineRenderer\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlineRenderer\fP is a LineRenderer object used to render a path as visual cue
+.RE
+.PP
+
+.SS "Volume GazeGuidingPathPlayer\&.mainVolume\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImainVolume\fP is a Volume object assigned to main camera 
+.RE
+.PP
+
+.SS "float GazeGuidingPathPlayer\&.pathDisplayDistance = 5\&.0f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIpathDisplayDistance\fP specifies the distance between the player and an animated path that is displayed as visual cue 
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.reset = true\fR [private]\fP"
+
+.SS "bool GazeGuidingPathPlayer\&.RPressureisGlowing = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIRPressureisGlowing\fP tracks whether the \fBRPressure\fP display is currently glowing
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.RWaterLvlisGlowing = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIRWaterLvlisGlowing\fP tracks whether the RWaterLvl display is currently glowing
+.RE
+.PP
+
+.SS "List<\fBGazeGuidingTarget\fP> GazeGuidingPathPlayer\&.targets"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItargets\fP is a list of \fBGazeGuidingTarget\fP objects
+.RE
+.PP
+
+.SS "TextMeshPro GazeGuidingPathPlayer\&.text1\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItext1\fP is a TextMeshPro object containing the clipboardText for clipboard POS1 
+.RE
+.PP
+
+.SS "TextMeshPro GazeGuidingPathPlayer\&.text2\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItext2\fP is a TextMeshPro object containing the clipboardText for clipboard POS2 
+.RE
+.PP
+
+.SS "TextMeshPro GazeGuidingPathPlayer\&.text3\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItext3\fP is a TextMeshPro object containing the clipboardText for clipboard POS3 
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.WP1RPMisGlowing = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIWP1RPMisGlowing\fP tracks whether WP1RPM_display is currently glowing
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayer\&.WP2RPMisGlowing = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIWP2RPMisGlowing\fP tracks whether WP2RPM_display is currently glowing
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

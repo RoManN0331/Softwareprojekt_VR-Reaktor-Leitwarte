@@ -1,0 +1,217 @@
+\doxysection{Ausfall\+Anzeige Class Reference}
+\hypertarget{class_ausfall_anzeige}{}\label{class_ausfall_anzeige}\index{AusfallAnzeige@{AusfallAnzeige}}
+
+
+This class implements logic for a single display to signal the failure of a component in the simulation to the player.  
+
+
+Inheritance diagram for Ausfall\+Anzeige\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ausfall_anzeige}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ausfall_anzeige_a23b0249942c3481cfd3d3514538145ac}{turn\+On}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the component to which the script is attached to fails, triggering the display to switch on. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ausfall_anzeige_a32bd9db1800d8458b97f6b8470900d88}{turn\+Off}} ()
+\begin{DoxyCompactList}\small\item\em This method triggers the display to switch off. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_ausfall_anzeige_aa08241209fbb459f0536ee93a7d6dfca}{is\+Ausgefallen}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Ausgefallen} & tracks whether a component has failed (is blown)\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Material \mbox{\hyperlink{class_ausfall_anzeige_ab22eedf3d5d77c9d19fed4163fb20ea4}{transparent\+On}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em transparent\+On} & is a Material that is rendered when the display is switched on\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Material \mbox{\hyperlink{class_ausfall_anzeige_a3609b9ad62e40acd4795a9fa15c7916c}{transparent\+Off}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em transparent\+Off} & is a Material that is rendered when the display is switched off\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Mesh\+Renderer \mbox{\hyperlink{class_ausfall_anzeige_a6ea2b6519282bb2cc3486b7b13fe2efe}{mesh\+Renderer}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em mesh\+Renderer} & is a reference to an object\textquotesingle{}s Mesh\+Renderer\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_ausfall_anzeige_a2ddcec1e7b4041fd0091a2bab13d5155}{name}} = "{}WP1"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ausfall_anzeige_ac95cbebd7ca2e8874bbd85b54cb2c8d3}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the display for the component this script is attached to. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ausfall_anzeige_aa7ce70f1917acbbc389052036a81a882}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the display by checking whether the component the script is attached to has failed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ausfall_anzeige_ab8ff0c740ab3ad046e9c4fa9b36e37c5}{Update\+Material}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the material of the display based on whether the component the script is attached to has failed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_ausfall_anzeige_ac7939e9fdd514239e7585b7ab5b70775}{previous\+State}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em previous\+State} & tracks whether a component was broken in the previous frame\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic for a single display to signal the failure of a component in the simulation to the player. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_ausfall_anzeige_ac95cbebd7ca2e8874bbd85b54cb2c8d3}\index{AusfallAnzeige@{AusfallAnzeige}!Start@{Start}}
+\index{Start@{Start}!AusfallAnzeige@{AusfallAnzeige}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeige_ac95cbebd7ca2e8874bbd85b54cb2c8d3} 
+void Ausfall\+Anzeige.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the display for the component this script is attached to. 
+
+\Hypertarget{class_ausfall_anzeige_a32bd9db1800d8458b97f6b8470900d88}\index{AusfallAnzeige@{AusfallAnzeige}!turnOff@{turnOff}}
+\index{turnOff@{turnOff}!AusfallAnzeige@{AusfallAnzeige}}
+\doxysubsubsection{\texorpdfstring{turnOff()}{turnOff()}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeige_a32bd9db1800d8458b97f6b8470900d88} 
+void Ausfall\+Anzeige.\+turn\+Off (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method triggers the display to switch off. 
+
+\Hypertarget{class_ausfall_anzeige_a23b0249942c3481cfd3d3514538145ac}\index{AusfallAnzeige@{AusfallAnzeige}!turnOn@{turnOn}}
+\index{turnOn@{turnOn}!AusfallAnzeige@{AusfallAnzeige}}
+\doxysubsubsection{\texorpdfstring{turnOn()}{turnOn()}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeige_a23b0249942c3481cfd3d3514538145ac} 
+void Ausfall\+Anzeige.\+turn\+On (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method is called when the component to which the script is attached to fails, triggering the display to switch on. 
+
+\Hypertarget{class_ausfall_anzeige_aa7ce70f1917acbbc389052036a81a882}\index{AusfallAnzeige@{AusfallAnzeige}!Update@{Update}}
+\index{Update@{Update}!AusfallAnzeige@{AusfallAnzeige}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeige_aa7ce70f1917acbbc389052036a81a882} 
+void Ausfall\+Anzeige.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the display by checking whether the component the script is attached to has failed. 
+
+\Hypertarget{class_ausfall_anzeige_ab8ff0c740ab3ad046e9c4fa9b36e37c5}\index{AusfallAnzeige@{AusfallAnzeige}!UpdateMaterial@{UpdateMaterial}}
+\index{UpdateMaterial@{UpdateMaterial}!AusfallAnzeige@{AusfallAnzeige}}
+\doxysubsubsection{\texorpdfstring{UpdateMaterial()}{UpdateMaterial()}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeige_ab8ff0c740ab3ad046e9c4fa9b36e37c5} 
+void Ausfall\+Anzeige.\+Update\+Material (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the material of the display based on whether the component the script is attached to has failed. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_ausfall_anzeige_aa08241209fbb459f0536ee93a7d6dfca}\index{AusfallAnzeige@{AusfallAnzeige}!isAusgefallen@{isAusgefallen}}
+\index{isAusgefallen@{isAusgefallen}!AusfallAnzeige@{AusfallAnzeige}}
+\doxysubsubsection{\texorpdfstring{isAusgefallen}{isAusgefallen}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeige_aa08241209fbb459f0536ee93a7d6dfca} 
+bool Ausfall\+Anzeige.\+is\+Ausgefallen = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Ausgefallen} & tracks whether a component has failed (is blown)\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_ausfall_anzeige_a6ea2b6519282bb2cc3486b7b13fe2efe}\index{AusfallAnzeige@{AusfallAnzeige}!meshRenderer@{meshRenderer}}
+\index{meshRenderer@{meshRenderer}!AusfallAnzeige@{AusfallAnzeige}}
+\doxysubsubsection{\texorpdfstring{meshRenderer}{meshRenderer}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeige_a6ea2b6519282bb2cc3486b7b13fe2efe} 
+Mesh\+Renderer Ausfall\+Anzeige.\+mesh\+Renderer}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh\+Renderer} & is a reference to an object\textquotesingle{}s Mesh\+Renderer\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_ausfall_anzeige_a2ddcec1e7b4041fd0091a2bab13d5155}\index{AusfallAnzeige@{AusfallAnzeige}!name@{name}}
+\index{name@{name}!AusfallAnzeige@{AusfallAnzeige}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeige_a2ddcec1e7b4041fd0091a2bab13d5155} 
+string Ausfall\+Anzeige.\+name = "{}WP1"{}}
+
+\Hypertarget{class_ausfall_anzeige_ac7939e9fdd514239e7585b7ab5b70775}\index{AusfallAnzeige@{AusfallAnzeige}!previousState@{previousState}}
+\index{previousState@{previousState}!AusfallAnzeige@{AusfallAnzeige}}
+\doxysubsubsection{\texorpdfstring{previousState}{previousState}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeige_ac7939e9fdd514239e7585b7ab5b70775} 
+bool Ausfall\+Anzeige.\+previous\+State\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em previous\+State} & tracks whether a component was broken in the previous frame\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_ausfall_anzeige_a3609b9ad62e40acd4795a9fa15c7916c}\index{AusfallAnzeige@{AusfallAnzeige}!transparentOff@{transparentOff}}
+\index{transparentOff@{transparentOff}!AusfallAnzeige@{AusfallAnzeige}}
+\doxysubsubsection{\texorpdfstring{transparentOff}{transparentOff}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeige_a3609b9ad62e40acd4795a9fa15c7916c} 
+Material Ausfall\+Anzeige.\+transparent\+Off}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em transparent\+Off} & is a Material that is rendered when the display is switched off\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_ausfall_anzeige_ab22eedf3d5d77c9d19fed4163fb20ea4}\index{AusfallAnzeige@{AusfallAnzeige}!transparentOn@{transparentOn}}
+\index{transparentOn@{transparentOn}!AusfallAnzeige@{AusfallAnzeige}}
+\doxysubsubsection{\texorpdfstring{transparentOn}{transparentOn}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeige_ab22eedf3d5d77c9d19fed4163fb20ea4} 
+Material Ausfall\+Anzeige.\+transparent\+On}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em transparent\+On} & is a Material that is rendered when the display is switched on\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\mbox{\hyperlink{_ausfall_anzeige_8cs}{Ausfall\+Anzeige.\+cs}}\end{DoxyCompactItemize}

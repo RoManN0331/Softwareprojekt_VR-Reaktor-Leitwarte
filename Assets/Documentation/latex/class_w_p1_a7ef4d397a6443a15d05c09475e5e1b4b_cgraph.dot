@@ -1,0 +1,17 @@
+digraph "WP1.Update"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="WP1.Update",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="This method updates the rotation of the switch based on the current value of Percent."];
+  Node1 -> Node2 [id="edge6_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="WP1.HandleRotationInteraction",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_w_p1.html#acb0e8cb62880f131bc0109898fd30f37",tooltip="This method computes the rotation of the handle based on the rotation of the interactor and calls Upd..."];
+  Node2 -> Node3 [id="edge7_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="WP1.SendPercentToSimulation",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_w_p1.html#a5d08e3ab27703d9f0d67439bc90705d9",tooltip="This method initiates a call to the REST Server to update the simulation with the current RPM value o..."];
+  Node2 -> Node4 [id="edge8_Node000002_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="WP1.UpdateRotation",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_w_p1.html#a8a70c750dd0971a900b42c194f828bee",tooltip="This method updates the rotation of the switch."];
+  Node1 -> Node3 [id="edge9_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node4 [id="edge10_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+}

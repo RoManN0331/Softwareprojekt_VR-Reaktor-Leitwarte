@@ -1,0 +1,11 @@
+digraph "WP2.HandleRotationInteraction"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="WP2.HandleRotationInteraction",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="This method computes the rotation of the handle based on the rotation of the interactor and calls Upd..."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="WP2.Update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_w_p2.html#aa72f24cd17f2267a286fcf5e54dfa61c",tooltip="This method updates the rotation of the switch based on the current value of Percent."];
+}

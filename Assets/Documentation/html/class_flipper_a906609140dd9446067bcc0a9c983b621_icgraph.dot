@@ -1,0 +1,13 @@
+digraph "Flipper.OnHoverExited"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="Flipper.OnHoverExited",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="This method is called when the XR interactor is no longer looking at the object, i...."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="Flipper.OnDisable",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_flipper.html#a43276dadb741c43e0ef6545dd9c4ff4b",tooltip="This method is called when the object is disabled and removes event listeners for the selectEntered a..."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="Flipper.OnEnable",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_flipper.html#a89077822a424c58aa59217c4d61044b0",tooltip="This method is called when the object is enabled and adds event listeners for the selectEntered and s..."];
+}

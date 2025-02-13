@@ -1,0 +1,125 @@
+.TH "AnimatorController" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AnimatorController \- This class is used to update the animator parameters based on the state of the simulation stored in an \fBNPPReactorState\fP object\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBUpdateAnimatorParameters\fP (\fBNPPReactorState\fP state)"
+.br
+.RI "This method updates the statemachine parameters based on the state of the simulation stored in an \fBNPPReactorState\fP object\&. "
+.ti -1c
+.RI "void \fBupdateScenario\fP (int scenario)"
+.br
+.RI "This method updates the scenario parameter of the statemachine\&. "
+.ti -1c
+.RI "void \fBReset\fP ()"
+.br
+.RI "This method resets the statemachine to the initial state\&. "
+.ti -1c
+.RI "int \fBgetScenario\fP ()"
+.br
+.RI "This method returns the scenario the state machine is currently running\&. "
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBAwake\fP ()"
+.br
+.RI "This method initialises animator with a reference to the statemachine \&. "
+.ti -1c
+.RI "\fBComponentState\fP \fBGetComponent\fP (string name, \fBComponentHealth\fP health)"
+.br
+.RI "This method returns the information stored in ComponentHealt for a component or initialises a new \fBComponentState\fP\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "Animator \fBanimator\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimator\fP is a reference to the statemachine
+.RE
+.PP
+"
+.ti -1c
+.RI "\fBNPPClient\fP \fBclientScript\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class is used to update the animator parameters based on the state of the simulation stored in an \fBNPPReactorState\fP object\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void AnimatorController\&.Awake ()\fR [private]\fP"
+
+.PP
+This method initialises animator with a reference to the statemachine \&. 
+.SS "\fBComponentState\fP AnimatorController\&.GetComponent (string name, \fBComponentHealth\fP health)\fR [private]\fP"
+
+.PP
+This method returns the information stored in ComponentHealt for a component or initialises a new \fBComponentState\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP is the name of a component
+.br
+\fIhealth\fP is a \fBComponentHealth\fP object containing the state of various components
+.RE
+.PP
+
+.SS "int AnimatorController\&.getScenario ()"
+
+.PP
+This method returns the scenario the state machine is currently running\&. 
+.SS "void AnimatorController\&.Reset ()"
+
+.PP
+This method resets the statemachine to the initial state\&. 
+.SS "void AnimatorController\&.UpdateAnimatorParameters (\fBNPPReactorState\fP state)"
+
+.PP
+This method updates the statemachine parameters based on the state of the simulation stored in an \fBNPPReactorState\fP object\&. 
+.SS "void AnimatorController\&.updateScenario (int scenario)"
+
+.PP
+This method updates the scenario parameter of the statemachine\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIscenario\fP specifies the scenario the player has chosen
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "Animator AnimatorController\&.animator\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimator\fP is a reference to the statemachine
+.RE
+.PP
+param name="clientScript"> is a reference to the \fBNPPClient\fP instance in the scene
+.SS "\fBNPPClient\fP AnimatorController\&.clientScript\fR [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

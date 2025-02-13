@@ -1,0 +1,193 @@
+.TH "AusfallAnzeige" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AusfallAnzeige \- This class implements logic for a single display to signal the failure of a component in the simulation to the player\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBturnOn\fP ()"
+.br
+.RI "This method is called when the component to which the script is attached to fails, triggering the display to switch on\&. "
+.ti -1c
+.RI "void \fBturnOff\fP ()"
+.br
+.RI "This method triggers the display to switch off\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBisAusgefallen\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisAusgefallen\fP tracks whether a component has failed (is blown)
+.RE
+.PP
+"
+.ti -1c
+.RI "Material \fBtransparentOn\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItransparentOn\fP is a Material that is rendered when the display is switched on
+.RE
+.PP
+"
+.ti -1c
+.RI "Material \fBtransparentOff\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItransparentOff\fP is a Material that is rendered when the display is switched off
+.RE
+.PP
+"
+.ti -1c
+.RI "MeshRenderer \fBmeshRenderer\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImeshRenderer\fP is a reference to an object's MeshRenderer
+.RE
+.PP
+"
+.ti -1c
+.RI "string \fBname\fP = 'WP1'"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initialises the display for the component this script is attached to\&. "
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.RI "This method updates the display by checking whether the component the script is attached to has failed\&. "
+.ti -1c
+.RI "void \fBUpdateMaterial\fP ()"
+.br
+.RI "This method updates the material of the display based on whether the component the script is attached to has failed\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBpreviousState\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIpreviousState\fP tracks whether a component was broken in the previous frame
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements logic for a single display to signal the failure of a component in the simulation to the player\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void AusfallAnzeige\&.Start ()\fR [private]\fP"
+
+.PP
+This method initialises the display for the component this script is attached to\&. 
+.SS "void AusfallAnzeige\&.turnOff ()"
+
+.PP
+This method triggers the display to switch off\&. 
+.SS "void AusfallAnzeige\&.turnOn ()"
+
+.PP
+This method is called when the component to which the script is attached to fails, triggering the display to switch on\&. 
+.SS "void AusfallAnzeige\&.Update ()\fR [private]\fP"
+
+.PP
+This method updates the display by checking whether the component the script is attached to has failed\&. 
+.SS "void AusfallAnzeige\&.UpdateMaterial ()\fR [private]\fP"
+
+.PP
+This method updates the material of the display based on whether the component the script is attached to has failed\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "bool AusfallAnzeige\&.isAusgefallen = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisAusgefallen\fP tracks whether a component has failed (is blown)
+.RE
+.PP
+
+.SS "MeshRenderer AusfallAnzeige\&.meshRenderer"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImeshRenderer\fP is a reference to an object's MeshRenderer
+.RE
+.PP
+
+.SS "string AusfallAnzeige\&.name = 'WP1'"
+
+.SS "bool AusfallAnzeige\&.previousState\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIpreviousState\fP tracks whether a component was broken in the previous frame
+.RE
+.PP
+
+.SS "Material AusfallAnzeige\&.transparentOff"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItransparentOff\fP is a Material that is rendered when the display is switched off
+.RE
+.PP
+
+.SS "Material AusfallAnzeige\&.transparentOn"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItransparentOn\fP is a Material that is rendered when the display is switched on
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

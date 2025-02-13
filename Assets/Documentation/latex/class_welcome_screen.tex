@@ -1,0 +1,254 @@
+\doxysection{Welcome\+Screen Class Reference}
+\hypertarget{class_welcome_screen}{}\label{class_welcome_screen}\index{WelcomeScreen@{WelcomeScreen}}
+
+
+This class implements a welcome screen that is displayed at the start of the VR application explaining to the player what they are supposed to do.  
+
+
+Inheritance diagram for Welcome\+Screen\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_welcome_screen}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_welcome_screen_a1523c5c4259b3f4fc6e5b36a9550661f}{Next}} ()
+\begin{DoxyCompactList}\small\item\em This method implements the logic for the forward button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_welcome_screen_a2dd93c52964b3703bef00724f89f4028}{Previous}} ()
+\begin{DoxyCompactList}\small\item\em This method implements the logic for the back button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_welcome_screen_a63ab9cd1d6fb6cfce66cc0c4a43d1a8c}{Confirm}} ()
+\begin{DoxyCompactList}\small\item\em This method implements the logic for the confirm button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_welcome_screen_a7a7b1099deaefa4e54690b96d49ff966}{forward\+Button}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em forward\+Button} & is a button to go to the next page of the welcome message\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_welcome_screen_ab855af892f915fcf0e94fa7abbe743eb}{back\+Button}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em back\+Button} & is a button to go to the previous page of the welcome message\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_welcome_screen_aff885355a215d378ea87af88fedaf168}{confirm\+Button}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em confirm\+Button} & is a button to close the welcome message\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_welcome_screen_a22ac7ab4a669145ad1582625bb0d7de2}{scroll\+Panel}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em scroll\+Panel} & is a Panel displaying the welcome message\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_welcome_screen_ae24fddd559c511b0bb53ceb3cb7c03fe}{DISABLE\+\_\+\+WELCOME\+\_\+\+SCREEN}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em DISABLE\+\_\+\+WELCOME\+\_\+\+SCREEN} & tracks whether the welcome screen is displayed or not\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Input\+Action\+Asset \mbox{\hyperlink{class_welcome_screen_aef95803a1170dfecb967e4cee120e638}{clipbaord\+Input\+Action}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em clipbaord\+Input\+Action} & is a reference to an Input\+Action\+Asset for retrieving the controller button that is used to trigger a chosen scenario\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_welcome_screen_a3d576d0140492ff6d1aae10b3d44c758}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the welcome screen and its components. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_welcome_screen_a759632b693f3f1f1c0cde8381643eb9d}{info\+Texts}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em info\+Texts} & is an array containing the welcome message\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements a welcome screen that is displayed at the start of the VR application explaining to the player what they are supposed to do. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_welcome_screen_a63ab9cd1d6fb6cfce66cc0c4a43d1a8c}\index{WelcomeScreen@{WelcomeScreen}!Confirm@{Confirm}}
+\index{Confirm@{Confirm}!WelcomeScreen@{WelcomeScreen}}
+\doxysubsubsection{\texorpdfstring{Confirm()}{Confirm()}}
+{\footnotesize\ttfamily \label{class_welcome_screen_a63ab9cd1d6fb6cfce66cc0c4a43d1a8c} 
+void Welcome\+Screen.\+Confirm (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method implements the logic for the confirm button. 
+
+\Hypertarget{class_welcome_screen_a1523c5c4259b3f4fc6e5b36a9550661f}\index{WelcomeScreen@{WelcomeScreen}!Next@{Next}}
+\index{Next@{Next}!WelcomeScreen@{WelcomeScreen}}
+\doxysubsubsection{\texorpdfstring{Next()}{Next()}}
+{\footnotesize\ttfamily \label{class_welcome_screen_a1523c5c4259b3f4fc6e5b36a9550661f} 
+void Welcome\+Screen.\+Next (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method implements the logic for the forward button. 
+
+\Hypertarget{class_welcome_screen_a2dd93c52964b3703bef00724f89f4028}\index{WelcomeScreen@{WelcomeScreen}!Previous@{Previous}}
+\index{Previous@{Previous}!WelcomeScreen@{WelcomeScreen}}
+\doxysubsubsection{\texorpdfstring{Previous()}{Previous()}}
+{\footnotesize\ttfamily \label{class_welcome_screen_a2dd93c52964b3703bef00724f89f4028} 
+void Welcome\+Screen.\+Previous (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method implements the logic for the back button. 
+
+\Hypertarget{class_welcome_screen_a3d576d0140492ff6d1aae10b3d44c758}\index{WelcomeScreen@{WelcomeScreen}!Start@{Start}}
+\index{Start@{Start}!WelcomeScreen@{WelcomeScreen}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_welcome_screen_a3d576d0140492ff6d1aae10b3d44c758} 
+void Welcome\+Screen.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the welcome screen and its components. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_welcome_screen_ab855af892f915fcf0e94fa7abbe743eb}\index{WelcomeScreen@{WelcomeScreen}!backButton@{backButton}}
+\index{backButton@{backButton}!WelcomeScreen@{WelcomeScreen}}
+\doxysubsubsection{\texorpdfstring{backButton}{backButton}}
+{\footnotesize\ttfamily \label{class_welcome_screen_ab855af892f915fcf0e94fa7abbe743eb} 
+Game\+Object Welcome\+Screen.\+back\+Button}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em back\+Button} & is a button to go to the previous page of the welcome message\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_welcome_screen_aef95803a1170dfecb967e4cee120e638}\index{WelcomeScreen@{WelcomeScreen}!clipbaordInputAction@{clipbaordInputAction}}
+\index{clipbaordInputAction@{clipbaordInputAction}!WelcomeScreen@{WelcomeScreen}}
+\doxysubsubsection{\texorpdfstring{clipbaordInputAction}{clipbaordInputAction}}
+{\footnotesize\ttfamily \label{class_welcome_screen_aef95803a1170dfecb967e4cee120e638} 
+Input\+Action\+Asset Welcome\+Screen.\+clipbaord\+Input\+Action}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em clipbaord\+Input\+Action} & is a reference to an Input\+Action\+Asset for retrieving the controller button that is used to trigger a chosen scenario\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_welcome_screen_aff885355a215d378ea87af88fedaf168}\index{WelcomeScreen@{WelcomeScreen}!confirmButton@{confirmButton}}
+\index{confirmButton@{confirmButton}!WelcomeScreen@{WelcomeScreen}}
+\doxysubsubsection{\texorpdfstring{confirmButton}{confirmButton}}
+{\footnotesize\ttfamily \label{class_welcome_screen_aff885355a215d378ea87af88fedaf168} 
+Game\+Object Welcome\+Screen.\+confirm\+Button}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em confirm\+Button} & is a button to close the welcome message\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_welcome_screen_ae24fddd559c511b0bb53ceb3cb7c03fe}\index{WelcomeScreen@{WelcomeScreen}!DISABLE\_WELCOME\_SCREEN@{DISABLE\_WELCOME\_SCREEN}}
+\index{DISABLE\_WELCOME\_SCREEN@{DISABLE\_WELCOME\_SCREEN}!WelcomeScreen@{WelcomeScreen}}
+\doxysubsubsection{\texorpdfstring{DISABLE\_WELCOME\_SCREEN}{DISABLE\_WELCOME\_SCREEN}}
+{\footnotesize\ttfamily \label{class_welcome_screen_ae24fddd559c511b0bb53ceb3cb7c03fe} 
+bool Welcome\+Screen.\+DISABLE\+\_\+\+WELCOME\+\_\+\+SCREEN = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em DISABLE\+\_\+\+WELCOME\+\_\+\+SCREEN} & tracks whether the welcome screen is displayed or not\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_welcome_screen_a7a7b1099deaefa4e54690b96d49ff966}\index{WelcomeScreen@{WelcomeScreen}!forwardButton@{forwardButton}}
+\index{forwardButton@{forwardButton}!WelcomeScreen@{WelcomeScreen}}
+\doxysubsubsection{\texorpdfstring{forwardButton}{forwardButton}}
+{\footnotesize\ttfamily \label{class_welcome_screen_a7a7b1099deaefa4e54690b96d49ff966} 
+Game\+Object Welcome\+Screen.\+forward\+Button}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em forward\+Button} & is a button to go to the next page of the welcome message\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_welcome_screen_a759632b693f3f1f1c0cde8381643eb9d}\index{WelcomeScreen@{WelcomeScreen}!infoTexts@{infoTexts}}
+\index{infoTexts@{infoTexts}!WelcomeScreen@{WelcomeScreen}}
+\doxysubsubsection{\texorpdfstring{infoTexts}{infoTexts}}
+{\footnotesize\ttfamily \label{class_welcome_screen_a759632b693f3f1f1c0cde8381643eb9d} 
+string \mbox{[}$\,$\mbox{]} Welcome\+Screen.\+info\+Texts\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Sie\ befinden\ sich\ in\ der\ Steuerzentrale\ eines\ Kernreaktors.\ Ihre\ Aufgaben\ umfassen\ die\ Überwachung\ der\ Systeme,\ die\ Steuerung\ der\ Energieproduktion\ und\ die\ Gewährleistung\ der\ Sicherheit.\ Ihnen\ stehen\ folgende\ Elemente\ zur\ Verfügung:"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}📟\ Hauptkonsole:\(\backslash\)nZentrale\ Steuereinheit\ zur\ Regulierung\ des\ Reaktors\ und\ Überwachung\ der\ Systemparameter."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}💡\ Statuslampen:\(\backslash\)nInformieren\ Sie\ über\ den\ aktuellen\ Zustand\ der\ Reaktorkomponenten."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}📋\ Clipboards:\(\backslash\)nStandartverfahren\ verschiedener\ Szenarien.\ Starten\ Sie\ ein\ Szenario\ durch\ Betätigen\ der\ <color=\#00aaaa>\{INPUT\_BTN\}</color>\ Taste"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}🔍\ Gazeguiding\ Panel:\(\backslash\)nEs\ stehen\ eine\ Reihe\ von\ unterstüzenden\ Gaze-\/Guiding\ Elementen\ zur\ Verfügung.\ Diese\ Können\ nach\ belieben\ ausgewählt\ werden"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}🚪\ Tür:\(\backslash\)nVollständiges\ Zurücksetzen\ der\ Simulation,\ um\ verschiedene\ Szenarien\ erneut\ zu\ durchlaufen\ oder\ Fehler\ zu\ korrigieren."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Machen\ Sie\ sich\ bereit,\ die\ Kontrolle\ zu\ übernehmen\ -\/\ die\ Sicherheit\ des\ Reaktors\ liegt\ in\ Ihren\ Händen!\ 🔥⚡"{}}}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em info\+Texts} & is an array containing the welcome message\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_welcome_screen_a22ac7ab4a669145ad1582625bb0d7de2}\index{WelcomeScreen@{WelcomeScreen}!scrollPanel@{scrollPanel}}
+\index{scrollPanel@{scrollPanel}!WelcomeScreen@{WelcomeScreen}}
+\doxysubsubsection{\texorpdfstring{scrollPanel}{scrollPanel}}
+{\footnotesize\ttfamily \label{class_welcome_screen_a22ac7ab4a669145ad1582625bb0d7de2} 
+Game\+Object Welcome\+Screen.\+scroll\+Panel}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em scroll\+Panel} & is a Panel displaying the welcome message\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\mbox{\hyperlink{_welcome_screen_8cs}{Welcome\+Screen.\+cs}}\end{DoxyCompactItemize}

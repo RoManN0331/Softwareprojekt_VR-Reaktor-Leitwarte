@@ -1,0 +1,156 @@
+\doxysection{Gaze\+Guiding\+Clipboard Class Reference}
+\hypertarget{class_gaze_guiding_clipboard}{}\label{class_gaze_guiding_clipboard}\index{GazeGuidingClipboard@{GazeGuidingClipboard}}
+
+
+This class implements logic to highlight tasks on a clipboard a player has to perform to complete a scenario.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gaze_guiding_clipboard_abc95f3393dfa5cfc3161da094d9d36f7}{Gaze\+Guiding\+Clipboard}} (String clipboard\+Text, string Color)
+\begin{DoxyCompactList}\small\item\em This constructor parses the clipboard text and creates a list of tasks a player must perform to complete a scenario. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_clipboard_a92e58524a44a9f3198464c1a22b86d42}{Highlight\+Task}} (int n)
+\begin{DoxyCompactList}\small\item\em This method highlights a task in tasklist. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_gaze_guiding_clipboard_a7c4346a9ce5cdeb2144ae872c02671d5}{Get\+Formatted\+Clipboard\+Text}} ()
+\begin{DoxyCompactList}\small\item\em This method returns a formatted clipboard text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_gaze_guiding_clipboard_a6894ed51579a41d99599094627be6813}{HIGHLIGHT\+\_\+\+TEXT\+\_\+\+COLOR}} = "{}$<$color=\#00\+FF00$>$"{}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em HIGHLIGHT\+\_\+\+TEXT\+\_\+\+COLOR} & contains the colour code of the highlight colour\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_gaze_guiding_clipboard_ac7c8514a2ef493869f3885f1b3ab5366}{information\+Text}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em information\+Text} & contains information about a scenario\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_gaze_guiding_clipboard_af8a80cc16d206dc0d9af75424af8146c}{task\+List}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em task\+List} & is a string array containing a list of tasks the player must perform to complete a scenario\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const float \mbox{\hyperlink{class_gaze_guiding_clipboard_a2ca9532539266da2908ce01d7e3dbe81}{DISTANCE\+\_\+\+THRESHOLD}} = 1.\+0f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic to highlight tasks on a clipboard a player has to perform to complete a scenario. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_gaze_guiding_clipboard_abc95f3393dfa5cfc3161da094d9d36f7}\index{GazeGuidingClipboard@{GazeGuidingClipboard}!GazeGuidingClipboard@{GazeGuidingClipboard}}
+\index{GazeGuidingClipboard@{GazeGuidingClipboard}!GazeGuidingClipboard@{GazeGuidingClipboard}}
+\doxysubsubsection{\texorpdfstring{GazeGuidingClipboard()}{GazeGuidingClipboard()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_clipboard_abc95f3393dfa5cfc3161da094d9d36f7} 
+Gaze\+Guiding\+Clipboard.\+Gaze\+Guiding\+Clipboard (\begin{DoxyParamCaption}\item[{String}]{clipboard\+Text}{, }\item[{string}]{Color}{}\end{DoxyParamCaption})}
+
+
+
+This constructor parses the clipboard text and creates a list of tasks a player must perform to complete a scenario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clipboard\+Text} & contains the whole text of a clipboard\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_gaze_guiding_clipboard_a7c4346a9ce5cdeb2144ae872c02671d5}\index{GazeGuidingClipboard@{GazeGuidingClipboard}!GetFormattedClipboardText@{GetFormattedClipboardText}}
+\index{GetFormattedClipboardText@{GetFormattedClipboardText}!GazeGuidingClipboard@{GazeGuidingClipboard}}
+\doxysubsubsection{\texorpdfstring{GetFormattedClipboardText()}{GetFormattedClipboardText()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_clipboard_a7c4346a9ce5cdeb2144ae872c02671d5} 
+string Gaze\+Guiding\+Clipboard.\+Get\+Formatted\+Clipboard\+Text (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method returns a formatted clipboard text. 
+
+\Hypertarget{class_gaze_guiding_clipboard_a92e58524a44a9f3198464c1a22b86d42}\index{GazeGuidingClipboard@{GazeGuidingClipboard}!HighlightTask@{HighlightTask}}
+\index{HighlightTask@{HighlightTask}!GazeGuidingClipboard@{GazeGuidingClipboard}}
+\doxysubsubsection{\texorpdfstring{HighlightTask()}{HighlightTask()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_clipboard_a92e58524a44a9f3198464c1a22b86d42} 
+void Gaze\+Guiding\+Clipboard.\+Highlight\+Task (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+This method highlights a task in tasklist. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & specifies a task to be highlighted\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_gaze_guiding_clipboard_a2ca9532539266da2908ce01d7e3dbe81}\index{GazeGuidingClipboard@{GazeGuidingClipboard}!DISTANCE\_THRESHOLD@{DISTANCE\_THRESHOLD}}
+\index{DISTANCE\_THRESHOLD@{DISTANCE\_THRESHOLD}!GazeGuidingClipboard@{GazeGuidingClipboard}}
+\doxysubsubsection{\texorpdfstring{DISTANCE\_THRESHOLD}{DISTANCE\_THRESHOLD}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_clipboard_a2ca9532539266da2908ce01d7e3dbe81} 
+const float Gaze\+Guiding\+Clipboard.\+DISTANCE\+\_\+\+THRESHOLD = 1.\+0f\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_gaze_guiding_clipboard_a6894ed51579a41d99599094627be6813}\index{GazeGuidingClipboard@{GazeGuidingClipboard}!HIGHLIGHT\_TEXT\_COLOR@{HIGHLIGHT\_TEXT\_COLOR}}
+\index{HIGHLIGHT\_TEXT\_COLOR@{HIGHLIGHT\_TEXT\_COLOR}!GazeGuidingClipboard@{GazeGuidingClipboard}}
+\doxysubsubsection{\texorpdfstring{HIGHLIGHT\_TEXT\_COLOR}{HIGHLIGHT\_TEXT\_COLOR}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_clipboard_a6894ed51579a41d99599094627be6813} 
+string Gaze\+Guiding\+Clipboard.\+HIGHLIGHT\+\_\+\+TEXT\+\_\+\+COLOR = "{}$<$color=\#00\+FF00$>$"{}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em HIGHLIGHT\+\_\+\+TEXT\+\_\+\+COLOR} & contains the colour code of the highlight colour\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_clipboard_ac7c8514a2ef493869f3885f1b3ab5366}\index{GazeGuidingClipboard@{GazeGuidingClipboard}!informationText@{informationText}}
+\index{informationText@{informationText}!GazeGuidingClipboard@{GazeGuidingClipboard}}
+\doxysubsubsection{\texorpdfstring{informationText}{informationText}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_clipboard_ac7c8514a2ef493869f3885f1b3ab5366} 
+string Gaze\+Guiding\+Clipboard.\+information\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em information\+Text} & contains information about a scenario\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_clipboard_af8a80cc16d206dc0d9af75424af8146c}\index{GazeGuidingClipboard@{GazeGuidingClipboard}!taskList@{taskList}}
+\index{taskList@{taskList}!GazeGuidingClipboard@{GazeGuidingClipboard}}
+\doxysubsubsection{\texorpdfstring{taskList}{taskList}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_clipboard_af8a80cc16d206dc0d9af75424af8146c} 
+string \mbox{[}$\,$\mbox{]} Gaze\+Guiding\+Clipboard.\+task\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+List} & is a string array containing a list of tasks the player must perform to complete a scenario\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Gaze\+Guiding/\mbox{\hyperlink{_gaze_guiding_clipboard_8cs}{Gaze\+Guiding\+Clipboard.\+cs}}\end{DoxyCompactItemize}

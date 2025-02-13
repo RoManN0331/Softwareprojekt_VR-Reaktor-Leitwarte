@@ -1,0 +1,91 @@
+\doxysection{RPressure Class Reference}
+\hypertarget{class_r_pressure}{}\label{class_r_pressure}\index{RPressure@{RPressure}}
+
+
+This class implements logic for displaying the current pressure inside the reactor tank.  
+
+
+Inheritance diagram for RPressure\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_r_pressure}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_r_pressure_a5baa60872a837789a50178bb4fa5283f}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current pressure inside the reactor tank. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_pressure_a37fb6d83c1996ceae8eebf3cfbf593b1}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the display by reading the current pressure inside the reactor tank from the Reactor.\+pressure field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} \mbox{\hyperlink{class_r_pressure_af4e623710d96837930c0e3160d0caa2b}{anzeige\+Steuerung}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_r_pressure_a76751cd6f433c89bb400a892de4c7dda}{client\+Object}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic for displaying the current pressure inside the reactor tank. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_r_pressure_a5baa60872a837789a50178bb4fa5283f}\index{RPressure@{RPressure}!Start@{Start}}
+\index{Start@{Start}!RPressure@{RPressure}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_r_pressure_a5baa60872a837789a50178bb4fa5283f} 
+void RPressure.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current pressure inside the reactor tank. 
+
+\Hypertarget{class_r_pressure_a37fb6d83c1996ceae8eebf3cfbf593b1}\index{RPressure@{RPressure}!Update@{Update}}
+\index{Update@{Update}!RPressure@{RPressure}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_r_pressure_a37fb6d83c1996ceae8eebf3cfbf593b1} 
+void RPressure.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the display by reading the current pressure inside the reactor tank from the Reactor.\+pressure field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_r_pressure_af4e623710d96837930c0e3160d0caa2b}\index{RPressure@{RPressure}!anzeigeSteuerung@{anzeigeSteuerung}}
+\index{anzeigeSteuerung@{anzeigeSteuerung}!RPressure@{RPressure}}
+\doxysubsubsection{\texorpdfstring{anzeigeSteuerung}{anzeigeSteuerung}}
+{\footnotesize\ttfamily \label{class_r_pressure_af4e623710d96837930c0e3160d0caa2b} 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} RPressure.\+anzeige\+Steuerung\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_r_pressure_a76751cd6f433c89bb400a892de4c7dda}\index{RPressure@{RPressure}!clientObject@{clientObject}}
+\index{clientObject@{clientObject}!RPressure@{RPressure}}
+\doxysubsubsection{\texorpdfstring{clientObject}{clientObject}}
+{\footnotesize\ttfamily \label{class_r_pressure_a76751cd6f433c89bb400a892de4c7dda} 
+Game\+Object RPressure.\+client\+Object\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Anzeigen/\mbox{\hyperlink{_r_pressure_8cs}{RPressure.\+cs}}\end{DoxyCompactItemize}

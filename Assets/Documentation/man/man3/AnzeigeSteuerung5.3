@@ -1,0 +1,1303 @@
+.TH "AnzeigeSteuerung5" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AnzeigeSteuerung5
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "float \fBstart_Number\fP = 0"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIstart_Number\fP specifies the lower bound of the display
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBend_Number\fP = 2000"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIend_Number\fP specifies the upper bound of the display
+.RE
+.PP
+"
+.ti -1c
+.RI "string \fBkomponente\fP = 'WP1'"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIkomponente\fP specifies the component corresponding to the display
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBCHANGEpercentage\fP = 0f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fICHANGEpercentage\fP specifies the current percentage to be indicated by the display's bar
+.RE
+.PP
+"
+.ti -1c
+.RI "MeshFilter \fBtoManiuplate8\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItoManipulate8\fP is a MeshFilter component of the red lower mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBpercentage8\fP = 50"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIpercentage8\fP specifies the current percentage te bo indicated by the red lower bar
+.RE
+.PP
+"
+.ti -1c
+.RI "MeshFilter \fBtoManiuplate9\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItoManipulate9\fP is aMeshFilter component of the lower orange mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBpercentage9\fP = 50"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIpercentage9\fP specifies the current percentage to be indicated by the lower orange bar
+.RE
+.PP
+"
+.ti -1c
+.RI "MeshFilter \fBtoManiuplateNORMAL\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItoManiuplateNORMAL\fP is a MeshFilter component of the normal Mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBpercentage\fP = 50"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIpercentage\fP specifies the current percentage to be indicated by the normal bar
+.RE
+.PP
+"
+.ti -1c
+.RI "MeshFilter \fBtoManiuplateORANGE\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItoManiuplateORANGE\fP is a MeshFilter component of the upper orange Mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBpercentage2\fP = 50"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIpercentage2\fP specifies the current percentage to be indicated by the upper orange bar
+.RE
+.PP
+"
+.ti -1c
+.RI "MeshFilter \fBtoManiuplateRED\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItoManiuplateRED\fP is a MeshFilter component of the upper red Mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBpercentage3\fP = 50"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIpercentage3\fP specifies the current percentage to be indicated by the upper red bar
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBisDIGITAL\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisDIGITAL\fP boolean specifying whether the display is digital
+.RE
+.PP
+"
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initialises the display\&. "
+.ti -1c
+.RI "IEnumerator \fBAnimatePercentage\fP ()"
+.br
+.RI "This method animates the display's bar in three steps\&. "
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.RI "This method updates the display's bar if the current frame's percentage is different from last frame's percentage\&. "
+.ti -1c
+.RI "void \fBInitializeText\fP (string \fBkomponente\fP, float startNumber, float endNumber)"
+.br
+.RI "This method labels the scale of the display\&. "
+.ti -1c
+.RI "void \fBSetText\fP (Transform parent, string childName, string text)"
+.br
+.RI "This method sets a text to a child component of the display\&. "
+.ti -1c
+.RI "void \fBInitializeMesh\fP (MeshFilter meshFilter, ref Mesh mesh, ref Vector3[] \fBoriginalVertices\fP, ref int \fBminIndex1\fP, ref int \fBminIndex2\fP, ref int \fBmaxIndex\fP, ref float \fBlastPercentage\fP, int \fBpercentage\fP)"
+.br
+.RI "This method initializes the meshes of the display's bar\&. "
+.ti -1c
+.RI "void \fBUpdateBars\fP ()"
+.br
+.RI "This method updates the display's bar\&. "
+.ti -1c
+.RI "void \fBResetBar\fP (int ID)"
+.br
+.RI "This method resets the display's bar by changing the mesh\&. "
+.ti -1c
+.RI "void \fBsetBar\fP (int ID)"
+.br
+.RI "This method animates the display's bar by changing the mesh, vertices and indices\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "Mesh \fBmesh8\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImesh8\fP is a Mesh component of the red lower mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "Vector3[] \fBoriginalVertices8\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalVertices8\fP is an array of Vector3s containing the original vertices of the red lower mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBlastPercentage8\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastPercentage8\fP specifies the percentage indicated by the red lower bar in the previous frame
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBminIndex18\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex18\fP specifies the index of the first minimum vertex of the red lower mesh (lower vertex)
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBminIndex28\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex28\fP specifies the index of the second minimum vertex of the red lower mesh (upper vertex)
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBmaxIndex8\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImaxIndex8\fP specifies the index of the maximum vertex of the red lower mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "Mesh \fBmesh9\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImesh9\fP is a Mesh component of the lower orange mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "Vector3[] \fBoriginalVertices9\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalVertices9\fP is an array of Vector3s containing the original vertices of the lower orange mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBlastPercentage9\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastPercentage9\fP specifies the percentage indicated by the lower orange bar in the previous frame
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBminIndex19\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex19\fP specifies the index of the first minimum vertex of the lower orange mesh (lower vertex)
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBminIndex29\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex29\fP specifies the index of the second minimum vertex of the lower orange mesh (upper vertex)
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBmaxIndex9\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImaxIndex9\fP specifies the index of the maximum vertex of the lower orange mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "Mesh \fBmeshNORMAL\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImeshNORMAL\fP is a Mesh component of the normal Mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "Vector3[] \fBoriginalVertices\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalVertices\fP is an array of Vector3s containing the original vertices of the normal Mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBlastPercentage\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastPercentage\fP specifies the percentage indicated by the normal bar in the previous frame
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBminIndex1\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex1\fP specifies the index of the first minimum vertex of the normal Mesh (lower vertex)
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBminIndex2\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex2\fP specifies the index of the second minimum vertex of the normal Mesh (upper vertex)
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBmaxIndex\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImaxIndex\fP specifies the index of the maximum vertex of the normal Mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "Mesh \fBmeshORANGE\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImeshORANGE\fP is a Mesh component of the upper orange Mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "Vector3[] \fBoriginalVertices2\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalVertices2\fP an array of Vector3s containing the original vertices of the upper orange Mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBlastPercentage2\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastPercentage2\fP specifies the percentage indicated by the upper orange bar in the previous frame
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBminIndex12\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex12\fP specifies the index of the first minimum vertex of the upper orange Mesh (lower vertex)
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBminIndex22\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex22\fP specifies the index of the second minimum vertex of the upper orange Mesh (upper vertex)
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBmaxIndex2\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImaxIndex2\fP specifies the index of the maximum vertex of the upper orange Mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "Mesh \fBmeshRED\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImeshRED\fP is a Mesh component of the upper red Mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "Vector3[] \fBoriginalVertices3\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalVertices3\fP is an array of Vector3s containing the original vertices of the upper red Mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBlastPercentage3\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastPercentage3\fP specifies the percentage indicated by the upper red bar in the previous frame
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBminIndex13\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex13\fP specifies the index of the first minimum vertex of the upper red Mesh (lower vertex)
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBminIndex23\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex23\fP specifies the index of the second minimum vertex of the upper red Mesh (upper vertex)
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBmaxIndex3\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImaxIndex3\fP specifies the index of the maximum vertex of the upper red Mesh
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBCHANGEpercentageanimate\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fICHANGEpercentageanimate\fP specifies the percentage indicated by display's bar in the current frame
+.RE
+.PP
+"
+.ti -1c
+.RI "TextMeshPro \fBDigitalText\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDigitalText\fP is a reference to a TextMeshPro component
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBisBar1Reset\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisBar1Reset\fP tracks whether the first bar has been reset 
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBisBar2Reset\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisBar2Reset\fP tracks whether the second bar has been reset 
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBisBar3Reset\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisBar3Reset\fP tracks whether the third bar has been reset 
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBisBar4Reset\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisBar4Reset\fP tracks whether the fourth bar has been reset 
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBanimatePercentage\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimatePercentage\fP specifies the current value that is being animated in \fBsetBar()\fP
+.RE
+.PP
+"
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "IEnumerator AnzeigeSteuerung5\&.AnimatePercentage ()\fR [private]\fP"
+
+.PP
+This method animates the display's bar in three steps\&. First the bar is set to indicate 100%\&. Then the bar is set to inndicate 0%\&. Finally the bar is set to indicate the actual value CHANGEpercentage\&. 
+.SS "void AnzeigeSteuerung5\&.InitializeMesh (MeshFilter meshFilter, ref Mesh mesh, ref Vector3[] originalVertices, ref int minIndex1, ref int minIndex2, ref int maxIndex, ref float lastPercentage, int percentage)\fR [private]\fP"
+
+.PP
+This method initializes the meshes of the display's bar\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImeshFilter\fP is the MeshFilter component of the bar
+.br
+\fImesh\fP is the Mesh component of the bar
+.br
+\fIoriginalVertices\fP is an array of Vector3s containing the original vertices of the Mesh
+.br
+\fIminIndex1\fP specifies the index of the first minimum vertex of the Mesh (lower vertex)
+.br
+\fIminIndex2\fP specifies the index of the second minimum vertex of the Mesh (upper vertex)
+.br
+\fImaxIndex\fP specifies the index of the maximum vertex of the Mesh
+.br
+\fIlastPercentage\fP specifies the previous percentage indicated by the bar
+.br
+\fIpercentage\fP specifies the current percentage to be indicated bar
+.RE
+.PP
+
+.SS "void AnzeigeSteuerung5\&.InitializeText (string komponente, float startNumber, float endNumber)\fR [private]\fP"
+
+.PP
+This method labels the scale of the display\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIkomponente\fP contains the name of the component the display corresponds to
+.br
+\fIstartNumber\fP specifies the lower bound for the display
+.br
+\fIendNumber\fP specifies the upper bound of the display
+.RE
+.PP
+
+.SS "void AnzeigeSteuerung5\&.ResetBar (int ID)\fR [private]\fP"
+
+.PP
+This method resets the display's bar by changing the mesh\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIID\fP specifies the bar to be reset
+.RE
+.PP
+
+.SS "void AnzeigeSteuerung5\&.setBar (int ID)\fR [private]\fP"
+
+.PP
+This method animates the display's bar by changing the mesh, vertices and indices\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIID\fP specifies the bar to be animated
+.RE
+.PP
+
+.SS "void AnzeigeSteuerung5\&.SetText (Transform parent, string childName, string text)\fR [private]\fP"
+
+.PP
+This method sets a text to a child component of the display\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIparent\fP is a Transform of a AnzeigeBasic object
+.br
+\fIchildName\fP contains the name of a subcomponent of an AnzeigeBasic object
+.br
+\fItext\fP contains the text that will be set to a subcomponent of an AnzeigeBasic object 
+.RE
+.PP
+
+.SS "void AnzeigeSteuerung5\&.Start ()\fR [private]\fP"
+
+.PP
+This method initialises the display\&. It initiates the initialisation of the meshes and the bars, and starts the animation\&. 
+.SS "void AnzeigeSteuerung5\&.Update ()\fR [private]\fP"
+
+.PP
+This method updates the display's bar if the current frame's percentage is different from last frame's percentage\&. 
+.SS "void AnzeigeSteuerung5\&.UpdateBars ()\fR [private]\fP"
+
+.PP
+This method updates the display's bar\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "float AnzeigeSteuerung5\&.animatePercentage\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimatePercentage\fP specifies the current value that is being animated in \fBsetBar()\fP
+.RE
+.PP
+
+.SS "float AnzeigeSteuerung5\&.CHANGEpercentage = 0f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fICHANGEpercentage\fP specifies the current percentage to be indicated by the display's bar
+.RE
+.PP
+
+.SS "float AnzeigeSteuerung5\&.CHANGEpercentageanimate\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fICHANGEpercentageanimate\fP specifies the percentage indicated by display's bar in the current frame
+.RE
+.PP
+
+.SS "TextMeshPro AnzeigeSteuerung5\&.DigitalText\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDigitalText\fP is a reference to a TextMeshPro component
+.RE
+.PP
+
+.SS "float AnzeigeSteuerung5\&.end_Number = 2000"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIend_Number\fP specifies the upper bound of the display
+.RE
+.PP
+
+.SS "bool AnzeigeSteuerung5\&.isBar1Reset = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisBar1Reset\fP tracks whether the first bar has been reset 
+.RE
+.PP
+
+.SS "bool AnzeigeSteuerung5\&.isBar2Reset = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisBar2Reset\fP tracks whether the second bar has been reset 
+.RE
+.PP
+
+.SS "bool AnzeigeSteuerung5\&.isBar3Reset = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisBar3Reset\fP tracks whether the third bar has been reset 
+.RE
+.PP
+
+.SS "bool AnzeigeSteuerung5\&.isBar4Reset = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisBar4Reset\fP tracks whether the fourth bar has been reset 
+.RE
+.PP
+
+.SS "bool AnzeigeSteuerung5\&.isDIGITAL = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisDIGITAL\fP boolean specifying whether the display is digital
+.RE
+.PP
+
+.SS "string AnzeigeSteuerung5\&.komponente = 'WP1'"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIkomponente\fP specifies the component corresponding to the display
+.RE
+.PP
+
+.SS "float AnzeigeSteuerung5\&.lastPercentage\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastPercentage\fP specifies the percentage indicated by the normal bar in the previous frame
+.RE
+.PP
+
+.SS "float AnzeigeSteuerung5\&.lastPercentage2\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastPercentage2\fP specifies the percentage indicated by the upper orange bar in the previous frame
+.RE
+.PP
+
+.SS "float AnzeigeSteuerung5\&.lastPercentage3\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastPercentage3\fP specifies the percentage indicated by the upper red bar in the previous frame
+.RE
+.PP
+
+.SS "float AnzeigeSteuerung5\&.lastPercentage8\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastPercentage8\fP specifies the percentage indicated by the red lower bar in the previous frame
+.RE
+.PP
+
+.SS "float AnzeigeSteuerung5\&.lastPercentage9\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlastPercentage9\fP specifies the percentage indicated by the lower orange bar in the previous frame
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.maxIndex\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImaxIndex\fP specifies the index of the maximum vertex of the normal Mesh
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.maxIndex2\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImaxIndex2\fP specifies the index of the maximum vertex of the upper orange Mesh
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.maxIndex3\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImaxIndex3\fP specifies the index of the maximum vertex of the upper red Mesh
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.maxIndex8\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImaxIndex8\fP specifies the index of the maximum vertex of the red lower mesh
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.maxIndex9\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImaxIndex9\fP specifies the index of the maximum vertex of the lower orange mesh
+.RE
+.PP
+
+.SS "Mesh AnzeigeSteuerung5\&.mesh8\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImesh8\fP is a Mesh component of the red lower mesh
+.RE
+.PP
+
+.SS "Mesh AnzeigeSteuerung5\&.mesh9\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImesh9\fP is a Mesh component of the lower orange mesh
+.RE
+.PP
+
+.SS "Mesh AnzeigeSteuerung5\&.meshNORMAL\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImeshNORMAL\fP is a Mesh component of the normal Mesh
+.RE
+.PP
+
+.SS "Mesh AnzeigeSteuerung5\&.meshORANGE\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImeshORANGE\fP is a Mesh component of the upper orange Mesh
+.RE
+.PP
+
+.SS "Mesh AnzeigeSteuerung5\&.meshRED\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImeshRED\fP is a Mesh component of the upper red Mesh
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.minIndex1\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex1\fP specifies the index of the first minimum vertex of the normal Mesh (lower vertex)
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.minIndex12\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex12\fP specifies the index of the first minimum vertex of the upper orange Mesh (lower vertex)
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.minIndex13\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex13\fP specifies the index of the first minimum vertex of the upper red Mesh (lower vertex)
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.minIndex18\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex18\fP specifies the index of the first minimum vertex of the red lower mesh (lower vertex)
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.minIndex19\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex19\fP specifies the index of the first minimum vertex of the lower orange mesh (lower vertex)
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.minIndex2\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex2\fP specifies the index of the second minimum vertex of the normal Mesh (upper vertex)
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.minIndex22\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex22\fP specifies the index of the second minimum vertex of the upper orange Mesh (upper vertex)
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.minIndex23\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex23\fP specifies the index of the second minimum vertex of the upper red Mesh (upper vertex)
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.minIndex28\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex28\fP specifies the index of the second minimum vertex of the red lower mesh (upper vertex)
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.minIndex29\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIminIndex29\fP specifies the index of the second minimum vertex of the lower orange mesh (upper vertex)
+.RE
+.PP
+
+.SS "Vector3 [] AnzeigeSteuerung5\&.originalVertices\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalVertices\fP is an array of Vector3s containing the original vertices of the normal Mesh
+.RE
+.PP
+
+.SS "Vector3 [] AnzeigeSteuerung5\&.originalVertices2\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalVertices2\fP an array of Vector3s containing the original vertices of the upper orange Mesh
+.RE
+.PP
+
+.SS "Vector3 [] AnzeigeSteuerung5\&.originalVertices3\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalVertices3\fP is an array of Vector3s containing the original vertices of the upper red Mesh
+.RE
+.PP
+
+.SS "Vector3 [] AnzeigeSteuerung5\&.originalVertices8\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalVertices8\fP is an array of Vector3s containing the original vertices of the red lower mesh
+.RE
+.PP
+
+.SS "Vector3 [] AnzeigeSteuerung5\&.originalVertices9\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalVertices9\fP is an array of Vector3s containing the original vertices of the lower orange mesh
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.percentage = 50"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIpercentage\fP specifies the current percentage to be indicated by the normal bar
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.percentage2 = 50"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIpercentage2\fP specifies the current percentage to be indicated by the upper orange bar
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.percentage3 = 50"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIpercentage3\fP specifies the current percentage to be indicated by the upper red bar
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.percentage8 = 50"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIpercentage8\fP specifies the current percentage te bo indicated by the red lower bar
+.RE
+.PP
+
+.SS "int AnzeigeSteuerung5\&.percentage9 = 50"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIpercentage9\fP specifies the current percentage to be indicated by the lower orange bar
+.RE
+.PP
+
+.SS "float AnzeigeSteuerung5\&.start_Number = 0"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIstart_Number\fP specifies the lower bound of the display
+.RE
+.PP
+
+.SS "MeshFilter AnzeigeSteuerung5\&.toManiuplate8"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItoManipulate8\fP is a MeshFilter component of the red lower mesh
+.RE
+.PP
+
+.SS "MeshFilter AnzeigeSteuerung5\&.toManiuplate9"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItoManipulate9\fP is aMeshFilter component of the lower orange mesh
+.RE
+.PP
+
+.SS "MeshFilter AnzeigeSteuerung5\&.toManiuplateNORMAL"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItoManiuplateNORMAL\fP is a MeshFilter component of the normal Mesh
+.RE
+.PP
+
+.SS "MeshFilter AnzeigeSteuerung5\&.toManiuplateORANGE"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItoManiuplateORANGE\fP is a MeshFilter component of the upper orange Mesh
+.RE
+.PP
+
+.SS "MeshFilter AnzeigeSteuerung5\&.toManiuplateRED"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItoManiuplateRED\fP is a MeshFilter component of the upper red Mesh
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

@@ -1,0 +1,23 @@
+digraph "Flipper.Flip"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="Flipper.Flip",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="This method toggles gaze-guiding features on or off when the player flips the appropriate switch on t..."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="GazeGuidingPathPlayer.remove\lHighlightFromClipboardForButton",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_gaze_guiding_path_player.html#abbdd9b25780b3cb2057de8b017c777ef",tooltip="This method removes highlighting from a clipboard by reinitialising the respective clipboard without ..."];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="GazeGuidingPathPlayer.Highlight\lClipboard",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_gaze_guiding_path_player.html#aa66086d537484acc096dc7018eed373f",tooltip="This method highlights a task specified by index."];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="HUD.setText",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_h_u_d.html#a3ff87f31ee0f6ea2a0c6740603079bce",tooltip="This method extracts text from an input string and adds it to a text component on the canvas."];
+  Node2 -> Node5 [id="edge4_Node000002_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="GazeGuidingPathPlayer.Set\lGazeGuidingClipboard",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_gaze_guiding_path_player.html#a01986a14c36b6ec27b3cf6972ea1508a",tooltip="<sumary> This method activates highlighting for the text of a specific clipboard by creating a new Ga..."];
+  Node1 -> Node6 [id="edge5_Node000001_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="Flipper.RotateToAngle",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_flipper.html#a20695122346f35f5ee08f85c8a7b35ba",tooltip="This method is called to rotate a switch on the gaze-guiding panel."];
+  Node1 -> Node7 [id="edge6_Node000001_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="GazeGuidingPathPlayer.set\lDisplayHighlight",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_gaze_guiding_path_player.html#a7c87553cafda7ac163a6834e3e8c1d7c",tooltip="This method enables a glow effect on all displays related to a the component that is the currentTarge..."];
+  Node1 -> Node8 [id="edge7_Node000001_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="GazeGuidingPathPlayer.unset\lDisplayHighlight",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_gaze_guiding_path_player.html#a076b71de7fb11f304bd0d29996b8f055",tooltip="This method removes a glow effect from all displays it is currently applied to."];
+}

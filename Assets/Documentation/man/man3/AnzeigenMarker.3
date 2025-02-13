@@ -1,0 +1,336 @@
+.TH "AnzeigenMarker" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AnzeigenMarker \- This class implements graphical cues to highlight a display the player is supposed to manipulate and to mark the target value that the player is supposed to set\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "float \fBmoveSpeed\fP = 3f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImoveSpeed\fP sppecifies the speed of vertical movements
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBmoveAmount\fP = 0\&.015f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImoveAmount\fP specifies the amount of vertical movement
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBfontSizeSpeed\fP = 2f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIfontSizeSpeed\fP specifies the speed of the font size change
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBfontSizeAmount\fP = 0\&.1f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIfontSizeAmount\fP specifies the amount of font size change
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBtargetNumber\fP = 1000"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItargetNumber\fP is used to calculate the position of the arrow pointing to the target value
+.RE
+.PP
+"
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initialises an arrow pointing to the target value, a "!" marking the display and the control component (\fBAnzeigeSteuerung\fP) of the display\&. "
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.RI "This method updates the arrow's position marking the target value and the font size of the "!" marking the display\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "Transform \fBpfeilTransform\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIpfeilTransform\fP is a Transfom for animating the arrow pointing to the target value
+.RE
+.PP
+"
+.ti -1c
+.RI "TextMeshPro \fBtextMeshPro\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItextMeshPro\fP is a TextMeshPro used to mark the display by an "!" 
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBinitialY\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIinitialY\fP specifies the initial y position of the arrow pointing to the target value
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBinitialFontSize\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIinitialFontSize\fP specifies the initial font size set for the TextMeshPro
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBxleft\fP = 0\&.0611f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIxleft\fP specifies the leftmost position of the arrow indicating the target value
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBxright\fP = \-0\&.0734f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIxright\fP specifies the rightmost position of the arrow indicating the target value
+.RE
+.PP
+"
+.ti -1c
+.RI "\fBAnzeigeSteuerung\fP \fBanzeigeSteuerung\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanzeigeSteuerung\fP is a reference to an \fBAnzeigeSteuerung\fP used to get the upper limit of a display to calculate the target number
+.RE
+.PP
+"
+.ti -1c
+.RI "\fBAnzeigeSteuerung5\fP \fBanzeigeSteuerung2\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanzeigeSteuerung2\fP is a reference to an \fBAnzeigeSteuerung5\fP used to get the upper limit of a display to calculate the target number
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements graphical cues to highlight a display the player is supposed to manipulate and to mark the target value that the player is supposed to set\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void AnzeigenMarker\&.Start ()\fR [private]\fP"
+
+.PP
+This method initialises an arrow pointing to the target value, a "!" marking the display and the control component (\fBAnzeigeSteuerung\fP) of the display\&. 
+.SS "void AnzeigenMarker\&.Update ()\fR [private]\fP"
+
+.PP
+This method updates the arrow's position marking the target value and the font size of the "!" marking the display\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBAnzeigeSteuerung\fP AnzeigenMarker\&.anzeigeSteuerung\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanzeigeSteuerung\fP is a reference to an \fBAnzeigeSteuerung\fP used to get the upper limit of a display to calculate the target number
+.RE
+.PP
+
+.SS "\fBAnzeigeSteuerung5\fP AnzeigenMarker\&.anzeigeSteuerung2\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanzeigeSteuerung2\fP is a reference to an \fBAnzeigeSteuerung5\fP used to get the upper limit of a display to calculate the target number
+.RE
+.PP
+
+.SS "float AnzeigenMarker\&.fontSizeAmount = 0\&.1f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIfontSizeAmount\fP specifies the amount of font size change
+.RE
+.PP
+
+.SS "float AnzeigenMarker\&.fontSizeSpeed = 2f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIfontSizeSpeed\fP specifies the speed of the font size change
+.RE
+.PP
+
+.SS "float AnzeigenMarker\&.initialFontSize\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIinitialFontSize\fP specifies the initial font size set for the TextMeshPro
+.RE
+.PP
+
+.SS "float AnzeigenMarker\&.initialY\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIinitialY\fP specifies the initial y position of the arrow pointing to the target value
+.RE
+.PP
+
+.SS "float AnzeigenMarker\&.moveAmount = 0\&.015f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImoveAmount\fP specifies the amount of vertical movement
+.RE
+.PP
+
+.SS "float AnzeigenMarker\&.moveSpeed = 3f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImoveSpeed\fP sppecifies the speed of vertical movements
+.RE
+.PP
+
+.SS "Transform AnzeigenMarker\&.pfeilTransform\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIpfeilTransform\fP is a Transfom for animating the arrow pointing to the target value
+.RE
+.PP
+
+.SS "float AnzeigenMarker\&.targetNumber = 1000"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItargetNumber\fP is used to calculate the position of the arrow pointing to the target value
+.RE
+.PP
+
+.SS "TextMeshPro AnzeigenMarker\&.textMeshPro\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItextMeshPro\fP is a TextMeshPro used to mark the display by an "!" 
+.RE
+.PP
+
+.SS "float AnzeigenMarker\&.xleft = 0\&.0611f\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIxleft\fP specifies the leftmost position of the arrow indicating the target value
+.RE
+.PP
+
+.SS "float AnzeigenMarker\&.xright = \-0\&.0734f\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIxright\fP specifies the rightmost position of the arrow indicating the target value
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

@@ -1,0 +1,91 @@
+\doxysection{Energylvl Class Reference}
+\hypertarget{class_energylvl}{}\label{class_energylvl}\index{Energylvl@{Energylvl}}
+
+
+This class implements logic for displaying the current power output of the generator.  
+
+
+Inheritance diagram for Energylvl\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_energylvl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_energylvl_a628a048a835aaa94b50e202ec7f95db0}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current power output of the genrator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_energylvl_a6b6867d7a640f0ba1c550ee66fadbe72}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the display by reading the current power output from the Generator.\+power field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} \mbox{\hyperlink{class_energylvl_a022cf9b84b89e97293e884e86b58977c}{anzeige\+Steuerung}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_energylvl_adee2e2e185250af51ff2827c3775c722}{client\+Object}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic for displaying the current power output of the generator. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_energylvl_a628a048a835aaa94b50e202ec7f95db0}\index{Energylvl@{Energylvl}!Start@{Start}}
+\index{Start@{Start}!Energylvl@{Energylvl}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_energylvl_a628a048a835aaa94b50e202ec7f95db0} 
+void Energylvl.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current power output of the genrator. 
+
+\Hypertarget{class_energylvl_a6b6867d7a640f0ba1c550ee66fadbe72}\index{Energylvl@{Energylvl}!Update@{Update}}
+\index{Update@{Update}!Energylvl@{Energylvl}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_energylvl_a6b6867d7a640f0ba1c550ee66fadbe72} 
+void Energylvl.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the display by reading the current power output from the Generator.\+power field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_energylvl_a022cf9b84b89e97293e884e86b58977c}\index{Energylvl@{Energylvl}!anzeigeSteuerung@{anzeigeSteuerung}}
+\index{anzeigeSteuerung@{anzeigeSteuerung}!Energylvl@{Energylvl}}
+\doxysubsubsection{\texorpdfstring{anzeigeSteuerung}{anzeigeSteuerung}}
+{\footnotesize\ttfamily \label{class_energylvl_a022cf9b84b89e97293e884e86b58977c} 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} Energylvl.\+anzeige\+Steuerung\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_energylvl_adee2e2e185250af51ff2827c3775c722}\index{Energylvl@{Energylvl}!clientObject@{clientObject}}
+\index{clientObject@{clientObject}!Energylvl@{Energylvl}}
+\doxysubsubsection{\texorpdfstring{clientObject}{clientObject}}
+{\footnotesize\ttfamily \label{class_energylvl_adee2e2e185250af51ff2827c3775c722} 
+Game\+Object Energylvl.\+client\+Object\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Anzeigen/\mbox{\hyperlink{_energylvl_8cs}{Energylvl.\+cs}}\end{DoxyCompactItemize}

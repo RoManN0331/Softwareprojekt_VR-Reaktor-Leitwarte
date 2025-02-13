@@ -1,0 +1,492 @@
+.TH "FarbenButton" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FarbenButton \- This class is used to change the color scheme in the scene to accommodate color blindness\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBChangeColorOfGazeGuidingButtons\fP ()"
+.br
+.RI "This method applies a new colour scheme to the \fBGazeGuidingButtons\fP in the scene\&. "
+.ti -1c
+.RI "void \fBrevertChangeColorOfGazeGuidingButtons\fP ()"
+.br
+.RI "This method reverts the colour scheme of the \fBGazeGuidingButtons\fP in the scene to the original colour scheme\&. "
+.ti -1c
+.RI "void \fBChangeMeltdownColorForLamps\fP ()"
+.br
+.RI "This method applies a new colour scheme to the lamps signalling the failure of specific components\&. "
+.ti -1c
+.RI "void \fBrevertChangeMeltdownColorForLamps\fP ()"
+.br
+.RI "This method reverts the colour scheme of the lamps signalling the failure of specific components to the original colour scheme\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "XRBaseInteractable \fBinteractable\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIinteractable\fP is a reference to a XRSimpleInteractable
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBmoveDistance\fP = 0\&.5f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImoveDistance\fP specifies how far to move the button during the animation 
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBanimationDuration\fP = 0\&.5f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimationDuration\fP specifies the duration of the animation
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBcooldownDuration\fP = 1f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIcooldownDuration\fP specifies the duration of the animation cooldown
+.RE
+.PP
+"
+.ti -1c
+.RI "Material[] \fBmaterialsEmissionChange\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImaterialsEmissionChange\fP is an array of materials to adjust
+.RE
+.PP
+"
+.ti -1c
+.RI "Color[] \fBnewColorsEmission\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fInewColorsEmission\fP is an array of new colors to apply to materials
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBemissionIntensity\fP = 1\&.0f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIemissionIntensity\fP stores the Intensity of the emission color
+.RE
+.PP
+"
+.ti -1c
+.RI "TextMeshPro[] \fBtextMeshProObjects\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItextMeshProObjects\fP is an array of TextMeshPro objects to adjust
+.RE
+.PP
+"
+.ti -1c
+.RI "Color \fBnewTextColors\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fInewTextColors\fP is an array of new colors to apply to TextMeshPro objects
+.RE
+.PP
+"
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method finds, stores and deactivates all active display annotations\&. "
+.ti -1c
+.RI "void \fBOnEnable\fP ()"
+.br
+.RI "This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events\&. "
+.ti -1c
+.RI "void \fBOnDisable\fP ()"
+.br
+.RI "This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events\&. "
+.ti -1c
+.RI "void \fBOnSelectEntered\fP (SelectEnterEventArgs args)"
+.br
+.RI "This method is called when an interactor enters the object and toggles colour blind mode\&. "
+.ti -1c
+.RI "IEnumerator \fBAnimateTransform\fP ()"
+.br
+.RI "This method animates the button by moving it back and forth calling \fBMoveToPosition()\fP\&. "
+.ti -1c
+.RI "IEnumerator \fBMoveToPosition\fP (Vector3 start, Vector3 end, float duration)"
+.br
+.RI "This method is called in \fBAnimateTransform()\fP to move the button\&. "
+.ti -1c
+.RI "void \fBChangeMaterialsEmission\fP ()"
+.br
+.RI "This method applies a new emission colour scheme to all the materials in the scene\&. "
+.ti -1c
+.RI "void \fBrevertChangeMaterialsEmission\fP ()"
+.br
+.RI "This method reverts the emission colour scheme of all the materials in the scene to the original colour scheme\&. "
+.ti -1c
+.RI "void \fBChangeTextMeshProColors\fP ()"
+.br
+.RI "This method applies a new colour scheme to all TextMeshPro objects in the scene\&. "
+.ti -1c
+.RI "void \fBrevertChangeTextMeshProColors\fP ()"
+.br
+.RI "This method reverts the colour scheme of all TextMeshPro objects in the scene to the original colour scheme\&. "
+.ti -1c
+.RI "void \fBChangeCueColor\fP ()"
+.br
+.RI "This method applies a new colour scheme to the DirectionCue objects in the scene\&. "
+.ti -1c
+.RI "void \fBrevertChangeCueColor\fP ()"
+.br
+.RI "This method reverts the colour scheme of the DirectionCue objects in the scene back to the original color scheme\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBisAnimating\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisAnimating\fP tracks whether the button is currently being animated
+.RE
+.PP
+"
+.ti -1c
+.RI "Color[] \fBoriginalColors\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalColors\fP is an array storing original colours
+.RE
+.PP
+"
+.ti -1c
+.RI "Color[] \fBoriginalEmissionColors\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalEmissionColors\fP is an array storing original emission colours
+.RE
+.PP
+"
+.ti -1c
+.RI "Color[] \fBoriginalTextColors\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalTextColors\fP is an array storing original text colours
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBcolorBlindModeActivated\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIcolorBlindModeActivated\fP tracks whether the color blind mode is currently active
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class is used to change the color scheme in the scene to accommodate color blindness\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "IEnumerator FarbenButton\&.AnimateTransform ()\fR [private]\fP"
+
+.PP
+This method animates the button by moving it back and forth calling \fBMoveToPosition()\fP\&. 
+.SS "void FarbenButton\&.ChangeColorOfGazeGuidingButtons ()"
+
+.PP
+This method applies a new colour scheme to the \fBGazeGuidingButtons\fP in the scene\&. 
+.SS "void FarbenButton\&.ChangeCueColor ()\fR [private]\fP"
+
+.PP
+This method applies a new colour scheme to the DirectionCue objects in the scene\&. 
+.SS "void FarbenButton\&.ChangeMaterialsEmission ()\fR [private]\fP"
+
+.PP
+This method applies a new emission colour scheme to all the materials in the scene\&. 
+.SS "void FarbenButton\&.ChangeMeltdownColorForLamps ()"
+
+.PP
+This method applies a new colour scheme to the lamps signalling the failure of specific components\&. 
+.SS "void FarbenButton\&.ChangeTextMeshProColors ()\fR [private]\fP"
+
+.PP
+This method applies a new colour scheme to all TextMeshPro objects in the scene\&. 
+.SS "IEnumerator FarbenButton\&.MoveToPosition (Vector3 start, Vector3 end, float duration)\fR [private]\fP"
+
+.PP
+This method is called in \fBAnimateTransform()\fP to move the button\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstart\fP is a Vector3 specifying the origin of the movement
+.br
+\fIend\fP is a Vector3 specifying the end position of the movement
+.br
+\fIduration\fP specifies the duration of the animation
+.RE
+.PP
+
+.SS "void FarbenButton\&.OnDisable ()\fR [private]\fP"
+
+.PP
+This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events\&. Additionally the original colour scheme is restored\&. 
+.SS "void FarbenButton\&.OnEnable ()\fR [private]\fP"
+
+.PP
+This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events\&. 
+.SS "void FarbenButton\&.OnSelectEntered (SelectEnterEventArgs args)\fR [private]\fP"
+
+.PP
+This method is called when an interactor enters the object and toggles colour blind mode\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP passes event specific arguments upon entering the interaction
+.RE
+.PP
+
+.SS "void FarbenButton\&.revertChangeColorOfGazeGuidingButtons ()"
+
+.PP
+This method reverts the colour scheme of the \fBGazeGuidingButtons\fP in the scene to the original colour scheme\&. 
+.SS "void FarbenButton\&.revertChangeCueColor ()\fR [private]\fP"
+
+.PP
+This method reverts the colour scheme of the DirectionCue objects in the scene back to the original color scheme\&. 
+.SS "void FarbenButton\&.revertChangeMaterialsEmission ()\fR [private]\fP"
+
+.PP
+This method reverts the emission colour scheme of all the materials in the scene to the original colour scheme\&. 
+.SS "void FarbenButton\&.revertChangeMeltdownColorForLamps ()"
+
+.PP
+This method reverts the colour scheme of the lamps signalling the failure of specific components to the original colour scheme\&. 
+.SS "void FarbenButton\&.revertChangeTextMeshProColors ()\fR [private]\fP"
+
+.PP
+This method reverts the colour scheme of all TextMeshPro objects in the scene to the original colour scheme\&. 
+.SS "void FarbenButton\&.Start ()\fR [private]\fP"
+
+.PP
+This method finds, stores and deactivates all active display annotations\&. It also stores the original colour scheme of the scene\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "float FarbenButton\&.animationDuration = 0\&.5f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimationDuration\fP specifies the duration of the animation
+.RE
+.PP
+
+.SS "bool FarbenButton\&.colorBlindModeActivated = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcolorBlindModeActivated\fP tracks whether the color blind mode is currently active
+.RE
+.PP
+
+.SS "float FarbenButton\&.cooldownDuration = 1f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcooldownDuration\fP specifies the duration of the animation cooldown
+.RE
+.PP
+
+.SS "float FarbenButton\&.emissionIntensity = 1\&.0f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIemissionIntensity\fP stores the Intensity of the emission color
+.RE
+.PP
+
+.SS "XRBaseInteractable FarbenButton\&.interactable"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIinteractable\fP is a reference to a XRSimpleInteractable
+.RE
+.PP
+
+.SS "bool FarbenButton\&.isAnimating = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisAnimating\fP tracks whether the button is currently being animated
+.RE
+.PP
+
+.SS "Material [] FarbenButton\&.materialsEmissionChange"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImaterialsEmissionChange\fP is an array of materials to adjust
+.RE
+.PP
+
+.SS "float FarbenButton\&.moveDistance = 0\&.5f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImoveDistance\fP specifies how far to move the button during the animation 
+.RE
+.PP
+
+.SS "Color [] FarbenButton\&.newColorsEmission"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fInewColorsEmission\fP is an array of new colors to apply to materials
+.RE
+.PP
+
+.SS "Color FarbenButton\&.newTextColors"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fInewTextColors\fP is an array of new colors to apply to TextMeshPro objects
+.RE
+.PP
+
+.SS "Color [] FarbenButton\&.originalColors\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalColors\fP is an array storing original colours
+.RE
+.PP
+
+.SS "Color [] FarbenButton\&.originalEmissionColors\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalEmissionColors\fP is an array storing original emission colours
+.RE
+.PP
+
+.SS "Color [] FarbenButton\&.originalTextColors\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIoriginalTextColors\fP is an array storing original text colours
+.RE
+.PP
+
+.SS "TextMeshPro [] FarbenButton\&.textMeshProObjects"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItextMeshProObjects\fP is an array of TextMeshPro objects to adjust
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

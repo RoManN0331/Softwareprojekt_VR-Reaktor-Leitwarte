@@ -1,0 +1,191 @@
+\doxysection{Glow Class Reference}
+\hypertarget{class_glow}{}\label{class_glow}\index{Glow@{Glow}}
+
+
+This class implements logic to apply a glow effect to an object.  
+
+
+Inheritance diagram for Glow\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_glow}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_glow_a98766d32ff36f8d7c1e08e1962c4e5ae}{set\+Glowing}} ()
+\begin{DoxyCompactList}\small\item\em This method toggles the glow effect on and off. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_glow_a952c853f655a9a5cb47087a3e7905f7f}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the object\+Renderer to render the glow effect and sets the strength of the effect. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_glow_ad8fd2d42b2fd7cc323af201e7a2cc780}{Animate\+Glow}} (float start\+Value, float end\+Value, float duration)
+\begin{DoxyCompactList}\small\item\em This method interpolates the glow strength. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_glow_ab7c66507aee4c07503159fae902b7b4a}{glow\+Strength\+\_\+on}} = 1.\+5f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em glow\+Strength\+\_\+on} & specifies the strength of the glow effect when turned on\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_glow_a2a41a44841208bfe1b72d3013eb63528}{glow\+Strength\+\_\+off}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em glow\+Strength\+\_\+off} & specifies the strength of the glow effect when turned off\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_glow_a44f40d3723db580757e35ba92f887c6e}{is\+Glowing}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Glowing} & checks if the glow effect is currently active active on the object \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Renderer \mbox{\hyperlink{class_glow_a2f0aa29af3deb4826acfd0061afcee1d}{object\+Renderer}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em object\+Renderer} & is a reference to a renderer object to render the glow effect \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Material \mbox{\hyperlink{class_glow_a4d15bd9b378a12b30cb12a9f84819734}{mats}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em mats} & is a Material being rendered by the renderer \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic to apply a glow effect to an object. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_glow_ad8fd2d42b2fd7cc323af201e7a2cc780}\index{Glow@{Glow}!AnimateGlow@{AnimateGlow}}
+\index{AnimateGlow@{AnimateGlow}!Glow@{Glow}}
+\doxysubsubsection{\texorpdfstring{AnimateGlow()}{AnimateGlow()}}
+{\footnotesize\ttfamily \label{class_glow_ad8fd2d42b2fd7cc323af201e7a2cc780} 
+IEnumerator Glow.\+Animate\+Glow (\begin{DoxyParamCaption}\item[{float}]{start\+Value}{, }\item[{float}]{end\+Value}{, }\item[{float}]{duration}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method interpolates the glow strength. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Value} & lower bound for the interpolation\\
+\hline
+{\em end\+Value} & upper bound for the interpolation\\
+\hline
+{\em duration} & duration of the interpolation\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_glow_a98766d32ff36f8d7c1e08e1962c4e5ae}\index{Glow@{Glow}!setGlowing@{setGlowing}}
+\index{setGlowing@{setGlowing}!Glow@{Glow}}
+\doxysubsubsection{\texorpdfstring{setGlowing()}{setGlowing()}}
+{\footnotesize\ttfamily \label{class_glow_a98766d32ff36f8d7c1e08e1962c4e5ae} 
+void Glow.\+set\+Glowing (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method toggles the glow effect on and off. 
+
+\Hypertarget{class_glow_a952c853f655a9a5cb47087a3e7905f7f}\index{Glow@{Glow}!Start@{Start}}
+\index{Start@{Start}!Glow@{Glow}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_glow_a952c853f655a9a5cb47087a3e7905f7f} 
+void Glow.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the object\+Renderer to render the glow effect and sets the strength of the effect. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_glow_a2a41a44841208bfe1b72d3013eb63528}\index{Glow@{Glow}!glowStrength\_off@{glowStrength\_off}}
+\index{glowStrength\_off@{glowStrength\_off}!Glow@{Glow}}
+\doxysubsubsection{\texorpdfstring{glowStrength\_off}{glowStrength\_off}}
+{\footnotesize\ttfamily \label{class_glow_a2a41a44841208bfe1b72d3013eb63528} 
+float Glow.\+glow\+Strength\+\_\+off = 0.\+0f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em glow\+Strength\+\_\+off} & specifies the strength of the glow effect when turned off\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_glow_ab7c66507aee4c07503159fae902b7b4a}\index{Glow@{Glow}!glowStrength\_on@{glowStrength\_on}}
+\index{glowStrength\_on@{glowStrength\_on}!Glow@{Glow}}
+\doxysubsubsection{\texorpdfstring{glowStrength\_on}{glowStrength\_on}}
+{\footnotesize\ttfamily \label{class_glow_ab7c66507aee4c07503159fae902b7b4a} 
+float Glow.\+glow\+Strength\+\_\+on = 1.\+5f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em glow\+Strength\+\_\+on} & specifies the strength of the glow effect when turned on\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_glow_a44f40d3723db580757e35ba92f887c6e}\index{Glow@{Glow}!isGlowing@{isGlowing}}
+\index{isGlowing@{isGlowing}!Glow@{Glow}}
+\doxysubsubsection{\texorpdfstring{isGlowing}{isGlowing}}
+{\footnotesize\ttfamily \label{class_glow_a44f40d3723db580757e35ba92f887c6e} 
+bool Glow.\+is\+Glowing = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Glowing} & checks if the glow effect is currently active active on the object \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_glow_a4d15bd9b378a12b30cb12a9f84819734}\index{Glow@{Glow}!mats@{mats}}
+\index{mats@{mats}!Glow@{Glow}}
+\doxysubsubsection{\texorpdfstring{mats}{mats}}
+{\footnotesize\ttfamily \label{class_glow_a4d15bd9b378a12b30cb12a9f84819734} 
+Material Glow.\+mats\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em mats} & is a Material being rendered by the renderer \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_glow_a2f0aa29af3deb4826acfd0061afcee1d}\index{Glow@{Glow}!objectRenderer@{objectRenderer}}
+\index{objectRenderer@{objectRenderer}!Glow@{Glow}}
+\doxysubsubsection{\texorpdfstring{objectRenderer}{objectRenderer}}
+{\footnotesize\ttfamily \label{class_glow_a2f0aa29af3deb4826acfd0061afcee1d} 
+Renderer Glow.\+object\+Renderer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em object\+Renderer} & is a reference to a renderer object to render the glow effect \\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/shader/scripts/\mbox{\hyperlink{_glow_8cs}{Glow.\+cs}}\end{DoxyCompactItemize}

@@ -1,18 +1,20 @@
 using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This class implements logic for displaying the current RPM of the condenser pump.
+/// </summary>
 public class CPRPM : MonoBehaviour
 {
+    /// <param name="anzeigeSteuerung"> is a reference to the displays AnzeigeSteuerung component </param>
     private AnzeigeSteuerung anzeigeSteuerung;
 
+    /// <param name="clientObject"=> is a reference to the scene's clientObject</param>
     private GameObject clientObject;
 
 /// <summary>
-/// Start () initializes the display update procedure by fetching the AnzeigeSteuerung script and if successful, fetching the NPPClient script. 
-/// The AnzeigeSteuerung Script is responsible for updating the display with the current speed ratio of the condenser pump. Because the maximum RPM of the condenser pump is set in the simulation to 2000, the update of the speed ratio is computed by the following formula: current RPM / 2000 * 100.
-/// The NPPClient Script is responsible for fetching the current RPM of the condenser pump from the simulation via the REST Server API. The current RPM is stored in CP.rpm field of the NPPReactorState object simulation.
+/// This method initializes the AnzeigeSteuerung component, clientObject and the display by calling the NPPReactorState object in NPPClient to fetch the current RPM of the condenser pump.</summary>
 /// </summary>
-
     void Start()
     {
         anzeigeSteuerung = GetComponent<AnzeigeSteuerung>();
@@ -25,9 +27,8 @@ public class CPRPM : MonoBehaviour
     }
 
 /// <summary>
-/// Update() updates the display for the condenser pumps speed ratio within each frame by fetching its RPM stored in the CP.rpm field of the NPPClient Scripts simulation object and updating the speed ration by computing: current RPM / 2000 * 100.
+/// This method updates the display by reading the current RPM of the condenser pump from the CP.rpm field of the NPPReactorState object in NPPClient. 
 /// </summary>
-
     void Update()
     {
         anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.CP.rpm / 2000f * 100;

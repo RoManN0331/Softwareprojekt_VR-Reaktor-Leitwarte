@@ -1,0 +1,221 @@
+\doxysection{Clipboard\+Normal\+Shutdown Class Reference}
+\hypertarget{class_clipboard_normal_shutdown}{}\label{class_clipboard_normal_shutdown}\index{ClipboardNormalShutdown@{ClipboardNormalShutdown}}
+
+
+This class implements logic to trigger the normal shutdown scenario of the \doxylink{class_n_p_p_client}{NPPClient} class.  
+
+
+Inheritance diagram for Clipboard\+Normal\+Shutdown\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_clipboard_normal_shutdown}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Input\+Action \mbox{\hyperlink{class_clipboard_normal_shutdown_affcd466c14a3d7e27206f34d13b2bcc3}{action\+Trigger}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em action\+Trigger} & is a reference to an Input\+Action\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Input\+Action\+Asset \mbox{\hyperlink{class_clipboard_normal_shutdown_a89853e8033087bdefbdd85dfa7142c4d}{clipboard\+Actions}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em clipboard\+Actions} & is a reference to an Input\+Action\+Asset\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_clipboard_normal_shutdown_a5a3bff7940e51b2df2e378208961fb27}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes clipboard\+Actions and adds Action\+Listeners to the clipboard\textquotesingle{}s grab interactable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_clipboard_normal_shutdown_a76b02940f4c84b927a251ee873e58c24}{On\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em This method removes the Action\+Listener, disables the Action\+Trigger and destroys the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_clipboard_normal_shutdown_a55afcbf4df962508cc1a6f68e7220de2}{On\+Select\+Entered}} (Select\+Enter\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when the player interacts with the clipboard. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_clipboard_normal_shutdown_a58e5f28db3037f13abf88ab5ec2819f3}{On\+Select\+Exited}} (Select\+Exit\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when the player no longer interacts with the clipboard. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_clipboard_normal_shutdown_a23f21f7a59e618d0ace5efaee836d86c}{On\+Action\+Triggered}} (Input\+Action.\+Callback\+Context context)
+\begin{DoxyCompactList}\small\item\em This method is called when the action\+Trigger is released, initiating the normal shutdown scenario on npp\+Client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_n_p_p_client}{NPPClient}} \mbox{\hyperlink{class_clipboard_normal_shutdown_a122599376f2d26720a61b4bddd0bb353}{npp\+Client}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em npp\+Client} & is a reference to an instance of the \doxylink{class_n_p_p_client}{NPPClient} class\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_clipboard_normal_shutdown_a9f572860561d1a9afc2d216f75293162}{is\+Interacting}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Interacting} & tracks whether the player interacts with the object this script is attached to\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Unity\+Engine.\+XR.\+Interaction.\+Toolkit.\+Interactors.\+XRBase\+Interactor \mbox{\hyperlink{class_clipboard_normal_shutdown_adab89e05d83c0f3d1bacc13ec18a9a5e}{interactor}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em interactor} & os a reference to ta XRBase\+Interactor\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic to trigger the normal shutdown scenario of the \doxylink{class_n_p_p_client}{NPPClient} class. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_clipboard_normal_shutdown_a23f21f7a59e618d0ace5efaee836d86c}\index{ClipboardNormalShutdown@{ClipboardNormalShutdown}!OnActionTriggered@{OnActionTriggered}}
+\index{OnActionTriggered@{OnActionTriggered}!ClipboardNormalShutdown@{ClipboardNormalShutdown}}
+\doxysubsubsection{\texorpdfstring{OnActionTriggered()}{OnActionTriggered()}}
+{\footnotesize\ttfamily \label{class_clipboard_normal_shutdown_a23f21f7a59e618d0ace5efaee836d86c} 
+void Clipboard\+Normal\+Shutdown.\+On\+Action\+Triggered (\begin{DoxyParamCaption}\item[{Input\+Action.\+Callback\+Context}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the action\+Trigger is released, initiating the normal shutdown scenario on npp\+Client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & passes event specific arguments\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_clipboard_normal_shutdown_a76b02940f4c84b927a251ee873e58c24}\index{ClipboardNormalShutdown@{ClipboardNormalShutdown}!OnDestroy@{OnDestroy}}
+\index{OnDestroy@{OnDestroy}!ClipboardNormalShutdown@{ClipboardNormalShutdown}}
+\doxysubsubsection{\texorpdfstring{OnDestroy()}{OnDestroy()}}
+{\footnotesize\ttfamily \label{class_clipboard_normal_shutdown_a76b02940f4c84b927a251ee873e58c24} 
+void Clipboard\+Normal\+Shutdown.\+On\+Destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method removes the Action\+Listener, disables the Action\+Trigger and destroys the object. 
+
+\Hypertarget{class_clipboard_normal_shutdown_a55afcbf4df962508cc1a6f68e7220de2}\index{ClipboardNormalShutdown@{ClipboardNormalShutdown}!OnSelectEntered@{OnSelectEntered}}
+\index{OnSelectEntered@{OnSelectEntered}!ClipboardNormalShutdown@{ClipboardNormalShutdown}}
+\doxysubsubsection{\texorpdfstring{OnSelectEntered()}{OnSelectEntered()}}
+{\footnotesize\ttfamily \label{class_clipboard_normal_shutdown_a55afcbf4df962508cc1a6f68e7220de2} 
+void Clipboard\+Normal\+Shutdown.\+On\+Select\+Entered (\begin{DoxyParamCaption}\item[{Select\+Enter\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the player interacts with the clipboard. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments at the beginning of the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_clipboard_normal_shutdown_a58e5f28db3037f13abf88ab5ec2819f3}\index{ClipboardNormalShutdown@{ClipboardNormalShutdown}!OnSelectExited@{OnSelectExited}}
+\index{OnSelectExited@{OnSelectExited}!ClipboardNormalShutdown@{ClipboardNormalShutdown}}
+\doxysubsubsection{\texorpdfstring{OnSelectExited()}{OnSelectExited()}}
+{\footnotesize\ttfamily \label{class_clipboard_normal_shutdown_a58e5f28db3037f13abf88ab5ec2819f3} 
+void Clipboard\+Normal\+Shutdown.\+On\+Select\+Exited (\begin{DoxyParamCaption}\item[{Select\+Exit\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the player no longer interacts with the clipboard. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments at the end of the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_clipboard_normal_shutdown_a5a3bff7940e51b2df2e378208961fb27}\index{ClipboardNormalShutdown@{ClipboardNormalShutdown}!Start@{Start}}
+\index{Start@{Start}!ClipboardNormalShutdown@{ClipboardNormalShutdown}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_clipboard_normal_shutdown_a5a3bff7940e51b2df2e378208961fb27} 
+void Clipboard\+Normal\+Shutdown.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initializes clipboard\+Actions and adds Action\+Listeners to the clipboard\textquotesingle{}s grab interactable. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_clipboard_normal_shutdown_affcd466c14a3d7e27206f34d13b2bcc3}\index{ClipboardNormalShutdown@{ClipboardNormalShutdown}!actionTrigger@{actionTrigger}}
+\index{actionTrigger@{actionTrigger}!ClipboardNormalShutdown@{ClipboardNormalShutdown}}
+\doxysubsubsection{\texorpdfstring{actionTrigger}{actionTrigger}}
+{\footnotesize\ttfamily \label{class_clipboard_normal_shutdown_affcd466c14a3d7e27206f34d13b2bcc3} 
+Input\+Action Clipboard\+Normal\+Shutdown.\+action\+Trigger}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em action\+Trigger} & is a reference to an Input\+Action\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_clipboard_normal_shutdown_a89853e8033087bdefbdd85dfa7142c4d}\index{ClipboardNormalShutdown@{ClipboardNormalShutdown}!clipboardActions@{clipboardActions}}
+\index{clipboardActions@{clipboardActions}!ClipboardNormalShutdown@{ClipboardNormalShutdown}}
+\doxysubsubsection{\texorpdfstring{clipboardActions}{clipboardActions}}
+{\footnotesize\ttfamily \label{class_clipboard_normal_shutdown_a89853e8033087bdefbdd85dfa7142c4d} 
+Input\+Action\+Asset Clipboard\+Normal\+Shutdown.\+clipboard\+Actions}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em clipboard\+Actions} & is a reference to an Input\+Action\+Asset\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_clipboard_normal_shutdown_adab89e05d83c0f3d1bacc13ec18a9a5e}\index{ClipboardNormalShutdown@{ClipboardNormalShutdown}!interactor@{interactor}}
+\index{interactor@{interactor}!ClipboardNormalShutdown@{ClipboardNormalShutdown}}
+\doxysubsubsection{\texorpdfstring{interactor}{interactor}}
+{\footnotesize\ttfamily \label{class_clipboard_normal_shutdown_adab89e05d83c0f3d1bacc13ec18a9a5e} 
+Unity\+Engine.\+XR.\+Interaction.\+Toolkit.\+Interactors.\+XRBase\+Interactor Clipboard\+Normal\+Shutdown.\+interactor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em interactor} & os a reference to ta XRBase\+Interactor\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_clipboard_normal_shutdown_a9f572860561d1a9afc2d216f75293162}\index{ClipboardNormalShutdown@{ClipboardNormalShutdown}!isInteracting@{isInteracting}}
+\index{isInteracting@{isInteracting}!ClipboardNormalShutdown@{ClipboardNormalShutdown}}
+\doxysubsubsection{\texorpdfstring{isInteracting}{isInteracting}}
+{\footnotesize\ttfamily \label{class_clipboard_normal_shutdown_a9f572860561d1a9afc2d216f75293162} 
+bool Clipboard\+Normal\+Shutdown.\+is\+Interacting = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Interacting} & tracks whether the player interacts with the object this script is attached to\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_clipboard_normal_shutdown_a122599376f2d26720a61b4bddd0bb353}\index{ClipboardNormalShutdown@{ClipboardNormalShutdown}!nppClient@{nppClient}}
+\index{nppClient@{nppClient}!ClipboardNormalShutdown@{ClipboardNormalShutdown}}
+\doxysubsubsection{\texorpdfstring{nppClient}{nppClient}}
+{\footnotesize\ttfamily \label{class_clipboard_normal_shutdown_a122599376f2d26720a61b4bddd0bb353} 
+\mbox{\hyperlink{class_n_p_p_client}{NPPClient}} Clipboard\+Normal\+Shutdown.\+npp\+Client\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em npp\+Client} & is a reference to an instance of the \doxylink{class_n_p_p_client}{NPPClient} class\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Clipboards/\mbox{\hyperlink{_clipboard_normal_shutdown_8cs}{Clipboard\+Normal\+Shutdown.\+cs}}\end{DoxyCompactItemize}

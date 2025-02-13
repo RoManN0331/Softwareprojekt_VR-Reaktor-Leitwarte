@@ -1,0 +1,700 @@
+\doxysection{Flipper Class Reference}
+\hypertarget{class_flipper}{}\label{class_flipper}\index{Flipper@{Flipper}}
+
+
+This class implements logic to enable or disable gaze-\/guiding features via corresponding switches on a gaze-\/guiding panel in the VR application.  
+
+
+Inheritance diagram for Flipper\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_flipper}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_flipper_a4e591ac8cc0ac049cd827b468e0dcd1d}{update\+Materials}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the materials of a switch that the player has flipped (red when on, grey when off). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_flipper_a14d9d9c267de295c4320d84d8cd40847}{revert\+Materials}} ()
+\begin{DoxyCompactList}\small\item\em This method reverts the materials of a switch that the player has flipped to their original state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Material \mbox{\hyperlink{class_flipper_a2d273292f2986546c16451386cff44de}{mat}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em mat} & is a Material currently assigned to a switch\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Material \mbox{\hyperlink{class_flipper_a85c3714edd35c450afd4cf2e8d6cc7cf}{oldmat}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em oldmat} & is a Material previously assigned to a switch\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_a55961d86bea8497e7c9fed9d4f2e54e1}{Direction\+Cue\+Enabled}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Cue\+Enabled} & tracks whether the direction cue feature is switched on\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_a670cf44a332782a07b05bc063b153d0b}{Direction\+Arrow\+Enabled}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Arrow\+Enabled} & tracks whether the direction arrow feature is switched on\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_a757c15d258cb015d94ab394975943539}{Direction\+Arrow\+On\+Screen}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Arrow\+On\+Screen} & tracks whether the direction arrow is shown on screen\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_af0133bced36d7d8daec160106f3b060a}{Arrow3\+DEnabled}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Arrow3\+DEnabled} & tracks whether the continuous 3D arrow feature is switched on\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_a989f00aaa409f89d470a429b87ecf1c8}{Arrow3\+DBinear\+Enabled}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Arrow3\+DBinear\+Enabled} & tracks whether the binary 3D arrow feature is switched on\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_abbfc3c6b65949ee55f50e7667fb212e8}{Anzeigen\+Markierung\+Enabled}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Anzeigen\+Markierung\+Enabled} & tracks whether display annotations are switched on\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_a5efccbeaabec09f5990d3439184990e9}{HUDEnabled}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em HUDEnabled} & tracks whether the \doxylink{class_h_u_d}{HUD} is enabled\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_a7ecc171e57adc9f4e64fd0c14219ca67}{if\+HUDEnabled\+Should\+It\+Be\+On}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em if\+HUDEnabled\+Should\+It\+Be\+On} & tracks whether the \doxylink{class_h_u_d}{HUD} should be on\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_aef2eaab9cb394e38837a90ddf744ecc1}{Detach\+Enabled}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Detach\+Enabled} & tracks whether the detach feature is switched on\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_a4c9c9fe2bacd09a8c6a01e2c85040e84}{distractions\+Enabled}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em distractions\+Enabled} & tracks whether distractions are switched on \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_a465f0f2a906a4a484ba34b91542f54e9}{ifdistractions\+Enabled\+Should\+It\+Be\+On}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em ifdistractions\+Enabled\+Should\+It\+Be\+On} & tracks whether distractions should be on\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_a37bdf9408d42d30c4bf86e2e46ae8c2c}{Blur\+Enabled}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Blur\+Enabled} & tracks whether the blur feature is switched on\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_a92d498df5397f90c2dd7e736b0bfbe81}{clipboard\+Highlight}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em clipboard\+Highlight} & tracks whether the clipboard highlight feature is switched on\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_ab4f1cf58bc571bd173cd7b7617f04a9b}{clipboard\+Highlight\+Should\+It\+Be\+On}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em clipboard\+Highlight\+Should\+It\+Be\+On} & tracks whether clipboard highlights should be on\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_addd34fe6d68d0022d990ae1d4474b468}{Anzeigen\+Highlight}} = false
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<}param name="{}\+Anzeigen\+Highlight"{}=\texorpdfstring{$>$}{>} tracks whether the display highlight feature is switched on\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_a14f4164e05b1827858bed40a8bee4d01}{Anzeigen\+Highlight\+Should\+It\+Be\+On}} = false
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<}param name="{}\+Anzeigen\+Highlight\+Should\+It\+Be\+On"{}=\texorpdfstring{$>$}{>} tracks whether the display highlight feature should be on \end{DoxyCompactList}\item 
+Input\+Action\+Reference \mbox{\hyperlink{class_flipper_adbde2de84daf5c333d72e6437453ce15}{trigger}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em trigger} & is an Input\+Action\+Reference referencing a XRI Right Interaction/\+Select\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_flipper_a31fb6b9a26dff9407966639f9c6d69b0}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method sets up input actions and initialises the gaze-\/guiding features\textquotesingle{} states based on the settings in the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_flipper_a764009689ccde98f855291a5b2bee954}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the state of the gaze-\/guiding features based on the player\textquotesingle{}s interaction with the switches on the gaze-\/guiding panel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_flipper_a89077822a424c58aa59217c4d61044b0}{On\+Enable}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the object is enabled and adds event listeners for the select\+Entered and select\+Exited events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_flipper_a43276dadb741c43e0ef6545dd9c4ff4b}{On\+Disable}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the object is disabled and removes event listeners for the select\+Entered and select\+Exited events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_flipper_afbdcf9ed669cb0c8aef704fb8067cf33}{On\+Hover\+Entered}} (Hover\+Enter\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when the XR interactor looks at the object, i.\+e. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_flipper_a906609140dd9446067bcc0a9c983b621}{On\+Hover\+Exited}} (Hover\+Exit\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when the XR interactor is no longer looking at the object, i.\+e. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_flipper_a79a6a3483ba974096106ff09e879b7b5}{Flip}} ()
+\begin{DoxyCompactList}\small\item\em This method toggles gaze-\/guiding features on or off when the player flips the appropriate switch on the gaze-\/guiding panel by calling the corresponding method in gaze\+Guiding\+Buttons (live switch). \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_flipper_aaa77cb2ba572a07817f1cc0682c9cbeb}{Flip\+Without\+Call}} ()
+\begin{DoxyCompactList}\small\item\em This method rotates a switch the player has flipped on the gaze-\/guiding panel without making a call to a method in gaze\+Guiding\+Buttons (dummy switch). \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_flipper_a20695122346f35f5ee08f85c8a7b35ba}{Rotate\+To\+Angle}} (float target\+Angle, float duration)
+\begin{DoxyCompactList}\small\item\em This method is called to rotate a switch on the gaze-\/guiding panel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Mesh\+Renderer \mbox{\hyperlink{class_flipper_ab21867e9a1ff919afe437bd4383634ba}{mesh\+Renderer}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em meshrenderer} & is a reference to an objetc\textquotesingle{}s Mesh\+Renderer\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_gaze_guiding_buttons}{Gaze\+Guiding\+Buttons}} \mbox{\hyperlink{class_flipper_a174cf5d504391d90bac54a1868c97aa9}{gaze\+Guiding\+Buttons}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em gaze\+Guiding\+Buttons} & is a reference to a \doxylink{class_gaze_guiding_buttons}{Gaze\+Guiding\+Buttons} instance\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_ac0e47f65571ee738ad2af2b47ac276e1}{flipped}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em flipped} & tracks whether a switch is flipped\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_a8f07d4afd8c7fdaefa5bed5c0a0aeb6a}{is\+Cooldown}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Cooldown} & tracks whether a switch is on cooldown\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_flipper_a7cd36afadb214493713a6ca77ceaef92}{is\+Hovering}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Hovering} & tracks whether the player is hovering over a switch with the controller\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic to enable or disable gaze-\/guiding features via corresponding switches on a gaze-\/guiding panel in the VR application. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_flipper_a79a6a3483ba974096106ff09e879b7b5}\index{Flipper@{Flipper}!Flip@{Flip}}
+\index{Flip@{Flip}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{Flip()}{Flip()}}
+{\footnotesize\ttfamily \label{class_flipper_a79a6a3483ba974096106ff09e879b7b5} 
+IEnumerator Flipper.\+Flip (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method toggles gaze-\/guiding features on or off when the player flips the appropriate switch on the gaze-\/guiding panel by calling the corresponding method in gaze\+Guiding\+Buttons (live switch). 
+
+\Hypertarget{class_flipper_aaa77cb2ba572a07817f1cc0682c9cbeb}\index{Flipper@{Flipper}!FlipWithoutCall@{FlipWithoutCall}}
+\index{FlipWithoutCall@{FlipWithoutCall}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{FlipWithoutCall()}{FlipWithoutCall()}}
+{\footnotesize\ttfamily \label{class_flipper_aaa77cb2ba572a07817f1cc0682c9cbeb} 
+IEnumerator Flipper.\+Flip\+Without\+Call (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method rotates a switch the player has flipped on the gaze-\/guiding panel without making a call to a method in gaze\+Guiding\+Buttons (dummy switch). 
+
+\Hypertarget{class_flipper_a43276dadb741c43e0ef6545dd9c4ff4b}\index{Flipper@{Flipper}!OnDisable@{OnDisable}}
+\index{OnDisable@{OnDisable}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{OnDisable()}{OnDisable()}}
+{\footnotesize\ttfamily \label{class_flipper_a43276dadb741c43e0ef6545dd9c4ff4b} 
+void Flipper.\+On\+Disable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the object is disabled and removes event listeners for the select\+Entered and select\+Exited events. 
+
+\Hypertarget{class_flipper_a89077822a424c58aa59217c4d61044b0}\index{Flipper@{Flipper}!OnEnable@{OnEnable}}
+\index{OnEnable@{OnEnable}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{OnEnable()}{OnEnable()}}
+{\footnotesize\ttfamily \label{class_flipper_a89077822a424c58aa59217c4d61044b0} 
+void Flipper.\+On\+Enable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the object is enabled and adds event listeners for the select\+Entered and select\+Exited events. 
+
+\Hypertarget{class_flipper_afbdcf9ed669cb0c8aef704fb8067cf33}\index{Flipper@{Flipper}!OnHoverEntered@{OnHoverEntered}}
+\index{OnHoverEntered@{OnHoverEntered}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{OnHoverEntered()}{OnHoverEntered()}}
+{\footnotesize\ttfamily \label{class_flipper_afbdcf9ed669cb0c8aef704fb8067cf33} 
+void Flipper.\+On\+Hover\+Entered (\begin{DoxyParamCaption}\item[{Hover\+Enter\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the XR interactor looks at the object, i.\+e. 
+
+points to or moves onto the object .
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments upon entering the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_flipper_a906609140dd9446067bcc0a9c983b621}\index{Flipper@{Flipper}!OnHoverExited@{OnHoverExited}}
+\index{OnHoverExited@{OnHoverExited}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{OnHoverExited()}{OnHoverExited()}}
+{\footnotesize\ttfamily \label{class_flipper_a906609140dd9446067bcc0a9c983b621} 
+void Flipper.\+On\+Hover\+Exited (\begin{DoxyParamCaption}\item[{Hover\+Exit\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the XR interactor is no longer looking at the object, i.\+e. 
+
+the interactor moves away.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments upon exiting the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_flipper_a14d9d9c267de295c4320d84d8cd40847}\index{Flipper@{Flipper}!revertMaterials@{revertMaterials}}
+\index{revertMaterials@{revertMaterials}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{revertMaterials()}{revertMaterials()}}
+{\footnotesize\ttfamily \label{class_flipper_a14d9d9c267de295c4320d84d8cd40847} 
+void Flipper.\+revert\+Materials (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method reverts the materials of a switch that the player has flipped to their original state. 
+
+\Hypertarget{class_flipper_a20695122346f35f5ee08f85c8a7b35ba}\index{Flipper@{Flipper}!RotateToAngle@{RotateToAngle}}
+\index{RotateToAngle@{RotateToAngle}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{RotateToAngle()}{RotateToAngle()}}
+{\footnotesize\ttfamily \label{class_flipper_a20695122346f35f5ee08f85c8a7b35ba} 
+IEnumerator Flipper.\+Rotate\+To\+Angle (\begin{DoxyParamCaption}\item[{float}]{target\+Angle}{, }\item[{float}]{duration}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called to rotate a switch on the gaze-\/guiding panel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Angle} & specifies the angle to rotate a switch to\\
+\hline
+{\em duration} & specifies the duration of the rotation of a switch\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_flipper_a31fb6b9a26dff9407966639f9c6d69b0}\index{Flipper@{Flipper}!Start@{Start}}
+\index{Start@{Start}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_flipper_a31fb6b9a26dff9407966639f9c6d69b0} 
+void Flipper.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method sets up input actions and initialises the gaze-\/guiding features\textquotesingle{} states based on the settings in the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player} instance. 
+
+\Hypertarget{class_flipper_a764009689ccde98f855291a5b2bee954}\index{Flipper@{Flipper}!Update@{Update}}
+\index{Update@{Update}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_flipper_a764009689ccde98f855291a5b2bee954} 
+void Flipper.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the state of the gaze-\/guiding features based on the player\textquotesingle{}s interaction with the switches on the gaze-\/guiding panel. 
+
+\Hypertarget{class_flipper_a4e591ac8cc0ac049cd827b468e0dcd1d}\index{Flipper@{Flipper}!updateMaterials@{updateMaterials}}
+\index{updateMaterials@{updateMaterials}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{updateMaterials()}{updateMaterials()}}
+{\footnotesize\ttfamily \label{class_flipper_a4e591ac8cc0ac049cd827b468e0dcd1d} 
+void Flipper.\+update\+Materials (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method updates the materials of a switch that the player has flipped (red when on, grey when off). 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_flipper_addd34fe6d68d0022d990ae1d4474b468}\index{Flipper@{Flipper}!AnzeigenHighlight@{AnzeigenHighlight}}
+\index{AnzeigenHighlight@{AnzeigenHighlight}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{AnzeigenHighlight}{AnzeigenHighlight}}
+{\footnotesize\ttfamily \label{class_flipper_addd34fe6d68d0022d990ae1d4474b468} 
+bool Flipper.\+Anzeigen\+Highlight = false}
+
+
+
+\texorpdfstring{$<$}{<}param name="{}\+Anzeigen\+Highlight"{}=\texorpdfstring{$>$}{>} tracks whether the display highlight feature is switched on
+
+\Hypertarget{class_flipper_a14f4164e05b1827858bed40a8bee4d01}\index{Flipper@{Flipper}!AnzeigenHighlightShouldItBeOn@{AnzeigenHighlightShouldItBeOn}}
+\index{AnzeigenHighlightShouldItBeOn@{AnzeigenHighlightShouldItBeOn}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{AnzeigenHighlightShouldItBeOn}{AnzeigenHighlightShouldItBeOn}}
+{\footnotesize\ttfamily \label{class_flipper_a14f4164e05b1827858bed40a8bee4d01} 
+bool Flipper.\+Anzeigen\+Highlight\+Should\+It\+Be\+On = false}
+
+
+
+\texorpdfstring{$<$}{<}param name="{}\+Anzeigen\+Highlight\+Should\+It\+Be\+On"{}=\texorpdfstring{$>$}{>} tracks whether the display highlight feature should be on 
+
+\Hypertarget{class_flipper_abbfc3c6b65949ee55f50e7667fb212e8}\index{Flipper@{Flipper}!AnzeigenMarkierungEnabled@{AnzeigenMarkierungEnabled}}
+\index{AnzeigenMarkierungEnabled@{AnzeigenMarkierungEnabled}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{AnzeigenMarkierungEnabled}{AnzeigenMarkierungEnabled}}
+{\footnotesize\ttfamily \label{class_flipper_abbfc3c6b65949ee55f50e7667fb212e8} 
+bool Flipper.\+Anzeigen\+Markierung\+Enabled = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Anzeigen\+Markierung\+Enabled} & tracks whether display annotations are switched on\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a989f00aaa409f89d470a429b87ecf1c8}\index{Flipper@{Flipper}!Arrow3DBinearEnabled@{Arrow3DBinearEnabled}}
+\index{Arrow3DBinearEnabled@{Arrow3DBinearEnabled}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{Arrow3DBinearEnabled}{Arrow3DBinearEnabled}}
+{\footnotesize\ttfamily \label{class_flipper_a989f00aaa409f89d470a429b87ecf1c8} 
+bool Flipper.\+Arrow3\+DBinear\+Enabled = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Arrow3\+DBinear\+Enabled} & tracks whether the binary 3D arrow feature is switched on\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_af0133bced36d7d8daec160106f3b060a}\index{Flipper@{Flipper}!Arrow3DEnabled@{Arrow3DEnabled}}
+\index{Arrow3DEnabled@{Arrow3DEnabled}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{Arrow3DEnabled}{Arrow3DEnabled}}
+{\footnotesize\ttfamily \label{class_flipper_af0133bced36d7d8daec160106f3b060a} 
+bool Flipper.\+Arrow3\+DEnabled = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Arrow3\+DEnabled} & tracks whether the continuous 3D arrow feature is switched on\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a37bdf9408d42d30c4bf86e2e46ae8c2c}\index{Flipper@{Flipper}!BlurEnabled@{BlurEnabled}}
+\index{BlurEnabled@{BlurEnabled}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{BlurEnabled}{BlurEnabled}}
+{\footnotesize\ttfamily \label{class_flipper_a37bdf9408d42d30c4bf86e2e46ae8c2c} 
+bool Flipper.\+Blur\+Enabled = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Blur\+Enabled} & tracks whether the blur feature is switched on\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a92d498df5397f90c2dd7e736b0bfbe81}\index{Flipper@{Flipper}!clipboardHighlight@{clipboardHighlight}}
+\index{clipboardHighlight@{clipboardHighlight}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{clipboardHighlight}{clipboardHighlight}}
+{\footnotesize\ttfamily \label{class_flipper_a92d498df5397f90c2dd7e736b0bfbe81} 
+bool Flipper.\+clipboard\+Highlight}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em clipboard\+Highlight} & tracks whether the clipboard highlight feature is switched on\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_ab4f1cf58bc571bd173cd7b7617f04a9b}\index{Flipper@{Flipper}!clipboardHighlightShouldItBeOn@{clipboardHighlightShouldItBeOn}}
+\index{clipboardHighlightShouldItBeOn@{clipboardHighlightShouldItBeOn}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{clipboardHighlightShouldItBeOn}{clipboardHighlightShouldItBeOn}}
+{\footnotesize\ttfamily \label{class_flipper_ab4f1cf58bc571bd173cd7b7617f04a9b} 
+bool Flipper.\+clipboard\+Highlight\+Should\+It\+Be\+On = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em clipboard\+Highlight\+Should\+It\+Be\+On} & tracks whether clipboard highlights should be on\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_aef2eaab9cb394e38837a90ddf744ecc1}\index{Flipper@{Flipper}!DetachEnabled@{DetachEnabled}}
+\index{DetachEnabled@{DetachEnabled}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{DetachEnabled}{DetachEnabled}}
+{\footnotesize\ttfamily \label{class_flipper_aef2eaab9cb394e38837a90ddf744ecc1} 
+bool Flipper.\+Detach\+Enabled = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Detach\+Enabled} & tracks whether the detach feature is switched on\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a670cf44a332782a07b05bc063b153d0b}\index{Flipper@{Flipper}!DirectionArrowEnabled@{DirectionArrowEnabled}}
+\index{DirectionArrowEnabled@{DirectionArrowEnabled}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{DirectionArrowEnabled}{DirectionArrowEnabled}}
+{\footnotesize\ttfamily \label{class_flipper_a670cf44a332782a07b05bc063b153d0b} 
+bool Flipper.\+Direction\+Arrow\+Enabled = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Arrow\+Enabled} & tracks whether the direction arrow feature is switched on\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a757c15d258cb015d94ab394975943539}\index{Flipper@{Flipper}!DirectionArrowOnScreen@{DirectionArrowOnScreen}}
+\index{DirectionArrowOnScreen@{DirectionArrowOnScreen}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{DirectionArrowOnScreen}{DirectionArrowOnScreen}}
+{\footnotesize\ttfamily \label{class_flipper_a757c15d258cb015d94ab394975943539} 
+bool Flipper.\+Direction\+Arrow\+On\+Screen = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Arrow\+On\+Screen} & tracks whether the direction arrow is shown on screen\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a55961d86bea8497e7c9fed9d4f2e54e1}\index{Flipper@{Flipper}!DirectionCueEnabled@{DirectionCueEnabled}}
+\index{DirectionCueEnabled@{DirectionCueEnabled}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{DirectionCueEnabled}{DirectionCueEnabled}}
+{\footnotesize\ttfamily \label{class_flipper_a55961d86bea8497e7c9fed9d4f2e54e1} 
+bool Flipper.\+Direction\+Cue\+Enabled = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Cue\+Enabled} & tracks whether the direction cue feature is switched on\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a4c9c9fe2bacd09a8c6a01e2c85040e84}\index{Flipper@{Flipper}!distractionsEnabled@{distractionsEnabled}}
+\index{distractionsEnabled@{distractionsEnabled}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{distractionsEnabled}{distractionsEnabled}}
+{\footnotesize\ttfamily \label{class_flipper_a4c9c9fe2bacd09a8c6a01e2c85040e84} 
+bool Flipper.\+distractions\+Enabled = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em distractions\+Enabled} & tracks whether distractions are switched on \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_ac0e47f65571ee738ad2af2b47ac276e1}\index{Flipper@{Flipper}!flipped@{flipped}}
+\index{flipped@{flipped}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{flipped}{flipped}}
+{\footnotesize\ttfamily \label{class_flipper_ac0e47f65571ee738ad2af2b47ac276e1} 
+bool Flipper.\+flipped = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em flipped} & tracks whether a switch is flipped\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a174cf5d504391d90bac54a1868c97aa9}\index{Flipper@{Flipper}!gazeGuidingButtons@{gazeGuidingButtons}}
+\index{gazeGuidingButtons@{gazeGuidingButtons}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{gazeGuidingButtons}{gazeGuidingButtons}}
+{\footnotesize\ttfamily \label{class_flipper_a174cf5d504391d90bac54a1868c97aa9} 
+\mbox{\hyperlink{class_gaze_guiding_buttons}{Gaze\+Guiding\+Buttons}} Flipper.\+gaze\+Guiding\+Buttons\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em gaze\+Guiding\+Buttons} & is a reference to a \doxylink{class_gaze_guiding_buttons}{Gaze\+Guiding\+Buttons} instance\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a5efccbeaabec09f5990d3439184990e9}\index{Flipper@{Flipper}!HUDEnabled@{HUDEnabled}}
+\index{HUDEnabled@{HUDEnabled}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{HUDEnabled}{HUDEnabled}}
+{\footnotesize\ttfamily \label{class_flipper_a5efccbeaabec09f5990d3439184990e9} 
+bool Flipper.\+HUDEnabled = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em HUDEnabled} & tracks whether the \doxylink{class_h_u_d}{HUD} is enabled\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a465f0f2a906a4a484ba34b91542f54e9}\index{Flipper@{Flipper}!ifdistractionsEnabledShouldItBeOn@{ifdistractionsEnabledShouldItBeOn}}
+\index{ifdistractionsEnabledShouldItBeOn@{ifdistractionsEnabledShouldItBeOn}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{ifdistractionsEnabledShouldItBeOn}{ifdistractionsEnabledShouldItBeOn}}
+{\footnotesize\ttfamily \label{class_flipper_a465f0f2a906a4a484ba34b91542f54e9} 
+bool Flipper.\+ifdistractions\+Enabled\+Should\+It\+Be\+On = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em ifdistractions\+Enabled\+Should\+It\+Be\+On} & tracks whether distractions should be on\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a7ecc171e57adc9f4e64fd0c14219ca67}\index{Flipper@{Flipper}!ifHUDEnabledShouldItBeOn@{ifHUDEnabledShouldItBeOn}}
+\index{ifHUDEnabledShouldItBeOn@{ifHUDEnabledShouldItBeOn}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{ifHUDEnabledShouldItBeOn}{ifHUDEnabledShouldItBeOn}}
+{\footnotesize\ttfamily \label{class_flipper_a7ecc171e57adc9f4e64fd0c14219ca67} 
+bool Flipper.\+if\+HUDEnabled\+Should\+It\+Be\+On = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em if\+HUDEnabled\+Should\+It\+Be\+On} & tracks whether the \doxylink{class_h_u_d}{HUD} should be on\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a8f07d4afd8c7fdaefa5bed5c0a0aeb6a}\index{Flipper@{Flipper}!isCooldown@{isCooldown}}
+\index{isCooldown@{isCooldown}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{isCooldown}{isCooldown}}
+{\footnotesize\ttfamily \label{class_flipper_a8f07d4afd8c7fdaefa5bed5c0a0aeb6a} 
+bool Flipper.\+is\+Cooldown = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Cooldown} & tracks whether a switch is on cooldown\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a7cd36afadb214493713a6ca77ceaef92}\index{Flipper@{Flipper}!isHovering@{isHovering}}
+\index{isHovering@{isHovering}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{isHovering}{isHovering}}
+{\footnotesize\ttfamily \label{class_flipper_a7cd36afadb214493713a6ca77ceaef92} 
+bool Flipper.\+is\+Hovering = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Hovering} & tracks whether the player is hovering over a switch with the controller\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a2d273292f2986546c16451386cff44de}\index{Flipper@{Flipper}!mat@{mat}}
+\index{mat@{mat}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{mat}{mat}}
+{\footnotesize\ttfamily \label{class_flipper_a2d273292f2986546c16451386cff44de} 
+Material Flipper.\+mat}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & is a Material currently assigned to a switch\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_ab21867e9a1ff919afe437bd4383634ba}\index{Flipper@{Flipper}!meshRenderer@{meshRenderer}}
+\index{meshRenderer@{meshRenderer}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{meshRenderer}{meshRenderer}}
+{\footnotesize\ttfamily \label{class_flipper_ab21867e9a1ff919afe437bd4383634ba} 
+Mesh\+Renderer Flipper.\+mesh\+Renderer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em meshrenderer} & is a reference to an objetc\textquotesingle{}s Mesh\+Renderer\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_a85c3714edd35c450afd4cf2e8d6cc7cf}\index{Flipper@{Flipper}!oldmat@{oldmat}}
+\index{oldmat@{oldmat}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{oldmat}{oldmat}}
+{\footnotesize\ttfamily \label{class_flipper_a85c3714edd35c450afd4cf2e8d6cc7cf} 
+Material Flipper.\+oldmat}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em oldmat} & is a Material previously assigned to a switch\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_flipper_adbde2de84daf5c333d72e6437453ce15}\index{Flipper@{Flipper}!trigger@{trigger}}
+\index{trigger@{trigger}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{trigger}{trigger}}
+{\footnotesize\ttfamily \label{class_flipper_adbde2de84daf5c333d72e6437453ce15} 
+Input\+Action\+Reference Flipper.\+trigger}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em trigger} & is an Input\+Action\+Reference referencing a XRI Right Interaction/\+Select\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+UI/\mbox{\hyperlink{_flipper_8cs}{Flipper.\+cs}}\end{DoxyCompactItemize}

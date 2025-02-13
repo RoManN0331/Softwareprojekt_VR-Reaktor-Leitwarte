@@ -2,17 +2,24 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// This class implements a welcome screen that is displayed at the start of the VR application explaining to the player what they are supposed to do.
+/// </summary>
 public class WelcomeScreen : MonoBehaviour
 {
+    /// <param name="forwardButton"> is a button to go to the next page of the welcome message</param>
     public GameObject forwardButton;
+    /// <param name="backButton">is a button to go to the previous page of the welcome message</param>
     public GameObject backButton;
+    /// <param name="confirmButton"> is a button to close the welcome message</param>
     public GameObject confirmButton;
-
+    /// <param name="scrollPanel"> is a Panel displaying the welcome message</param>
     public GameObject scrollPanel;
-
+    /// <param name="DISABLE_WELCOME_SCREEN"> tracks whether the welcome screen is displayed or not</param>
     public bool DISABLE_WELCOME_SCREEN = false;
-
+    /// <param name="clipbaordInputAction"> is a reference to an InputActionAsset for retrieving the controller button that is used to trigger a chosen scenario</param>
     public InputActionAsset clipbaordInputAction;
+    /// <param name="infoTexts"> is an array containing the welcome message</param>
     private string[] infoTexts = new string[] {
         "Sie befinden sich in der Steuerzentrale eines Kernreaktors. Ihre Aufgaben umfassen die Überwachung der Systeme, die Steuerung der Energieproduktion und die Gewährleistung der Sicherheit. Ihnen stehen folgende Elemente zur Verfügung:",
         "📟 Hauptkonsole:\nZentrale Steuereinheit zur Regulierung des Reaktors und Überwachung der Systemparameter.",
@@ -23,6 +30,9 @@ public class WelcomeScreen : MonoBehaviour
         "Machen Sie sich bereit, die Kontrolle zu übernehmen - die Sicherheit des Reaktors liegt in Ihren Händen! 🔥⚡"
     };
 
+    /// <summary>
+    /// This method initialises the welcome screen and its components.
+    /// </summary>
     void Start()
     {
         //Replace {INPUT_BTN} with actual button
@@ -38,8 +48,10 @@ public class WelcomeScreen : MonoBehaviour
         scrollPanel.GetComponent<TextMeshProUGUI>().text = infoTexts[0];
     }
 
-    // Display the next text of the infoTexts array
-    public void Next()
+    /// <summary>
+    /// This method implements the logic for the forward button.
+    /// </summary>
+    public void Next()    // Display the next text of the infoTexts array
     {
         int currentTextIndex = System.Array.IndexOf(infoTexts, scrollPanel.GetComponent<TextMeshProUGUI>().text);
         Debug.Log(currentTextIndex);
@@ -58,8 +70,10 @@ public class WelcomeScreen : MonoBehaviour
         }
     }
 
-    // Display the previous text of the infoTexts array
-    public void Previous()
+    /// <summary>
+    /// This method implements the logic for the back button.
+    /// </summary>
+    public void Previous()    // Display the previous text of the infoTexts array
     {
         int currentTextIndex = System.Array.IndexOf(infoTexts, scrollPanel.GetComponent<TextMeshProUGUI>().text);
         if (currentTextIndex > 0)
@@ -77,8 +91,10 @@ public class WelcomeScreen : MonoBehaviour
         }
     }
 
-    // Hide welcome screen
-    public void Confirm()
+    /// <summary>
+    /// This method implements the logic for the confirm button.
+    /// </summary>
+    public void Confirm()    // Hide welcome screen
     {
         this.gameObject.SetActive(false);
     }

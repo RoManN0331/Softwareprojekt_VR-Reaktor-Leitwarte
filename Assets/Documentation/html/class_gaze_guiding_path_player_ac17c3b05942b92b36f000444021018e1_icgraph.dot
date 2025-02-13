@@ -1,0 +1,13 @@
+digraph "GazeGuidingPathPlayer.ResetFadingFlag"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="GazeGuidingPathPlayer.Reset\lFadingFlag",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="This method resets the isDirectionCueFading or isDirectionCue2Fading flag to false via a callback to ..."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="GazeGuidingPathPlayer.calc\lDirectionCue",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_gaze_guiding_path_player.html#acfdbc583cf9f82bdc8d9cc578176cdc8",tooltip="This method displays a red cue indicating to the player where to turn if the player is facing away fr..."];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="GazeGuidingPathPlayer.Update",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_gaze_guiding_path_player.html#a717d6f66883fec93930d0a3a9344a4d4",tooltip="This method updates all active gaze-guiding tools."];
+}

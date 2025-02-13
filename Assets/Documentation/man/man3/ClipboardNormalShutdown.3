@@ -1,0 +1,205 @@
+.TH "ClipboardNormalShutdown" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ClipboardNormalShutdown \- This class implements logic to trigger the normal shutdown scenario of the \fBNPPClient\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "InputAction \fBactionTrigger\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIactionTrigger\fP is a reference to an InputAction
+.RE
+.PP
+"
+.ti -1c
+.RI "InputActionAsset \fBclipboardActions\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIclipboardActions\fP is a reference to an InputActionAsset
+.RE
+.PP
+"
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initializes clipboardActions and adds ActionListeners to the clipboard's grab interactable\&. "
+.ti -1c
+.RI "void \fBOnDestroy\fP ()"
+.br
+.RI "This method removes the ActionListener, disables the ActionTrigger and destroys the object\&. "
+.ti -1c
+.RI "void \fBOnSelectEntered\fP (SelectEnterEventArgs args)"
+.br
+.RI "This method is called when the player interacts with the clipboard\&. "
+.ti -1c
+.RI "void \fBOnSelectExited\fP (SelectExitEventArgs args)"
+.br
+.RI "This method is called when the player no longer interacts with the clipboard\&. "
+.ti -1c
+.RI "void \fBOnActionTriggered\fP (InputAction\&.CallbackContext context)"
+.br
+.RI "This method is called when the actionTrigger is released, initiating the normal shutdown scenario on nppClient\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBNPPClient\fP \fBnppClient\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fInppClient\fP is a reference to an instance of the \fBNPPClient\fP class
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBisInteracting\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisInteracting\fP tracks whether the player interacts with the object this script is attached to
+.RE
+.PP
+"
+.ti -1c
+.RI "UnityEngine\&.XR\&.Interaction\&.Toolkit\&.Interactors\&.XRBaseInteractor \fBinteractor\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIinteractor\fP os a reference to ta XRBaseInteractor
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements logic to trigger the normal shutdown scenario of the \fBNPPClient\fP class\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void ClipboardNormalShutdown\&.OnActionTriggered (InputAction\&.CallbackContext context)\fR [private]\fP"
+
+.PP
+This method is called when the actionTrigger is released, initiating the normal shutdown scenario on nppClient\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcontext\fP passes event specific arguments
+.RE
+.PP
+
+.SS "void ClipboardNormalShutdown\&.OnDestroy ()\fR [private]\fP"
+
+.PP
+This method removes the ActionListener, disables the ActionTrigger and destroys the object\&. 
+.SS "void ClipboardNormalShutdown\&.OnSelectEntered (SelectEnterEventArgs args)\fR [private]\fP"
+
+.PP
+This method is called when the player interacts with the clipboard\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP passes event specific arguments at the beginning of the interaction
+.RE
+.PP
+
+.SS "void ClipboardNormalShutdown\&.OnSelectExited (SelectExitEventArgs args)\fR [private]\fP"
+
+.PP
+This method is called when the player no longer interacts with the clipboard\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP passes event specific arguments at the end of the interaction
+.RE
+.PP
+
+.SS "void ClipboardNormalShutdown\&.Start ()\fR [private]\fP"
+
+.PP
+This method initializes clipboardActions and adds ActionListeners to the clipboard's grab interactable\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "InputAction ClipboardNormalShutdown\&.actionTrigger"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIactionTrigger\fP is a reference to an InputAction
+.RE
+.PP
+
+.SS "InputActionAsset ClipboardNormalShutdown\&.clipboardActions"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIclipboardActions\fP is a reference to an InputActionAsset
+.RE
+.PP
+
+.SS "UnityEngine\&.XR\&.Interaction\&.Toolkit\&.Interactors\&.XRBaseInteractor ClipboardNormalShutdown\&.interactor\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIinteractor\fP os a reference to ta XRBaseInteractor
+.RE
+.PP
+
+.SS "bool ClipboardNormalShutdown\&.isInteracting = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisInteracting\fP tracks whether the player interacts with the object this script is attached to
+.RE
+.PP
+
+.SS "\fBNPPClient\fP ClipboardNormalShutdown\&.nppClient\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fInppClient\fP is a reference to an instance of the \fBNPPClient\fP class
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

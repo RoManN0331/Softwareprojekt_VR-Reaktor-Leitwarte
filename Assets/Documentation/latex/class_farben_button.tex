@@ -1,0 +1,553 @@
+\doxysection{Farben\+Button Class Reference}
+\hypertarget{class_farben_button}{}\label{class_farben_button}\index{FarbenButton@{FarbenButton}}
+
+
+This class is used to change the color scheme in the scene to accommodate color blindness.  
+
+
+Inheritance diagram for Farben\+Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_farben_button}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_farben_button_a38f92a85d7a9af16cb291fbc251c964a}{Change\+Color\+Of\+Gaze\+Guiding\+Buttons}} ()
+\begin{DoxyCompactList}\small\item\em This method applies a new colour scheme to the \doxylink{class_gaze_guiding_buttons}{Gaze\+Guiding\+Buttons} in the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_farben_button_a5130a0211e6d183b289a2947aa723695}{revert\+Change\+Color\+Of\+Gaze\+Guiding\+Buttons}} ()
+\begin{DoxyCompactList}\small\item\em This method reverts the colour scheme of the \doxylink{class_gaze_guiding_buttons}{Gaze\+Guiding\+Buttons} in the scene to the original colour scheme. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_farben_button_ab1ff5bec4cae2095ee332840fb24531a}{Change\+Meltdown\+Color\+For\+Lamps}} ()
+\begin{DoxyCompactList}\small\item\em This method applies a new colour scheme to the lamps signalling the failure of specific components. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_farben_button_a85df22e0760592e8ecdfcf9e1716a35f}{revert\+Change\+Meltdown\+Color\+For\+Lamps}} ()
+\begin{DoxyCompactList}\small\item\em This method reverts the colour scheme of the lamps signalling the failure of specific components to the original colour scheme. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+XRBase\+Interactable \mbox{\hyperlink{class_farben_button_aa27eb08bc8be968fbe250394af0f57b8}{interactable}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em interactable} & is a reference to a XRSimple\+Interactable\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_farben_button_a5814b836de18a9f8f5a0d7e62efff104}{move\+Distance}} = 0.\+5f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em move\+Distance} & specifies how far to move the button during the animation \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_farben_button_a2b09416d55856bc95e1178b94c51cdca}{animation\+Duration}} = 0.\+5f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em animation\+Duration} & specifies the duration of the animation\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_farben_button_a2a599cc9cc617b6664d028107c77a887}{cooldown\+Duration}} = 1f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em cooldown\+Duration} & specifies the duration of the animation cooldown\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Material\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_farben_button_aa6e38b5d12a787b391310a431aca3a3a}{materials\+Emission\+Change}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em materials\+Emission\+Change} & is an array of materials to adjust\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Color\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_farben_button_a79ae7badd291e5b37526e07089f52524}{new\+Colors\+Emission}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em new\+Colors\+Emission} & is an array of new colors to apply to materials\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_farben_button_a40d505e856393439ae2920594eb09e6f}{emission\+Intensity}} = 1.\+0f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em emission\+Intensity} & stores the Intensity of the emission color\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Text\+Mesh\+Pro\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_farben_button_a8fd3c641af2d9202c39813feb79b9bad}{text\+Mesh\+Pro\+Objects}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em text\+Mesh\+Pro\+Objects} & is an array of Text\+Mesh\+Pro objects to adjust\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Color \mbox{\hyperlink{class_farben_button_a81bd9186a3df8f925f785e63c794547e}{new\+Text\+Colors}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em new\+Text\+Colors} & is an array of new colors to apply to Text\+Mesh\+Pro objects\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_farben_button_a8e3bd61fec6abc7e200940d6e0daf373}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method finds, stores and deactivates all active display annotations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_farben_button_aa37908487de96a74086ef69c30e8edf3}{On\+Enable}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the object is enabled and adds event listeners for the select\+Entered and select\+Exited events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_farben_button_a6f09f8d9c180e8a4f12d89239030a546}{On\+Disable}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the object is disabled and removes event listeners for the select\+Entered and select\+Exited events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_farben_button_a7c96bd41c1aa046cae6a1f6a9676cc26}{On\+Select\+Entered}} (Select\+Enter\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when an interactor enters the object and toggles colour blind mode. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_farben_button_ad89f37a2a802e6648fdae67f2b0d4a05}{Animate\+Transform}} ()
+\begin{DoxyCompactList}\small\item\em This method animates the button by moving it back and forth calling \doxylink{class_farben_button_a13d273656d57db423440dbb09d6bc1c5}{Move\+To\+Position()}. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_farben_button_a13d273656d57db423440dbb09d6bc1c5}{Move\+To\+Position}} (Vector3 start, Vector3 end, float duration)
+\begin{DoxyCompactList}\small\item\em This method is called in \doxylink{class_farben_button_ad89f37a2a802e6648fdae67f2b0d4a05}{Animate\+Transform()} to move the button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_farben_button_a26482a4d839b38ef2251727ec0a03d71}{Change\+Materials\+Emission}} ()
+\begin{DoxyCompactList}\small\item\em This method applies a new emission colour scheme to all the materials in the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_farben_button_a75456488b5644938b733daff59792387}{revert\+Change\+Materials\+Emission}} ()
+\begin{DoxyCompactList}\small\item\em This method reverts the emission colour scheme of all the materials in the scene to the original colour scheme. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_farben_button_a337cc5dbd497bfca375f9fa1fa486427}{Change\+Text\+Mesh\+Pro\+Colors}} ()
+\begin{DoxyCompactList}\small\item\em This method applies a new colour scheme to all Text\+Mesh\+Pro objects in the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_farben_button_aedca276c33331f635522de85fa06cbf5}{revert\+Change\+Text\+Mesh\+Pro\+Colors}} ()
+\begin{DoxyCompactList}\small\item\em This method reverts the colour scheme of all Text\+Mesh\+Pro objects in the scene to the original colour scheme. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_farben_button_a5273c2f44cb332c47a2e1e9b69a08cdd}{Change\+Cue\+Color}} ()
+\begin{DoxyCompactList}\small\item\em This method applies a new colour scheme to the Direction\+Cue objects in the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_farben_button_a0122bbd21845ccd97262525f95fc8137}{revert\+Change\+Cue\+Color}} ()
+\begin{DoxyCompactList}\small\item\em This method reverts the colour scheme of the Direction\+Cue objects in the scene back to the original color scheme. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_farben_button_afe3232e883e7b31e7b48d75b2e77e3e5}{is\+Animating}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Animating} & tracks whether the button is currently being animated\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Color\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_farben_button_a37fdbb8f0c87649c7b2b5215b37f3940}{original\+Colors}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em original\+Colors} & is an array storing original colours\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Color\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_farben_button_a7282f3089b3578e48809cd47efb21636}{original\+Emission\+Colors}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em original\+Emission\+Colors} & is an array storing original emission colours\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Color\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_farben_button_af155934bfd11ff86fbe19a89c03437a0}{original\+Text\+Colors}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em original\+Text\+Colors} & is an array storing original text colours\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_farben_button_a9b1424ed83146f95fbd1b1c6ad7158b4}{color\+Blind\+Mode\+Activated}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em color\+Blind\+Mode\+Activated} & tracks whether the color blind mode is currently active\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to change the color scheme in the scene to accommodate color blindness. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_farben_button_ad89f37a2a802e6648fdae67f2b0d4a05}\index{FarbenButton@{FarbenButton}!AnimateTransform@{AnimateTransform}}
+\index{AnimateTransform@{AnimateTransform}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{AnimateTransform()}{AnimateTransform()}}
+{\footnotesize\ttfamily \label{class_farben_button_ad89f37a2a802e6648fdae67f2b0d4a05} 
+IEnumerator Farben\+Button.\+Animate\+Transform (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method animates the button by moving it back and forth calling \doxylink{class_farben_button_a13d273656d57db423440dbb09d6bc1c5}{Move\+To\+Position()}. 
+
+\Hypertarget{class_farben_button_a38f92a85d7a9af16cb291fbc251c964a}\index{FarbenButton@{FarbenButton}!ChangeColorOfGazeGuidingButtons@{ChangeColorOfGazeGuidingButtons}}
+\index{ChangeColorOfGazeGuidingButtons@{ChangeColorOfGazeGuidingButtons}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{ChangeColorOfGazeGuidingButtons()}{ChangeColorOfGazeGuidingButtons()}}
+{\footnotesize\ttfamily \label{class_farben_button_a38f92a85d7a9af16cb291fbc251c964a} 
+void Farben\+Button.\+Change\+Color\+Of\+Gaze\+Guiding\+Buttons (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method applies a new colour scheme to the \doxylink{class_gaze_guiding_buttons}{Gaze\+Guiding\+Buttons} in the scene. 
+
+\Hypertarget{class_farben_button_a5273c2f44cb332c47a2e1e9b69a08cdd}\index{FarbenButton@{FarbenButton}!ChangeCueColor@{ChangeCueColor}}
+\index{ChangeCueColor@{ChangeCueColor}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{ChangeCueColor()}{ChangeCueColor()}}
+{\footnotesize\ttfamily \label{class_farben_button_a5273c2f44cb332c47a2e1e9b69a08cdd} 
+void Farben\+Button.\+Change\+Cue\+Color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method applies a new colour scheme to the Direction\+Cue objects in the scene. 
+
+\Hypertarget{class_farben_button_a26482a4d839b38ef2251727ec0a03d71}\index{FarbenButton@{FarbenButton}!ChangeMaterialsEmission@{ChangeMaterialsEmission}}
+\index{ChangeMaterialsEmission@{ChangeMaterialsEmission}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{ChangeMaterialsEmission()}{ChangeMaterialsEmission()}}
+{\footnotesize\ttfamily \label{class_farben_button_a26482a4d839b38ef2251727ec0a03d71} 
+void Farben\+Button.\+Change\+Materials\+Emission (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method applies a new emission colour scheme to all the materials in the scene. 
+
+\Hypertarget{class_farben_button_ab1ff5bec4cae2095ee332840fb24531a}\index{FarbenButton@{FarbenButton}!ChangeMeltdownColorForLamps@{ChangeMeltdownColorForLamps}}
+\index{ChangeMeltdownColorForLamps@{ChangeMeltdownColorForLamps}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{ChangeMeltdownColorForLamps()}{ChangeMeltdownColorForLamps()}}
+{\footnotesize\ttfamily \label{class_farben_button_ab1ff5bec4cae2095ee332840fb24531a} 
+void Farben\+Button.\+Change\+Meltdown\+Color\+For\+Lamps (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method applies a new colour scheme to the lamps signalling the failure of specific components. 
+
+\Hypertarget{class_farben_button_a337cc5dbd497bfca375f9fa1fa486427}\index{FarbenButton@{FarbenButton}!ChangeTextMeshProColors@{ChangeTextMeshProColors}}
+\index{ChangeTextMeshProColors@{ChangeTextMeshProColors}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{ChangeTextMeshProColors()}{ChangeTextMeshProColors()}}
+{\footnotesize\ttfamily \label{class_farben_button_a337cc5dbd497bfca375f9fa1fa486427} 
+void Farben\+Button.\+Change\+Text\+Mesh\+Pro\+Colors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method applies a new colour scheme to all Text\+Mesh\+Pro objects in the scene. 
+
+\Hypertarget{class_farben_button_a13d273656d57db423440dbb09d6bc1c5}\index{FarbenButton@{FarbenButton}!MoveToPosition@{MoveToPosition}}
+\index{MoveToPosition@{MoveToPosition}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{MoveToPosition()}{MoveToPosition()}}
+{\footnotesize\ttfamily \label{class_farben_button_a13d273656d57db423440dbb09d6bc1c5} 
+IEnumerator Farben\+Button.\+Move\+To\+Position (\begin{DoxyParamCaption}\item[{Vector3}]{start}{, }\item[{Vector3}]{end}{, }\item[{float}]{duration}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called in \doxylink{class_farben_button_ad89f37a2a802e6648fdae67f2b0d4a05}{Animate\+Transform()} to move the button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & is a Vector3 specifying the origin of the movement\\
+\hline
+{\em end} & is a Vector3 specifying the end position of the movement\\
+\hline
+{\em duration} & specifies the duration of the animation\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_farben_button_a6f09f8d9c180e8a4f12d89239030a546}\index{FarbenButton@{FarbenButton}!OnDisable@{OnDisable}}
+\index{OnDisable@{OnDisable}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{OnDisable()}{OnDisable()}}
+{\footnotesize\ttfamily \label{class_farben_button_a6f09f8d9c180e8a4f12d89239030a546} 
+void Farben\+Button.\+On\+Disable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the object is disabled and removes event listeners for the select\+Entered and select\+Exited events. 
+
+Additionally the original colour scheme is restored. \Hypertarget{class_farben_button_aa37908487de96a74086ef69c30e8edf3}\index{FarbenButton@{FarbenButton}!OnEnable@{OnEnable}}
+\index{OnEnable@{OnEnable}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{OnEnable()}{OnEnable()}}
+{\footnotesize\ttfamily \label{class_farben_button_aa37908487de96a74086ef69c30e8edf3} 
+void Farben\+Button.\+On\+Enable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the object is enabled and adds event listeners for the select\+Entered and select\+Exited events. 
+
+\Hypertarget{class_farben_button_a7c96bd41c1aa046cae6a1f6a9676cc26}\index{FarbenButton@{FarbenButton}!OnSelectEntered@{OnSelectEntered}}
+\index{OnSelectEntered@{OnSelectEntered}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{OnSelectEntered()}{OnSelectEntered()}}
+{\footnotesize\ttfamily \label{class_farben_button_a7c96bd41c1aa046cae6a1f6a9676cc26} 
+void Farben\+Button.\+On\+Select\+Entered (\begin{DoxyParamCaption}\item[{Select\+Enter\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when an interactor enters the object and toggles colour blind mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments upon entering the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_farben_button_a5130a0211e6d183b289a2947aa723695}\index{FarbenButton@{FarbenButton}!revertChangeColorOfGazeGuidingButtons@{revertChangeColorOfGazeGuidingButtons}}
+\index{revertChangeColorOfGazeGuidingButtons@{revertChangeColorOfGazeGuidingButtons}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{revertChangeColorOfGazeGuidingButtons()}{revertChangeColorOfGazeGuidingButtons()}}
+{\footnotesize\ttfamily \label{class_farben_button_a5130a0211e6d183b289a2947aa723695} 
+void Farben\+Button.\+revert\+Change\+Color\+Of\+Gaze\+Guiding\+Buttons (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method reverts the colour scheme of the \doxylink{class_gaze_guiding_buttons}{Gaze\+Guiding\+Buttons} in the scene to the original colour scheme. 
+
+\Hypertarget{class_farben_button_a0122bbd21845ccd97262525f95fc8137}\index{FarbenButton@{FarbenButton}!revertChangeCueColor@{revertChangeCueColor}}
+\index{revertChangeCueColor@{revertChangeCueColor}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{revertChangeCueColor()}{revertChangeCueColor()}}
+{\footnotesize\ttfamily \label{class_farben_button_a0122bbd21845ccd97262525f95fc8137} 
+void Farben\+Button.\+revert\+Change\+Cue\+Color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method reverts the colour scheme of the Direction\+Cue objects in the scene back to the original color scheme. 
+
+\Hypertarget{class_farben_button_a75456488b5644938b733daff59792387}\index{FarbenButton@{FarbenButton}!revertChangeMaterialsEmission@{revertChangeMaterialsEmission}}
+\index{revertChangeMaterialsEmission@{revertChangeMaterialsEmission}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{revertChangeMaterialsEmission()}{revertChangeMaterialsEmission()}}
+{\footnotesize\ttfamily \label{class_farben_button_a75456488b5644938b733daff59792387} 
+void Farben\+Button.\+revert\+Change\+Materials\+Emission (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method reverts the emission colour scheme of all the materials in the scene to the original colour scheme. 
+
+\Hypertarget{class_farben_button_a85df22e0760592e8ecdfcf9e1716a35f}\index{FarbenButton@{FarbenButton}!revertChangeMeltdownColorForLamps@{revertChangeMeltdownColorForLamps}}
+\index{revertChangeMeltdownColorForLamps@{revertChangeMeltdownColorForLamps}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{revertChangeMeltdownColorForLamps()}{revertChangeMeltdownColorForLamps()}}
+{\footnotesize\ttfamily \label{class_farben_button_a85df22e0760592e8ecdfcf9e1716a35f} 
+void Farben\+Button.\+revert\+Change\+Meltdown\+Color\+For\+Lamps (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method reverts the colour scheme of the lamps signalling the failure of specific components to the original colour scheme. 
+
+\Hypertarget{class_farben_button_aedca276c33331f635522de85fa06cbf5}\index{FarbenButton@{FarbenButton}!revertChangeTextMeshProColors@{revertChangeTextMeshProColors}}
+\index{revertChangeTextMeshProColors@{revertChangeTextMeshProColors}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{revertChangeTextMeshProColors()}{revertChangeTextMeshProColors()}}
+{\footnotesize\ttfamily \label{class_farben_button_aedca276c33331f635522de85fa06cbf5} 
+void Farben\+Button.\+revert\+Change\+Text\+Mesh\+Pro\+Colors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method reverts the colour scheme of all Text\+Mesh\+Pro objects in the scene to the original colour scheme. 
+
+\Hypertarget{class_farben_button_a8e3bd61fec6abc7e200940d6e0daf373}\index{FarbenButton@{FarbenButton}!Start@{Start}}
+\index{Start@{Start}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_farben_button_a8e3bd61fec6abc7e200940d6e0daf373} 
+void Farben\+Button.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method finds, stores and deactivates all active display annotations. 
+
+It also stores the original colour scheme of the scene. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_farben_button_a2b09416d55856bc95e1178b94c51cdca}\index{FarbenButton@{FarbenButton}!animationDuration@{animationDuration}}
+\index{animationDuration@{animationDuration}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{animationDuration}{animationDuration}}
+{\footnotesize\ttfamily \label{class_farben_button_a2b09416d55856bc95e1178b94c51cdca} 
+float Farben\+Button.\+animation\+Duration = 0.\+5f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em animation\+Duration} & specifies the duration of the animation\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_farben_button_a9b1424ed83146f95fbd1b1c6ad7158b4}\index{FarbenButton@{FarbenButton}!colorBlindModeActivated@{colorBlindModeActivated}}
+\index{colorBlindModeActivated@{colorBlindModeActivated}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{colorBlindModeActivated}{colorBlindModeActivated}}
+{\footnotesize\ttfamily \label{class_farben_button_a9b1424ed83146f95fbd1b1c6ad7158b4} 
+bool Farben\+Button.\+color\+Blind\+Mode\+Activated = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em color\+Blind\+Mode\+Activated} & tracks whether the color blind mode is currently active\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_farben_button_a2a599cc9cc617b6664d028107c77a887}\index{FarbenButton@{FarbenButton}!cooldownDuration@{cooldownDuration}}
+\index{cooldownDuration@{cooldownDuration}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{cooldownDuration}{cooldownDuration}}
+{\footnotesize\ttfamily \label{class_farben_button_a2a599cc9cc617b6664d028107c77a887} 
+float Farben\+Button.\+cooldown\+Duration = 1f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em cooldown\+Duration} & specifies the duration of the animation cooldown\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_farben_button_a40d505e856393439ae2920594eb09e6f}\index{FarbenButton@{FarbenButton}!emissionIntensity@{emissionIntensity}}
+\index{emissionIntensity@{emissionIntensity}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{emissionIntensity}{emissionIntensity}}
+{\footnotesize\ttfamily \label{class_farben_button_a40d505e856393439ae2920594eb09e6f} 
+float Farben\+Button.\+emission\+Intensity = 1.\+0f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em emission\+Intensity} & stores the Intensity of the emission color\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_farben_button_aa27eb08bc8be968fbe250394af0f57b8}\index{FarbenButton@{FarbenButton}!interactable@{interactable}}
+\index{interactable@{interactable}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{interactable}{interactable}}
+{\footnotesize\ttfamily \label{class_farben_button_aa27eb08bc8be968fbe250394af0f57b8} 
+XRBase\+Interactable Farben\+Button.\+interactable}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em interactable} & is a reference to a XRSimple\+Interactable\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_farben_button_afe3232e883e7b31e7b48d75b2e77e3e5}\index{FarbenButton@{FarbenButton}!isAnimating@{isAnimating}}
+\index{isAnimating@{isAnimating}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{isAnimating}{isAnimating}}
+{\footnotesize\ttfamily \label{class_farben_button_afe3232e883e7b31e7b48d75b2e77e3e5} 
+bool Farben\+Button.\+is\+Animating = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Animating} & tracks whether the button is currently being animated\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_farben_button_aa6e38b5d12a787b391310a431aca3a3a}\index{FarbenButton@{FarbenButton}!materialsEmissionChange@{materialsEmissionChange}}
+\index{materialsEmissionChange@{materialsEmissionChange}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{materialsEmissionChange}{materialsEmissionChange}}
+{\footnotesize\ttfamily \label{class_farben_button_aa6e38b5d12a787b391310a431aca3a3a} 
+Material \mbox{[}$\,$\mbox{]} Farben\+Button.\+materials\+Emission\+Change}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em materials\+Emission\+Change} & is an array of materials to adjust\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_farben_button_a5814b836de18a9f8f5a0d7e62efff104}\index{FarbenButton@{FarbenButton}!moveDistance@{moveDistance}}
+\index{moveDistance@{moveDistance}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{moveDistance}{moveDistance}}
+{\footnotesize\ttfamily \label{class_farben_button_a5814b836de18a9f8f5a0d7e62efff104} 
+float Farben\+Button.\+move\+Distance = 0.\+5f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Distance} & specifies how far to move the button during the animation \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_farben_button_a79ae7badd291e5b37526e07089f52524}\index{FarbenButton@{FarbenButton}!newColorsEmission@{newColorsEmission}}
+\index{newColorsEmission@{newColorsEmission}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{newColorsEmission}{newColorsEmission}}
+{\footnotesize\ttfamily \label{class_farben_button_a79ae7badd291e5b37526e07089f52524} 
+Color \mbox{[}$\,$\mbox{]} Farben\+Button.\+new\+Colors\+Emission}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Colors\+Emission} & is an array of new colors to apply to materials\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_farben_button_a81bd9186a3df8f925f785e63c794547e}\index{FarbenButton@{FarbenButton}!newTextColors@{newTextColors}}
+\index{newTextColors@{newTextColors}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{newTextColors}{newTextColors}}
+{\footnotesize\ttfamily \label{class_farben_button_a81bd9186a3df8f925f785e63c794547e} 
+Color Farben\+Button.\+new\+Text\+Colors}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Text\+Colors} & is an array of new colors to apply to Text\+Mesh\+Pro objects\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_farben_button_a37fdbb8f0c87649c7b2b5215b37f3940}\index{FarbenButton@{FarbenButton}!originalColors@{originalColors}}
+\index{originalColors@{originalColors}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{originalColors}{originalColors}}
+{\footnotesize\ttfamily \label{class_farben_button_a37fdbb8f0c87649c7b2b5215b37f3940} 
+Color \mbox{[}$\,$\mbox{]} Farben\+Button.\+original\+Colors\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em original\+Colors} & is an array storing original colours\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_farben_button_a7282f3089b3578e48809cd47efb21636}\index{FarbenButton@{FarbenButton}!originalEmissionColors@{originalEmissionColors}}
+\index{originalEmissionColors@{originalEmissionColors}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{originalEmissionColors}{originalEmissionColors}}
+{\footnotesize\ttfamily \label{class_farben_button_a7282f3089b3578e48809cd47efb21636} 
+Color \mbox{[}$\,$\mbox{]} Farben\+Button.\+original\+Emission\+Colors\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em original\+Emission\+Colors} & is an array storing original emission colours\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_farben_button_af155934bfd11ff86fbe19a89c03437a0}\index{FarbenButton@{FarbenButton}!originalTextColors@{originalTextColors}}
+\index{originalTextColors@{originalTextColors}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{originalTextColors}{originalTextColors}}
+{\footnotesize\ttfamily \label{class_farben_button_af155934bfd11ff86fbe19a89c03437a0} 
+Color \mbox{[}$\,$\mbox{]} Farben\+Button.\+original\+Text\+Colors\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em original\+Text\+Colors} & is an array storing original text colours\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_farben_button_a8fd3c641af2d9202c39813feb79b9bad}\index{FarbenButton@{FarbenButton}!textMeshProObjects@{textMeshProObjects}}
+\index{textMeshProObjects@{textMeshProObjects}!FarbenButton@{FarbenButton}}
+\doxysubsubsection{\texorpdfstring{textMeshProObjects}{textMeshProObjects}}
+{\footnotesize\ttfamily \label{class_farben_button_a8fd3c641af2d9202c39813feb79b9bad} 
+Text\+Mesh\+Pro \mbox{[}$\,$\mbox{]} Farben\+Button.\+text\+Mesh\+Pro\+Objects}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em text\+Mesh\+Pro\+Objects} & is an array of Text\+Mesh\+Pro objects to adjust\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+UI/\mbox{\hyperlink{_farben_button_8cs}{Farben\+Button.\+cs}}\end{DoxyCompactItemize}

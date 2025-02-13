@@ -1,19 +1,20 @@
 using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This class implements logic for displaying the current water level inside the condenser tank.
+/// </summary>
 public class CWater : MonoBehaviour
 {
+    /// <param name="anzeigeSteuerung"> is a reference to the displays AnzeigeSteuerung component </param>
     private AnzeigeSteuerung5 anzeigeSteuerung;
 
+    /// <param name="clientObject"=> is a reference to the scene's clientObject</param>
     private GameObject clientObject;
 
 /// <summary>
-/// Start () initializes the display update procedure by fetching the AnzeigeSteuerung script and if successful, fetching the NPPClient script. 
-/// The AnzeigeSteuerung Script is responsible for updating the display with the water level of the condenser tank. Because the maximum capacity of the condenser tank is set in the simulation to 5000, the update of the water level is computed by the following formula: current water level / 5000 * 100.
-/// The NPPClient Script is responsible for fetching the current water level of the condenser tank from the simulation via the REST Server API. The current water level is stored in Condenser.waterLevel field of the NPPReactorState object simulation.
+/// This method initializes the AnzeigeSteuerung component, clientObject and the display by calling the NPPReactorState object in NPPClient to fetch the current water level inside the condenser tank.</summary>
 /// </summary>
-
-
     void Start()
     {
         anzeigeSteuerung = GetComponent<AnzeigeSteuerung5>();
@@ -22,14 +23,12 @@ public class CWater : MonoBehaviour
 
             clientObject = GameObject.Find("NPPclientObject");
             anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Condenser.waterLevel/5000*100;
-            //Debug.Log("CWater: " + anzeigeSteuerung.CHANGEpercentage);
         }
     }
 
 /// <summary>
-/// Update() updates the display for the condenser water level within each frame by fetching the water level stored in the Condenser.waterLevel field of the NPPClient Scripts simulation object and updating the water level by computing: current water level / 5000 * 100.
+/// This method updates the display by reading the current water level inside the condenser tank from the Condenser.waterLevel field of the NPPReactorState object in NPPClient. 
 /// </summary>
-
     void Update()
     {
         anzeigeSteuerung.CHANGEpercentage = clientObject.GetComponent<NPPClient>().simulation.Condenser.waterLevel/5000*100;

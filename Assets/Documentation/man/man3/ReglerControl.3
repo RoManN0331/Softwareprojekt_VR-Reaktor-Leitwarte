@@ -1,0 +1,259 @@
+.TH "ReglerControl" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ReglerControl \- This class implements the default behaviour for rotary switches\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBReglerTypeEnum\fP { \fBGenau\fP = 0, \fBBinaer\fP = 1 }"
+.br
+.RI "This Enum defines two types of rotary switches binary and exact\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBReglerTypeEnum\fP \fBReglerType\fP = \fBReglerTypeEnum\&.Genau\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIReglerType\fP specifies the type of rotary switch
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBto_rotate\fP"
+.br
+.ti -1c
+.RI "int \fBPercent\fP = 0"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIPercent\fP specifies the percentage the switch has been rotated based on its leftmost position
+.RE
+.PP
+"
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initializes the switch instance and sets the initial rotation of the switch\&. "
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.RI "This method updates the rotation of the switch based on the current value of Percent and the type of the switch\&. "
+.ti -1c
+.RI "void \fBOnEnable\fP ()"
+.br
+.RI "This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events\&. "
+.ti -1c
+.RI "void \fBOnDisable\fP ()"
+.br
+.RI "This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events\&. "
+.ti -1c
+.RI "void \fBOnSelectEntered\fP (SelectEnterEventArgs args)"
+.br
+.RI "This method is called when an interactor enters the object and sets the interactor and initialInteractorRotation values\&. "
+.ti -1c
+.RI "void \fBOnSelectExited\fP (SelectExitEventArgs args)"
+.br
+.RI "This method is called when an interactor exits the object and resets the isInteracting and interactor values\&. "
+.ti -1c
+.RI "void \fBinitLamp\fP ()"
+.br
+.RI "This method initialises the switch's lamp\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBStartRotation\fP = \-90"
+.br
+.RI "param name="EndRotation"> specifies the angle of the switches rightmost position"
+.ti -1c
+.RI "int \fBEndRotation\fP = 90"
+.br
+.RI "param name="lastPressTime"> specifies when the switch was last interacted with"
+.ti -1c
+.RI "float \fBlastPressTime\fP = 0f"
+.br
+.RI "param name="pressCooldown"> specifies a cooldown between interactions with the switch"
+.ti -1c
+.RI "float \fBpressCooldown\fP = 1f"
+.br
+.RI "param name="interactor"> is a referemce tp am Interactor"
+.ti -1c
+.RI "UnityEngine\&.XR\&.Interaction\&.Toolkit\&.Interactors\&.XRBaseInteractor \fBinteractor\fP"
+.br
+.RI "param name="isInteracting"> tracks if the player is interacting with the switch"
+.ti -1c
+.RI "bool \fBisInteracting\fP = false"
+.br
+.RI "param name="initialInteractorPosition"> is a Vector3 specifying the initial Position of the Interactor"
+.ti -1c
+.RI "Vector3 \fBinitialInteractorPosition\fP"
+.br
+.RI "param name="initialPercent"> specifies the initinal percentage the switch has already been rotated"
+.ti -1c
+.RI "int \fBinitialPercent\fP"
+.br
+.RI "param name="previousPercent"> specifies the percentage the switch has been rotated in the last frame"
+.ti -1c
+.RI "int \fBpreviousPercent\fP"
+.br
+.RI "param name="lightRegler"> is a reference to a \fBLightRegler\fP to switch on lights"
+.ti -1c
+.RI "\fBLightRegler\fP \fBlightRegler\fP"
+.br
+.RI "param name="initialInteractorRotation"> is a Quaternion specifying the initial rotation of the interactor upon interaction"
+.ti -1c
+.RI "Quaternion \fBinitialInteractorRotation\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements the default behaviour for rotary switches\&. 
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBReglerControl\&.ReglerTypeEnum\fP"
+
+.PP
+This Enum defines two types of rotary switches binary and exact\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIGenau \fP
+.TP
+\f(BIBinaer \fP
+.SH "Member Function Documentation"
+.PP 
+.SS "void ReglerControl\&.initLamp ()\fR [private]\fP"
+
+.PP
+This method initialises the switch's lamp\&. 
+.SS "void ReglerControl\&.OnDisable ()\fR [private]\fP"
+
+.PP
+This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events\&. 
+.SS "void ReglerControl\&.OnEnable ()\fR [private]\fP"
+
+.PP
+This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events\&. 
+.SS "void ReglerControl\&.OnSelectEntered (SelectEnterEventArgs args)\fR [private]\fP"
+
+.PP
+This method is called when an interactor enters the object and sets the interactor and initialInteractorRotation values\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP passes event specific arguments upon entering the interaction
+.RE
+.PP
+
+.SS "void ReglerControl\&.OnSelectExited (SelectExitEventArgs args)\fR [private]\fP"
+
+.PP
+This method is called when an interactor exits the object and resets the isInteracting and interactor values\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP passes event specific arguments upon exiting the interaction
+.RE
+.PP
+
+.SS "void ReglerControl\&.Start ()\fR [private]\fP"
+
+.PP
+This method initializes the switch instance and sets the initial rotation of the switch\&. 
+.SS "void ReglerControl\&.Update ()\fR [private]\fP"
+
+.PP
+This method updates the rotation of the switch based on the current value of Percent and the type of the switch\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "int ReglerControl\&.EndRotation = 90\fR [private]\fP"
+
+.PP
+param name="lastPressTime"> specifies when the switch was last interacted with
+.SS "Vector3 ReglerControl\&.initialInteractorPosition\fR [private]\fP"
+
+.PP
+param name="initialPercent"> specifies the initinal percentage the switch has already been rotated
+.SS "Quaternion ReglerControl\&.initialInteractorRotation\fR [private]\fP"
+
+.SS "int ReglerControl\&.initialPercent\fR [private]\fP"
+
+.PP
+param name="previousPercent"> specifies the percentage the switch has been rotated in the last frame
+.SS "UnityEngine\&.XR\&.Interaction\&.Toolkit\&.Interactors\&.XRBaseInteractor ReglerControl\&.interactor\fR [private]\fP"
+
+.PP
+param name="isInteracting"> tracks if the player is interacting with the switch
+.SS "bool ReglerControl\&.isInteracting = false\fR [private]\fP"
+
+.PP
+param name="initialInteractorPosition"> is a Vector3 specifying the initial Position of the Interactor
+.SS "float ReglerControl\&.lastPressTime = 0f\fR [private]\fP"
+
+.PP
+param name="pressCooldown"> specifies a cooldown between interactions with the switch
+.SS "\fBLightRegler\fP ReglerControl\&.lightRegler\fR [private]\fP"
+
+.PP
+param name="initialInteractorRotation"> is a Quaternion specifying the initial rotation of the interactor upon interaction
+.SS "int ReglerControl\&.Percent = 0"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIPercent\fP specifies the percentage the switch has been rotated based on its leftmost position
+.RE
+.PP
+param name="StartRotation"> specifies the angle of the switches leftmost position
+.SS "float ReglerControl\&.pressCooldown = 1f\fR [private]\fP"
+
+.PP
+param name="interactor"> is a referemce tp am Interactor
+.SS "int ReglerControl\&.previousPercent\fR [private]\fP"
+
+.PP
+param name="lightRegler"> is a reference to a \fBLightRegler\fP to switch on lights
+.SS "\fBReglerTypeEnum\fP ReglerControl\&.ReglerType = \fBReglerTypeEnum\&.Genau\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIReglerType\fP specifies the type of rotary switch
+.RE
+.PP
+param name="to_rotate"> specifies the handle the player must interact with to rotate the switch
+.SS "int ReglerControl\&.StartRotation = \-90\fR [private]\fP"
+
+.PP
+param name="EndRotation"> specifies the angle of the switches rightmost position
+.SS "GameObject ReglerControl\&.to_rotate"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

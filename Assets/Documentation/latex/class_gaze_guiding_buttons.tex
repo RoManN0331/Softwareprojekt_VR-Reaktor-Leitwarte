@@ -1,0 +1,289 @@
+\doxysection{Gaze\+Guiding\+Buttons Class Reference}
+\hypertarget{class_gaze_guiding_buttons}{}\label{class_gaze_guiding_buttons}\index{GazeGuidingButtons@{GazeGuidingButtons}}
+
+
+This class is used to enable or disable the different gaze-\/guiding features set via the gaze-\/guiding panel in the VR application.  
+
+
+Inheritance diagram for Gaze\+Guiding\+Buttons\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_gaze_guiding_buttons}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_gaze_guiding_buttons_a36e74301909f0993c63d0616dc6b63d4}{Direction\+Cue}} (bool Turn\+On)
+\begin{DoxyCompactList}\small\item\em This method enables or disables the direction cue feature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_buttons_a32070b200c6ead628ff308a094164c47}{Direction\+Arrow}} (bool Turn\+On)
+\begin{DoxyCompactList}\small\item\em This method enables or disables the direction arrow feature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_buttons_a8c5b675a18710e196dc85957984c70e0}{Arrow3D}} (bool Turn\+On)
+\begin{DoxyCompactList}\small\item\em This method enables or disables the continuous 3D arrow feature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_buttons_aa47251d1ee573217ada979265dee343c}{Arrow3\+DBinear}} (bool Turn\+On)
+\begin{DoxyCompactList}\small\item\em This method enables or disables the binary 3D arrow feature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_buttons_a199780867b09be51dca8d95fe607c1a7}{Direction\+Arrow\+On\+Screen}} (bool Turn\+On)
+\begin{DoxyCompactList}\small\item\em This method enables or disables the direction arrow feature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_buttons_a4438724d74dae58df91250a9a7490b62}{Anzeigen\+Markierung}} (bool Turn\+On)
+\begin{DoxyCompactList}\small\item\em This method enables or disables the display annotations feature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_buttons_a1a218a0490263353c076f384b8b87af9}{Trigger\+Blur}} (bool state)
+\begin{DoxyCompactList}\small\item\em This method enables or disables the camera blur feature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_buttons_aa415ee9e43d50ba1ab8e0dfe1979541b}{Trigger\+Detach}} (bool state)
+\begin{DoxyCompactList}\small\item\em This method enables or disables the detach feature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_buttons_af395fccf7cfb6c08f195d7df178c6338}{HUD}} (bool Turn\+On)
+\begin{DoxyCompactList}\small\item\em This method enables or disables the \doxylink{class_h_u_d}{HUD}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_gaze_guiding_buttons_ade46b738e8a21f8718b1ca54f9cdbbcc}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the path\+Player, path\+Player2 and the HUDPrefab references. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player}} \mbox{\hyperlink{class_gaze_guiding_buttons_a76ab89ea4fd38ac8824da605504ec75f}{path\+Player}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em path\+Player} & is a reference to the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player} instance in the scene\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_gaze_guiding_path_player_second_path}{Gaze\+Guiding\+Path\+Player\+Second\+Path}} \mbox{\hyperlink{class_gaze_guiding_buttons_a73f1a666cdedd67d5f10b457009f1abe}{path\+Player2}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em path\+Player2} & is a reference to the \doxylink{class_gaze_guiding_path_player_second_path}{Gaze\+Guiding\+Path\+Player\+Second\+Path} instance in the scene\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_gaze_guiding_buttons_ad47277547471fefa6ba353fc6786d0f0}{HUDPrefab}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em HUDPrefab} & is a prefab for a \doxylink{class_h_u_d}{HUD}\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_gaze_guiding_buttons_ac89c47fdf8b7d00f810f3def6701bcf3}{HUDInstance}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em HUDInstance} & is a reference to an instance of a \doxylink{class_h_u_d}{HUD}\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to enable or disable the different gaze-\/guiding features set via the gaze-\/guiding panel in the VR application. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_gaze_guiding_buttons_a4438724d74dae58df91250a9a7490b62}\index{GazeGuidingButtons@{GazeGuidingButtons}!AnzeigenMarkierung@{AnzeigenMarkierung}}
+\index{AnzeigenMarkierung@{AnzeigenMarkierung}!GazeGuidingButtons@{GazeGuidingButtons}}
+\doxysubsubsection{\texorpdfstring{AnzeigenMarkierung()}{AnzeigenMarkierung()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_buttons_a4438724d74dae58df91250a9a7490b62} 
+void Gaze\+Guiding\+Buttons.\+Anzeigen\+Markierung (\begin{DoxyParamCaption}\item[{bool}]{Turn\+On}{}\end{DoxyParamCaption})}
+
+
+
+This method enables or disables the display annotations feature. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Turn\+On} & toggles whether the display annotations feature is enabled or disabled\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_buttons_a8c5b675a18710e196dc85957984c70e0}\index{GazeGuidingButtons@{GazeGuidingButtons}!Arrow3D@{Arrow3D}}
+\index{Arrow3D@{Arrow3D}!GazeGuidingButtons@{GazeGuidingButtons}}
+\doxysubsubsection{\texorpdfstring{Arrow3D()}{Arrow3D()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_buttons_a8c5b675a18710e196dc85957984c70e0} 
+void Gaze\+Guiding\+Buttons.\+Arrow3D (\begin{DoxyParamCaption}\item[{bool}]{Turn\+On}{}\end{DoxyParamCaption})}
+
+
+
+This method enables or disables the continuous 3D arrow feature. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Turn\+On} & toggles whether the continuous 3D arrow feature is enabled or disabled\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_buttons_aa47251d1ee573217ada979265dee343c}\index{GazeGuidingButtons@{GazeGuidingButtons}!Arrow3DBinear@{Arrow3DBinear}}
+\index{Arrow3DBinear@{Arrow3DBinear}!GazeGuidingButtons@{GazeGuidingButtons}}
+\doxysubsubsection{\texorpdfstring{Arrow3DBinear()}{Arrow3DBinear()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_buttons_aa47251d1ee573217ada979265dee343c} 
+void Gaze\+Guiding\+Buttons.\+Arrow3\+DBinear (\begin{DoxyParamCaption}\item[{bool}]{Turn\+On}{}\end{DoxyParamCaption})}
+
+
+
+This method enables or disables the binary 3D arrow feature. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Turn\+On} & toggles whether the binary 3D arrow feature is enabled or disabled\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_buttons_a32070b200c6ead628ff308a094164c47}\index{GazeGuidingButtons@{GazeGuidingButtons}!DirectionArrow@{DirectionArrow}}
+\index{DirectionArrow@{DirectionArrow}!GazeGuidingButtons@{GazeGuidingButtons}}
+\doxysubsubsection{\texorpdfstring{DirectionArrow()}{DirectionArrow()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_buttons_a32070b200c6ead628ff308a094164c47} 
+void Gaze\+Guiding\+Buttons.\+Direction\+Arrow (\begin{DoxyParamCaption}\item[{bool}]{Turn\+On}{}\end{DoxyParamCaption})}
+
+
+
+This method enables or disables the direction arrow feature. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Turn\+On} & toggles whether the direction arrow feature is enabled or disabled\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_buttons_a199780867b09be51dca8d95fe607c1a7}\index{GazeGuidingButtons@{GazeGuidingButtons}!DirectionArrowOnScreen@{DirectionArrowOnScreen}}
+\index{DirectionArrowOnScreen@{DirectionArrowOnScreen}!GazeGuidingButtons@{GazeGuidingButtons}}
+\doxysubsubsection{\texorpdfstring{DirectionArrowOnScreen()}{DirectionArrowOnScreen()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_buttons_a199780867b09be51dca8d95fe607c1a7} 
+void Gaze\+Guiding\+Buttons.\+Direction\+Arrow\+On\+Screen (\begin{DoxyParamCaption}\item[{bool}]{Turn\+On}{}\end{DoxyParamCaption})}
+
+
+
+This method enables or disables the direction arrow feature. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Turn\+On} & toggles whether the direction arrow feature is enabled or disabled\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_buttons_a36e74301909f0993c63d0616dc6b63d4}\index{GazeGuidingButtons@{GazeGuidingButtons}!DirectionCue@{DirectionCue}}
+\index{DirectionCue@{DirectionCue}!GazeGuidingButtons@{GazeGuidingButtons}}
+\doxysubsubsection{\texorpdfstring{DirectionCue()}{DirectionCue()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_buttons_a36e74301909f0993c63d0616dc6b63d4} 
+void Gaze\+Guiding\+Buttons.\+Direction\+Cue (\begin{DoxyParamCaption}\item[{bool}]{Turn\+On}{}\end{DoxyParamCaption})}
+
+
+
+This method enables or disables the direction cue feature. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Turn\+On} & toggles whether the direction cue feature is enabled or disabled\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_buttons_af395fccf7cfb6c08f195d7df178c6338}\index{GazeGuidingButtons@{GazeGuidingButtons}!HUD@{HUD}}
+\index{HUD@{HUD}!GazeGuidingButtons@{GazeGuidingButtons}}
+\doxysubsubsection{\texorpdfstring{HUD()}{HUD()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_buttons_af395fccf7cfb6c08f195d7df178c6338} 
+void Gaze\+Guiding\+Buttons.\+HUD (\begin{DoxyParamCaption}\item[{bool}]{Turn\+On}{}\end{DoxyParamCaption})}
+
+
+
+This method enables or disables the \doxylink{class_h_u_d}{HUD}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Turn\+On} & toggles the \doxylink{class_h_u_d}{HUD} either to enabled or disabled\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_buttons_ade46b738e8a21f8718b1ca54f9cdbbcc}\index{GazeGuidingButtons@{GazeGuidingButtons}!Start@{Start}}
+\index{Start@{Start}!GazeGuidingButtons@{GazeGuidingButtons}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_buttons_ade46b738e8a21f8718b1ca54f9cdbbcc} 
+void Gaze\+Guiding\+Buttons.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the path\+Player, path\+Player2 and the HUDPrefab references. 
+
+\Hypertarget{class_gaze_guiding_buttons_a1a218a0490263353c076f384b8b87af9}\index{GazeGuidingButtons@{GazeGuidingButtons}!TriggerBlur@{TriggerBlur}}
+\index{TriggerBlur@{TriggerBlur}!GazeGuidingButtons@{GazeGuidingButtons}}
+\doxysubsubsection{\texorpdfstring{TriggerBlur()}{TriggerBlur()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_buttons_a1a218a0490263353c076f384b8b87af9} 
+void Gaze\+Guiding\+Buttons.\+Trigger\+Blur (\begin{DoxyParamCaption}\item[{bool}]{state}{}\end{DoxyParamCaption})}
+
+
+
+This method enables or disables the camera blur feature. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Turn\+On} & toggles whether the camera blur feature is enabled or disabled\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_buttons_aa415ee9e43d50ba1ab8e0dfe1979541b}\index{GazeGuidingButtons@{GazeGuidingButtons}!TriggerDetach@{TriggerDetach}}
+\index{TriggerDetach@{TriggerDetach}!GazeGuidingButtons@{GazeGuidingButtons}}
+\doxysubsubsection{\texorpdfstring{TriggerDetach()}{TriggerDetach()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_buttons_aa415ee9e43d50ba1ab8e0dfe1979541b} 
+void Gaze\+Guiding\+Buttons.\+Trigger\+Detach (\begin{DoxyParamCaption}\item[{bool}]{state}{}\end{DoxyParamCaption})}
+
+
+
+This method enables or disables the detach feature. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Turn\+On} & toggles whether the detach feature is enabled or disabled\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_gaze_guiding_buttons_ac89c47fdf8b7d00f810f3def6701bcf3}\index{GazeGuidingButtons@{GazeGuidingButtons}!HUDInstance@{HUDInstance}}
+\index{HUDInstance@{HUDInstance}!GazeGuidingButtons@{GazeGuidingButtons}}
+\doxysubsubsection{\texorpdfstring{HUDInstance}{HUDInstance}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_buttons_ac89c47fdf8b7d00f810f3def6701bcf3} 
+Game\+Object Gaze\+Guiding\+Buttons.\+HUDInstance\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em HUDInstance} & is a reference to an instance of a \doxylink{class_h_u_d}{HUD}\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_buttons_ad47277547471fefa6ba353fc6786d0f0}\index{GazeGuidingButtons@{GazeGuidingButtons}!HUDPrefab@{HUDPrefab}}
+\index{HUDPrefab@{HUDPrefab}!GazeGuidingButtons@{GazeGuidingButtons}}
+\doxysubsubsection{\texorpdfstring{HUDPrefab}{HUDPrefab}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_buttons_ad47277547471fefa6ba353fc6786d0f0} 
+Game\+Object Gaze\+Guiding\+Buttons.\+HUDPrefab\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em HUDPrefab} & is a prefab for a \doxylink{class_h_u_d}{HUD}\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_buttons_a76ab89ea4fd38ac8824da605504ec75f}\index{GazeGuidingButtons@{GazeGuidingButtons}!pathPlayer@{pathPlayer}}
+\index{pathPlayer@{pathPlayer}!GazeGuidingButtons@{GazeGuidingButtons}}
+\doxysubsubsection{\texorpdfstring{pathPlayer}{pathPlayer}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_buttons_a76ab89ea4fd38ac8824da605504ec75f} 
+\mbox{\hyperlink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player}} Gaze\+Guiding\+Buttons.\+path\+Player\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em path\+Player} & is a reference to the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player} instance in the scene\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_buttons_a73f1a666cdedd67d5f10b457009f1abe}\index{GazeGuidingButtons@{GazeGuidingButtons}!pathPlayer2@{pathPlayer2}}
+\index{pathPlayer2@{pathPlayer2}!GazeGuidingButtons@{GazeGuidingButtons}}
+\doxysubsubsection{\texorpdfstring{pathPlayer2}{pathPlayer2}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_buttons_a73f1a666cdedd67d5f10b457009f1abe} 
+\mbox{\hyperlink{class_gaze_guiding_path_player_second_path}{Gaze\+Guiding\+Path\+Player\+Second\+Path}} Gaze\+Guiding\+Buttons.\+path\+Player2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em path\+Player2} & is a reference to the \doxylink{class_gaze_guiding_path_player_second_path}{Gaze\+Guiding\+Path\+Player\+Second\+Path} instance in the scene\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+UI/\mbox{\hyperlink{_gaze_guiding_buttons_8cs}{Gaze\+Guiding\+Buttons.\+cs}}\end{DoxyCompactItemize}

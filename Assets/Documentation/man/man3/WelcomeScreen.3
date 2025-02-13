@@ -1,0 +1,237 @@
+.TH "WelcomeScreen" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+WelcomeScreen \- This class implements a welcome screen that is displayed at the start of the VR application explaining to the player what they are supposed to do\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBNext\fP ()"
+.br
+.RI "This method implements the logic for the forward button\&. "
+.ti -1c
+.RI "void \fBPrevious\fP ()"
+.br
+.RI "This method implements the logic for the back button\&. "
+.ti -1c
+.RI "void \fBConfirm\fP ()"
+.br
+.RI "This method implements the logic for the confirm button\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "GameObject \fBforwardButton\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIforwardButton\fP is a button to go to the next page of the welcome message
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBbackButton\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIbackButton\fP is a button to go to the previous page of the welcome message
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBconfirmButton\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIconfirmButton\fP is a button to close the welcome message
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBscrollPanel\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIscrollPanel\fP is a Panel displaying the welcome message
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBDISABLE_WELCOME_SCREEN\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDISABLE_WELCOME_SCREEN\fP tracks whether the welcome screen is displayed or not
+.RE
+.PP
+"
+.ti -1c
+.RI "InputActionAsset \fBclipbaordInputAction\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIclipbaordInputAction\fP is a reference to an InputActionAsset for retrieving the controller button that is used to trigger a chosen scenario
+.RE
+.PP
+"
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initialises the welcome screen and its components\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "string[] \fBinfoTexts\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIinfoTexts\fP is an array containing the welcome message
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements a welcome screen that is displayed at the start of the VR application explaining to the player what they are supposed to do\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void WelcomeScreen\&.Confirm ()"
+
+.PP
+This method implements the logic for the confirm button\&. 
+.SS "void WelcomeScreen\&.Next ()"
+
+.PP
+This method implements the logic for the forward button\&. 
+.SS "void WelcomeScreen\&.Previous ()"
+
+.PP
+This method implements the logic for the back button\&. 
+.SS "void WelcomeScreen\&.Start ()\fR [private]\fP"
+
+.PP
+This method initialises the welcome screen and its components\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "GameObject WelcomeScreen\&.backButton"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIbackButton\fP is a button to go to the previous page of the welcome message
+.RE
+.PP
+
+.SS "InputActionAsset WelcomeScreen\&.clipbaordInputAction"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIclipbaordInputAction\fP is a reference to an InputActionAsset for retrieving the controller button that is used to trigger a chosen scenario
+.RE
+.PP
+
+.SS "GameObject WelcomeScreen\&.confirmButton"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIconfirmButton\fP is a button to close the welcome message
+.RE
+.PP
+
+.SS "bool WelcomeScreen\&.DISABLE_WELCOME_SCREEN = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDISABLE_WELCOME_SCREEN\fP tracks whether the welcome screen is displayed or not
+.RE
+.PP
+
+.SS "GameObject WelcomeScreen\&.forwardButton"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIforwardButton\fP is a button to go to the next page of the welcome message
+.RE
+.PP
+
+.SS "string [] WelcomeScreen\&.infoTexts\fR [private]\fP"
+\fBInitial value:\fP
+.nf
+= new string[] {
+        "Sie befinden sich in der Steuerzentrale eines Kernreaktors\&. Ihre Aufgaben umfassen die Überwachung der Systeme, die Steuerung der Energieproduktion und die Gewährleistung der Sicherheit\&. Ihnen stehen folgende Elemente zur Verfügung:",
+        "📟 Hauptkonsole:\\nZentrale Steuereinheit zur Regulierung des Reaktors und Überwachung der Systemparameter\&.",
+        "💡 Statuslampen:\\nInformieren Sie über den aktuellen Zustand der Reaktorkomponenten\&.",
+        "📋 Clipboards:\\nStandartverfahren verschiedener Szenarien\&. Starten Sie ein Szenario durch Betätigen der <color=#00aaaa>{INPUT_BTN}</color> Taste",
+        "🔍 Gazeguiding Panel:\\nEs stehen eine Reihe von unterstüzenden Gaze\-Guiding Elementen zur Verfügung\&. Diese Können nach belieben ausgewählt werden",
+        "🚪 Tür:\\nVollständiges Zurücksetzen der Simulation, um verschiedene Szenarien erneut zu durchlaufen oder Fehler zu korrigieren\&.",
+        "Machen Sie sich bereit, die Kontrolle zu übernehmen \- die Sicherheit des Reaktors liegt in Ihren Händen! 🔥⚡"
+    }
+.PP
+.fi
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIinfoTexts\fP is an array containing the welcome message
+.RE
+.PP
+
+.SS "GameObject WelcomeScreen\&.scrollPanel"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIscrollPanel\fP is a Panel displaying the welcome message
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

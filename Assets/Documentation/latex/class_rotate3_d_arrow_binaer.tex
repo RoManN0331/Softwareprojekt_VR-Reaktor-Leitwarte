@@ -1,0 +1,190 @@
+\doxysection{Rotate3\+DArrow\+Binaer Class Reference}
+\hypertarget{class_rotate3_d_arrow_binaer}{}\label{class_rotate3_d_arrow_binaer}\index{Rotate3DArrowBinaer@{Rotate3DArrowBinaer}}
+
+
+This class implements a 3D arrow rotating in a choppy manner as a visual cue indicating the direction in which the player is supposed to turn a binary switch.  
+
+
+Inheritance diagram for Rotate3\+DArrow\+Binaer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_rotate3_d_arrow_binaer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_rotate3_d_arrow_binaer_ac49b8c75e783b8b08af51b2767f25eec}{rotation\+Speed}} = 500f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em rotation\+Speed} & specifies the speed by which the arrow is rotating\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_rotate3_d_arrow_binaer_ae13f24139758203db86e0c1336600593}{flip\+Direction}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em flip\+Direction} & specifies the direction in which the arrow is rotating\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_rotate3_d_arrow_binaer_ade3230b0e1fa9df40b412098e341cd07}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the arrow\textquotesingle{}s position and rotation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rotate3_d_arrow_binaer_acb9e81d29819df7b1629b2580d7bed97}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the arrow\textquotesingle{}s position. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_rotate3_d_arrow_binaer_a40ea13b3abad86ae638713cf79ba4f0b}{Rotate\+And\+Pause}} ()
+\begin{DoxyCompactList}\small\item\em This method rotates the arrow in 90 degree increments in the direction specified by flip\+Direction (false\+: clockwise, true\+: counterclockwise). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_rotate3_d_arrow_binaer_ab44f87a06c205b6fd6c73e912001e42a}{move\+Speed}} = 3f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em move\+Speed} & specifies the speed of vertical movements\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_rotate3_d_arrow_binaer_a0abb0b2d89335f5c56d5d72dcd04efae}{move\+Amount}} = 0.\+015f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em move\+Amount} & specifies the amount of vertical movement\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_rotate3_d_arrow_binaer_a8c4a3a922048c6cf7bef7e51c1655434}{initialY}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em initialY} & specifies the initial y position\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_rotate3_d_arrow_binaer_ae07dcdf04c85faf7b5d4c9cfb4fc9e55}{is\+Rotating}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements a 3D arrow rotating in a choppy manner as a visual cue indicating the direction in which the player is supposed to turn a binary switch. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rotate3_d_arrow_binaer_a40ea13b3abad86ae638713cf79ba4f0b}\index{Rotate3DArrowBinaer@{Rotate3DArrowBinaer}!RotateAndPause@{RotateAndPause}}
+\index{RotateAndPause@{RotateAndPause}!Rotate3DArrowBinaer@{Rotate3DArrowBinaer}}
+\doxysubsubsection{\texorpdfstring{RotateAndPause()}{RotateAndPause()}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_binaer_a40ea13b3abad86ae638713cf79ba4f0b} 
+IEnumerator Rotate3\+DArrow\+Binaer.\+Rotate\+And\+Pause (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method rotates the arrow in 90 degree increments in the direction specified by flip\+Direction (false\+: clockwise, true\+: counterclockwise). 
+
+\Hypertarget{class_rotate3_d_arrow_binaer_ade3230b0e1fa9df40b412098e341cd07}\index{Rotate3DArrowBinaer@{Rotate3DArrowBinaer}!Start@{Start}}
+\index{Start@{Start}!Rotate3DArrowBinaer@{Rotate3DArrowBinaer}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_binaer_ade3230b0e1fa9df40b412098e341cd07} 
+void Rotate3\+DArrow\+Binaer.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the arrow\textquotesingle{}s position and rotation. 
+
+\Hypertarget{class_rotate3_d_arrow_binaer_acb9e81d29819df7b1629b2580d7bed97}\index{Rotate3DArrowBinaer@{Rotate3DArrowBinaer}!Update@{Update}}
+\index{Update@{Update}!Rotate3DArrowBinaer@{Rotate3DArrowBinaer}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_binaer_acb9e81d29819df7b1629b2580d7bed97} 
+void Rotate3\+DArrow\+Binaer.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the arrow\textquotesingle{}s position. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_rotate3_d_arrow_binaer_ae13f24139758203db86e0c1336600593}\index{Rotate3DArrowBinaer@{Rotate3DArrowBinaer}!flipDirection@{flipDirection}}
+\index{flipDirection@{flipDirection}!Rotate3DArrowBinaer@{Rotate3DArrowBinaer}}
+\doxysubsubsection{\texorpdfstring{flipDirection}{flipDirection}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_binaer_ae13f24139758203db86e0c1336600593} 
+bool Rotate3\+DArrow\+Binaer.\+flip\+Direction = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em flip\+Direction} & specifies the direction in which the arrow is rotating\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_rotate3_d_arrow_binaer_a8c4a3a922048c6cf7bef7e51c1655434}\index{Rotate3DArrowBinaer@{Rotate3DArrowBinaer}!initialY@{initialY}}
+\index{initialY@{initialY}!Rotate3DArrowBinaer@{Rotate3DArrowBinaer}}
+\doxysubsubsection{\texorpdfstring{initialY}{initialY}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_binaer_a8c4a3a922048c6cf7bef7e51c1655434} 
+float Rotate3\+DArrow\+Binaer.\+initialY\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em initialY} & specifies the initial y position\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_rotate3_d_arrow_binaer_ae07dcdf04c85faf7b5d4c9cfb4fc9e55}\index{Rotate3DArrowBinaer@{Rotate3DArrowBinaer}!isRotating@{isRotating}}
+\index{isRotating@{isRotating}!Rotate3DArrowBinaer@{Rotate3DArrowBinaer}}
+\doxysubsubsection{\texorpdfstring{isRotating}{isRotating}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_binaer_ae07dcdf04c85faf7b5d4c9cfb4fc9e55} 
+bool Rotate3\+DArrow\+Binaer.\+is\+Rotating = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rotate3_d_arrow_binaer_a0abb0b2d89335f5c56d5d72dcd04efae}\index{Rotate3DArrowBinaer@{Rotate3DArrowBinaer}!moveAmount@{moveAmount}}
+\index{moveAmount@{moveAmount}!Rotate3DArrowBinaer@{Rotate3DArrowBinaer}}
+\doxysubsubsection{\texorpdfstring{moveAmount}{moveAmount}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_binaer_a0abb0b2d89335f5c56d5d72dcd04efae} 
+float Rotate3\+DArrow\+Binaer.\+move\+Amount = 0.\+015f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Amount} & specifies the amount of vertical movement\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_rotate3_d_arrow_binaer_ab44f87a06c205b6fd6c73e912001e42a}\index{Rotate3DArrowBinaer@{Rotate3DArrowBinaer}!moveSpeed@{moveSpeed}}
+\index{moveSpeed@{moveSpeed}!Rotate3DArrowBinaer@{Rotate3DArrowBinaer}}
+\doxysubsubsection{\texorpdfstring{moveSpeed}{moveSpeed}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_binaer_ab44f87a06c205b6fd6c73e912001e42a} 
+float Rotate3\+DArrow\+Binaer.\+move\+Speed = 3f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Speed} & specifies the speed of vertical movements\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_rotate3_d_arrow_binaer_ac49b8c75e783b8b08af51b2767f25eec}\index{Rotate3DArrowBinaer@{Rotate3DArrowBinaer}!rotationSpeed@{rotationSpeed}}
+\index{rotationSpeed@{rotationSpeed}!Rotate3DArrowBinaer@{Rotate3DArrowBinaer}}
+\doxysubsubsection{\texorpdfstring{rotationSpeed}{rotationSpeed}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_binaer_ac49b8c75e783b8b08af51b2767f25eec} 
+float Rotate3\+DArrow\+Binaer.\+rotation\+Speed = 500f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation\+Speed} & specifies the speed by which the arrow is rotating\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+UI/\mbox{\hyperlink{_rotate3_d_arrow_binaer_8cs}{Rotate3\+DArrow\+Binaer.\+cs}}\end{DoxyCompactItemize}

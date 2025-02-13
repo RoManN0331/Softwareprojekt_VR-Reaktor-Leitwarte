@@ -1,0 +1,179 @@
+.TH "Glow" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Glow \- This class implements logic to apply a glow effect to an object\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetGlowing\fP ()"
+.br
+.RI "This method toggles the glow effect on and off\&. "
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initialises the objectRenderer to render the glow effect and sets the strength of the effect\&. "
+.ti -1c
+.RI "IEnumerator \fBAnimateGlow\fP (float startValue, float endValue, float duration)"
+.br
+.RI "This method interpolates the glow strength\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "float \fBglowStrength_on\fP = 1\&.5f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIglowStrength_on\fP specifies the strength of the glow effect when turned on
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBglowStrength_off\fP = 0\&.0f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIglowStrength_off\fP specifies the strength of the glow effect when turned off
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBisGlowing\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisGlowing\fP checks if the glow effect is currently active active on the object 
+.RE
+.PP
+"
+.ti -1c
+.RI "Renderer \fBobjectRenderer\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIobjectRenderer\fP is a reference to a renderer object to render the glow effect 
+.RE
+.PP
+"
+.ti -1c
+.RI "Material \fBmats\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImats\fP is a Material being rendered by the renderer 
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements logic to apply a glow effect to an object\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "IEnumerator Glow\&.AnimateGlow (float startValue, float endValue, float duration)\fR [private]\fP"
+
+.PP
+This method interpolates the glow strength\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstartValue\fP lower bound for the interpolation
+.br
+\fIendValue\fP upper bound for the interpolation
+.br
+\fIduration\fP duration of the interpolation
+.RE
+.PP
+
+.SS "void Glow\&.setGlowing ()"
+
+.PP
+This method toggles the glow effect on and off\&. 
+.SS "void Glow\&.Start ()\fR [private]\fP"
+
+.PP
+This method initialises the objectRenderer to render the glow effect and sets the strength of the effect\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "float Glow\&.glowStrength_off = 0\&.0f\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIglowStrength_off\fP specifies the strength of the glow effect when turned off
+.RE
+.PP
+
+.SS "float Glow\&.glowStrength_on = 1\&.5f\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIglowStrength_on\fP specifies the strength of the glow effect when turned on
+.RE
+.PP
+
+.SS "bool Glow\&.isGlowing = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisGlowing\fP checks if the glow effect is currently active active on the object 
+.RE
+.PP
+
+.SS "Material Glow\&.mats\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImats\fP is a Material being rendered by the renderer 
+.RE
+.PP
+
+.SS "Renderer Glow\&.objectRenderer\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIobjectRenderer\fP is a reference to a renderer object to render the glow effect 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

@@ -1,0 +1,76 @@
+.TH "RPressure" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RPressure \- This class implements logic for displaying the current pressure inside the reactor tank\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initializes the \fBAnzeigeSteuerung\fP component, clientObject and the display by calling the \fBNPPReactorState\fP object in \fBNPPClient\fP to fetch the current pressure inside the reactor tank\&. "
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.RI "This method updates the display by reading the current pressure inside the reactor tank from the Reactor\&.pressure field of the \fBNPPReactorState\fP object in \fBNPPClient\fP\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBAnzeigeSteuerung\fP \fBanzeigeSteuerung\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanzeigeSteuerung\fP is a reference to the displays \fBAnzeigeSteuerung\fP component 
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBclientObject\fP"
+.br
+.RI "<param name="clientObject"=> is a reference to the scene's clientObject"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements logic for displaying the current pressure inside the reactor tank\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void RPressure\&.Start ()\fR [private]\fP"
+
+.PP
+This method initializes the \fBAnzeigeSteuerung\fP component, clientObject and the display by calling the \fBNPPReactorState\fP object in \fBNPPClient\fP to fetch the current pressure inside the reactor tank\&. 
+.SS "void RPressure\&.Update ()\fR [private]\fP"
+
+.PP
+This method updates the display by reading the current pressure inside the reactor tank from the Reactor\&.pressure field of the \fBNPPReactorState\fP object in \fBNPPClient\fP\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBAnzeigeSteuerung\fP RPressure\&.anzeigeSteuerung\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanzeigeSteuerung\fP is a reference to the displays \fBAnzeigeSteuerung\fP component 
+.RE
+.PP
+
+.SS "GameObject RPressure\&.clientObject\fR [private]\fP"
+
+.PP
+<param name="clientObject"=> is a reference to the scene's clientObject
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

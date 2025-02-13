@@ -1,0 +1,285 @@
+.TH "NPPClient" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NPPClient \- This class implements logic for connecting to the REST Server running the simulation and fetching the current state of the simulation's components\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "IEnumerator \fBUpdatePump\fP (string id, int value)"
+.br
+.RI "This method updates a pump's speed by sending a request with the pump id and the taget RPM to the REST server\&. "
+.ti -1c
+.RI "IEnumerator \fBUpdateValveStatus\fP (string valveId, bool value)"
+.br
+.RI "This method updates a valve's status by sending a request with the valve id and the target status to the REST server\&. "
+.ti -1c
+.RI "IEnumerator \fBSetRodPosition\fP (int value)"
+.br
+.RI "This method sets the control rods' position by sending a request with the target position to the REST server\&. "
+.ti -1c
+.RI "IEnumerator \fBSetInitialStateScenario\fP ()"
+.br
+.RI "This method loads the normal startup scenario\&. "
+.ti -1c
+.RI "IEnumerator \fBSetNormalShutdownScenario\fP ()"
+.br
+.RI "This method loads the normal shutdown scenario\&. "
+.ti -1c
+.RI "IEnumerator \fBSetEmergencyShutdownScenario\fP ()"
+.br
+.RI "This method loads the emergency shutdown scenario\&. "
+.ti -1c
+.RI "IEnumerator \fBResetSimulation\fP ()"
+.br
+.RI "This method resets the simulation and the state machine\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBNPPReactorState\fP \fBsimulation\fP = new \fBNPPReactorState\fP()"
+.br
+.RI "param name="scenario"> specifies the scenario the user has chosen (0: no scenario chosen)"
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBAwake\fP ()"
+.br
+.RI "This method fetches the \fBAnimatorController\fP\&. "
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initialises the simulations update process by calling \fBUpdateSimulationState()\fP\&. "
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.RI "This method is called every frame to check for component failures and eventually update their failure lamps\&. "
+.ti -1c
+.RI "async Task \fBFetchReactorState\fP ()"
+.br
+.RI "This method fetches the state of the reactor from the REST server\&. "
+.ti -1c
+.RI "async Task \fBFetchCondenserState\fP ()"
+.br
+.RI "This method fetches the state of the condenser from the REST server\&. "
+.ti -1c
+.RI "async Task \fBFetchGeneratorState\fP ()"
+.br
+.RI "This method fetches the state of the generator from the REST server\&. "
+.ti -1c
+.RI "async Task \fBFetchComponentHealth\fP ()"
+.br
+.RI "This method fetches the health of the components from the REST server\&. "
+.ti -1c
+.RI "async Task \fBFetchPumps\fP ()"
+.br
+.RI "This method fetches the state of each pump from the REST server\&. "
+.ti -1c
+.RI "async Task \fBFetchValves\fP ()"
+.br
+.RI "This method fetches the state of each valve from the REST server\&. "
+.ti -1c
+.RI "async Task \fBFetchSystemStatus\fP ()"
+.br
+.RI "This method fetches the status of the simulation from the REST server\&. "
+.ti -1c
+.RI "async Task< string > \fBGetJsonAsync\fP (string url)"
+.br
+.RI "This method fetches JSON data from the REST server\&. "
+.ti -1c
+.RI "IEnumerator \fBUpdateSimulationState\fP ()"
+.br
+.RI "This method updates the simulation state by fetching all data from the REST server and updating the animator\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBscenario\fP = 0"
+.br
+.RI "param name="loadscenario"> tracks whether a scenario is currently being loaded"
+.ti -1c
+.RI "Boolean \fBloadscenario\fP = false"
+.br
+.RI "param name="animatorController"> is a reference to an \fBAnimatorController\fP object"
+.ti -1c
+.RI "\fBAnimatorController\fP \fBanimatorController\fP"
+.br
+.RI "param name="ausfallAnzeigenManager"> is a reference to an \fBAusfallAnzeigenManager\fP object"
+.ti -1c
+.RI "\fBAusfallAnzeigenManager\fP \fBausfallAnzeigenManager\fP"
+.br
+.in -1c
+.SS "Static Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "static readonly HttpClient \fBclient\fP = new HttpClient()"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIclient\fP is a reference to a HttpClient object
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements logic for connecting to the REST Server running the simulation and fetching the current state of the simulation's components\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void NPPClient\&.Awake ()\fR [private]\fP"
+
+.PP
+This method fetches the \fBAnimatorController\fP\&. 
+.SS "async Task NPPClient\&.FetchComponentHealth ()\fR [private]\fP"
+
+.PP
+This method fetches the health of the components from the REST server\&. 
+.SS "async Task NPPClient\&.FetchCondenserState ()\fR [private]\fP"
+
+.PP
+This method fetches the state of the condenser from the REST server\&. 
+.SS "async Task NPPClient\&.FetchGeneratorState ()\fR [private]\fP"
+
+.PP
+This method fetches the state of the generator from the REST server\&. 
+.SS "async Task NPPClient\&.FetchPumps ()\fR [private]\fP"
+
+.PP
+This method fetches the state of each pump from the REST server\&. 
+.SS "async Task NPPClient\&.FetchReactorState ()\fR [private]\fP"
+
+.PP
+This method fetches the state of the reactor from the REST server\&. 
+.SS "async Task NPPClient\&.FetchSystemStatus ()\fR [private]\fP"
+
+.PP
+This method fetches the status of the simulation from the REST server\&. 
+.SS "async Task NPPClient\&.FetchValves ()\fR [private]\fP"
+
+.PP
+This method fetches the state of each valve from the REST server\&. 
+.SS "async Task< string > NPPClient\&.GetJsonAsync (string url)\fR [private]\fP"
+
+.PP
+This method fetches JSON data from the REST server\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIurl\fP contains the server URL
+.RE
+.PP
+
+.SS "IEnumerator NPPClient\&.ResetSimulation ()"
+
+.PP
+This method resets the simulation and the state machine\&. 
+.SS "IEnumerator NPPClient\&.SetEmergencyShutdownScenario ()"
+
+.PP
+This method loads the emergency shutdown scenario\&. 
+.SS "IEnumerator NPPClient\&.SetInitialStateScenario ()"
+
+.PP
+This method loads the normal startup scenario\&. 
+.SS "IEnumerator NPPClient\&.SetNormalShutdownScenario ()"
+
+.PP
+This method loads the normal shutdown scenario\&. 
+.SS "IEnumerator NPPClient\&.SetRodPosition (int value)"
+
+.PP
+This method sets the control rods' position by sending a request with the target position to the REST server\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalue\fP specifies the target position 
+.RE
+.PP
+
+.SS "void NPPClient\&.Start ()\fR [private]\fP"
+
+.PP
+This method initialises the simulations update process by calling \fBUpdateSimulationState()\fP\&. 
+.SS "void NPPClient\&.Update ()\fR [private]\fP"
+
+.PP
+This method is called every frame to check for component failures and eventually update their failure lamps\&. 
+.SS "IEnumerator NPPClient\&.UpdatePump (string id, int value)"
+
+.PP
+This method updates a pump's speed by sending a request with the pump id and the taget RPM to the REST server\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIid\fP contains a pump's ID
+.br
+\fIvalue\fP specifies the target RPM 
+.RE
+.PP
+
+.SS "IEnumerator NPPClient\&.UpdateSimulationState ()\fR [private]\fP"
+
+.PP
+This method updates the simulation state by fetching all data from the REST server and updating the animator\&. 
+.SS "IEnumerator NPPClient\&.UpdateValveStatus (string valveId, bool value)"
+
+.PP
+This method updates a valve's status by sending a request with the valve id and the target status to the REST server\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalveId\fP contains the valve ID
+.br
+\fIvalue\fP specifies the target status 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBAnimatorController\fP NPPClient\&.animatorController\fR [private]\fP"
+
+.PP
+param name="ausfallAnzeigenManager"> is a reference to an \fBAusfallAnzeigenManager\fP object
+.SS "\fBAusfallAnzeigenManager\fP NPPClient\&.ausfallAnzeigenManager\fR [private]\fP"
+
+.SS "readonly HttpClient NPPClient\&.client = new HttpClient()\fR [static]\fP, \fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIclient\fP is a reference to a HttpClient object
+.RE
+.PP
+param name="simulation"> is a reference to a \fBNPPReactorState\fP storing the current state for every component of the simulation
+.SS "Boolean NPPClient\&.loadscenario = false\fR [private]\fP"
+
+.PP
+param name="animatorController"> is a reference to an \fBAnimatorController\fP object
+.SS "int NPPClient\&.scenario = 0\fR [private]\fP"
+
+.PP
+param name="loadscenario"> tracks whether a scenario is currently being loaded
+.SS "\fBNPPReactorState\fP NPPClient\&.simulation = new \fBNPPReactorState\fP()"
+
+.PP
+param name="scenario"> specifies the scenario the user has chosen (0: no scenario chosen)
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

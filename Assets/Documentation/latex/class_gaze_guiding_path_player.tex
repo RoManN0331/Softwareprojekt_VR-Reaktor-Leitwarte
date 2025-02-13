@@ -1,0 +1,1782 @@
+\doxysection{Gaze\+Guiding\+Path\+Player Class Reference}
+\hypertarget{class_gaze_guiding_path_player}{}\label{class_gaze_guiding_path_player}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+
+
+This class implements logic for gaze guiding in a virtual environment.  
+
+
+Inheritance diagram for Gaze\+Guiding\+Path\+Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_gaze_guiding_path_player}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a24f26b0c949141421c62c0033db53e8e}{Arrow3D}} ()
+\begin{DoxyCompactList}\small\item\em This method adds a continuous rotating 3D arrow that is rendered above an exact rotary switch to indicate the direction in which the player is supposed to turn the switch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a6829019f0c3424e29221fb7094712035}{Arrow3\+DBinaer}} ()
+\begin{DoxyCompactList}\small\item\em This method adds a binary rotating 3D arrow rendered above a binary rotary switch to indicate the direction in which the player is supposed to turn the switch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a4ca9bd8c259f2c3eaa024bb8a1af5a50}{Remove\+Arrow3D}} ()
+\begin{DoxyCompactList}\small\item\em This method removes a rotating 3D arrow or 3DBinary arrow that is currently being rendered above an exact or a binary rotary switch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_acae814561f1133ae7924fdf93cea6ee5}{Trigger\+Target}} (\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}} target, bool Flip3\+DArrow=false)
+\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a38d64359d68341004bf09e08552a7059}{Trigger\+Target\+NAME}} (string target\+Name, \mbox{\hyperlink{class_gaze_guiding_target_aa0afbadaf6613155c88b9afed8cae472}{Gaze\+Guiding\+Target.\+Target\+Type}} type, bool Flip3\+DArrow=false)
+\begin{DoxyCompactList}\small\item\em This method sets the current target of a \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a5e575f6f812ccec44cf0224f24a4d34f}{Clear\+Line}} ()
+\begin{DoxyCompactList}\small\item\em This method clears the scene of all visual aids that are currently being rendered. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a87d52be10f77fee6e8bc4ee711ef3e83}{trigger\+TEST}} ()
+\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a9d9011343e428d41c9ecd4be2c67edc8}{trigger\+TEST2}} (bool Flip3\+DArrow)
+\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_acfdbc583cf9f82bdc8d9cc578176cdc8}{calc\+Direction\+Cue}} ()
+\begin{DoxyCompactList}\small\item\em This method displays a red cue indicating to the player where to turn if the player is facing away from the current\+Target of the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player} in an angle \texorpdfstring{$>$}{>} 30 degrees. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a04da9cf35ded41953daed258a7bb814f}{render\+Direction\+Arrow}} ()
+\begin{DoxyCompactList}\small\item\em This method renders a directional arrow indicating to the player the direction the current\+Target of the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player} is in. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a3ae3a26ded36ca9593f57eeaf023af04}{remove\+Direction\+Arrow}} ()
+\begin{DoxyCompactList}\small\item\em This method is used to remove the directional arrow set in \doxylink{class_gaze_guiding_path_player_a04da9cf35ded41953daed258a7bb814f}{render\+Direction\+Arrow()} from the UI. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_aa036b4bd0b6f55d93ae9aa7096555c6c}{Trigger\+Anzeigen\+Markierung}} (string target\+Name, \mbox{\hyperlink{class_gaze_guiding_target_aa0afbadaf6613155c88b9afed8cae472}{Gaze\+Guiding\+Target.\+Target\+Type}} type, float Number\+To\+Highlight)
+\begin{DoxyCompactList}\small\item\em This method sets the current\+Target for the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a77f5d9f9d9b2af9f5828f6e17d3a2f6f}{Clear\+Anzeigen\+Markierung}} ()
+\begin{DoxyCompactList}\small\item\em This method removes annotations from a display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a01986a14c36b6ec27b3cf6972ea1508a}{Set\+Gaze\+Guiding\+Clipboard}} (string clipboard\+Name)
+\begin{DoxyCompactList}\small\item\em $<$sumary$>$ This method activates highlighting for the text of a specific clipboard by creating a new \doxylink{class_gaze_guiding_clipboard}{Gaze\+Guiding\+Clipboard} object for its text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a3072d389921aaa04256ec04aa0e53e54}{Unset\+Gaze\+Guiding\+Clipboard}} ()
+\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_aa66086d537484acc096dc7018eed373f}{Highlight\+Clipboard}} (int index)
+\begin{DoxyCompactList}\small\item\em This method highlights a task specified by index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_abe167d4f291cf4bd12f5d259fba6ccd7}{remove\+Highlight\+From\+Clipboard}} ()
+\begin{DoxyCompactList}\small\item\em This method removes highlighting from a clipboard by reinitialising the respective clipboard without any highlighted text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_abbdd9b25780b3cb2057de8b017c777ef}{remove\+Highlight\+From\+Clipboard\+For\+Button}} ()
+\begin{DoxyCompactList}\small\item\em This method removes highlighting from a clipboard by reinitialising the respective clipboard without any highlighted text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a7c87553cafda7ac163a6834e3e8c1d7c}{set\+Display\+Highlight}} (string target\+Name)
+\begin{DoxyCompactList}\small\item\em This method enables a glow effect on all displays related to a the component that is the current\+Target of the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a076b71de7fb11f304bd0d29996b8f055}{unset\+Display\+Highlight}} ()
+\begin{DoxyCompactList}\small\item\em This method removes a glow effect from all displays it is currently applied to. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a7520984053e29235f1ca7b354dfc8c0e}{Set\+Detach}} (bool on)
+\begin{DoxyCompactList}\small\item\em This method enables the detach effect moving all rotary switches and displays on the main console from the "{}\+Default"{} layer (rendered by main camera) to an unrendered Layer "{}detached"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_af091cdf96de467a9647da7b3189b2212}{Toggle\+Object\+Visibility}} (string target, bool on)
+\begin{DoxyCompactList}\small\item\em This method moves objects between layers to toggle their visibility, because main camera does not render the layer "{}detached"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a14ff2131e25b375422c20ee59fbbb5e9}{Set\+Blur}} (bool on)
+\begin{DoxyCompactList}\small\item\em This method toggles the blur effect according to the boolean value passed as an argument. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a980d432f5e77e5b2ed9dd153a5552102}{Toggle\+Blur}} (string target, bool on)
+\begin{DoxyCompactList}\small\item\em This method blurs or unblurs an object by moving it between layers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a67dd1058f5926fde2358da9d93899bdc}{Direction\+Cue\+Enabled\+Global}} = true
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Cue\+Enabled\+Global} & toggles a red frame (global) indicating that the player should turn\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a4469f9435594d4a0beeafe95228b423f}{Direction\+Cue\+Enabled}} = true
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Cue\+Enabled} & toggles a red frame indicating the player should turn\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_gaze_guiding_path_player_aedbea436c00f690b71d2f5a0eb4bab6d}{Direction\+Cue\+Fade\+Duration}} = 1f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Cue\+Fade\+Duration} & sets the duration of the red frame\textquotesingle{}s fade in and fade out\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_adecfa298a842c0491238b72295ee7204}{Direction\+Arrow\+Enabled}} = true
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Arrow\+Enabled} & toggles a directional arrow indicating a direction the player should turn to\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a92aea9b23f1d9bb9cabc96e14d77625a}{Arrow3\+DEnabled}} = true
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Arrow3\+DEnabled} & toggles a 3D arrow indicating the direction an exact rotary switch should be turned in\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a3123c63fe7c34eb9d10159dd430a665d}{Arrow3\+DBinear\+Enabled}} = true
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Arrow3\+DBinear\+Enabled} & toggles 3D arrow indicating the direction a binary rotary switch should be turned in\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a033563ab5ba590d15398c133524931c9}{Direction\+Arrow\+On\+Screen}} = true
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Arrow\+On\+Screen} & toggles the on screen display of the directional arrow\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a6104ce588a6f40115060459252fe0827}{Anzeigen\+Markierung\+Enabled}} = true
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Anzeigen\+Markierung\+Enabled} & toggles annotations to displays indicating their relevance and target values\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a1054280e232088c19bd2b6c39eabee4a}{Clipboard\+Highlight\+Enabled}} = true
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Clipboard\+Highlight\+Enabled} & toggles the highlighting of tasks on clipboards\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a85fb62a990f2ac61a34b4b2480e8ab73}{Display\+Highlight\+Enabled}} = true
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Display\+Highlight\+Enabled} & toggles the highlighting of displays \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}} $>$ \mbox{\hyperlink{class_gaze_guiding_path_player_ac5e4d2b1996d4712f87139ff57971832}{targets}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em targets} & is a list of \doxylink{class_gaze_guiding_target}{Gaze\+Guiding\+Target} objects\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_gaze_guiding_path_player_ab1c4363997fdd835fa2dee28105b1998}{path\+Display\+Distance}} = 5.\+0f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em path\+Display\+Distance} & specifies the distance between the player and an animated path that is displayed as visual cue \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_gaze_guiding_path_player_a8ffa1505be120caeedfe67dfbd0e1ad9}{animation\+Duration}} = 1.\+0f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em animation\+Duration} & specifies the duration of the path animation\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Material \mbox{\hyperlink{class_gaze_guiding_path_player_a5ff8aaa4920e62cdbe8d6352c38126c7}{line\+Material}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em line\+Material} & is a Material used to render a path as visual cue\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_gaze_guiding_path_player_a7f2ee4976d90787c790f4d926e42cc40}{last\+Called\+Highlight}} = "{}"{}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em last\+Called\+Highlight} & contains the name of a previously highlighted object\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_gaze_guiding_clipboard}{Gaze\+Guiding\+Clipboard}} \mbox{\hyperlink{class_gaze_guiding_path_player_a62ad6f507599304251e073fa91d2de3a}{GGClipboard}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em GGClipboard} & is a reference to a \doxylink{class_gaze_guiding_clipboard}{Gaze\+Guiding\+Clipboard}\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_gaze_guiding_path_player_a5e5b60b41b4351bb5de86a25ed6ce73d}{Clip\+Board\+Text\+Color}} = "{}$<$color=\#00\+FF00$>$"{}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Clip\+Board\+Text\+Color} & contains colour code for normal clipboard text \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_gaze_guiding_path_player_a4c5dde33636db79804896331064927c4}{last\+Clipboard\+Name}} = "{}"{}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em last\+Clipboard\+Name} & contains the name of the previous highlighted clipboard \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a48e77bbb8d72c9eabb7490c113b85497}{detached}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em detached} & tracks whether the detach effect is currently applied (true) \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a1c43f9f9e9b3b269ec501f835300a5e9}{blur}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em blur} & tracks whether the blur effect is switched on (true) \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a3b32b4b420ca988bcef7337d12874340}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a32720e230fa618b3f4e6c07ccc24d2cd}{init\+UI}} (Game\+Object ui\+Instance)
+\begin{DoxyCompactList}\small\item\em This method initialises the necessessary components for \doxylink{class_gaze_guiding_path_player_acfdbc583cf9f82bdc8d9cc578176cdc8}{calc\+Direction\+Cue()} and adds them to the UI. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a717d6f66883fec93930d0a3a9344a4d4}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates all active gaze-\/guiding tools. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_gaze_guiding_path_player_a176539355f0dba70526fc811c5ba27cf}{Animate\+Path}} (Vector3 target\+Position)
+\begin{DoxyCompactList}\small\item\em This method animates a path of arrows guiding the player towards the component set as current\+Target of the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player}. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_gaze_guiding_path_player_ac17c3b05942b92b36f000444021018e1}{Reset\+Fading\+Flag}} (float duration, System.\+Action reset\+Action)
+\begin{DoxyCompactList}\small\item\em This method resets the is\+Direction\+Cue\+Fading or is\+Direction\+Cue2\+Fading flag to false via a callback to \doxylink{class_gaze_guiding_path_player_acfdbc583cf9f82bdc8d9cc578176cdc8}{calc\+Direction\+Cue()}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_a2a381fe44690349d16d0db75664d2001}{Blur\+Camera}} ()
+\begin{DoxyCompactList}\small\item\em This method activates the blur effect by setting the focus distance, focal length and aperture of the volumes assigned to main camera, setting the culling mask of main camera and focus camera and setting the blur switch to true. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaze_guiding_path_player_aa220cf27b6c4f315e62f6c11166ddcba}{Unblur\+Camera}} ()
+\begin{DoxyCompactList}\small\item\em This method deactivates the blur effect by deactivating the volume assigned to main camera as well as deactivating focus camera and setting the switch for the blur effect to false. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}} \mbox{\hyperlink{class_gaze_guiding_path_player_ac2b8b1dcbb92ddbea63da3e223bf8023}{current\+Target}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em current\+Target} & is the currently active \doxylink{class_gaze_guiding_target}{Gaze\+Guiding\+Target} for this \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player}\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Line\+Renderer \mbox{\hyperlink{class_gaze_guiding_path_player_a9eeaef64ebe493869e5c4c2a41e02c42}{line\+Renderer}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em line\+Renderer} & is a Line\+Renderer object used to render a path as visual cue\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Coroutine \mbox{\hyperlink{class_gaze_guiding_path_player_a62c3444b90c1c387e4ea538cf05b0be0}{animate\+Path\+Coroutine}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em animate\+Path\+Coroutine} & is a Coroutine used to animate a path as visual cue\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a0a263c044d30f7f221bd7e03acd9a0c1}{is\+Animating}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Animating} & tracks whether a path is currently being animated as visual cue\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Image \mbox{\hyperlink{class_gaze_guiding_path_player_a976fe5ab0de2ebd3e36868699fe618a5}{Direction\+Cue}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Cue} & is an image that is being rendered in \doxylink{class_gaze_guiding_path_player_acfdbc583cf9f82bdc8d9cc578176cdc8}{calc\+Direction\+Cue()} if the angle between the player and a target object is \texorpdfstring{$>$}{>} 30 degrees \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Image \mbox{\hyperlink{class_gaze_guiding_path_player_a40fe3b0d1376e78f1077a6845e77002e}{Direction\+Cue2}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Cue2} & is an image that is being rendered in \doxylink{class_gaze_guiding_path_player_acfdbc583cf9f82bdc8d9cc578176cdc8}{calc\+Direction\+Cue()} if the angle between the player and a target object is \texorpdfstring{$>$}{>} 160 degrees \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_gaze_guiding_path_player_adaf6bda79c851b43eeff67bd32200f9a}{arrow3\+DPrefab}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DPrefab} & is a reference to an Arrow3D prefab used to render continuous rotational 3DArrows\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_gaze_guiding_path_player_a0d5ba9d1fb4709a1de85d6df409bed30}{arrow3\+DInstance}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DInstance} & is an instance of a Arrow3D prefab used to render continuous rotational 3DArrows$<$param$>$ \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_gaze_guiding_path_player_a4ecac6c98a2780332e26d058d2508706}{arrow3\+DBinaer\+Prefab}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DBinaer\+Prefab} & is a reference to an Arrow3D prefab used to render binary rotational 3DArrows\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_gaze_guiding_path_player_afc7ded18738b3ae68f22446e73000c3b}{arrow3\+DBinaer\+Instance}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DBinaer\+Instance} & is an instance of an Arrow3D prefab used to render binary rotational 3DArrows$<$param$>$ \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_animator_controller}{Animator\+Controller}} \mbox{\hyperlink{class_gaze_guiding_path_player_af747b4108856a55196ad9dbd30891c4d}{animator}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em animator} & is refenrence to the \doxylink{class_animator_controller}{Animator\+Controller} object of the scene\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a39756e86ef1549292731fe49f97917a1}{arrow3\+DInstance\+Created}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DInstance\+Created} & is a flag tracking whether an Arrow3D instance has been created \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a62b176cdac76f2c866fa59898671fb8f}{arrow3\+DBinaer\+Instance\+Created}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DBinaer\+Instance\+Created} & is a flag tracking whether an Arrow3\+DBinary instance has been created \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_af5ab644191cbc793b38a84f1a85e8896}{reset}} = true
+\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a2535295cdd6678eb11fa7c2568c11bb6}{is\+Direction\+Cue\+Fading}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Direction\+Cue\+Fading} & tracks whether the first cue is fading out\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a26993347779e16417cb30f7fcf6d1ad9}{is\+Direction\+Cue2\+Fading}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Direction\+Cue\+Fading2} & tracks whether the second cue is fading out\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_gaze_guiding_path_player_a269103edaa2f4c7e59b305853b3d43a0}{arrow\+Instance}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em arrow\+Instance} & is an instance of a directional arrow \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}} $>$ \mbox{\hyperlink{class_gaze_guiding_path_player_a89971448e88fab307c24a7173f7e9f85}{anzeigen\+Targets}} = new List$<$\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}}$>$()
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em anzeigen\+Targets} & is a list of \doxylink{class_gaze_guiding_target}{Gaze\+Guiding\+Target} objects used for gaze guiding\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+List$<$ float $>$ \mbox{\hyperlink{class_gaze_guiding_path_player_af1cdd4ae3f53c7df9a078a1c81c6e1e4}{anzeigen\+Numbers}} = new List$<$float$>$()
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em anzeigen\+Numbers} & is a list of float values used to calculate the position of an arrow indicating a target value on a display\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a6f63f25c806c7d1b955f80a2c10d3295}{Anzeigeninitialized}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Anzeigeninitialized} & tracks whether displays have been initialised\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Text\+Mesh\+Pro \mbox{\hyperlink{class_gaze_guiding_path_player_a74193c535324adfa11a4e6fc6ff33011}{clipboard\+Text}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em clipboard\+Text} & is a Text\+Mesh\+Pro\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Text\+Mesh\+Pro \mbox{\hyperlink{class_gaze_guiding_path_player_abf18219fa0292916c144b3d61d35bec8}{text1}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em text1} & is a Text\+Mesh\+Pro object containing the clipboard\+Text for clipboard POS1 \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Text\+Mesh\+Pro \mbox{\hyperlink{class_gaze_guiding_path_player_a742601176fa75a99dee10f7a53a9ed30}{text2}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em text2} & is a Text\+Mesh\+Pro object containing the clipboard\+Text for clipboard POS2 \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Text\+Mesh\+Pro \mbox{\hyperlink{class_gaze_guiding_path_player_a6c3271318db24fe6ec1c19a3cbd5f57b}{text3}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em text3} & is a Text\+Mesh\+Pro object containing the clipboard\+Text for clipboard POS3 \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_gaze_guiding_path_player_ae467e8aedc48281aba73d429ef627f7c}{inital\+Text}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em initial\+Text} & contains the original unformatted text of the active clipboard\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a92a37cc8b5d39e6045f9e2acba390633}{init}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em init} & checks whether the active clipboard has been initialised \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_gaze_guiding_path_player_a3c2f1931e575b4cdaa108e44f49def04}{lastindex}} = 0
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em lastindex} & tracks the index of the previous highlighted task \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a103fe3bd6f2134b0cac0e354508d520a}{WP1\+RPMis\+Glowing}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em WP1\+RPMis\+Glowing} & tracks whether WP1\+RPM\+\_\+display is currently glowing\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a6baae7cfc8853f34ed2bd92b5768f973}{WP2\+RPMis\+Glowing}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em WP2\+RPMis\+Glowing} & tracks whether WP2\+RPM\+\_\+display is currently glowing\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a6db63709a040fbda7d01aafcdccf0890}{CPRPMis\+Glowing}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em CPRPMis\+Glowing} & tracks whether CPRPM\+\_\+display is currently glowing\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a3c273aba0c8f452dedcc84adc5e9b611}{Control\+Rodsis\+Glowing}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Control\+Rodsis\+Glowing} & tracks whether the control\+Rods display is currently glowing\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a31d976de417ba2cb3fb592d0846e1543}{Energyis\+Glowing}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Engergyis\+Glowing} & tracks whether the Energy display is currently glowing\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a8fc366e3a106d9bf8c2c49f60690d9d3}{RPressureis\+Glowing}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em RPressureis\+Glowing} & tracks whether the \doxylink{class_r_pressure}{RPressure} display is currently glowing\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_aeebd298705d4eb65dba2a042bac1463e}{CPressureis\+Glowing}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em CPressureis\+Glowing} & tracks whether the \doxylink{class_c_pressure}{CPressure} display is currently glowing\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a0e4c70eadc6f0f240817389006e9a446}{RWater\+Lvlis\+Glowing}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em RWater\+Lvlis\+Glowing} & tracks whether the RWater\+Lvl display is currently glowing\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a44de3f2a0e6c321ea555d00a16d3c2b6}{CWater\+Lvlis\+Glowing}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em CWater\+Lvlis\+Glowing} & tracks whether the CWater\+Lvl display is currently glowing\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gaze_guiding_path_player_a09dcd6a5ed2aa04cf2e793fc184e8ad4}{check\+Culling\+Mask}} = true
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em check\+Culling\+Mask} & checks if main camera is rendering "{}detached"{} \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Camera \mbox{\hyperlink{class_gaze_guiding_path_player_ac1b72a9b2efd87b0e984693f7f064b8d}{focus\+Camera}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em focus\+Camera} & is a camera object tracking the camera rendering "{}\+Focused"{} layer \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Volume \mbox{\hyperlink{class_gaze_guiding_path_player_a78cba62ac9a49ead374ae3f20ad11ade}{main\+Volume}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em main\+Volume} & is a Volume object assigned to main camera \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Volume \mbox{\hyperlink{class_gaze_guiding_path_player_a6ae93d97599a2b3cc3e7fa7dab61dae6}{focus\+Volume}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em focus\+Volume} & is a Volume object assigned to focus camera \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic for gaze guiding in a virtual environment. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_gaze_guiding_path_player_a176539355f0dba70526fc811c5ba27cf}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!AnimatePath@{AnimatePath}}
+\index{AnimatePath@{AnimatePath}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{AnimatePath()}{AnimatePath()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a176539355f0dba70526fc811c5ba27cf} 
+IEnumerator Gaze\+Guiding\+Path\+Player.\+Animate\+Path (\begin{DoxyParamCaption}\item[{Vector3}]{target\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method animates a path of arrows guiding the player towards the component set as current\+Target of the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Position} & is a Vector3 position of the endpoint of the path \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_path_player_a24f26b0c949141421c62c0033db53e8e}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!Arrow3D@{Arrow3D}}
+\index{Arrow3D@{Arrow3D}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{Arrow3D()}{Arrow3D()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a24f26b0c949141421c62c0033db53e8e} 
+void Gaze\+Guiding\+Path\+Player.\+Arrow3D (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method adds a continuous rotating 3D arrow that is rendered above an exact rotary switch to indicate the direction in which the player is supposed to turn the switch. 
+
+\Hypertarget{class_gaze_guiding_path_player_a6829019f0c3424e29221fb7094712035}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!Arrow3DBinaer@{Arrow3DBinaer}}
+\index{Arrow3DBinaer@{Arrow3DBinaer}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{Arrow3DBinaer()}{Arrow3DBinaer()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a6829019f0c3424e29221fb7094712035} 
+void Gaze\+Guiding\+Path\+Player.\+Arrow3\+DBinaer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method adds a binary rotating 3D arrow rendered above a binary rotary switch to indicate the direction in which the player is supposed to turn the switch. 
+
+\Hypertarget{class_gaze_guiding_path_player_a2a381fe44690349d16d0db75664d2001}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!BlurCamera@{BlurCamera}}
+\index{BlurCamera@{BlurCamera}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{BlurCamera()}{BlurCamera()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a2a381fe44690349d16d0db75664d2001} 
+void Gaze\+Guiding\+Path\+Player.\+Blur\+Camera (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method activates the blur effect by setting the focus distance, focal length and aperture of the volumes assigned to main camera, setting the culling mask of main camera and focus camera and setting the blur switch to true. 
+
+\Hypertarget{class_gaze_guiding_path_player_acfdbc583cf9f82bdc8d9cc578176cdc8}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!calcDirectionCue@{calcDirectionCue}}
+\index{calcDirectionCue@{calcDirectionCue}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{calcDirectionCue()}{calcDirectionCue()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_acfdbc583cf9f82bdc8d9cc578176cdc8} 
+void Gaze\+Guiding\+Path\+Player.\+calc\+Direction\+Cue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method displays a red cue indicating to the player where to turn if the player is facing away from the current\+Target of the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player} in an angle \texorpdfstring{$>$}{>} 30 degrees. 
+
+If the angle is \texorpdfstring{$>$}{>} 160 degrees a second cue is being rendered indicating the object is behind the player. The Method calculates the alpha of the cues based on the angle between the player and the current\+Target of the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player}. If the current angle is smaller than the old angle the cue begins to fade out. \Hypertarget{class_gaze_guiding_path_player_a77f5d9f9d9b2af9f5828f6e17d3a2f6f}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!ClearAnzeigenMarkierung@{ClearAnzeigenMarkierung}}
+\index{ClearAnzeigenMarkierung@{ClearAnzeigenMarkierung}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{ClearAnzeigenMarkierung()}{ClearAnzeigenMarkierung()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a77f5d9f9d9b2af9f5828f6e17d3a2f6f} 
+void Gaze\+Guiding\+Path\+Player.\+Clear\+Anzeigen\+Markierung (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method removes annotations from a display. 
+
+It removes a red ! highlighting the display as well as an arrow indicating the target value the player was supposed to set for the component associated with that display. \Hypertarget{class_gaze_guiding_path_player_a5e575f6f812ccec44cf0224f24a4d34f}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!ClearLine@{ClearLine}}
+\index{ClearLine@{ClearLine}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{ClearLine()}{ClearLine()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a5e575f6f812ccec44cf0224f24a4d34f} 
+void Gaze\+Guiding\+Path\+Player.\+Clear\+Line (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method clears the scene of all visual aids that are currently being rendered. 
+
+\Hypertarget{class_gaze_guiding_path_player_aa66086d537484acc096dc7018eed373f}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!HighlightClipboard@{HighlightClipboard}}
+\index{HighlightClipboard@{HighlightClipboard}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{HighlightClipboard()}{HighlightClipboard()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_aa66086d537484acc096dc7018eed373f} 
+void Gaze\+Guiding\+Path\+Player.\+Highlight\+Clipboard (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+This method highlights a task specified by index. 
+
+~\newline
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & specifies a task to highlight \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_path_player_a32720e230fa618b3f4e6c07ccc24d2cd}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!initUI@{initUI}}
+\index{initUI@{initUI}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{initUI()}{initUI()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a32720e230fa618b3f4e6c07ccc24d2cd} 
+void Gaze\+Guiding\+Path\+Player.\+init\+UI (\begin{DoxyParamCaption}\item[{Game\+Object}]{ui\+Instance}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the necessessary components for \doxylink{class_gaze_guiding_path_player_acfdbc583cf9f82bdc8d9cc578176cdc8}{calc\+Direction\+Cue()} and adds them to the UI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui\+Instance} & is a UI instance\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_path_player_a4ca9bd8c259f2c3eaa024bb8a1af5a50}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!RemoveArrow3D@{RemoveArrow3D}}
+\index{RemoveArrow3D@{RemoveArrow3D}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{RemoveArrow3D()}{RemoveArrow3D()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a4ca9bd8c259f2c3eaa024bb8a1af5a50} 
+void Gaze\+Guiding\+Path\+Player.\+Remove\+Arrow3D (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method removes a rotating 3D arrow or 3DBinary arrow that is currently being rendered above an exact or a binary rotary switch. 
+
+\Hypertarget{class_gaze_guiding_path_player_a3ae3a26ded36ca9593f57eeaf023af04}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!removeDirectionArrow@{removeDirectionArrow}}
+\index{removeDirectionArrow@{removeDirectionArrow}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{removeDirectionArrow()}{removeDirectionArrow()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a3ae3a26ded36ca9593f57eeaf023af04} 
+void Gaze\+Guiding\+Path\+Player.\+remove\+Direction\+Arrow (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method is used to remove the directional arrow set in \doxylink{class_gaze_guiding_path_player_a04da9cf35ded41953daed258a7bb814f}{render\+Direction\+Arrow()} from the UI. 
+
+\Hypertarget{class_gaze_guiding_path_player_abe167d4f291cf4bd12f5d259fba6ccd7}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!removeHighlightFromClipboard@{removeHighlightFromClipboard}}
+\index{removeHighlightFromClipboard@{removeHighlightFromClipboard}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{removeHighlightFromClipboard()}{removeHighlightFromClipboard()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_abe167d4f291cf4bd12f5d259fba6ccd7} 
+void Gaze\+Guiding\+Path\+Player.\+remove\+Highlight\+From\+Clipboard (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method removes highlighting from a clipboard by reinitialising the respective clipboard without any highlighted text. 
+
+\Hypertarget{class_gaze_guiding_path_player_abbdd9b25780b3cb2057de8b017c777ef}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!removeHighlightFromClipboardForButton@{removeHighlightFromClipboardForButton}}
+\index{removeHighlightFromClipboardForButton@{removeHighlightFromClipboardForButton}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{removeHighlightFromClipboardForButton()}{removeHighlightFromClipboardForButton()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_abbdd9b25780b3cb2057de8b017c777ef} 
+void Gaze\+Guiding\+Path\+Player.\+remove\+Highlight\+From\+Clipboard\+For\+Button (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method removes highlighting from a clipboard by reinitialising the respective clipboard without any highlighted text. 
+
+This method is used if the player is no longer looking at the button associated with the clipboard. \Hypertarget{class_gaze_guiding_path_player_a04da9cf35ded41953daed258a7bb814f}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!renderDirectionArrow@{renderDirectionArrow}}
+\index{renderDirectionArrow@{renderDirectionArrow}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{renderDirectionArrow()}{renderDirectionArrow()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a04da9cf35ded41953daed258a7bb814f} 
+void Gaze\+Guiding\+Path\+Player.\+render\+Direction\+Arrow (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method renders a directional arrow indicating to the player the direction the current\+Target of the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player} is in. 
+
+\Hypertarget{class_gaze_guiding_path_player_ac17c3b05942b92b36f000444021018e1}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!ResetFadingFlag@{ResetFadingFlag}}
+\index{ResetFadingFlag@{ResetFadingFlag}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{ResetFadingFlag()}{ResetFadingFlag()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_ac17c3b05942b92b36f000444021018e1} 
+IEnumerator Gaze\+Guiding\+Path\+Player.\+Reset\+Fading\+Flag (\begin{DoxyParamCaption}\item[{float}]{duration}{, }\item[{System.\+Action}]{reset\+Action}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method resets the is\+Direction\+Cue\+Fading or is\+Direction\+Cue2\+Fading flag to false via a callback to \doxylink{class_gaze_guiding_path_player_acfdbc583cf9f82bdc8d9cc578176cdc8}{calc\+Direction\+Cue()}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & specifies a delay before reset\+Action() is called\\
+\hline
+{\em reset\+Action} & is a System.\+Action used to set is\+Direction\+Cue\+Fading or is\+Direction\+Cue2\+Fading to false\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_path_player_a14ff2131e25b375422c20ee59fbbb5e9}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!SetBlur@{SetBlur}}
+\index{SetBlur@{SetBlur}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{SetBlur()}{SetBlur()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a14ff2131e25b375422c20ee59fbbb5e9} 
+void Gaze\+Guiding\+Path\+Player.\+Set\+Blur (\begin{DoxyParamCaption}\item[{bool}]{on}{}\end{DoxyParamCaption})}
+
+
+
+This method toggles the blur effect according to the boolean value passed as an argument. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em on} & toggles the blur effect \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_path_player_a7520984053e29235f1ca7b354dfc8c0e}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!SetDetach@{SetDetach}}
+\index{SetDetach@{SetDetach}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{SetDetach()}{SetDetach()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a7520984053e29235f1ca7b354dfc8c0e} 
+void Gaze\+Guiding\+Path\+Player.\+Set\+Detach (\begin{DoxyParamCaption}\item[{bool}]{on}{}\end{DoxyParamCaption})}
+
+
+
+This method enables the detach effect moving all rotary switches and displays on the main console from the "{}\+Default"{} layer (rendered by main camera) to an unrendered Layer "{}detached"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em on} & toggles the detach effect \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_path_player_a7c87553cafda7ac163a6834e3e8c1d7c}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!setDisplayHighlight@{setDisplayHighlight}}
+\index{setDisplayHighlight@{setDisplayHighlight}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{setDisplayHighlight()}{setDisplayHighlight()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a7c87553cafda7ac163a6834e3e8c1d7c} 
+void Gaze\+Guiding\+Path\+Player.\+set\+Display\+Highlight (\begin{DoxyParamCaption}\item[{string}]{target\+Name}{}\end{DoxyParamCaption})}
+
+
+
+This method enables a glow effect on all displays related to a the component that is the current\+Target of the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Name} & contains the name of a component that is the current\+Target of the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_path_player_a01986a14c36b6ec27b3cf6972ea1508a}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!SetGazeGuidingClipboard@{SetGazeGuidingClipboard}}
+\index{SetGazeGuidingClipboard@{SetGazeGuidingClipboard}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{SetGazeGuidingClipboard()}{SetGazeGuidingClipboard()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a01986a14c36b6ec27b3cf6972ea1508a} 
+void Gaze\+Guiding\+Path\+Player.\+Set\+Gaze\+Guiding\+Clipboard (\begin{DoxyParamCaption}\item[{string}]{clipboard\+Name}{}\end{DoxyParamCaption})}
+
+
+
+$<$sumary$>$ This method activates highlighting for the text of a specific clipboard by creating a new \doxylink{class_gaze_guiding_clipboard}{Gaze\+Guiding\+Clipboard} object for its text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clipboard\+Name} & contains the name of a clipboard\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_path_player_a3b32b4b420ca988bcef7337d12874340}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!Start@{Start}}
+\index{Start@{Start}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a3b32b4b420ca988bcef7337d12874340} 
+void Gaze\+Guiding\+Path\+Player.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player}. 
+
+\Hypertarget{class_gaze_guiding_path_player_a980d432f5e77e5b2ed9dd153a5552102}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!ToggleBlur@{ToggleBlur}}
+\index{ToggleBlur@{ToggleBlur}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{ToggleBlur()}{ToggleBlur()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a980d432f5e77e5b2ed9dd153a5552102} 
+void Gaze\+Guiding\+Path\+Player.\+Toggle\+Blur (\begin{DoxyParamCaption}\item[{string}]{target}{, }\item[{bool}]{on}{}\end{DoxyParamCaption})}
+
+
+
+This method blurs or unblurs an object by moving it between layers. 
+
+Objects on the "{}\+Focused"{} layer are not blurred while objects on the "{}\+Default"{} layer are blurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & contains the name of the object to blur or unblur \\
+\hline
+{\em on} & toggles the blurring (false) or unblurring (true) of target \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_path_player_af091cdf96de467a9647da7b3189b2212}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!ToggleObjectVisibility@{ToggleObjectVisibility}}
+\index{ToggleObjectVisibility@{ToggleObjectVisibility}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{ToggleObjectVisibility()}{ToggleObjectVisibility()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_af091cdf96de467a9647da7b3189b2212} 
+void Gaze\+Guiding\+Path\+Player.\+Toggle\+Object\+Visibility (\begin{DoxyParamCaption}\item[{string}]{target}{, }\item[{bool}]{on}{}\end{DoxyParamCaption})}
+
+
+
+This method moves objects between layers to toggle their visibility, because main camera does not render the layer "{}detached"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & contains the name of an object to attacj or detach to the "{}\+Default"{} layer \\
+\hline
+{\em on} & toggles the attachment (true) or detachment (false) of target \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_path_player_aa036b4bd0b6f55d93ae9aa7096555c6c}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!TriggerAnzeigenMarkierung@{TriggerAnzeigenMarkierung}}
+\index{TriggerAnzeigenMarkierung@{TriggerAnzeigenMarkierung}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{TriggerAnzeigenMarkierung()}{TriggerAnzeigenMarkierung()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_aa036b4bd0b6f55d93ae9aa7096555c6c} 
+void Gaze\+Guiding\+Path\+Player.\+Trigger\+Anzeigen\+Markierung (\begin{DoxyParamCaption}\item[{string}]{target\+Name}{, }\item[{\mbox{\hyperlink{class_gaze_guiding_target_aa0afbadaf6613155c88b9afed8cae472}{Gaze\+Guiding\+Target.\+Target\+Type}}}]{type}{, }\item[{float}]{Number\+To\+Highlight}{}\end{DoxyParamCaption})}
+
+
+
+This method sets the current\+Target for the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player}. 
+
+Additionally the method indicates the display corresponding to the target and adds an arrow indicating the target value the player must set to the display.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Name} & contains the name of a rotary switch \\
+\hline
+{\em type} & is an Enum specifying the type of rotary switch passed as target\+Name \\
+\hline
+{\em Number\+To\+Highlight} & used to calculate the position of an arrow indicating a target value on a display\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_path_player_acae814561f1133ae7924fdf93cea6ee5}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!TriggerTarget@{TriggerTarget}}
+\index{TriggerTarget@{TriggerTarget}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{TriggerTarget()}{TriggerTarget()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_acae814561f1133ae7924fdf93cea6ee5} 
+void Gaze\+Guiding\+Path\+Player.\+Trigger\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}}}]{target}{, }\item[{bool}]{Flip3\+DArrow}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+\Hypertarget{class_gaze_guiding_path_player_a38d64359d68341004bf09e08552a7059}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!TriggerTargetNAME@{TriggerTargetNAME}}
+\index{TriggerTargetNAME@{TriggerTargetNAME}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{TriggerTargetNAME()}{TriggerTargetNAME()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a38d64359d68341004bf09e08552a7059} 
+void Gaze\+Guiding\+Path\+Player.\+Trigger\+Target\+NAME (\begin{DoxyParamCaption}\item[{string}]{target\+Name}{, }\item[{\mbox{\hyperlink{class_gaze_guiding_target_aa0afbadaf6613155c88b9afed8cae472}{Gaze\+Guiding\+Target.\+Target\+Type}}}]{type}{, }\item[{bool}]{Flip3\+DArrow}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+This method sets the current target of a \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Name} & contains the name of a rotary switch that is the new target for the \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player} \\
+\hline
+{\em type} & is an Enum specifying the type of rotary switch passed in target\+Name \\
+\hline
+{\em Flip3\+DArrow} & toggles whether 3D arrows rotate clockwise \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gaze_guiding_path_player_a87d52be10f77fee6e8bc4ee711ef3e83}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!triggerTEST@{triggerTEST}}
+\index{triggerTEST@{triggerTEST}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{triggerTEST()}{triggerTEST()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a87d52be10f77fee6e8bc4ee711ef3e83} 
+void Gaze\+Guiding\+Path\+Player.\+trigger\+TEST (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_gaze_guiding_path_player_a9d9011343e428d41c9ecd4be2c67edc8}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!triggerTEST2@{triggerTEST2}}
+\index{triggerTEST2@{triggerTEST2}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{triggerTEST2()}{triggerTEST2()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a9d9011343e428d41c9ecd4be2c67edc8} 
+void Gaze\+Guiding\+Path\+Player.\+trigger\+TEST2 (\begin{DoxyParamCaption}\item[{bool}]{Flip3\+DArrow}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_gaze_guiding_path_player_aa220cf27b6c4f315e62f6c11166ddcba}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!UnblurCamera@{UnblurCamera}}
+\index{UnblurCamera@{UnblurCamera}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{UnblurCamera()}{UnblurCamera()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_aa220cf27b6c4f315e62f6c11166ddcba} 
+void Gaze\+Guiding\+Path\+Player.\+Unblur\+Camera (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method deactivates the blur effect by deactivating the volume assigned to main camera as well as deactivating focus camera and setting the switch for the blur effect to false. 
+
+\Hypertarget{class_gaze_guiding_path_player_a076b71de7fb11f304bd0d29996b8f055}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!unsetDisplayHighlight@{unsetDisplayHighlight}}
+\index{unsetDisplayHighlight@{unsetDisplayHighlight}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{unsetDisplayHighlight()}{unsetDisplayHighlight()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a076b71de7fb11f304bd0d29996b8f055} 
+void Gaze\+Guiding\+Path\+Player.\+unset\+Display\+Highlight (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method removes a glow effect from all displays it is currently applied to. 
+
+\Hypertarget{class_gaze_guiding_path_player_a3072d389921aaa04256ec04aa0e53e54}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!UnsetGazeGuidingClipboard@{UnsetGazeGuidingClipboard}}
+\index{UnsetGazeGuidingClipboard@{UnsetGazeGuidingClipboard}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{UnsetGazeGuidingClipboard()}{UnsetGazeGuidingClipboard()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a3072d389921aaa04256ec04aa0e53e54} 
+void Gaze\+Guiding\+Path\+Player.\+Unset\+Gaze\+Guiding\+Clipboard (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_gaze_guiding_path_player_a717d6f66883fec93930d0a3a9344a4d4}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!Update@{Update}}
+\index{Update@{Update}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a717d6f66883fec93930d0a3a9344a4d4} 
+void Gaze\+Guiding\+Path\+Player.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates all active gaze-\/guiding tools. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_gaze_guiding_path_player_a62c3444b90c1c387e4ea538cf05b0be0}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!animatePathCoroutine@{animatePathCoroutine}}
+\index{animatePathCoroutine@{animatePathCoroutine}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{animatePathCoroutine}{animatePathCoroutine}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a62c3444b90c1c387e4ea538cf05b0be0} 
+Coroutine Gaze\+Guiding\+Path\+Player.\+animate\+Path\+Coroutine\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em animate\+Path\+Coroutine} & is a Coroutine used to animate a path as visual cue\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a8ffa1505be120caeedfe67dfbd0e1ad9}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!animationDuration@{animationDuration}}
+\index{animationDuration@{animationDuration}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{animationDuration}{animationDuration}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a8ffa1505be120caeedfe67dfbd0e1ad9} 
+float Gaze\+Guiding\+Path\+Player.\+animation\+Duration = 1.\+0f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em animation\+Duration} & specifies the duration of the path animation\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_af747b4108856a55196ad9dbd30891c4d}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!animator@{animator}}
+\index{animator@{animator}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{animator}{animator}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_af747b4108856a55196ad9dbd30891c4d} 
+\mbox{\hyperlink{class_animator_controller}{Animator\+Controller}} Gaze\+Guiding\+Path\+Player.\+animator\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em animator} & is refenrence to the \doxylink{class_animator_controller}{Animator\+Controller} object of the scene\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a6f63f25c806c7d1b955f80a2c10d3295}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!Anzeigeninitialized@{Anzeigeninitialized}}
+\index{Anzeigeninitialized@{Anzeigeninitialized}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{Anzeigeninitialized}{Anzeigeninitialized}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a6f63f25c806c7d1b955f80a2c10d3295} 
+bool Gaze\+Guiding\+Path\+Player.\+Anzeigeninitialized = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Anzeigeninitialized} & tracks whether displays have been initialised\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a6104ce588a6f40115060459252fe0827}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!AnzeigenMarkierungEnabled@{AnzeigenMarkierungEnabled}}
+\index{AnzeigenMarkierungEnabled@{AnzeigenMarkierungEnabled}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{AnzeigenMarkierungEnabled}{AnzeigenMarkierungEnabled}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a6104ce588a6f40115060459252fe0827} 
+bool Gaze\+Guiding\+Path\+Player.\+Anzeigen\+Markierung\+Enabled = true}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Anzeigen\+Markierung\+Enabled} & toggles annotations to displays indicating their relevance and target values\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_af1cdd4ae3f53c7df9a078a1c81c6e1e4}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!anzeigenNumbers@{anzeigenNumbers}}
+\index{anzeigenNumbers@{anzeigenNumbers}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{anzeigenNumbers}{anzeigenNumbers}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_af1cdd4ae3f53c7df9a078a1c81c6e1e4} 
+List$<$float$>$ Gaze\+Guiding\+Path\+Player.\+anzeigen\+Numbers = new List$<$float$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em anzeigen\+Numbers} & is a list of float values used to calculate the position of an arrow indicating a target value on a display\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a89971448e88fab307c24a7173f7e9f85}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!anzeigenTargets@{anzeigenTargets}}
+\index{anzeigenTargets@{anzeigenTargets}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{anzeigenTargets}{anzeigenTargets}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a89971448e88fab307c24a7173f7e9f85} 
+List$<$\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}}$>$ Gaze\+Guiding\+Path\+Player.\+anzeigen\+Targets = new List$<$\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}}$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em anzeigen\+Targets} & is a list of \doxylink{class_gaze_guiding_target}{Gaze\+Guiding\+Target} objects used for gaze guiding\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_afc7ded18738b3ae68f22446e73000c3b}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!arrow3DBinaerInstance@{arrow3DBinaerInstance}}
+\index{arrow3DBinaerInstance@{arrow3DBinaerInstance}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{arrow3DBinaerInstance}{arrow3DBinaerInstance}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_afc7ded18738b3ae68f22446e73000c3b} 
+Game\+Object Gaze\+Guiding\+Path\+Player.\+arrow3\+DBinaer\+Instance\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DBinaer\+Instance} & is an instance of an Arrow3D prefab used to render binary rotational 3DArrows$<$param$>$ \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a62b176cdac76f2c866fa59898671fb8f}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!arrow3DBinaerInstanceCreated@{arrow3DBinaerInstanceCreated}}
+\index{arrow3DBinaerInstanceCreated@{arrow3DBinaerInstanceCreated}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{arrow3DBinaerInstanceCreated}{arrow3DBinaerInstanceCreated}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a62b176cdac76f2c866fa59898671fb8f} 
+bool Gaze\+Guiding\+Path\+Player.\+arrow3\+DBinaer\+Instance\+Created = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DBinaer\+Instance\+Created} & is a flag tracking whether an Arrow3\+DBinary instance has been created \\
+\hline
+\end{DoxyParams}
+
+
+param name="{}reset"{}\texorpdfstring{$>$}{>} tracks whether old visual cues have been removed\Hypertarget{class_gaze_guiding_path_player_a4ecac6c98a2780332e26d058d2508706}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!arrow3DBinaerPrefab@{arrow3DBinaerPrefab}}
+\index{arrow3DBinaerPrefab@{arrow3DBinaerPrefab}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{arrow3DBinaerPrefab}{arrow3DBinaerPrefab}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a4ecac6c98a2780332e26d058d2508706} 
+Game\+Object Gaze\+Guiding\+Path\+Player.\+arrow3\+DBinaer\+Prefab\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DBinaer\+Prefab} & is a reference to an Arrow3D prefab used to render binary rotational 3DArrows\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a3123c63fe7c34eb9d10159dd430a665d}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!Arrow3DBinearEnabled@{Arrow3DBinearEnabled}}
+\index{Arrow3DBinearEnabled@{Arrow3DBinearEnabled}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{Arrow3DBinearEnabled}{Arrow3DBinearEnabled}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a3123c63fe7c34eb9d10159dd430a665d} 
+bool Gaze\+Guiding\+Path\+Player.\+Arrow3\+DBinear\+Enabled = true}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Arrow3\+DBinear\+Enabled} & toggles 3D arrow indicating the direction a binary rotary switch should be turned in\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a92aea9b23f1d9bb9cabc96e14d77625a}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!Arrow3DEnabled@{Arrow3DEnabled}}
+\index{Arrow3DEnabled@{Arrow3DEnabled}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{Arrow3DEnabled}{Arrow3DEnabled}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a92aea9b23f1d9bb9cabc96e14d77625a} 
+bool Gaze\+Guiding\+Path\+Player.\+Arrow3\+DEnabled = true}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Arrow3\+DEnabled} & toggles a 3D arrow indicating the direction an exact rotary switch should be turned in\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a0d5ba9d1fb4709a1de85d6df409bed30}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!arrow3DInstance@{arrow3DInstance}}
+\index{arrow3DInstance@{arrow3DInstance}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{arrow3DInstance}{arrow3DInstance}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a0d5ba9d1fb4709a1de85d6df409bed30} 
+Game\+Object Gaze\+Guiding\+Path\+Player.\+arrow3\+DInstance\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DInstance} & is an instance of a Arrow3D prefab used to render continuous rotational 3DArrows$<$param$>$ \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a39756e86ef1549292731fe49f97917a1}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!arrow3DInstanceCreated@{arrow3DInstanceCreated}}
+\index{arrow3DInstanceCreated@{arrow3DInstanceCreated}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{arrow3DInstanceCreated}{arrow3DInstanceCreated}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a39756e86ef1549292731fe49f97917a1} 
+bool Gaze\+Guiding\+Path\+Player.\+arrow3\+DInstance\+Created = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DInstance\+Created} & is a flag tracking whether an Arrow3D instance has been created \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_adaf6bda79c851b43eeff67bd32200f9a}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!arrow3DPrefab@{arrow3DPrefab}}
+\index{arrow3DPrefab@{arrow3DPrefab}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{arrow3DPrefab}{arrow3DPrefab}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_adaf6bda79c851b43eeff67bd32200f9a} 
+Game\+Object Gaze\+Guiding\+Path\+Player.\+arrow3\+DPrefab\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arrow3\+DPrefab} & is a reference to an Arrow3D prefab used to render continuous rotational 3DArrows\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a269103edaa2f4c7e59b305853b3d43a0}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!arrowInstance@{arrowInstance}}
+\index{arrowInstance@{arrowInstance}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{arrowInstance}{arrowInstance}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a269103edaa2f4c7e59b305853b3d43a0} 
+Game\+Object Gaze\+Guiding\+Path\+Player.\+arrow\+Instance\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arrow\+Instance} & is an instance of a directional arrow \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a1c43f9f9e9b3b269ec501f835300a5e9}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!blur@{blur}}
+\index{blur@{blur}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{blur}{blur}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a1c43f9f9e9b3b269ec501f835300a5e9} 
+bool Gaze\+Guiding\+Path\+Player.\+blur = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em blur} & tracks whether the blur effect is switched on (true) \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a09dcd6a5ed2aa04cf2e793fc184e8ad4}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!checkCullingMask@{checkCullingMask}}
+\index{checkCullingMask@{checkCullingMask}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{checkCullingMask}{checkCullingMask}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a09dcd6a5ed2aa04cf2e793fc184e8ad4} 
+bool Gaze\+Guiding\+Path\+Player.\+check\+Culling\+Mask = true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em check\+Culling\+Mask} & checks if main camera is rendering "{}detached"{} \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a1054280e232088c19bd2b6c39eabee4a}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!ClipboardHighlightEnabled@{ClipboardHighlightEnabled}}
+\index{ClipboardHighlightEnabled@{ClipboardHighlightEnabled}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{ClipboardHighlightEnabled}{ClipboardHighlightEnabled}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a1054280e232088c19bd2b6c39eabee4a} 
+bool Gaze\+Guiding\+Path\+Player.\+Clipboard\+Highlight\+Enabled = true}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Clipboard\+Highlight\+Enabled} & toggles the highlighting of tasks on clipboards\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a74193c535324adfa11a4e6fc6ff33011}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!clipboardText@{clipboardText}}
+\index{clipboardText@{clipboardText}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{clipboardText}{clipboardText}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a74193c535324adfa11a4e6fc6ff33011} 
+Text\+Mesh\+Pro Gaze\+Guiding\+Path\+Player.\+clipboard\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em clipboard\+Text} & is a Text\+Mesh\+Pro\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a5e5b60b41b4351bb5de86a25ed6ce73d}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!ClipBoardTextColor@{ClipBoardTextColor}}
+\index{ClipBoardTextColor@{ClipBoardTextColor}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{ClipBoardTextColor}{ClipBoardTextColor}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a5e5b60b41b4351bb5de86a25ed6ce73d} 
+string Gaze\+Guiding\+Path\+Player.\+Clip\+Board\+Text\+Color = "{}$<$color=\#00\+FF00$>$"{}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Clip\+Board\+Text\+Color} & contains colour code for normal clipboard text \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a3c273aba0c8f452dedcc84adc5e9b611}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!ControlRodsisGlowing@{ControlRodsisGlowing}}
+\index{ControlRodsisGlowing@{ControlRodsisGlowing}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{ControlRodsisGlowing}{ControlRodsisGlowing}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a3c273aba0c8f452dedcc84adc5e9b611} 
+bool Gaze\+Guiding\+Path\+Player.\+Control\+Rodsis\+Glowing = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Control\+Rodsis\+Glowing} & tracks whether the control\+Rods display is currently glowing\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_aeebd298705d4eb65dba2a042bac1463e}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!CPressureisGlowing@{CPressureisGlowing}}
+\index{CPressureisGlowing@{CPressureisGlowing}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{CPressureisGlowing}{CPressureisGlowing}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_aeebd298705d4eb65dba2a042bac1463e} 
+bool Gaze\+Guiding\+Path\+Player.\+CPressureis\+Glowing = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em CPressureis\+Glowing} & tracks whether the \doxylink{class_c_pressure}{CPressure} display is currently glowing\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a6db63709a040fbda7d01aafcdccf0890}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!CPRPMisGlowing@{CPRPMisGlowing}}
+\index{CPRPMisGlowing@{CPRPMisGlowing}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{CPRPMisGlowing}{CPRPMisGlowing}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a6db63709a040fbda7d01aafcdccf0890} 
+bool Gaze\+Guiding\+Path\+Player.\+CPRPMis\+Glowing = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em CPRPMis\+Glowing} & tracks whether CPRPM\+\_\+display is currently glowing\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_ac2b8b1dcbb92ddbea63da3e223bf8023}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!currentTarget@{currentTarget}}
+\index{currentTarget@{currentTarget}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{currentTarget}{currentTarget}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_ac2b8b1dcbb92ddbea63da3e223bf8023} 
+\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}} Gaze\+Guiding\+Path\+Player.\+current\+Target\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Target} & is the currently active \doxylink{class_gaze_guiding_target}{Gaze\+Guiding\+Target} for this \doxylink{class_gaze_guiding_path_player}{Gaze\+Guiding\+Path\+Player}\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a44de3f2a0e6c321ea555d00a16d3c2b6}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!CWaterLvlisGlowing@{CWaterLvlisGlowing}}
+\index{CWaterLvlisGlowing@{CWaterLvlisGlowing}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{CWaterLvlisGlowing}{CWaterLvlisGlowing}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a44de3f2a0e6c321ea555d00a16d3c2b6} 
+bool Gaze\+Guiding\+Path\+Player.\+CWater\+Lvlis\+Glowing = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em CWater\+Lvlis\+Glowing} & tracks whether the CWater\+Lvl display is currently glowing\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a48e77bbb8d72c9eabb7490c113b85497}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!detached@{detached}}
+\index{detached@{detached}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{detached}{detached}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a48e77bbb8d72c9eabb7490c113b85497} 
+bool Gaze\+Guiding\+Path\+Player.\+detached = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em detached} & tracks whether the detach effect is currently applied (true) \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_adecfa298a842c0491238b72295ee7204}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!DirectionArrowEnabled@{DirectionArrowEnabled}}
+\index{DirectionArrowEnabled@{DirectionArrowEnabled}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{DirectionArrowEnabled}{DirectionArrowEnabled}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_adecfa298a842c0491238b72295ee7204} 
+bool Gaze\+Guiding\+Path\+Player.\+Direction\+Arrow\+Enabled = true}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Arrow\+Enabled} & toggles a directional arrow indicating a direction the player should turn to\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a033563ab5ba590d15398c133524931c9}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!DirectionArrowOnScreen@{DirectionArrowOnScreen}}
+\index{DirectionArrowOnScreen@{DirectionArrowOnScreen}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{DirectionArrowOnScreen}{DirectionArrowOnScreen}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a033563ab5ba590d15398c133524931c9} 
+bool Gaze\+Guiding\+Path\+Player.\+Direction\+Arrow\+On\+Screen = true}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Arrow\+On\+Screen} & toggles the on screen display of the directional arrow\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a976fe5ab0de2ebd3e36868699fe618a5}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!DirectionCue@{DirectionCue}}
+\index{DirectionCue@{DirectionCue}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{DirectionCue}{DirectionCue}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a976fe5ab0de2ebd3e36868699fe618a5} 
+Image Gaze\+Guiding\+Path\+Player.\+Direction\+Cue\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Cue} & is an image that is being rendered in \doxylink{class_gaze_guiding_path_player_acfdbc583cf9f82bdc8d9cc578176cdc8}{calc\+Direction\+Cue()} if the angle between the player and a target object is \texorpdfstring{$>$}{>} 30 degrees \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a40fe3b0d1376e78f1077a6845e77002e}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!DirectionCue2@{DirectionCue2}}
+\index{DirectionCue2@{DirectionCue2}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{DirectionCue2}{DirectionCue2}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a40fe3b0d1376e78f1077a6845e77002e} 
+Image Gaze\+Guiding\+Path\+Player.\+Direction\+Cue2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Cue2} & is an image that is being rendered in \doxylink{class_gaze_guiding_path_player_acfdbc583cf9f82bdc8d9cc578176cdc8}{calc\+Direction\+Cue()} if the angle between the player and a target object is \texorpdfstring{$>$}{>} 160 degrees \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a4469f9435594d4a0beeafe95228b423f}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!DirectionCueEnabled@{DirectionCueEnabled}}
+\index{DirectionCueEnabled@{DirectionCueEnabled}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{DirectionCueEnabled}{DirectionCueEnabled}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a4469f9435594d4a0beeafe95228b423f} 
+bool Gaze\+Guiding\+Path\+Player.\+Direction\+Cue\+Enabled = true}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Cue\+Enabled} & toggles a red frame indicating the player should turn\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a67dd1058f5926fde2358da9d93899bdc}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!DirectionCueEnabledGlobal@{DirectionCueEnabledGlobal}}
+\index{DirectionCueEnabledGlobal@{DirectionCueEnabledGlobal}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{DirectionCueEnabledGlobal}{DirectionCueEnabledGlobal}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a67dd1058f5926fde2358da9d93899bdc} 
+bool Gaze\+Guiding\+Path\+Player.\+Direction\+Cue\+Enabled\+Global = true}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Cue\+Enabled\+Global} & toggles a red frame (global) indicating that the player should turn\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_aedbea436c00f690b71d2f5a0eb4bab6d}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!DirectionCueFadeDuration@{DirectionCueFadeDuration}}
+\index{DirectionCueFadeDuration@{DirectionCueFadeDuration}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{DirectionCueFadeDuration}{DirectionCueFadeDuration}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_aedbea436c00f690b71d2f5a0eb4bab6d} 
+float Gaze\+Guiding\+Path\+Player.\+Direction\+Cue\+Fade\+Duration = 1f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Direction\+Cue\+Fade\+Duration} & sets the duration of the red frame\textquotesingle{}s fade in and fade out\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a85fb62a990f2ac61a34b4b2480e8ab73}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!DisplayHighlightEnabled@{DisplayHighlightEnabled}}
+\index{DisplayHighlightEnabled@{DisplayHighlightEnabled}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{DisplayHighlightEnabled}{DisplayHighlightEnabled}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a85fb62a990f2ac61a34b4b2480e8ab73} 
+bool Gaze\+Guiding\+Path\+Player.\+Display\+Highlight\+Enabled = true}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Display\+Highlight\+Enabled} & toggles the highlighting of displays \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a31d976de417ba2cb3fb592d0846e1543}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!EnergyisGlowing@{EnergyisGlowing}}
+\index{EnergyisGlowing@{EnergyisGlowing}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{EnergyisGlowing}{EnergyisGlowing}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a31d976de417ba2cb3fb592d0846e1543} 
+bool Gaze\+Guiding\+Path\+Player.\+Energyis\+Glowing = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Engergyis\+Glowing} & tracks whether the Energy display is currently glowing\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_ac1b72a9b2efd87b0e984693f7f064b8d}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!focusCamera@{focusCamera}}
+\index{focusCamera@{focusCamera}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{focusCamera}{focusCamera}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_ac1b72a9b2efd87b0e984693f7f064b8d} 
+Camera Gaze\+Guiding\+Path\+Player.\+focus\+Camera\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em focus\+Camera} & is a camera object tracking the camera rendering "{}\+Focused"{} layer \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a6ae93d97599a2b3cc3e7fa7dab61dae6}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!focusVolume@{focusVolume}}
+\index{focusVolume@{focusVolume}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{focusVolume}{focusVolume}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a6ae93d97599a2b3cc3e7fa7dab61dae6} 
+Volume Gaze\+Guiding\+Path\+Player.\+focus\+Volume\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em focus\+Volume} & is a Volume object assigned to focus camera \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a62ad6f507599304251e073fa91d2de3a}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!GGClipboard@{GGClipboard}}
+\index{GGClipboard@{GGClipboard}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{GGClipboard}{GGClipboard}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a62ad6f507599304251e073fa91d2de3a} 
+\mbox{\hyperlink{class_gaze_guiding_clipboard}{Gaze\+Guiding\+Clipboard}} Gaze\+Guiding\+Path\+Player.\+GGClipboard}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em GGClipboard} & is a reference to a \doxylink{class_gaze_guiding_clipboard}{Gaze\+Guiding\+Clipboard}\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a92a37cc8b5d39e6045f9e2acba390633}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!init@{init}}
+\index{init@{init}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{init}{init}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a92a37cc8b5d39e6045f9e2acba390633} 
+bool Gaze\+Guiding\+Path\+Player.\+init = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em init} & checks whether the active clipboard has been initialised \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_ae467e8aedc48281aba73d429ef627f7c}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!initalText@{initalText}}
+\index{initalText@{initalText}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{initalText}{initalText}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_ae467e8aedc48281aba73d429ef627f7c} 
+string Gaze\+Guiding\+Path\+Player.\+inital\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\+Text} & contains the original unformatted text of the active clipboard\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a0a263c044d30f7f221bd7e03acd9a0c1}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!isAnimating@{isAnimating}}
+\index{isAnimating@{isAnimating}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{isAnimating}{isAnimating}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a0a263c044d30f7f221bd7e03acd9a0c1} 
+bool Gaze\+Guiding\+Path\+Player.\+is\+Animating = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Animating} & tracks whether a path is currently being animated as visual cue\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a26993347779e16417cb30f7fcf6d1ad9}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!isDirectionCue2Fading@{isDirectionCue2Fading}}
+\index{isDirectionCue2Fading@{isDirectionCue2Fading}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{isDirectionCue2Fading}{isDirectionCue2Fading}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a26993347779e16417cb30f7fcf6d1ad9} 
+bool Gaze\+Guiding\+Path\+Player.\+is\+Direction\+Cue2\+Fading = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Direction\+Cue\+Fading2} & tracks whether the second cue is fading out\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a2535295cdd6678eb11fa7c2568c11bb6}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!isDirectionCueFading@{isDirectionCueFading}}
+\index{isDirectionCueFading@{isDirectionCueFading}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{isDirectionCueFading}{isDirectionCueFading}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a2535295cdd6678eb11fa7c2568c11bb6} 
+bool Gaze\+Guiding\+Path\+Player.\+is\+Direction\+Cue\+Fading = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Direction\+Cue\+Fading} & tracks whether the first cue is fading out\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a7f2ee4976d90787c790f4d926e42cc40}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!lastCalledHighlight@{lastCalledHighlight}}
+\index{lastCalledHighlight@{lastCalledHighlight}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{lastCalledHighlight}{lastCalledHighlight}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a7f2ee4976d90787c790f4d926e42cc40} 
+string Gaze\+Guiding\+Path\+Player.\+last\+Called\+Highlight = "{}"{}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em last\+Called\+Highlight} & contains the name of a previously highlighted object\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a4c5dde33636db79804896331064927c4}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!lastClipboardName@{lastClipboardName}}
+\index{lastClipboardName@{lastClipboardName}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{lastClipboardName}{lastClipboardName}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a4c5dde33636db79804896331064927c4} 
+string Gaze\+Guiding\+Path\+Player.\+last\+Clipboard\+Name = "{}"{}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em last\+Clipboard\+Name} & contains the name of the previous highlighted clipboard \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a3c2f1931e575b4cdaa108e44f49def04}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!lastindex@{lastindex}}
+\index{lastindex@{lastindex}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{lastindex}{lastindex}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a3c2f1931e575b4cdaa108e44f49def04} 
+int Gaze\+Guiding\+Path\+Player.\+lastindex = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em lastindex} & tracks the index of the previous highlighted task \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a5ff8aaa4920e62cdbe8d6352c38126c7}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!lineMaterial@{lineMaterial}}
+\index{lineMaterial@{lineMaterial}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{lineMaterial}{lineMaterial}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a5ff8aaa4920e62cdbe8d6352c38126c7} 
+Material Gaze\+Guiding\+Path\+Player.\+line\+Material}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Material} & is a Material used to render a path as visual cue\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a9eeaef64ebe493869e5c4c2a41e02c42}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!lineRenderer@{lineRenderer}}
+\index{lineRenderer@{lineRenderer}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{lineRenderer}{lineRenderer}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a9eeaef64ebe493869e5c4c2a41e02c42} 
+Line\+Renderer Gaze\+Guiding\+Path\+Player.\+line\+Renderer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Renderer} & is a Line\+Renderer object used to render a path as visual cue\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a78cba62ac9a49ead374ae3f20ad11ade}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!mainVolume@{mainVolume}}
+\index{mainVolume@{mainVolume}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{mainVolume}{mainVolume}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a78cba62ac9a49ead374ae3f20ad11ade} 
+Volume Gaze\+Guiding\+Path\+Player.\+main\+Volume\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em main\+Volume} & is a Volume object assigned to main camera \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_ab1c4363997fdd835fa2dee28105b1998}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!pathDisplayDistance@{pathDisplayDistance}}
+\index{pathDisplayDistance@{pathDisplayDistance}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{pathDisplayDistance}{pathDisplayDistance}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_ab1c4363997fdd835fa2dee28105b1998} 
+float Gaze\+Guiding\+Path\+Player.\+path\+Display\+Distance = 5.\+0f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em path\+Display\+Distance} & specifies the distance between the player and an animated path that is displayed as visual cue \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_af5ab644191cbc793b38a84f1a85e8896}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!reset@{reset}}
+\index{reset@{reset}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{reset}{reset}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_af5ab644191cbc793b38a84f1a85e8896} 
+bool Gaze\+Guiding\+Path\+Player.\+reset = true\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_gaze_guiding_path_player_a8fc366e3a106d9bf8c2c49f60690d9d3}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!RPressureisGlowing@{RPressureisGlowing}}
+\index{RPressureisGlowing@{RPressureisGlowing}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{RPressureisGlowing}{RPressureisGlowing}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a8fc366e3a106d9bf8c2c49f60690d9d3} 
+bool Gaze\+Guiding\+Path\+Player.\+RPressureis\+Glowing = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em RPressureis\+Glowing} & tracks whether the \doxylink{class_r_pressure}{RPressure} display is currently glowing\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a0e4c70eadc6f0f240817389006e9a446}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!RWaterLvlisGlowing@{RWaterLvlisGlowing}}
+\index{RWaterLvlisGlowing@{RWaterLvlisGlowing}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{RWaterLvlisGlowing}{RWaterLvlisGlowing}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a0e4c70eadc6f0f240817389006e9a446} 
+bool Gaze\+Guiding\+Path\+Player.\+RWater\+Lvlis\+Glowing = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em RWater\+Lvlis\+Glowing} & tracks whether the RWater\+Lvl display is currently glowing\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_ac5e4d2b1996d4712f87139ff57971832}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!targets@{targets}}
+\index{targets@{targets}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{targets}{targets}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_ac5e4d2b1996d4712f87139ff57971832} 
+List$<$\mbox{\hyperlink{class_gaze_guiding_target}{Gaze\+Guiding\+Target}}$>$ Gaze\+Guiding\+Path\+Player.\+targets}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em targets} & is a list of \doxylink{class_gaze_guiding_target}{Gaze\+Guiding\+Target} objects\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_abf18219fa0292916c144b3d61d35bec8}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!text1@{text1}}
+\index{text1@{text1}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{text1}{text1}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_abf18219fa0292916c144b3d61d35bec8} 
+Text\+Mesh\+Pro Gaze\+Guiding\+Path\+Player.\+text1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em text1} & is a Text\+Mesh\+Pro object containing the clipboard\+Text for clipboard POS1 \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a742601176fa75a99dee10f7a53a9ed30}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!text2@{text2}}
+\index{text2@{text2}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{text2}{text2}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a742601176fa75a99dee10f7a53a9ed30} 
+Text\+Mesh\+Pro Gaze\+Guiding\+Path\+Player.\+text2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em text2} & is a Text\+Mesh\+Pro object containing the clipboard\+Text for clipboard POS2 \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a6c3271318db24fe6ec1c19a3cbd5f57b}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!text3@{text3}}
+\index{text3@{text3}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{text3}{text3}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a6c3271318db24fe6ec1c19a3cbd5f57b} 
+Text\+Mesh\+Pro Gaze\+Guiding\+Path\+Player.\+text3\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em text3} & is a Text\+Mesh\+Pro object containing the clipboard\+Text for clipboard POS3 \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a103fe3bd6f2134b0cac0e354508d520a}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!WP1RPMisGlowing@{WP1RPMisGlowing}}
+\index{WP1RPMisGlowing@{WP1RPMisGlowing}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{WP1RPMisGlowing}{WP1RPMisGlowing}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a103fe3bd6f2134b0cac0e354508d520a} 
+bool Gaze\+Guiding\+Path\+Player.\+WP1\+RPMis\+Glowing = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em WP1\+RPMis\+Glowing} & tracks whether WP1\+RPM\+\_\+display is currently glowing\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_gaze_guiding_path_player_a6baae7cfc8853f34ed2bd92b5768f973}\index{GazeGuidingPathPlayer@{GazeGuidingPathPlayer}!WP2RPMisGlowing@{WP2RPMisGlowing}}
+\index{WP2RPMisGlowing@{WP2RPMisGlowing}!GazeGuidingPathPlayer@{GazeGuidingPathPlayer}}
+\doxysubsubsection{\texorpdfstring{WP2RPMisGlowing}{WP2RPMisGlowing}}
+{\footnotesize\ttfamily \label{class_gaze_guiding_path_player_a6baae7cfc8853f34ed2bd92b5768f973} 
+bool Gaze\+Guiding\+Path\+Player.\+WP2\+RPMis\+Glowing = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em WP2\+RPMis\+Glowing} & tracks whether WP2\+RPM\+\_\+display is currently glowing\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Gaze\+Guiding\+Path/\mbox{\hyperlink{_gaze_guiding_path_player_8cs}{Gaze\+Guiding\+Path\+Player.\+cs}}\end{DoxyCompactItemize}

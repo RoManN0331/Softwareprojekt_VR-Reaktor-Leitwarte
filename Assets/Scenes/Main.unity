@@ -22829,15 +22829,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4220274215976610951, guid: 23b6dcb4f236ea74eaa35563fe497c9d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4220274215976610951, guid: 23b6dcb4f236ea74eaa35563fe497c9d, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4220274215976610951, guid: 23b6dcb4f236ea74eaa35563fe497c9d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 352
       objectReference: {fileID: 0}
     - target: {fileID: 4220274215976610951, guid: 23b6dcb4f236ea74eaa35563fe497c9d, type: 3}
       propertyPath: m_LocalScale.x
@@ -22861,11 +22861,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4220274215976610951, guid: 23b6dcb4f236ea74eaa35563fe497c9d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 176
       objectReference: {fileID: 0}
     - target: {fileID: 4220274215976610951, guid: 23b6dcb4f236ea74eaa35563fe497c9d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 5849765079216124530, guid: 23b6dcb4f236ea74eaa35563fe497c9d, type: 3}
       propertyPath: m_SizeDelta.y
@@ -24469,10 +24469,11 @@ MonoBehaviour:
   pathDisplayDistance: 0.85
   animationDuration: 1
   lineMaterial: {fileID: 2100000, guid: 9c8b90ff3b396b64e9ef60f86215f919, type: 2}
-  detached: 0
-  blur: 0
+  lastCalledHighlight: 
   ClipBoardTextColor: <color=#00FF00>
   lastClipboardName: 
+  detached: 0
+  blur: 0
 --- !u!1 &1432616319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60623f1b12842e9438df8b81757ac39f, type: 3}

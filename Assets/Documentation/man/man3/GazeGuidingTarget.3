@@ -1,0 +1,71 @@
+.TH "GazeGuidingTarget" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GazeGuidingTarget \- This class is used to define objects within the scene as targets for \fBGazeGuidingPathPlayer\fP and \fBGazeGuidingPathPlayerSecondPath\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBTargetType\fP { \fBGenau\fP, \fBBinaer\fP, \fBAnzeige\fP, \fBAusfallanzeige\fP }"
+.br
+.RI "This Enum specifies the type of an object \fBGazeGuidingTarget\fP may be applied to as an exact rotary switch (Genau), a binary rotary switch (Binaer), a display (Anzeige) or a display indicating the failure of a component (\fBAusfallAnzeige\fP)\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBTargetType\fP \fBisTypeOf\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisTypeOf\fP is an Enum defining the type of a object the script is attached to 
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class is used to define objects within the scene as targets for \fBGazeGuidingPathPlayer\fP and \fBGazeGuidingPathPlayerSecondPath\fP\&. 
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBGazeGuidingTarget\&.TargetType\fP"
+
+.PP
+This Enum specifies the type of an object \fBGazeGuidingTarget\fP may be applied to as an exact rotary switch (Genau), a binary rotary switch (Binaer), a display (Anzeige) or a display indicating the failure of a component (\fBAusfallAnzeige\fP)\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIGenau \fP
+.TP
+\f(BIBinaer \fP
+.TP
+\f(BIAnzeige \fP
+.TP
+\f(BIAusfallanzeige \fP
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBTargetType\fP GazeGuidingTarget\&.isTypeOf"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisTypeOf\fP is an Enum defining the type of a object the script is attached to 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

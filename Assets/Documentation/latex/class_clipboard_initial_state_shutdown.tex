@@ -1,0 +1,221 @@
+\doxysection{Clipboard\+Initial\+State\+Shutdown Class Reference}
+\hypertarget{class_clipboard_initial_state_shutdown}{}\label{class_clipboard_initial_state_shutdown}\index{ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}}
+
+
+This class implements logic to trigger the startup scenario of the \doxylink{class_n_p_p_client}{NPPClient} class.  
+
+
+Inheritance diagram for Clipboard\+Initial\+State\+Shutdown\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_clipboard_initial_state_shutdown}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Input\+Action \mbox{\hyperlink{class_clipboard_initial_state_shutdown_a307f00df8fec5a291eb570ffb155321b}{action\+Trigger}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em action\+Trigger} & is a reference to an Input\+Action\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Input\+Action\+Asset \mbox{\hyperlink{class_clipboard_initial_state_shutdown_a74b63b0ef6c6d082366e56e07d0c68ad}{clipboard\+Actions}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em clipboard\+Actions} & is a reference to an Input\+Action\+Asset\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_clipboard_initial_state_shutdown_a2c98f085530cc3393b8955347bc56692}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes clipboard\+Actions and adds Action\+Listeners to the clipboard\textquotesingle{}s grab interactable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_clipboard_initial_state_shutdown_a31c7e67ec5232e62c11c39f7aa670cd4}{On\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em This method removes the Action\+Listener, disables the Action\+Trigger and destroys the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_clipboard_initial_state_shutdown_a9a3321b465348e12e69e713d99c76b16}{On\+Select\+Entered}} (Select\+Enter\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when the player interacts with the clipboard. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_clipboard_initial_state_shutdown_aa05c3ef0df9cf621659a1f340a100d27}{On\+Select\+Exited}} (Select\+Exit\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when the player no longer interacts with the clipboard. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_clipboard_initial_state_shutdown_ab374c495be2856f500d9b771b3d5138d}{On\+Action\+Triggered}} (Input\+Action.\+Callback\+Context context)
+\begin{DoxyCompactList}\small\item\em This method is called when the action\+Trigger is released, initiating the startup scenario on npp\+Client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_n_p_p_client}{NPPClient}} \mbox{\hyperlink{class_clipboard_initial_state_shutdown_a7d9391cba0a0478976d7b37ad09d2b0d}{npp\+Client}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em npp\+Client} & is a reference to an instance of the \doxylink{class_n_p_p_client}{NPPClient} class\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_clipboard_initial_state_shutdown_a33f991398543fe06ef1862d15f4a1762}{is\+Interacting}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em is\+Interacting} & tracks whether the player interacts with the object this script is attached to\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Unity\+Engine.\+XR.\+Interaction.\+Toolkit.\+Interactors.\+XRBase\+Interactor \mbox{\hyperlink{class_clipboard_initial_state_shutdown_aa480cf8ba16ac7c5d886ce135e114943}{interactor}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em interactor} & os a reference to ta XRBase\+Interactor\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic to trigger the startup scenario of the \doxylink{class_n_p_p_client}{NPPClient} class. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_clipboard_initial_state_shutdown_ab374c495be2856f500d9b771b3d5138d}\index{ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}!OnActionTriggered@{OnActionTriggered}}
+\index{OnActionTriggered@{OnActionTriggered}!ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}}
+\doxysubsubsection{\texorpdfstring{OnActionTriggered()}{OnActionTriggered()}}
+{\footnotesize\ttfamily \label{class_clipboard_initial_state_shutdown_ab374c495be2856f500d9b771b3d5138d} 
+void Clipboard\+Initial\+State\+Shutdown.\+On\+Action\+Triggered (\begin{DoxyParamCaption}\item[{Input\+Action.\+Callback\+Context}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the action\+Trigger is released, initiating the startup scenario on npp\+Client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & passes event specific arguments\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_clipboard_initial_state_shutdown_a31c7e67ec5232e62c11c39f7aa670cd4}\index{ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}!OnDestroy@{OnDestroy}}
+\index{OnDestroy@{OnDestroy}!ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}}
+\doxysubsubsection{\texorpdfstring{OnDestroy()}{OnDestroy()}}
+{\footnotesize\ttfamily \label{class_clipboard_initial_state_shutdown_a31c7e67ec5232e62c11c39f7aa670cd4} 
+void Clipboard\+Initial\+State\+Shutdown.\+On\+Destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method removes the Action\+Listener, disables the Action\+Trigger and destroys the object. 
+
+\Hypertarget{class_clipboard_initial_state_shutdown_a9a3321b465348e12e69e713d99c76b16}\index{ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}!OnSelectEntered@{OnSelectEntered}}
+\index{OnSelectEntered@{OnSelectEntered}!ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}}
+\doxysubsubsection{\texorpdfstring{OnSelectEntered()}{OnSelectEntered()}}
+{\footnotesize\ttfamily \label{class_clipboard_initial_state_shutdown_a9a3321b465348e12e69e713d99c76b16} 
+void Clipboard\+Initial\+State\+Shutdown.\+On\+Select\+Entered (\begin{DoxyParamCaption}\item[{Select\+Enter\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the player interacts with the clipboard. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments at the beginning of the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_clipboard_initial_state_shutdown_aa05c3ef0df9cf621659a1f340a100d27}\index{ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}!OnSelectExited@{OnSelectExited}}
+\index{OnSelectExited@{OnSelectExited}!ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}}
+\doxysubsubsection{\texorpdfstring{OnSelectExited()}{OnSelectExited()}}
+{\footnotesize\ttfamily \label{class_clipboard_initial_state_shutdown_aa05c3ef0df9cf621659a1f340a100d27} 
+void Clipboard\+Initial\+State\+Shutdown.\+On\+Select\+Exited (\begin{DoxyParamCaption}\item[{Select\+Exit\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the player no longer interacts with the clipboard. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments at the end of the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_clipboard_initial_state_shutdown_a2c98f085530cc3393b8955347bc56692}\index{ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}!Start@{Start}}
+\index{Start@{Start}!ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_clipboard_initial_state_shutdown_a2c98f085530cc3393b8955347bc56692} 
+void Clipboard\+Initial\+State\+Shutdown.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initializes clipboard\+Actions and adds Action\+Listeners to the clipboard\textquotesingle{}s grab interactable. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_clipboard_initial_state_shutdown_a307f00df8fec5a291eb570ffb155321b}\index{ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}!actionTrigger@{actionTrigger}}
+\index{actionTrigger@{actionTrigger}!ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}}
+\doxysubsubsection{\texorpdfstring{actionTrigger}{actionTrigger}}
+{\footnotesize\ttfamily \label{class_clipboard_initial_state_shutdown_a307f00df8fec5a291eb570ffb155321b} 
+Input\+Action Clipboard\+Initial\+State\+Shutdown.\+action\+Trigger}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em action\+Trigger} & is a reference to an Input\+Action\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_clipboard_initial_state_shutdown_a74b63b0ef6c6d082366e56e07d0c68ad}\index{ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}!clipboardActions@{clipboardActions}}
+\index{clipboardActions@{clipboardActions}!ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}}
+\doxysubsubsection{\texorpdfstring{clipboardActions}{clipboardActions}}
+{\footnotesize\ttfamily \label{class_clipboard_initial_state_shutdown_a74b63b0ef6c6d082366e56e07d0c68ad} 
+Input\+Action\+Asset Clipboard\+Initial\+State\+Shutdown.\+clipboard\+Actions}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em clipboard\+Actions} & is a reference to an Input\+Action\+Asset\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_clipboard_initial_state_shutdown_aa480cf8ba16ac7c5d886ce135e114943}\index{ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}!interactor@{interactor}}
+\index{interactor@{interactor}!ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}}
+\doxysubsubsection{\texorpdfstring{interactor}{interactor}}
+{\footnotesize\ttfamily \label{class_clipboard_initial_state_shutdown_aa480cf8ba16ac7c5d886ce135e114943} 
+Unity\+Engine.\+XR.\+Interaction.\+Toolkit.\+Interactors.\+XRBase\+Interactor Clipboard\+Initial\+State\+Shutdown.\+interactor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em interactor} & os a reference to ta XRBase\+Interactor\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_clipboard_initial_state_shutdown_a33f991398543fe06ef1862d15f4a1762}\index{ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}!isInteracting@{isInteracting}}
+\index{isInteracting@{isInteracting}!ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}}
+\doxysubsubsection{\texorpdfstring{isInteracting}{isInteracting}}
+{\footnotesize\ttfamily \label{class_clipboard_initial_state_shutdown_a33f991398543fe06ef1862d15f4a1762} 
+bool Clipboard\+Initial\+State\+Shutdown.\+is\+Interacting = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Interacting} & tracks whether the player interacts with the object this script is attached to\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_clipboard_initial_state_shutdown_a7d9391cba0a0478976d7b37ad09d2b0d}\index{ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}!nppClient@{nppClient}}
+\index{nppClient@{nppClient}!ClipboardInitialStateShutdown@{ClipboardInitialStateShutdown}}
+\doxysubsubsection{\texorpdfstring{nppClient}{nppClient}}
+{\footnotesize\ttfamily \label{class_clipboard_initial_state_shutdown_a7d9391cba0a0478976d7b37ad09d2b0d} 
+\mbox{\hyperlink{class_n_p_p_client}{NPPClient}} Clipboard\+Initial\+State\+Shutdown.\+npp\+Client\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em npp\+Client} & is a reference to an instance of the \doxylink{class_n_p_p_client}{NPPClient} class\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Clipboards/\mbox{\hyperlink{_clipboard_initial_state_scenario_8cs}{Clipboard\+Initial\+State\+Scenario.\+cs}}\end{DoxyCompactItemize}

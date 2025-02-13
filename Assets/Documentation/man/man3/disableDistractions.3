@@ -1,0 +1,101 @@
+.TH "disableDistractions" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+disableDistractions \- This class implements logic to disable specific elements in the scene categorised as distractions and added to the distractions array\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBdisableDistraction\fP (bool value)"
+.br
+.RI "This method implements logic to disable or enable distractions in the scene\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "GameObject[] \fBdistractions\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIdistractions\fP is an array containing objects categorised as distractions
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBdisableDistractionsOnStart\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisableDistransOnStart\fP checks whether distractions are rendered on simulation start 
+.RE
+.PP
+"
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method disables all objects added to the distractions array at the start of the simulation, if specified by the player\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements logic to disable specific elements in the scene categorised as distractions and added to the distractions array\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void disableDistractions\&.disableDistraction (bool value)"
+
+.PP
+This method implements logic to disable or enable distractions in the scene\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalue\fP toggles whether distractions are enabled
+.RE
+.PP
+
+.SS "void disableDistractions\&.Start ()\fR [private]\fP"
+
+.PP
+This method disables all objects added to the distractions array at the start of the simulation, if specified by the player\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "bool disableDistractions\&.disableDistractionsOnStart = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisableDistransOnStart\fP checks whether distractions are rendered on simulation start 
+.RE
+.PP
+
+.SS "GameObject [] disableDistractions\&.distractions"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIdistractions\fP is an array containing objects categorised as distractions
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

@@ -1,31 +1,27 @@
+// TODO change class name
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// This class implements logic to trigger the startup scenario of the NPPClient class.
+/// </summary>
 public class ClipboardInitialStateShutdown : MonoBehaviour
 {
-
-/// <summary>
-/// This class is used to trigger the startup scenario on the NPPClient when the clipboard this script is attached to is interacted with.
-/// </summary>
-
-/// <param name="nppClient">Reference to the NPPClient instance in the scene</param>
-/// <param name="actionTrigger">InputAction to trigger the execution of the shutdown scenario</param>
-/// <param name="isInteracting">Boolean to check if the clipboard is currently being interacted with</param>
-/// <param name="interactor">Reference to the XRBaseInteractor that is currently interacting with the clipboard</param>
-/// <param name="clipboardActions">InputActionAsset containing the clipboard actions</param>
-
-    private NPPClient nppClient; // Referenz zu NPPClient
+    /// <param name="nppClient"> is a reference to an instance of the NPPClient class</param>
+    private NPPClient nppClient;
+    /// <param name="actionTrigger">  is a reference to an InputAction</param>
     public InputAction actionTrigger;
+    /// <param name="isInteracting"> tracks whether the player interacts with the object this script is attached to</param>
 	private bool isInteracting = false;
+    /// <param name="interactor"> os a reference to ta XRBaseInteractor</param>
 	private UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor interactor;
-	
+	/// <param name="clipboardActions"> is a reference to an InputActionAsset</param>
 	public InputActionAsset clipboardActions;
 
-/// <summary>
-/// This method initializes the clipboardActions and adds ActionListeners to the clipboard's Grab Interactable.
-/// </summary>
-
+    /// <summary>
+    /// This method initializes clipboardActions and adds ActionListeners to the clipboard's grab interactable.
+    /// </summary>
     private void Start()
     {
         // Suche nach der NPPClient-Instanz in der Szene
@@ -65,10 +61,9 @@ public class ClipboardInitialStateShutdown : MonoBehaviour
 		}
     }
 
-/// <summary>
-/// This method destroys the object and removes the ActionListener and disables the ActionTrigger.
-/// </summary>
-
+    /// <summary>
+    /// This method removes the ActionListener, disables the ActionTrigger and destroys the object.
+    /// </summary>
     private void OnDestroy()
     {
         if (actionTrigger != null)
@@ -78,33 +73,30 @@ public class ClipboardInitialStateShutdown : MonoBehaviour
         }
     }
 
-/// <summary>
-/// This method is called when the clipboard is being interacted with.
-/// </summary>
-/// <param name="args">SelectEnterEventArgs to pass event specific arguments upon entering the interaction</param>
-
+    /// <summary>
+    /// This method is called when the player interacts with the clipboard.
+    /// </summary>
+    /// <param name="args"> passes event specific arguments at the beginning of the interaction</param>
 	private void OnSelectEntered(SelectEnterEventArgs args)
     {
         isInteracting = true;
         interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor;
     }
 
-/// <summary>
-/// This method is called when the clipboard is no longer being interacted with.
-/// </summary>
-/// <param name="args">SelectExitEventArgs to pass event specific arguments upon exiting the interaction</param>
-
+    /// <summary>
+    /// This method is called when the player no longer interacts with the clipboard.
+    /// </summary>
+    /// <param name="args"> passes event specific arguments at the end of the interaction</param>
     private void OnSelectExited(SelectExitEventArgs args)
     {
         isInteracting = false;
         interactor = null;
     }
 
-/// <summary>
-/// This method is called when the actionTrigger is performed starting the startup scenario on the NPPClient.
-/// </summary>
-/// <param name="context">CallbackContext to pass event specific arguments</param>
-
+    /// <summary>
+    /// This method is called when the actionTrigger is released, initiating the startup scenario on nppClient.
+    /// </summary>
+    /// <param name="context"> passes event specific arguments</param>
     private void OnActionTriggered(InputAction.CallbackContext context)
     {
         if (nppClient != null && isInteracting)

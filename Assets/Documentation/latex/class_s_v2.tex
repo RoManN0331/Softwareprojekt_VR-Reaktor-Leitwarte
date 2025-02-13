@@ -1,0 +1,399 @@
+\doxysection{SV2 Class Reference}
+\hypertarget{class_s_v2}{}\label{class_s_v2}\index{SV2@{SV2}}
+
+
+This class is used to control steam valve 2 in an NPP simulation.  
+
+
+Inheritance diagram for SV2\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_s_v2}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_s_v2_acda98a57179d1764e72a24b23df8b0a2}{Regler\+Type\+Enum}} \{ \mbox{\hyperlink{class_s_v2_acda98a57179d1764e72a24b23df8b0a2acc7be7321cbf01a5bcde4641c7f6f4b5}{Genau}} = 0
+, \mbox{\hyperlink{class_s_v2_acda98a57179d1764e72a24b23df8b0a2a4cfcdfbe8cf27aff6e57c51ee947715c}{Binaer}} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em Defines two types of rotary switches binary and exact. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_s_v2_a9477c25085cac175b2566674fcd731da}{Set\+Valve\+Status}} (string valve\+Id, bool value)
+\begin{DoxyCompactList}\small\item\em This method initiates a call to the REST Server to update the simulation with the current status of steam valve 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_v2_a953a3586c8cb95ed1cfb42472e109cf0}{Set\+Percent\+From\+External}} (int percent)
+\begin{DoxyCompactList}\small\item\em This method sets the percentage value of the switch based on an external input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_s_v2_acda98a57179d1764e72a24b23df8b0a2}{Regler\+Type\+Enum}} \mbox{\hyperlink{class_s_v2_af750404c23b456ad6950ce402af0b42c}{Regler\+Type}} = \mbox{\hyperlink{class_s_v2_acda98a57179d1764e72a24b23df8b0a2a4cfcdfbe8cf27aff6e57c51ee947715c}{Regler\+Type\+Enum.\+Binaer}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Regler\+Type} & Specifies the type of rotary switch\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_s_v2_a275bb5d7a03d19f29ce741b2419d01ce}{Percent}} = 0
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Percent} & int specifying the percentage the switch has been rotated based on its leftmost position\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_s_v2_afe10ec74431f9e97267f18defcccb77d}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes the \doxylink{class_s_v2}{SV2} instance, sets the initial rotation of the switch and initializes the switches lamp. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_v2_a93a96939416a1247e519405263a3ffaa}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the rotation of the switch based on the current value of Percent. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_v2_a091e41cc099fb05a6e49bdd1510bf648}{Update\+Rotation}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the rotation of the switch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_v2_a3ffc234bde5487f3370f08e12daad450}{On\+Enable}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the object is enabled and adds event listeners for the select\+Entered and select\+Exited events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_v2_aa15cce5bffe06856e64561033de55ac4}{On\+Disable}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the object is disabled and removes event listeners for the select\+Entered and select\+Exited events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_v2_a0522c9251b819bd2fe601b3f9b885902}{On\+Select\+Entered}} (Select\+Enter\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when an interactor enters the object and sets the interactor and initial\+Interactor\+Rotation values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_v2_ade7dfa2bd71543c59792b71a22db2abd}{On\+Select\+Exited}} (Select\+Exit\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when an interactor exits the object and resets the is\+Interacting and interactor values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_v2_acdefd27afd7b08d6d943089e5cfff495}{init\+Lamp}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the switches lamp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_s_v2_a7186519d26b88914aed194b1129bc552}{to\+\_\+rotate}}
+\item 
+int \mbox{\hyperlink{class_s_v2_a66e5bbd82494585b214b7fa3da771898}{Start\+Rotation}} = -\/90
+\begin{DoxyCompactList}\small\item\em param name="{}\+End\+Rotation"{}\texorpdfstring{$>$}{>}int specifying the angle of the switches rightmost position\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_s_v2_a2d15f50d83a9a945aa40ff153ad7015b}{End\+Rotation}} = 0
+\begin{DoxyCompactList}\small\item\em param name="{}last\+Press\+Time"{}\texorpdfstring{$>$}{>}float specifying when the switch was last interacted with\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_s_v2_af8cb5a03ca4fd51721a599b873618dc8}{last\+Press\+Time}} = 0f
+\begin{DoxyCompactList}\small\item\em param name="{}press\+Cooldown"{}\texorpdfstring{$>$}{>}float specifying a cooldown between interactions with the switch\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_s_v2_aa31abff405db04b22a80e0d3af195f2e}{press\+Cooldown}} = 1f
+\begin{DoxyCompactList}\small\item\em param name="{}interactor"{}\texorpdfstring{$>$}{>}Interactor\end{DoxyCompactList}\item 
+Unity\+Engine.\+XR.\+Interaction.\+Toolkit.\+Interactors.\+XRBase\+Interactor \mbox{\hyperlink{class_s_v2_a4530e1fb5a618ece1bdd374c5d3a463c}{interactor}}
+\begin{DoxyCompactList}\small\item\em param name="{}is\+Interacting"{}\texorpdfstring{$>$}{>}boolean tracking if the player is interacting with the switch\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_s_v2_a9ddb66c429e0caedd6c964d7ad44760f}{is\+Interacting}} = false
+\begin{DoxyCompactList}\small\item\em param name="{}initial\+Interactor\+Position"{}\texorpdfstring{$>$}{>}Vector3 specifying the initial Position of the Interactor\end{DoxyCompactList}\item 
+Vector3 \mbox{\hyperlink{class_s_v2_ace1d23fc54bad025c99e5700035f2601}{initial\+Interactor\+Position}}
+\begin{DoxyCompactList}\small\item\em param name="{}initial\+Percent"{}\texorpdfstring{$>$}{>}int specifying the initinal percentage the switch has already been rotated\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_s_v2_aa7beeba348b5bf28b2e28612da97688e}{initial\+Percent}}
+\begin{DoxyCompactList}\small\item\em param name="{}previous\+Percent"{}\texorpdfstring{$>$}{>}int specifying the percentage the switch has been rotated in the last frame\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_s_v2_a0cbfc584dc225894e86db66f207fd5ef}{previous\+Percent}}
+\begin{DoxyCompactList}\small\item\em param name="{}light\+Regler"{}\texorpdfstring{$>$}{>}Loght\+Regler to switch on lights\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_light_regler}{Light\+Regler}} \mbox{\hyperlink{class_s_v2_a65f1cbea93513ee7cd13145c1d371d1c}{light\+Regler}}
+\begin{DoxyCompactList}\small\item\em param name="{}npp\+Client"{}\texorpdfstring{$>$}{>}Reference to the \doxylink{class_n_p_p_client}{NPPClient} instance in the scene\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_n_p_p_client}{NPPClient}} \mbox{\hyperlink{class_s_v2_a1909732c8b80a79043dafa6aafdb997d}{npp\+Client}}
+\item 
+Game\+Object \mbox{\hyperlink{class_s_v2_adbe54a81a30aa9817fc43b7e6b350860}{client\+Object}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to control steam valve 2 in an NPP simulation. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_s_v2_acda98a57179d1764e72a24b23df8b0a2}\index{SV2@{SV2}!ReglerTypeEnum@{ReglerTypeEnum}}
+\index{ReglerTypeEnum@{ReglerTypeEnum}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{ReglerTypeEnum}{ReglerTypeEnum}}
+{\footnotesize\ttfamily \label{class_s_v2_acda98a57179d1764e72a24b23df8b0a2} 
+enum \mbox{\hyperlink{class_s_v2_acda98a57179d1764e72a24b23df8b0a2}{SV2.\+Regler\+Type\+Enum}}}
+
+
+
+Defines two types of rotary switches binary and exact. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Genau@{Genau}!SV2@{SV2}}\index{SV2@{SV2}!Genau@{Genau}}}\Hypertarget{class_s_v2_acda98a57179d1764e72a24b23df8b0a2acc7be7321cbf01a5bcde4641c7f6f4b5}\label{class_s_v2_acda98a57179d1764e72a24b23df8b0a2acc7be7321cbf01a5bcde4641c7f6f4b5} 
+Genau&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Binaer@{Binaer}!SV2@{SV2}}\index{SV2@{SV2}!Binaer@{Binaer}}}\Hypertarget{class_s_v2_acda98a57179d1764e72a24b23df8b0a2a4cfcdfbe8cf27aff6e57c51ee947715c}\label{class_s_v2_acda98a57179d1764e72a24b23df8b0a2a4cfcdfbe8cf27aff6e57c51ee947715c} 
+Binaer&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_s_v2_acdefd27afd7b08d6d943089e5cfff495}\index{SV2@{SV2}!initLamp@{initLamp}}
+\index{initLamp@{initLamp}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{initLamp()}{initLamp()}}
+{\footnotesize\ttfamily \label{class_s_v2_acdefd27afd7b08d6d943089e5cfff495} 
+void SV2.\+init\+Lamp (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the switches lamp. 
+
+\Hypertarget{class_s_v2_aa15cce5bffe06856e64561033de55ac4}\index{SV2@{SV2}!OnDisable@{OnDisable}}
+\index{OnDisable@{OnDisable}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{OnDisable()}{OnDisable()}}
+{\footnotesize\ttfamily \label{class_s_v2_aa15cce5bffe06856e64561033de55ac4} 
+void SV2.\+On\+Disable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the object is disabled and removes event listeners for the select\+Entered and select\+Exited events. 
+
+\Hypertarget{class_s_v2_a3ffc234bde5487f3370f08e12daad450}\index{SV2@{SV2}!OnEnable@{OnEnable}}
+\index{OnEnable@{OnEnable}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{OnEnable()}{OnEnable()}}
+{\footnotesize\ttfamily \label{class_s_v2_a3ffc234bde5487f3370f08e12daad450} 
+void SV2.\+On\+Enable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the object is enabled and adds event listeners for the select\+Entered and select\+Exited events. 
+
+\Hypertarget{class_s_v2_a0522c9251b819bd2fe601b3f9b885902}\index{SV2@{SV2}!OnSelectEntered@{OnSelectEntered}}
+\index{OnSelectEntered@{OnSelectEntered}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{OnSelectEntered()}{OnSelectEntered()}}
+{\footnotesize\ttfamily \label{class_s_v2_a0522c9251b819bd2fe601b3f9b885902} 
+void SV2.\+On\+Select\+Entered (\begin{DoxyParamCaption}\item[{Select\+Enter\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when an interactor enters the object and sets the interactor and initial\+Interactor\+Rotation values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments upon entering the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_s_v2_ade7dfa2bd71543c59792b71a22db2abd}\index{SV2@{SV2}!OnSelectExited@{OnSelectExited}}
+\index{OnSelectExited@{OnSelectExited}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{OnSelectExited()}{OnSelectExited()}}
+{\footnotesize\ttfamily \label{class_s_v2_ade7dfa2bd71543c59792b71a22db2abd} 
+void SV2.\+On\+Select\+Exited (\begin{DoxyParamCaption}\item[{Select\+Exit\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when an interactor exits the object and resets the is\+Interacting and interactor values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments upon exiting the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_s_v2_a953a3586c8cb95ed1cfb42472e109cf0}\index{SV2@{SV2}!SetPercentFromExternal@{SetPercentFromExternal}}
+\index{SetPercentFromExternal@{SetPercentFromExternal}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{SetPercentFromExternal()}{SetPercentFromExternal()}}
+{\footnotesize\ttfamily \label{class_s_v2_a953a3586c8cb95ed1cfb42472e109cf0} 
+void SV2.\+Set\+Percent\+From\+External (\begin{DoxyParamCaption}\item[{int}]{percent}{}\end{DoxyParamCaption})}
+
+
+
+This method sets the percentage value of the switch based on an external input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em percent} & specifies the percentage value to set the switch to\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_s_v2_a9477c25085cac175b2566674fcd731da}\index{SV2@{SV2}!SetValveStatus@{SetValveStatus}}
+\index{SetValveStatus@{SetValveStatus}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{SetValveStatus()}{SetValveStatus()}}
+{\footnotesize\ttfamily \label{class_s_v2_a9477c25085cac175b2566674fcd731da} 
+void SV2.\+Set\+Valve\+Status (\begin{DoxyParamCaption}\item[{string}]{valve\+Id}{, }\item[{bool}]{value}{}\end{DoxyParamCaption})}
+
+
+
+This method initiates a call to the REST Server to update the simulation with the current status of steam valve 2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valve\+Id} & contains the ID of a valve specified on the REST Server \\
+\hline
+{\em value} & sets a valve either to open (true) or closed (false) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_s_v2_afe10ec74431f9e97267f18defcccb77d}\index{SV2@{SV2}!Start@{Start}}
+\index{Start@{Start}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_s_v2_afe10ec74431f9e97267f18defcccb77d} 
+void SV2.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initializes the \doxylink{class_s_v2}{SV2} instance, sets the initial rotation of the switch and initializes the switches lamp. 
+
+\Hypertarget{class_s_v2_a93a96939416a1247e519405263a3ffaa}\index{SV2@{SV2}!Update@{Update}}
+\index{Update@{Update}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_s_v2_a93a96939416a1247e519405263a3ffaa} 
+void SV2.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the rotation of the switch based on the current value of Percent. 
+
+Additionally a call to the REST Server is initiated via \doxylink{class_s_v2_a9477c25085cac175b2566674fcd731da}{Set\+Valve\+Status()} to update the simulation. \Hypertarget{class_s_v2_a091e41cc099fb05a6e49bdd1510bf648}\index{SV2@{SV2}!UpdateRotation@{UpdateRotation}}
+\index{UpdateRotation@{UpdateRotation}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{UpdateRotation()}{UpdateRotation()}}
+{\footnotesize\ttfamily \label{class_s_v2_a091e41cc099fb05a6e49bdd1510bf648} 
+void SV2.\+Update\+Rotation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the rotation of the switch. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_s_v2_adbe54a81a30aa9817fc43b7e6b350860}\index{SV2@{SV2}!clientObject@{clientObject}}
+\index{clientObject@{clientObject}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{clientObject}{clientObject}}
+{\footnotesize\ttfamily \label{class_s_v2_adbe54a81a30aa9817fc43b7e6b350860} 
+Game\+Object SV2.\+client\+Object\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_s_v2_a2d15f50d83a9a945aa40ff153ad7015b}\index{SV2@{SV2}!EndRotation@{EndRotation}}
+\index{EndRotation@{EndRotation}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{EndRotation}{EndRotation}}
+{\footnotesize\ttfamily \label{class_s_v2_a2d15f50d83a9a945aa40ff153ad7015b} 
+int SV2.\+End\+Rotation = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}last\+Press\+Time"{}\texorpdfstring{$>$}{>}float specifying when the switch was last interacted with
+
+\Hypertarget{class_s_v2_ace1d23fc54bad025c99e5700035f2601}\index{SV2@{SV2}!initialInteractorPosition@{initialInteractorPosition}}
+\index{initialInteractorPosition@{initialInteractorPosition}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{initialInteractorPosition}{initialInteractorPosition}}
+{\footnotesize\ttfamily \label{class_s_v2_ace1d23fc54bad025c99e5700035f2601} 
+Vector3 SV2.\+initial\+Interactor\+Position\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}initial\+Percent"{}\texorpdfstring{$>$}{>}int specifying the initinal percentage the switch has already been rotated
+
+\Hypertarget{class_s_v2_aa7beeba348b5bf28b2e28612da97688e}\index{SV2@{SV2}!initialPercent@{initialPercent}}
+\index{initialPercent@{initialPercent}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{initialPercent}{initialPercent}}
+{\footnotesize\ttfamily \label{class_s_v2_aa7beeba348b5bf28b2e28612da97688e} 
+int SV2.\+initial\+Percent\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}previous\+Percent"{}\texorpdfstring{$>$}{>}int specifying the percentage the switch has been rotated in the last frame
+
+\Hypertarget{class_s_v2_a4530e1fb5a618ece1bdd374c5d3a463c}\index{SV2@{SV2}!interactor@{interactor}}
+\index{interactor@{interactor}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{interactor}{interactor}}
+{\footnotesize\ttfamily \label{class_s_v2_a4530e1fb5a618ece1bdd374c5d3a463c} 
+Unity\+Engine.\+XR.\+Interaction.\+Toolkit.\+Interactors.\+XRBase\+Interactor SV2.\+interactor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}is\+Interacting"{}\texorpdfstring{$>$}{>}boolean tracking if the player is interacting with the switch
+
+\Hypertarget{class_s_v2_a9ddb66c429e0caedd6c964d7ad44760f}\index{SV2@{SV2}!isInteracting@{isInteracting}}
+\index{isInteracting@{isInteracting}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{isInteracting}{isInteracting}}
+{\footnotesize\ttfamily \label{class_s_v2_a9ddb66c429e0caedd6c964d7ad44760f} 
+bool SV2.\+is\+Interacting = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}initial\+Interactor\+Position"{}\texorpdfstring{$>$}{>}Vector3 specifying the initial Position of the Interactor
+
+\Hypertarget{class_s_v2_af8cb5a03ca4fd51721a599b873618dc8}\index{SV2@{SV2}!lastPressTime@{lastPressTime}}
+\index{lastPressTime@{lastPressTime}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{lastPressTime}{lastPressTime}}
+{\footnotesize\ttfamily \label{class_s_v2_af8cb5a03ca4fd51721a599b873618dc8} 
+float SV2.\+last\+Press\+Time = 0f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}press\+Cooldown"{}\texorpdfstring{$>$}{>}float specifying a cooldown between interactions with the switch
+
+\Hypertarget{class_s_v2_a65f1cbea93513ee7cd13145c1d371d1c}\index{SV2@{SV2}!lightRegler@{lightRegler}}
+\index{lightRegler@{lightRegler}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{lightRegler}{lightRegler}}
+{\footnotesize\ttfamily \label{class_s_v2_a65f1cbea93513ee7cd13145c1d371d1c} 
+\mbox{\hyperlink{class_light_regler}{Light\+Regler}} SV2.\+light\+Regler\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}npp\+Client"{}\texorpdfstring{$>$}{>}Reference to the \doxylink{class_n_p_p_client}{NPPClient} instance in the scene
+
+\Hypertarget{class_s_v2_a1909732c8b80a79043dafa6aafdb997d}\index{SV2@{SV2}!nppClient@{nppClient}}
+\index{nppClient@{nppClient}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{nppClient}{nppClient}}
+{\footnotesize\ttfamily \label{class_s_v2_a1909732c8b80a79043dafa6aafdb997d} 
+\mbox{\hyperlink{class_n_p_p_client}{NPPClient}} SV2.\+npp\+Client\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_s_v2_a275bb5d7a03d19f29ce741b2419d01ce}\index{SV2@{SV2}!Percent@{Percent}}
+\index{Percent@{Percent}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{Percent}{Percent}}
+{\footnotesize\ttfamily \label{class_s_v2_a275bb5d7a03d19f29ce741b2419d01ce} 
+int SV2.\+Percent = 0}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Percent} & int specifying the percentage the switch has been rotated based on its leftmost position\\
+\hline
+\end{DoxyParams}
+
+
+param name="{}\+Start\+Rotation"{}\texorpdfstring{$>$}{>}int specifying the angle of the switches leftmost position\Hypertarget{class_s_v2_aa31abff405db04b22a80e0d3af195f2e}\index{SV2@{SV2}!pressCooldown@{pressCooldown}}
+\index{pressCooldown@{pressCooldown}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{pressCooldown}{pressCooldown}}
+{\footnotesize\ttfamily \label{class_s_v2_aa31abff405db04b22a80e0d3af195f2e} 
+float SV2.\+press\+Cooldown = 1f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}interactor"{}\texorpdfstring{$>$}{>}Interactor
+
+\Hypertarget{class_s_v2_a0cbfc584dc225894e86db66f207fd5ef}\index{SV2@{SV2}!previousPercent@{previousPercent}}
+\index{previousPercent@{previousPercent}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{previousPercent}{previousPercent}}
+{\footnotesize\ttfamily \label{class_s_v2_a0cbfc584dc225894e86db66f207fd5ef} 
+int SV2.\+previous\+Percent\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}light\+Regler"{}\texorpdfstring{$>$}{>}Loght\+Regler to switch on lights
+
+\Hypertarget{class_s_v2_af750404c23b456ad6950ce402af0b42c}\index{SV2@{SV2}!ReglerType@{ReglerType}}
+\index{ReglerType@{ReglerType}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{ReglerType}{ReglerType}}
+{\footnotesize\ttfamily \label{class_s_v2_af750404c23b456ad6950ce402af0b42c} 
+\mbox{\hyperlink{class_s_v2_acda98a57179d1764e72a24b23df8b0a2}{Regler\+Type\+Enum}} SV2.\+Regler\+Type = \mbox{\hyperlink{class_s_v2_acda98a57179d1764e72a24b23df8b0a2a4cfcdfbe8cf27aff6e57c51ee947715c}{Regler\+Type\+Enum.\+Binaer}}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Regler\+Type} & Specifies the type of rotary switch\\
+\hline
+\end{DoxyParams}
+
+
+param name="{}to\+\_\+rotate"{}\texorpdfstring{$>$}{>}specifies the handle the player must interact with to rotate the switch\Hypertarget{class_s_v2_a66e5bbd82494585b214b7fa3da771898}\index{SV2@{SV2}!StartRotation@{StartRotation}}
+\index{StartRotation@{StartRotation}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{StartRotation}{StartRotation}}
+{\footnotesize\ttfamily \label{class_s_v2_a66e5bbd82494585b214b7fa3da771898} 
+int SV2.\+Start\+Rotation = -\/90\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}\+End\+Rotation"{}\texorpdfstring{$>$}{>}int specifying the angle of the switches rightmost position
+
+\Hypertarget{class_s_v2_a7186519d26b88914aed194b1129bc552}\index{SV2@{SV2}!to\_rotate@{to\_rotate}}
+\index{to\_rotate@{to\_rotate}!SV2@{SV2}}
+\doxysubsubsection{\texorpdfstring{to\_rotate}{to\_rotate}}
+{\footnotesize\ttfamily \label{class_s_v2_a7186519d26b88914aed194b1129bc552} 
+Game\+Object SV2.\+to\+\_\+rotate\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Regler/\mbox{\hyperlink{_s_v2_8cs}{SV2.\+cs}}\end{DoxyCompactItemize}

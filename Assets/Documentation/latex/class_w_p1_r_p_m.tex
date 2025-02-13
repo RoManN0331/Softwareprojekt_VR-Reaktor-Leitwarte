@@ -1,0 +1,91 @@
+\doxysection{WP1\+RPM Class Reference}
+\hypertarget{class_w_p1_r_p_m}{}\label{class_w_p1_r_p_m}\index{WP1RPM@{WP1RPM}}
+
+
+This class implements logic for displaying the current RPM of water pump 1.  
+
+
+Inheritance diagram for WP1\+RPM\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_w_p1_r_p_m}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_w_p1_r_p_m_ae967bd6de5a82b495c3e8255ea092be9}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current RPM of water pump 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_w_p1_r_p_m_af0a71243421645d087b1195f61a25845}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the display by reading the current RPM of water pump 1 from the WP1.\+rpm field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} \mbox{\hyperlink{class_w_p1_r_p_m_af41af640546d23412f5c3b8126b8116e}{anzeige\+Steuerung}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_w_p1_r_p_m_ac5996dff4001c9b793e65068fc682376}{client\+Object}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic for displaying the current RPM of water pump 1. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_w_p1_r_p_m_ae967bd6de5a82b495c3e8255ea092be9}\index{WP1RPM@{WP1RPM}!Start@{Start}}
+\index{Start@{Start}!WP1RPM@{WP1RPM}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_w_p1_r_p_m_ae967bd6de5a82b495c3e8255ea092be9} 
+void WP1\+RPM.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current RPM of water pump 1. 
+
+\Hypertarget{class_w_p1_r_p_m_af0a71243421645d087b1195f61a25845}\index{WP1RPM@{WP1RPM}!Update@{Update}}
+\index{Update@{Update}!WP1RPM@{WP1RPM}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_w_p1_r_p_m_af0a71243421645d087b1195f61a25845} 
+void WP1\+RPM.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the display by reading the current RPM of water pump 1 from the WP1.\+rpm field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_w_p1_r_p_m_af41af640546d23412f5c3b8126b8116e}\index{WP1RPM@{WP1RPM}!anzeigeSteuerung@{anzeigeSteuerung}}
+\index{anzeigeSteuerung@{anzeigeSteuerung}!WP1RPM@{WP1RPM}}
+\doxysubsubsection{\texorpdfstring{anzeigeSteuerung}{anzeigeSteuerung}}
+{\footnotesize\ttfamily \label{class_w_p1_r_p_m_af41af640546d23412f5c3b8126b8116e} 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} WP1\+RPM.\+anzeige\+Steuerung\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_w_p1_r_p_m_ac5996dff4001c9b793e65068fc682376}\index{WP1RPM@{WP1RPM}!clientObject@{clientObject}}
+\index{clientObject@{clientObject}!WP1RPM@{WP1RPM}}
+\doxysubsubsection{\texorpdfstring{clientObject}{clientObject}}
+{\footnotesize\ttfamily \label{class_w_p1_r_p_m_ac5996dff4001c9b793e65068fc682376} 
+Game\+Object WP1\+RPM.\+client\+Object\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Anzeigen/\mbox{\hyperlink{_w_p1_r_p_m__display_8cs}{WP1\+RPM\+\_\+display.\+cs}}\end{DoxyCompactItemize}

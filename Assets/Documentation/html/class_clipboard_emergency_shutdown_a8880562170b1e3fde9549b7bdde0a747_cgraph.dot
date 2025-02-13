@@ -1,0 +1,11 @@
+digraph "ClipboardEmergencyShutdown.OnDestroy"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="ClipboardEmergencyShutdown.\lOnDestroy",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="This method removes the ActionListener, disables the ActionTrigger and destroys the object."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="ClipboardEmergencyShutdown.\lOnActionTriggered",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_clipboard_emergency_shutdown.html#abf3d84aa102b25249a954b6863f96682",tooltip="This method is called when the actionTrigger is released, initiating the emergency shutdown scenario ..."];
+}

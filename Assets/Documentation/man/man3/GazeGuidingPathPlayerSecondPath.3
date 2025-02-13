@@ -1,0 +1,506 @@
+.TH "GazeGuidingPathPlayerSecondPath" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GazeGuidingPathPlayerSecondPath \- This class implements logic for gaze guiding in a virtual environment\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBArrow3D\fP ()"
+.br
+.RI "This method adds a continuous rotating 3D arrow that is rendered above an exact rotary switch to indicate the direction in which the player is supposed to turn the switch\&. "
+.ti -1c
+.RI "void \fBArrow3DBinaer\fP ()"
+.br
+.RI "This method adds a binary rotating 3D arrow rendered above a binary rotary switch to indicate the direction in which the player is supposed to turn the switch\&. "
+.ti -1c
+.RI "void \fBRemoveArrow3D\fP ()"
+.br
+.RI "This method removes a rotating 3D arrow or 3DBinary arrow that is currently being rendered above an exact or a binary rotary switch\&. "
+.ti -1c
+.RI "void \fBTriggerTarget\fP (\fBGazeGuidingTarget\fP target, bool Flip3DArrow=false)"
+.br
+.ti -1c
+.RI "void \fBTriggerTargetNAME\fP (string targetName, \fBGazeGuidingTarget\&.TargetType\fP type, bool Flip3DArrow=false)"
+.br
+.RI "This method sets the current target of a \fBGazeGuidingPathPlayerSecondPath\fP instance\&. "
+.ti -1c
+.RI "void \fBClearLine\fP ()"
+.br
+.RI "This method clears the scene of all visual aids that are currently being rendered\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBDirectionArrowEnabled\fP = true"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionArrowEnabled\fP toggles a directional arrow indicating a direction the player should turn to
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBArrow3DEnabled\fP = true"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIArrow3DEnabled\fP toggles a 3D arrow indicating the direction an exact rotary switch should be turned in
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBArrow3DBinearEnabled\fP = true"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIArrow3DBinearEnabled\fP toggles 3D arrow indicating the direction a binary rotary switch should be turned in
+.RE
+.PP
+"
+.ti -1c
+.RI "List< \fBGazeGuidingTarget\fP > \fBtargets\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionArrowOnScreen\fP toggles the on screen display of the directional arrow
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBpathDisplayDistance\fP = 5\&.0f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIpathDisplayDistance\fP specifies the distance between the player and an animated path that is displayed as visual cue 
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBanimationDuration\fP = 1\&.0f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimationDuration\fP specifies the duration of the path animation
+.RE
+.PP
+"
+.ti -1c
+.RI "Material \fBlineMaterial\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIlineMaterial\fP is a Material used to render a path as visual cue
+.RE
+.PP
+"
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initialises the \fBGazeGuidingPathPlayerSecondPath\fP\&. "
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.RI "<summaQry> This method updates all active gaze-guiding tools\&. "
+.ti -1c
+.RI "IEnumerator \fBAnimatePath\fP (Vector3 targetPosition)"
+.br
+.RI "This method animates a path of arrows guiding the player towards the component set as currentTarget of the \fBGazeGuidingPathPlayerSecondPath\fP\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBGazeGuidingTarget\fP \fBcurrentTarget\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentTarget\fP is the currently active \fBGazeGuidingTarget\fP for this \fBGazeGuidingPathPlayerSecondPath\fP
+.RE
+.PP
+"
+.ti -1c
+.RI "LineRenderer \fBlineRenderer\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIlineRenderer\fP is a LineRenderer object used to render a path as visual cue
+.RE
+.PP
+"
+.ti -1c
+.RI "Coroutine \fBanimatePathCoroutine\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimatePathCoroutine\fP is a Coroutine used to animate a path as visual cue
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBisAnimating\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIisAnimating\fP tracks whether a path is currently being animated as visual cue
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBarrow3DPrefab\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DPrefab\fP is a reference to an Arrow3D prefab used to render continuous rotational 3DArrows
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBarrow3DInstance\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DInstance\fP is an instance of a Arrow3D prefab used to render continuous rotational 3DArrows<param> 
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBarrow3DBinaerPrefab\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DBinaerPrefab\fP is a reference to an Arrow3D prefab used to render binary rotational 3DArrows
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBarrow3DBinaerInstance\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DBinaerInstance\fP is an instance of an Arrow3D prefab used to render binary rotational 3DArrows<param> 
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBarrow3DInstanceCreated\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DInstanceCreated\fP is a flag tracking whether an Arrow3D instance has been created 
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBarrow3DBinaerInstanceCreated\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DBinaerInstanceCreated\fP is a flag tracking whether an Arrow3DBinary instance has been created 
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements logic for gaze guiding in a virtual environment\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "IEnumerator GazeGuidingPathPlayerSecondPath\&.AnimatePath (Vector3 targetPosition)\fR [private]\fP"
+
+.PP
+This method animates a path of arrows guiding the player towards the component set as currentTarget of the \fBGazeGuidingPathPlayerSecondPath\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItargetPosition\fP is a Vector3 position of the endpoint of the path 
+.RE
+.PP
+
+.SS "void GazeGuidingPathPlayerSecondPath\&.Arrow3D ()"
+
+.PP
+This method adds a continuous rotating 3D arrow that is rendered above an exact rotary switch to indicate the direction in which the player is supposed to turn the switch\&. 
+.SS "void GazeGuidingPathPlayerSecondPath\&.Arrow3DBinaer ()"
+
+.PP
+This method adds a binary rotating 3D arrow rendered above a binary rotary switch to indicate the direction in which the player is supposed to turn the switch\&. 
+.SS "void GazeGuidingPathPlayerSecondPath\&.ClearLine ()"
+
+.PP
+This method clears the scene of all visual aids that are currently being rendered\&. 
+.SS "void GazeGuidingPathPlayerSecondPath\&.RemoveArrow3D ()"
+
+.PP
+This method removes a rotating 3D arrow or 3DBinary arrow that is currently being rendered above an exact or a binary rotary switch\&. 
+.SS "void GazeGuidingPathPlayerSecondPath\&.Start ()\fR [private]\fP"
+
+.PP
+This method initialises the \fBGazeGuidingPathPlayerSecondPath\fP\&. 
+.SS "void GazeGuidingPathPlayerSecondPath\&.TriggerTarget (\fBGazeGuidingTarget\fP target, bool Flip3DArrow = \fRfalse\fP)"
+
+.SS "void GazeGuidingPathPlayerSecondPath\&.TriggerTargetNAME (string targetName, \fBGazeGuidingTarget\&.TargetType\fP type, bool Flip3DArrow = \fRfalse\fP)"
+
+.PP
+This method sets the current target of a \fBGazeGuidingPathPlayerSecondPath\fP instance\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItargetName\fP contains the name of a rotary switch that is the new target for the \fBGazeGuidingPathPlayerSecondPath\fP 
+.br
+\fItype\fP is an Enum specifying the type of rotary switch passed in targetName 
+.br
+\fIFlip3DArrow\fP toggles whether 3D arrows rotate clockwise 
+.RE
+.PP
+
+.SS "void GazeGuidingPathPlayerSecondPath\&.Update ()\fR [private]\fP"
+
+.PP
+<summaQry> This method updates all active gaze-guiding tools\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "Coroutine GazeGuidingPathPlayerSecondPath\&.animatePathCoroutine\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimatePathCoroutine\fP is a Coroutine used to animate a path as visual cue
+.RE
+.PP
+
+.SS "float GazeGuidingPathPlayerSecondPath\&.animationDuration = 1\&.0f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimationDuration\fP specifies the duration of the path animation
+.RE
+.PP
+
+.SS "GameObject GazeGuidingPathPlayerSecondPath\&.arrow3DBinaerInstance\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DBinaerInstance\fP is an instance of an Arrow3D prefab used to render binary rotational 3DArrows<param> 
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayerSecondPath\&.arrow3DBinaerInstanceCreated = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DBinaerInstanceCreated\fP is a flag tracking whether an Arrow3DBinary instance has been created 
+.RE
+.PP
+
+.SS "GameObject GazeGuidingPathPlayerSecondPath\&.arrow3DBinaerPrefab\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DBinaerPrefab\fP is a reference to an Arrow3D prefab used to render binary rotational 3DArrows
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayerSecondPath\&.Arrow3DBinearEnabled = true"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIArrow3DBinearEnabled\fP toggles 3D arrow indicating the direction a binary rotary switch should be turned in
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayerSecondPath\&.Arrow3DEnabled = true"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIArrow3DEnabled\fP toggles a 3D arrow indicating the direction an exact rotary switch should be turned in
+.RE
+.PP
+
+.SS "GameObject GazeGuidingPathPlayerSecondPath\&.arrow3DInstance\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DInstance\fP is an instance of a Arrow3D prefab used to render continuous rotational 3DArrows<param> 
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayerSecondPath\&.arrow3DInstanceCreated = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DInstanceCreated\fP is a flag tracking whether an Arrow3D instance has been created 
+.RE
+.PP
+
+.SS "GameObject GazeGuidingPathPlayerSecondPath\&.arrow3DPrefab\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarrow3DPrefab\fP is a reference to an Arrow3D prefab used to render continuous rotational 3DArrows
+.RE
+.PP
+
+.SS "\fBGazeGuidingTarget\fP GazeGuidingPathPlayerSecondPath\&.currentTarget\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentTarget\fP is the currently active \fBGazeGuidingTarget\fP for this \fBGazeGuidingPathPlayerSecondPath\fP
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayerSecondPath\&.DirectionArrowEnabled = true"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionArrowEnabled\fP toggles a directional arrow indicating a direction the player should turn to
+.RE
+.PP
+
+.SS "bool GazeGuidingPathPlayerSecondPath\&.isAnimating = false\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisAnimating\fP tracks whether a path is currently being animated as visual cue
+.RE
+.PP
+
+.SS "Material GazeGuidingPathPlayerSecondPath\&.lineMaterial"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlineMaterial\fP is a Material used to render a path as visual cue
+.RE
+.PP
+
+.SS "LineRenderer GazeGuidingPathPlayerSecondPath\&.lineRenderer\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlineRenderer\fP is a LineRenderer object used to render a path as visual cue
+.RE
+.PP
+
+.SS "float GazeGuidingPathPlayerSecondPath\&.pathDisplayDistance = 5\&.0f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIpathDisplayDistance\fP specifies the distance between the player and an animated path that is displayed as visual cue 
+.RE
+.PP
+
+.SS "List<\fBGazeGuidingTarget\fP> GazeGuidingPathPlayerSecondPath\&.targets"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIDirectionArrowOnScreen\fP toggles the on screen display of the directional arrow
+.RE
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItargets\fP is a list of \fBGazeGuidingTarget\fP objects
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

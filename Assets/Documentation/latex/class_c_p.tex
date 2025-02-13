@@ -1,0 +1,390 @@
+\doxysection{CP Class Reference}
+\hypertarget{class_c_p}{}\label{class_c_p}\index{CP@{CP}}
+
+
+This class is used to control the condenser pump in an NPP simulation.  
+
+
+Inheritance diagram for CP\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_c_p}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_p_ad9cadd6ee81ab6412c144f3bd315077c}{Set\+Percent\+From\+External}} (int percent)
+\begin{DoxyCompactList}\small\item\em This method sets the percentage value of the switch based on an external input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_c_p_a85b2463ac7f0269133a803d12d3afe10}{to\+\_\+rotate}}
+\item 
+int \mbox{\hyperlink{class_c_p_ae8f72bca3f5622edb93f5f87875514cf}{Percent}} = 0
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Percent} & specifies the percentage the switch has been rotated based on its leftmost position\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_c_p_a1cc42a0460b1b379fe8a5abd5394665e}{Regler\+Type\+Enum}} \{ \mbox{\hyperlink{class_c_p_a1cc42a0460b1b379fe8a5abd5394665eacc7be7321cbf01a5bcde4641c7f6f4b5}{Genau}} = 0
+, \mbox{\hyperlink{class_c_p_a1cc42a0460b1b379fe8a5abd5394665ea4cfcdfbe8cf27aff6e57c51ee947715c}{Binaer}} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em This Enum defines two types of rotary switches binary and exact. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_p_ad15aff86aa5660c4a46c287e1ac6f13c}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes the \doxylink{class_c_p}{CP} instance and sets the initial rotation of the switch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_p_aef4dfdcc48438da9bc3b6546630de8d1}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the rotation of the switch based on the current value of Percent. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_p_a6b7acec4ff4320bf37b1ab787e862cd9}{Update\+Rotation}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the rotation of the switch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_p_a4713fe6797e076b13a6a72a5c238e37b}{Handle\+Rotation\+Interaction}} ()
+\begin{DoxyCompactList}\small\item\em This method computes the rotation of the handle based on the rotation of the interactor and calls \doxylink{class_c_p_a6b7acec4ff4320bf37b1ab787e862cd9}{Update\+Rotation()} to update the rotation of the switch as well as \doxylink{class_c_p_a7095813f763b8c96662ed0dfdb7388c5}{Send\+Percent\+To\+Simulation()} to intiate a call to the REST Server to update the simulation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_p_a7095813f763b8c96662ed0dfdb7388c5}{Send\+Percent\+To\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em This method initiates a call to the REST Server to update the simulation with the current RPM value of the condenser pump. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_p_ac1a2054e832a11bc3d93ce7e36d6c4ef}{On\+Enable}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the object is enabled and adds event listeners for the select\+Entered and select\+Exited events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_p_a90d04d70e2f57dce3a9928a0af818556}{On\+Disable}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the object is disabled and removes event listeners for the select\+Entered and select\+Exited events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_p_aa4af1afd2a9c0529a218d4a2db19ab9e}{On\+Select\+Entered}} (Select\+Enter\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when an interactor enters the object and sets the interactor and initial\+Interactor\+Rotation values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_p_ac391c051132a807d3880a22ff0f64432}{On\+Select\+Exited}} (Select\+Exit\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em This method is called when an interactor exits the object and resets the is\+Interacting and interactor values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_p_a1cc42a0460b1b379fe8a5abd5394665e}{Regler\+Type\+Enum}} \mbox{\hyperlink{class_c_p_a75207a1d7dbb9121af04974c0643acdf}{Regler\+Type}} = \mbox{\hyperlink{class_c_p_a1cc42a0460b1b379fe8a5abd5394665eacc7be7321cbf01a5bcde4641c7f6f4b5}{Regler\+Type\+Enum.\+Genau}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em Regler\+Type} & specifies the type of rotary switch\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_c_p_a6758c228a2fc15739ab38e0cb636f45e}{Start\+Rotation}} = -\/90
+\begin{DoxyCompactList}\small\item\em param name="{}\+End\+Rotation"{}\texorpdfstring{$>$}{>} specifies the angle of the switches rightmost position\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_c_p_a23a565b569d72ca5b7382250163f43d4}{End\+Rotation}} = 90
+\begin{DoxyCompactList}\small\item\em param name="{}last\+Press\+Time"{}\texorpdfstring{$>$}{>} specifies the last time the player didinteract with the switch\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_c_p_ad388a27485e8398256eb01cc68049d39}{last\+Press\+Time}} = 0f
+\begin{DoxyCompactList}\small\item\em param name="{}press\+Cooldown"{}\texorpdfstring{$>$}{>} specifies a cooldown between interactions with the switch\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_c_p_a05bb5dc09e2dc70be4df27cb836ca5e9}{press\+Cooldown}} = 0.\+1f
+\item 
+Unity\+Engine.\+XR.\+Interaction.\+Toolkit.\+Interactors.\+XRBase\+Interactor \mbox{\hyperlink{class_c_p_a3f6f6b1c9b4c935801fd9ab8ae766c1a}{interactor}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em interactor} & is a reference to an interactor\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_c_p_a8ba7fc054232aba64bb2eb22e0985cd6}{is\+Interacting}} = false
+\begin{DoxyCompactList}\small\item\em param name="{}initial\+Interactor\+Position"{}\texorpdfstring{$>$}{>} is a Vector3 specifying the initial position of the interactor\end{DoxyCompactList}\item 
+Vector3 \mbox{\hyperlink{class_c_p_a5258b012f9d0cfcbf734c6a56fe18851}{initial\+Interactor\+Position}}
+\begin{DoxyCompactList}\small\item\em param name="{}initial\+Percent"{}\texorpdfstring{$>$}{>} specifies the initinal percentage the switch has already been rotated\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_c_p_a3707020b37b8acf4d3611fc3721a87f4}{initial\+Percent}}
+\begin{DoxyCompactList}\small\item\em param name="{}previous\+Percent"{}\texorpdfstring{$>$}{>} specifies the percentage by which the switch was rotated in the last frame\end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_c_p_a021ae96e5761602f425ec78059b2a772}{previous\+Percent}}
+\begin{DoxyCompactList}\small\item\em param name="{}initial\+Interactor\+Rotation"{}\texorpdfstring{$>$}{>} is a Quaternion specifying the initial rotation of the interactor upon interaction\end{DoxyCompactList}\item 
+Quaternion \mbox{\hyperlink{class_c_p_a6763bf98dda9a367299ca8854551ec0e}{initial\+Interactor\+Rotation}}
+\begin{DoxyCompactList}\small\item\em param name="{}npp\+Client"{}\texorpdfstring{$>$}{>} is a reference to a \doxylink{class_n_p_p_client}{NPPClient} instance in the scene\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_n_p_p_client}{NPPClient}} \mbox{\hyperlink{class_c_p_ae0b22a1a53748149112211274534acaf}{npp\+Client}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to control the condenser pump in an NPP simulation. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_c_p_a1cc42a0460b1b379fe8a5abd5394665e}\index{CP@{CP}!ReglerTypeEnum@{ReglerTypeEnum}}
+\index{ReglerTypeEnum@{ReglerTypeEnum}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{ReglerTypeEnum}{ReglerTypeEnum}}
+{\footnotesize\ttfamily \label{class_c_p_a1cc42a0460b1b379fe8a5abd5394665e} 
+enum \mbox{\hyperlink{class_c_p_a1cc42a0460b1b379fe8a5abd5394665e}{CP.\+Regler\+Type\+Enum}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This Enum defines two types of rotary switches binary and exact. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Genau@{Genau}!CP@{CP}}\index{CP@{CP}!Genau@{Genau}}}\Hypertarget{class_c_p_a1cc42a0460b1b379fe8a5abd5394665eacc7be7321cbf01a5bcde4641c7f6f4b5}\label{class_c_p_a1cc42a0460b1b379fe8a5abd5394665eacc7be7321cbf01a5bcde4641c7f6f4b5} 
+Genau&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Binaer@{Binaer}!CP@{CP}}\index{CP@{CP}!Binaer@{Binaer}}}\Hypertarget{class_c_p_a1cc42a0460b1b379fe8a5abd5394665ea4cfcdfbe8cf27aff6e57c51ee947715c}\label{class_c_p_a1cc42a0460b1b379fe8a5abd5394665ea4cfcdfbe8cf27aff6e57c51ee947715c} 
+Binaer&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_p_a4713fe6797e076b13a6a72a5c238e37b}\index{CP@{CP}!HandleRotationInteraction@{HandleRotationInteraction}}
+\index{HandleRotationInteraction@{HandleRotationInteraction}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{HandleRotationInteraction()}{HandleRotationInteraction()}}
+{\footnotesize\ttfamily \label{class_c_p_a4713fe6797e076b13a6a72a5c238e37b} 
+void CP.\+Handle\+Rotation\+Interaction (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method computes the rotation of the handle based on the rotation of the interactor and calls \doxylink{class_c_p_a6b7acec4ff4320bf37b1ab787e862cd9}{Update\+Rotation()} to update the rotation of the switch as well as \doxylink{class_c_p_a7095813f763b8c96662ed0dfdb7388c5}{Send\+Percent\+To\+Simulation()} to intiate a call to the REST Server to update the simulation. 
+
+\Hypertarget{class_c_p_a90d04d70e2f57dce3a9928a0af818556}\index{CP@{CP}!OnDisable@{OnDisable}}
+\index{OnDisable@{OnDisable}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{OnDisable()}{OnDisable()}}
+{\footnotesize\ttfamily \label{class_c_p_a90d04d70e2f57dce3a9928a0af818556} 
+void CP.\+On\+Disable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the object is disabled and removes event listeners for the select\+Entered and select\+Exited events. 
+
+\Hypertarget{class_c_p_ac1a2054e832a11bc3d93ce7e36d6c4ef}\index{CP@{CP}!OnEnable@{OnEnable}}
+\index{OnEnable@{OnEnable}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{OnEnable()}{OnEnable()}}
+{\footnotesize\ttfamily \label{class_c_p_ac1a2054e832a11bc3d93ce7e36d6c4ef} 
+void CP.\+On\+Enable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the object is enabled and adds event listeners for the select\+Entered and select\+Exited events. 
+
+\Hypertarget{class_c_p_aa4af1afd2a9c0529a218d4a2db19ab9e}\index{CP@{CP}!OnSelectEntered@{OnSelectEntered}}
+\index{OnSelectEntered@{OnSelectEntered}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{OnSelectEntered()}{OnSelectEntered()}}
+{\footnotesize\ttfamily \label{class_c_p_aa4af1afd2a9c0529a218d4a2db19ab9e} 
+void CP.\+On\+Select\+Entered (\begin{DoxyParamCaption}\item[{Select\+Enter\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when an interactor enters the object and sets the interactor and initial\+Interactor\+Rotation values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments upon entering the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_c_p_ac391c051132a807d3880a22ff0f64432}\index{CP@{CP}!OnSelectExited@{OnSelectExited}}
+\index{OnSelectExited@{OnSelectExited}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{OnSelectExited()}{OnSelectExited()}}
+{\footnotesize\ttfamily \label{class_c_p_ac391c051132a807d3880a22ff0f64432} 
+void CP.\+On\+Select\+Exited (\begin{DoxyParamCaption}\item[{Select\+Exit\+Event\+Args}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when an interactor exits the object and resets the is\+Interacting and interactor values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & passes event specific arguments upon exiting the interaction\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_c_p_a7095813f763b8c96662ed0dfdb7388c5}\index{CP@{CP}!SendPercentToSimulation@{SendPercentToSimulation}}
+\index{SendPercentToSimulation@{SendPercentToSimulation}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{SendPercentToSimulation()}{SendPercentToSimulation()}}
+{\footnotesize\ttfamily \label{class_c_p_a7095813f763b8c96662ed0dfdb7388c5} 
+void CP.\+Send\+Percent\+To\+Simulation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initiates a call to the REST Server to update the simulation with the current RPM value of the condenser pump. 
+
+\Hypertarget{class_c_p_ad9cadd6ee81ab6412c144f3bd315077c}\index{CP@{CP}!SetPercentFromExternal@{SetPercentFromExternal}}
+\index{SetPercentFromExternal@{SetPercentFromExternal}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{SetPercentFromExternal()}{SetPercentFromExternal()}}
+{\footnotesize\ttfamily \label{class_c_p_ad9cadd6ee81ab6412c144f3bd315077c} 
+void CP.\+Set\+Percent\+From\+External (\begin{DoxyParamCaption}\item[{int}]{percent}{}\end{DoxyParamCaption})}
+
+
+
+This method sets the percentage value of the switch based on an external input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em percent} & specifies the percentage value to set the switch to\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_c_p_ad15aff86aa5660c4a46c287e1ac6f13c}\index{CP@{CP}!Start@{Start}}
+\index{Start@{Start}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_c_p_ad15aff86aa5660c4a46c287e1ac6f13c} 
+void CP.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initializes the \doxylink{class_c_p}{CP} instance and sets the initial rotation of the switch. 
+
+\Hypertarget{class_c_p_aef4dfdcc48438da9bc3b6546630de8d1}\index{CP@{CP}!Update@{Update}}
+\index{Update@{Update}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_c_p_aef4dfdcc48438da9bc3b6546630de8d1} 
+void CP.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the rotation of the switch based on the current value of Percent. 
+
+Additionally a call to the REST Server is initiated via \doxylink{class_c_p_a7095813f763b8c96662ed0dfdb7388c5}{Send\+Percent\+To\+Simulation()} to update the simulation. \Hypertarget{class_c_p_a6b7acec4ff4320bf37b1ab787e862cd9}\index{CP@{CP}!UpdateRotation@{UpdateRotation}}
+\index{UpdateRotation@{UpdateRotation}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{UpdateRotation()}{UpdateRotation()}}
+{\footnotesize\ttfamily \label{class_c_p_a6b7acec4ff4320bf37b1ab787e862cd9} 
+void CP.\+Update\+Rotation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the rotation of the switch. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_c_p_a23a565b569d72ca5b7382250163f43d4}\index{CP@{CP}!EndRotation@{EndRotation}}
+\index{EndRotation@{EndRotation}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{EndRotation}{EndRotation}}
+{\footnotesize\ttfamily \label{class_c_p_a23a565b569d72ca5b7382250163f43d4} 
+int CP.\+End\+Rotation = 90\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}last\+Press\+Time"{}\texorpdfstring{$>$}{>} specifies the last time the player didinteract with the switch
+
+\Hypertarget{class_c_p_a5258b012f9d0cfcbf734c6a56fe18851}\index{CP@{CP}!initialInteractorPosition@{initialInteractorPosition}}
+\index{initialInteractorPosition@{initialInteractorPosition}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{initialInteractorPosition}{initialInteractorPosition}}
+{\footnotesize\ttfamily \label{class_c_p_a5258b012f9d0cfcbf734c6a56fe18851} 
+Vector3 CP.\+initial\+Interactor\+Position\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}initial\+Percent"{}\texorpdfstring{$>$}{>} specifies the initinal percentage the switch has already been rotated
+
+\Hypertarget{class_c_p_a6763bf98dda9a367299ca8854551ec0e}\index{CP@{CP}!initialInteractorRotation@{initialInteractorRotation}}
+\index{initialInteractorRotation@{initialInteractorRotation}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{initialInteractorRotation}{initialInteractorRotation}}
+{\footnotesize\ttfamily \label{class_c_p_a6763bf98dda9a367299ca8854551ec0e} 
+Quaternion CP.\+initial\+Interactor\+Rotation\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}npp\+Client"{}\texorpdfstring{$>$}{>} is a reference to a \doxylink{class_n_p_p_client}{NPPClient} instance in the scene
+
+\Hypertarget{class_c_p_a3707020b37b8acf4d3611fc3721a87f4}\index{CP@{CP}!initialPercent@{initialPercent}}
+\index{initialPercent@{initialPercent}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{initialPercent}{initialPercent}}
+{\footnotesize\ttfamily \label{class_c_p_a3707020b37b8acf4d3611fc3721a87f4} 
+int CP.\+initial\+Percent\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}previous\+Percent"{}\texorpdfstring{$>$}{>} specifies the percentage by which the switch was rotated in the last frame
+
+\Hypertarget{class_c_p_a3f6f6b1c9b4c935801fd9ab8ae766c1a}\index{CP@{CP}!interactor@{interactor}}
+\index{interactor@{interactor}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{interactor}{interactor}}
+{\footnotesize\ttfamily \label{class_c_p_a3f6f6b1c9b4c935801fd9ab8ae766c1a} 
+Unity\+Engine.\+XR.\+Interaction.\+Toolkit.\+Interactors.\+XRBase\+Interactor CP.\+interactor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em interactor} & is a reference to an interactor\\
+\hline
+\end{DoxyParams}
+
+
+param name="{}is\+Interacting"{}\texorpdfstring{$>$}{>} tracks whether the player is currently interacting with the switch\Hypertarget{class_c_p_a8ba7fc054232aba64bb2eb22e0985cd6}\index{CP@{CP}!isInteracting@{isInteracting}}
+\index{isInteracting@{isInteracting}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{isInteracting}{isInteracting}}
+{\footnotesize\ttfamily \label{class_c_p_a8ba7fc054232aba64bb2eb22e0985cd6} 
+bool CP.\+is\+Interacting = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}initial\+Interactor\+Position"{}\texorpdfstring{$>$}{>} is a Vector3 specifying the initial position of the interactor
+
+\Hypertarget{class_c_p_ad388a27485e8398256eb01cc68049d39}\index{CP@{CP}!lastPressTime@{lastPressTime}}
+\index{lastPressTime@{lastPressTime}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{lastPressTime}{lastPressTime}}
+{\footnotesize\ttfamily \label{class_c_p_ad388a27485e8398256eb01cc68049d39} 
+float CP.\+last\+Press\+Time = 0f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}press\+Cooldown"{}\texorpdfstring{$>$}{>} specifies a cooldown between interactions with the switch
+
+\Hypertarget{class_c_p_ae0b22a1a53748149112211274534acaf}\index{CP@{CP}!nppClient@{nppClient}}
+\index{nppClient@{nppClient}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{nppClient}{nppClient}}
+{\footnotesize\ttfamily \label{class_c_p_ae0b22a1a53748149112211274534acaf} 
+\mbox{\hyperlink{class_n_p_p_client}{NPPClient}} CP.\+npp\+Client\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_c_p_ae8f72bca3f5622edb93f5f87875514cf}\index{CP@{CP}!Percent@{Percent}}
+\index{Percent@{Percent}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{Percent}{Percent}}
+{\footnotesize\ttfamily \label{class_c_p_ae8f72bca3f5622edb93f5f87875514cf} 
+int CP.\+Percent = 0}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Percent} & specifies the percentage the switch has been rotated based on its leftmost position\\
+\hline
+\end{DoxyParams}
+
+
+param name="{}\+Start\+Rotation"{}\texorpdfstring{$>$}{>} specifies the angle of the switches leftmost position\Hypertarget{class_c_p_a05bb5dc09e2dc70be4df27cb836ca5e9}\index{CP@{CP}!pressCooldown@{pressCooldown}}
+\index{pressCooldown@{pressCooldown}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{pressCooldown}{pressCooldown}}
+{\footnotesize\ttfamily \label{class_c_p_a05bb5dc09e2dc70be4df27cb836ca5e9} 
+float CP.\+press\+Cooldown = 0.\+1f\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_c_p_a021ae96e5761602f425ec78059b2a772}\index{CP@{CP}!previousPercent@{previousPercent}}
+\index{previousPercent@{previousPercent}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{previousPercent}{previousPercent}}
+{\footnotesize\ttfamily \label{class_c_p_a021ae96e5761602f425ec78059b2a772} 
+int CP.\+previous\+Percent\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}initial\+Interactor\+Rotation"{}\texorpdfstring{$>$}{>} is a Quaternion specifying the initial rotation of the interactor upon interaction
+
+\Hypertarget{class_c_p_a75207a1d7dbb9121af04974c0643acdf}\index{CP@{CP}!ReglerType@{ReglerType}}
+\index{ReglerType@{ReglerType}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{ReglerType}{ReglerType}}
+{\footnotesize\ttfamily \label{class_c_p_a75207a1d7dbb9121af04974c0643acdf} 
+\mbox{\hyperlink{class_c_p_a1cc42a0460b1b379fe8a5abd5394665e}{Regler\+Type\+Enum}} CP.\+Regler\+Type = \mbox{\hyperlink{class_c_p_a1cc42a0460b1b379fe8a5abd5394665eacc7be7321cbf01a5bcde4641c7f6f4b5}{Regler\+Type\+Enum.\+Genau}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em Regler\+Type} & specifies the type of rotary switch\\
+\hline
+\end{DoxyParams}
+
+
+param name="{}to\+\_\+rotate"{}\texorpdfstring{$>$}{>} specifies the handle the player must interact with to rotate the switch\Hypertarget{class_c_p_a6758c228a2fc15739ab38e0cb636f45e}\index{CP@{CP}!StartRotation@{StartRotation}}
+\index{StartRotation@{StartRotation}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{StartRotation}{StartRotation}}
+{\footnotesize\ttfamily \label{class_c_p_a6758c228a2fc15739ab38e0cb636f45e} 
+int CP.\+Start\+Rotation = -\/90\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+param name="{}\+End\+Rotation"{}\texorpdfstring{$>$}{>} specifies the angle of the switches rightmost position
+
+\Hypertarget{class_c_p_a85b2463ac7f0269133a803d12d3afe10}\index{CP@{CP}!to\_rotate@{to\_rotate}}
+\index{to\_rotate@{to\_rotate}!CP@{CP}}
+\doxysubsubsection{\texorpdfstring{to\_rotate}{to\_rotate}}
+{\footnotesize\ttfamily \label{class_c_p_a85b2463ac7f0269133a803d12d3afe10} 
+Game\+Object CP.\+to\+\_\+rotate}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Regler/\mbox{\hyperlink{_c_p_8cs}{CP.\+cs}}\end{DoxyCompactItemize}

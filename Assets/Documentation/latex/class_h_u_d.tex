@@ -1,0 +1,143 @@
+\doxysection{HUD Class Reference}
+\hypertarget{class_h_u_d}{}\label{class_h_u_d}\index{HUD@{HUD}}
+
+
+This class displays implements logic to display instructions on the \doxylink{class_h_u_d}{HUD} for a task the player must perfom to complete a scenario.  
+
+
+Inheritance diagram for HUD\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_h_u_d}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_h_u_d_a3ff87f31ee0f6ea2a0c6740603079bce}{set\+Text}} (string input\+Text)
+\begin{DoxyCompactList}\small\item\em This method extracts text from an input string and adds it to a text component on the canvas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_h_u_d_ab6c5840bac4c1144244354cfc9ed0263}{clear\+Text}} ()
+\begin{DoxyCompactList}\small\item\em This method clears the text displayed on the canvas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_h_u_d_a1e2faac9f0c730bf40c617a12d34f745}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises a pattern used to separate tasks and a canvas on which these tasks can be displayed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Text \mbox{\hyperlink{class_h_u_d_acc88fde57f4d7874c253475d6c26a81b}{text}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em text} & is a text that is displayed on a canvas\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_h_u_d_ac07bfd7a6350ffb79d24b16354baaf4a}{pattern}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em pattern} & contains a regular expression\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Transform \mbox{\hyperlink{class_h_u_d_aa9be2862c7813e0d65a992d75d7fedbd}{sibling}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em sibling} & Transform\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class displays implements logic to display instructions on the \doxylink{class_h_u_d}{HUD} for a task the player must perfom to complete a scenario. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_h_u_d_ab6c5840bac4c1144244354cfc9ed0263}\index{HUD@{HUD}!clearText@{clearText}}
+\index{clearText@{clearText}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{clearText()}{clearText()}}
+{\footnotesize\ttfamily \label{class_h_u_d_ab6c5840bac4c1144244354cfc9ed0263} 
+void HUD.\+clear\+Text (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method clears the text displayed on the canvas. 
+
+\Hypertarget{class_h_u_d_a3ff87f31ee0f6ea2a0c6740603079bce}\index{HUD@{HUD}!setText@{setText}}
+\index{setText@{setText}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{setText()}{setText()}}
+{\footnotesize\ttfamily \label{class_h_u_d_a3ff87f31ee0f6ea2a0c6740603079bce} 
+void HUD.\+set\+Text (\begin{DoxyParamCaption}\item[{string}]{input\+Text}{}\end{DoxyParamCaption})}
+
+
+
+This method extracts text from an input string and adds it to a text component on the canvas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Text} & contains the text to be displayed\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_h_u_d_a1e2faac9f0c730bf40c617a12d34f745}\index{HUD@{HUD}!Start@{Start}}
+\index{Start@{Start}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_h_u_d_a1e2faac9f0c730bf40c617a12d34f745} 
+void HUD.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises a pattern used to separate tasks and a canvas on which these tasks can be displayed. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_h_u_d_ac07bfd7a6350ffb79d24b16354baaf4a}\index{HUD@{HUD}!pattern@{pattern}}
+\index{pattern@{pattern}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{pattern}{pattern}}
+{\footnotesize\ttfamily \label{class_h_u_d_ac07bfd7a6350ffb79d24b16354baaf4a} 
+string HUD.\+pattern\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em pattern} & contains a regular expression\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_h_u_d_aa9be2862c7813e0d65a992d75d7fedbd}\index{HUD@{HUD}!sibling@{sibling}}
+\index{sibling@{sibling}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{sibling}{sibling}}
+{\footnotesize\ttfamily \label{class_h_u_d_aa9be2862c7813e0d65a992d75d7fedbd} 
+Transform HUD.\+sibling\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em sibling} & Transform\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_h_u_d_acc88fde57f4d7874c253475d6c26a81b}\index{HUD@{HUD}!text@{text}}
+\index{text@{text}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{text}{text}}
+{\footnotesize\ttfamily \label{class_h_u_d_acc88fde57f4d7874c253475d6c26a81b} 
+Text HUD.\+text\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & is a text that is displayed on a canvas\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+UI/\mbox{\hyperlink{_h_u_d_8cs}{HUD.\+cs}}\end{DoxyCompactItemize}

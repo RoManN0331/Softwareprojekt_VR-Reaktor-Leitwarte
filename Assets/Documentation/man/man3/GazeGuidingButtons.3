@@ -1,0 +1,265 @@
+.TH "GazeGuidingButtons" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GazeGuidingButtons \- This class is used to enable or disable the different gaze-guiding features set via the gaze-guiding panel in the VR application\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBDirectionCue\fP (bool TurnOn)"
+.br
+.RI "This method enables or disables the direction cue feature\&. "
+.ti -1c
+.RI "void \fBDirectionArrow\fP (bool TurnOn)"
+.br
+.RI "This method enables or disables the direction arrow feature\&. "
+.ti -1c
+.RI "void \fBArrow3D\fP (bool TurnOn)"
+.br
+.RI "This method enables or disables the continuous 3D arrow feature\&. "
+.ti -1c
+.RI "void \fBArrow3DBinear\fP (bool TurnOn)"
+.br
+.RI "This method enables or disables the binary 3D arrow feature\&. "
+.ti -1c
+.RI "void \fBDirectionArrowOnScreen\fP (bool TurnOn)"
+.br
+.RI "This method enables or disables the direction arrow feature\&. "
+.ti -1c
+.RI "void \fBAnzeigenMarkierung\fP (bool TurnOn)"
+.br
+.RI "This method enables or disables the display annotations feature\&. "
+.ti -1c
+.RI "void \fBTriggerBlur\fP (bool state)"
+.br
+.RI "This method enables or disables the camera blur feature\&. "
+.ti -1c
+.RI "void \fBTriggerDetach\fP (bool state)"
+.br
+.RI "This method enables or disables the detach feature\&. "
+.ti -1c
+.RI "void \fBHUD\fP (bool TurnOn)"
+.br
+.RI "This method enables or disables the \fBHUD\fP\&. "
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initialises the pathPlayer, pathPlayer2 and the HUDPrefab references\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBGazeGuidingPathPlayer\fP \fBpathPlayer\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIpathPlayer\fP is a reference to the \fBGazeGuidingPathPlayer\fP instance in the scene
+.RE
+.PP
+"
+.ti -1c
+.RI "\fBGazeGuidingPathPlayerSecondPath\fP \fBpathPlayer2\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIpathPlayer2\fP is a reference to the \fBGazeGuidingPathPlayerSecondPath\fP instance in the scene
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBHUDPrefab\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIHUDPrefab\fP is a prefab for a \fBHUD\fP
+.RE
+.PP
+"
+.ti -1c
+.RI "GameObject \fBHUDInstance\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIHUDInstance\fP is a reference to an instance of a \fBHUD\fP
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class is used to enable or disable the different gaze-guiding features set via the gaze-guiding panel in the VR application\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void GazeGuidingButtons\&.AnzeigenMarkierung (bool TurnOn)"
+
+.PP
+This method enables or disables the display annotations feature\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fITurnOn\fP toggles whether the display annotations feature is enabled or disabled
+.RE
+.PP
+
+.SS "void GazeGuidingButtons\&.Arrow3D (bool TurnOn)"
+
+.PP
+This method enables or disables the continuous 3D arrow feature\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fITurnOn\fP toggles whether the continuous 3D arrow feature is enabled or disabled
+.RE
+.PP
+
+.SS "void GazeGuidingButtons\&.Arrow3DBinear (bool TurnOn)"
+
+.PP
+This method enables or disables the binary 3D arrow feature\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fITurnOn\fP toggles whether the binary 3D arrow feature is enabled or disabled
+.RE
+.PP
+
+.SS "void GazeGuidingButtons\&.DirectionArrow (bool TurnOn)"
+
+.PP
+This method enables or disables the direction arrow feature\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fITurnOn\fP toggles whether the direction arrow feature is enabled or disabled
+.RE
+.PP
+
+.SS "void GazeGuidingButtons\&.DirectionArrowOnScreen (bool TurnOn)"
+
+.PP
+This method enables or disables the direction arrow feature\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fITurnOn\fP toggles whether the direction arrow feature is enabled or disabled
+.RE
+.PP
+
+.SS "void GazeGuidingButtons\&.DirectionCue (bool TurnOn)"
+
+.PP
+This method enables or disables the direction cue feature\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fITurnOn\fP toggles whether the direction cue feature is enabled or disabled
+.RE
+.PP
+
+.SS "void GazeGuidingButtons\&.HUD (bool TurnOn)"
+
+.PP
+This method enables or disables the \fBHUD\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fITurnOn\fP toggles the \fBHUD\fP either to enabled or disabled
+.RE
+.PP
+
+.SS "void GazeGuidingButtons\&.Start ()\fR [private]\fP"
+
+.PP
+This method initialises the pathPlayer, pathPlayer2 and the HUDPrefab references\&. 
+.SS "void GazeGuidingButtons\&.TriggerBlur (bool state)"
+
+.PP
+This method enables or disables the camera blur feature\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fITurnOn\fP toggles whether the camera blur feature is enabled or disabled
+.RE
+.PP
+
+.SS "void GazeGuidingButtons\&.TriggerDetach (bool state)"
+
+.PP
+This method enables or disables the detach feature\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fITurnOn\fP toggles whether the detach feature is enabled or disabled
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "GameObject GazeGuidingButtons\&.HUDInstance\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIHUDInstance\fP is a reference to an instance of a \fBHUD\fP
+.RE
+.PP
+
+.SS "GameObject GazeGuidingButtons\&.HUDPrefab\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIHUDPrefab\fP is a prefab for a \fBHUD\fP
+.RE
+.PP
+
+.SS "\fBGazeGuidingPathPlayer\fP GazeGuidingButtons\&.pathPlayer\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIpathPlayer\fP is a reference to the \fBGazeGuidingPathPlayer\fP instance in the scene
+.RE
+.PP
+
+.SS "\fBGazeGuidingPathPlayerSecondPath\fP GazeGuidingButtons\&.pathPlayer2\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIpathPlayer2\fP is a reference to the \fBGazeGuidingPathPlayerSecondPath\fP instance in the scene
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

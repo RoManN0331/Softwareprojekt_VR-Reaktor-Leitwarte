@@ -1,0 +1,159 @@
+\doxysection{Ausfall\+Anzeigen\+Manager Class Reference}
+\hypertarget{class_ausfall_anzeigen_manager}{}\label{class_ausfall_anzeigen_manager}\index{AusfallAnzeigenManager@{AusfallAnzeigenManager}}
+
+
+This class implements logic to manage multiple displays signalling to the player whether specific components in the simulation have failed.  
+
+
+Inheritance diagram for Ausfall\+Anzeigen\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ausfall_anzeigen_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ausfall_anzeigen_manager_a8fee1d7f2267bab74a6e363199fd1c75}{Turn\+On}} (string name)
+\begin{DoxyCompactList}\small\item\em This method switches a display on if the corresponding component has failed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ausfall_anzeigen_manager_ad887365f292b5d12672eac121aa58ccb}{Turn\+Off}} (string name)
+\begin{DoxyCompactList}\small\item\em This method switches a display off. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ausfall_anzeigen_manager_af04e4931ce9dfe480762c752fd7703e3}{Turn\+All\+On}} ()
+\begin{DoxyCompactList}\small\item\em This method switches all displays on that were added to ausfall\+Anzeigen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ausfall_anzeigen_manager_a9dfbc55baade137b0f557fc561aa7178}{Turn\+All\+Off}} ()
+\begin{DoxyCompactList}\small\item\em This method switches all displays off that were added to ausfall\+Anzeigen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ausfall_anzeigen_manager_a2e61f29031e9d741711141e36484277b}{Set\+All\+Lamps\+To\+Red}} ()
+\begin{DoxyCompactList}\small\item\em This method sets the colour of all lamps to red. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ausfall_anzeigen_manager_a83ad1cf583a22128f7f91e3b3d5f8297}{Set\+All\+Lamps\+To\+White}} ()
+\begin{DoxyCompactList}\small\item\em This method sets the colour of all lamps to white. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{class_ausfall_anzeige}{Ausfall\+Anzeige}} $>$ \mbox{\hyperlink{class_ausfall_anzeigen_manager_a4f02f862ece70ef4a6956e575671aec9}{ausfall\+Anzeigen}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em ausfall\+Anzeigen} & is a list of displays signalling whether the assigned components have failed\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Color \mbox{\hyperlink{class_ausfall_anzeigen_manager_a58b8a7a696e4e2448942dd659ad93eb5}{to\+Change}} = Color.\+red
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em to\+Change} & is a colour used for lamps\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic to manage multiple displays signalling to the player whether specific components in the simulation have failed. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_ausfall_anzeigen_manager_a2e61f29031e9d741711141e36484277b}\index{AusfallAnzeigenManager@{AusfallAnzeigenManager}!SetAllLampsToRed@{SetAllLampsToRed}}
+\index{SetAllLampsToRed@{SetAllLampsToRed}!AusfallAnzeigenManager@{AusfallAnzeigenManager}}
+\doxysubsubsection{\texorpdfstring{SetAllLampsToRed()}{SetAllLampsToRed()}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeigen_manager_a2e61f29031e9d741711141e36484277b} 
+void Ausfall\+Anzeigen\+Manager.\+Set\+All\+Lamps\+To\+Red (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method sets the colour of all lamps to red. 
+
+\Hypertarget{class_ausfall_anzeigen_manager_a83ad1cf583a22128f7f91e3b3d5f8297}\index{AusfallAnzeigenManager@{AusfallAnzeigenManager}!SetAllLampsToWhite@{SetAllLampsToWhite}}
+\index{SetAllLampsToWhite@{SetAllLampsToWhite}!AusfallAnzeigenManager@{AusfallAnzeigenManager}}
+\doxysubsubsection{\texorpdfstring{SetAllLampsToWhite()}{SetAllLampsToWhite()}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeigen_manager_a83ad1cf583a22128f7f91e3b3d5f8297} 
+void Ausfall\+Anzeigen\+Manager.\+Set\+All\+Lamps\+To\+White (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method sets the colour of all lamps to white. 
+
+\Hypertarget{class_ausfall_anzeigen_manager_a9dfbc55baade137b0f557fc561aa7178}\index{AusfallAnzeigenManager@{AusfallAnzeigenManager}!TurnAllOff@{TurnAllOff}}
+\index{TurnAllOff@{TurnAllOff}!AusfallAnzeigenManager@{AusfallAnzeigenManager}}
+\doxysubsubsection{\texorpdfstring{TurnAllOff()}{TurnAllOff()}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeigen_manager_a9dfbc55baade137b0f557fc561aa7178} 
+void Ausfall\+Anzeigen\+Manager.\+Turn\+All\+Off (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method switches all displays off that were added to ausfall\+Anzeigen. 
+
+\Hypertarget{class_ausfall_anzeigen_manager_af04e4931ce9dfe480762c752fd7703e3}\index{AusfallAnzeigenManager@{AusfallAnzeigenManager}!TurnAllOn@{TurnAllOn}}
+\index{TurnAllOn@{TurnAllOn}!AusfallAnzeigenManager@{AusfallAnzeigenManager}}
+\doxysubsubsection{\texorpdfstring{TurnAllOn()}{TurnAllOn()}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeigen_manager_af04e4931ce9dfe480762c752fd7703e3} 
+void Ausfall\+Anzeigen\+Manager.\+Turn\+All\+On (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method switches all displays on that were added to ausfall\+Anzeigen. 
+
+\Hypertarget{class_ausfall_anzeigen_manager_ad887365f292b5d12672eac121aa58ccb}\index{AusfallAnzeigenManager@{AusfallAnzeigenManager}!TurnOff@{TurnOff}}
+\index{TurnOff@{TurnOff}!AusfallAnzeigenManager@{AusfallAnzeigenManager}}
+\doxysubsubsection{\texorpdfstring{TurnOff()}{TurnOff()}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeigen_manager_ad887365f292b5d12672eac121aa58ccb} 
+void Ausfall\+Anzeigen\+Manager.\+Turn\+Off (\begin{DoxyParamCaption}\item[{string}]{name}{}\end{DoxyParamCaption})}
+
+
+
+This method switches a display off. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & specifies a name of a component with an assigned display\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_ausfall_anzeigen_manager_a8fee1d7f2267bab74a6e363199fd1c75}\index{AusfallAnzeigenManager@{AusfallAnzeigenManager}!TurnOn@{TurnOn}}
+\index{TurnOn@{TurnOn}!AusfallAnzeigenManager@{AusfallAnzeigenManager}}
+\doxysubsubsection{\texorpdfstring{TurnOn()}{TurnOn()}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeigen_manager_a8fee1d7f2267bab74a6e363199fd1c75} 
+void Ausfall\+Anzeigen\+Manager.\+Turn\+On (\begin{DoxyParamCaption}\item[{string}]{name}{}\end{DoxyParamCaption})}
+
+
+
+This method switches a display on if the corresponding component has failed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & specifies a name of a component that has failed\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_ausfall_anzeigen_manager_a4f02f862ece70ef4a6956e575671aec9}\index{AusfallAnzeigenManager@{AusfallAnzeigenManager}!ausfallAnzeigen@{ausfallAnzeigen}}
+\index{ausfallAnzeigen@{ausfallAnzeigen}!AusfallAnzeigenManager@{AusfallAnzeigenManager}}
+\doxysubsubsection{\texorpdfstring{ausfallAnzeigen}{ausfallAnzeigen}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeigen_manager_a4f02f862ece70ef4a6956e575671aec9} 
+List$<$\mbox{\hyperlink{class_ausfall_anzeige}{Ausfall\+Anzeige}}$>$ Ausfall\+Anzeigen\+Manager.\+ausfall\+Anzeigen}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em ausfall\+Anzeigen} & is a list of displays signalling whether the assigned components have failed\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_ausfall_anzeigen_manager_a58b8a7a696e4e2448942dd659ad93eb5}\index{AusfallAnzeigenManager@{AusfallAnzeigenManager}!toChange@{toChange}}
+\index{toChange@{toChange}!AusfallAnzeigenManager@{AusfallAnzeigenManager}}
+\doxysubsubsection{\texorpdfstring{toChange}{toChange}}
+{\footnotesize\ttfamily \label{class_ausfall_anzeigen_manager_a58b8a7a696e4e2448942dd659ad93eb5} 
+Color Ausfall\+Anzeigen\+Manager.\+to\+Change = Color.\+red}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Change} & is a colour used for lamps\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\mbox{\hyperlink{_ausfall_anzeigen_manager_8cs}{Ausfall\+Anzeigen\+Manager.\+cs}}\end{DoxyCompactItemize}

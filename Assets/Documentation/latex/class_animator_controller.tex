@@ -1,0 +1,150 @@
+\doxysection{Animator\+Controller Class Reference}
+\hypertarget{class_animator_controller}{}\label{class_animator_controller}\index{AnimatorController@{AnimatorController}}
+
+
+This class is used to update the animator parameters based on the state of the simulation stored in an \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object.  
+
+
+Inheritance diagram for Animator\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_animator_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_animator_controller_aa4238a554da97b6e30b7f589b1af8b62}{Update\+Animator\+Parameters}} (\mbox{\hyperlink{class_n_p_p_reactor_state}{NPPReactor\+State}} state)
+\begin{DoxyCompactList}\small\item\em This method updates the statemachine parameters based on the state of the simulation stored in an \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_animator_controller_a2fd20dde3c5cf01f6854a5a7e99d1206}{update\+Scenario}} (int scenario)
+\begin{DoxyCompactList}\small\item\em This method updates the scenario parameter of the statemachine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_animator_controller_ac5febc1b8234a5aebd7a664366bd17fd}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em This method resets the statemachine to the initial state. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_animator_controller_a4b88902b19d0189e4c6c7091c7aa0ea5}{get\+Scenario}} ()
+\begin{DoxyCompactList}\small\item\em This method returns the scenario the state machine is currently running. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_animator_controller_a42ccc8d3ccf739406ed602d7633e110a}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises animator with a reference to the statemachine . \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_component_state}{Component\+State}} \mbox{\hyperlink{class_animator_controller_a514f5494981be1bc383a6abd012e618b}{Get\+Component}} (string name, \mbox{\hyperlink{class_component_health}{Component\+Health}} health)
+\begin{DoxyCompactList}\small\item\em This method returns the information stored in Component\+Healt for a component or initialises a new \doxylink{class_component_state}{Component\+State}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Animator \mbox{\hyperlink{class_animator_controller_a253c17f7cbf92e6baa523e5461b3a555}{animator}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em animator} & is a reference to the statemachine\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_n_p_p_client}{NPPClient}} \mbox{\hyperlink{class_animator_controller_a630c533a7f9225663d1e74347b3870ef}{client\+Script}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to update the animator parameters based on the state of the simulation stored in an \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_animator_controller_a42ccc8d3ccf739406ed602d7633e110a}\index{AnimatorController@{AnimatorController}!Awake@{Awake}}
+\index{Awake@{Awake}!AnimatorController@{AnimatorController}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_animator_controller_a42ccc8d3ccf739406ed602d7633e110a} 
+void Animator\+Controller.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises animator with a reference to the statemachine . 
+
+\Hypertarget{class_animator_controller_a514f5494981be1bc383a6abd012e618b}\index{AnimatorController@{AnimatorController}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!AnimatorController@{AnimatorController}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}}
+{\footnotesize\ttfamily \label{class_animator_controller_a514f5494981be1bc383a6abd012e618b} 
+\mbox{\hyperlink{class_component_state}{Component\+State}} Animator\+Controller.\+Get\+Component (\begin{DoxyParamCaption}\item[{string}]{name}{, }\item[{\mbox{\hyperlink{class_component_health}{Component\+Health}}}]{health}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method returns the information stored in Component\+Healt for a component or initialises a new \doxylink{class_component_state}{Component\+State}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the name of a component\\
+\hline
+{\em health} & is a \doxylink{class_component_health}{Component\+Health} object containing the state of various components\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_animator_controller_a4b88902b19d0189e4c6c7091c7aa0ea5}\index{AnimatorController@{AnimatorController}!getScenario@{getScenario}}
+\index{getScenario@{getScenario}!AnimatorController@{AnimatorController}}
+\doxysubsubsection{\texorpdfstring{getScenario()}{getScenario()}}
+{\footnotesize\ttfamily \label{class_animator_controller_a4b88902b19d0189e4c6c7091c7aa0ea5} 
+int Animator\+Controller.\+get\+Scenario (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method returns the scenario the state machine is currently running. 
+
+\Hypertarget{class_animator_controller_ac5febc1b8234a5aebd7a664366bd17fd}\index{AnimatorController@{AnimatorController}!Reset@{Reset}}
+\index{Reset@{Reset}!AnimatorController@{AnimatorController}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily \label{class_animator_controller_ac5febc1b8234a5aebd7a664366bd17fd} 
+void Animator\+Controller.\+Reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This method resets the statemachine to the initial state. 
+
+\Hypertarget{class_animator_controller_aa4238a554da97b6e30b7f589b1af8b62}\index{AnimatorController@{AnimatorController}!UpdateAnimatorParameters@{UpdateAnimatorParameters}}
+\index{UpdateAnimatorParameters@{UpdateAnimatorParameters}!AnimatorController@{AnimatorController}}
+\doxysubsubsection{\texorpdfstring{UpdateAnimatorParameters()}{UpdateAnimatorParameters()}}
+{\footnotesize\ttfamily \label{class_animator_controller_aa4238a554da97b6e30b7f589b1af8b62} 
+void Animator\+Controller.\+Update\+Animator\+Parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_n_p_p_reactor_state}{NPPReactor\+State}}}]{state}{}\end{DoxyParamCaption})}
+
+
+
+This method updates the statemachine parameters based on the state of the simulation stored in an \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object. 
+
+\Hypertarget{class_animator_controller_a2fd20dde3c5cf01f6854a5a7e99d1206}\index{AnimatorController@{AnimatorController}!updateScenario@{updateScenario}}
+\index{updateScenario@{updateScenario}!AnimatorController@{AnimatorController}}
+\doxysubsubsection{\texorpdfstring{updateScenario()}{updateScenario()}}
+{\footnotesize\ttfamily \label{class_animator_controller_a2fd20dde3c5cf01f6854a5a7e99d1206} 
+void Animator\+Controller.\+update\+Scenario (\begin{DoxyParamCaption}\item[{int}]{scenario}{}\end{DoxyParamCaption})}
+
+
+
+This method updates the scenario parameter of the statemachine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scenario} & specifies the scenario the player has chosen\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_animator_controller_a253c17f7cbf92e6baa523e5461b3a555}\index{AnimatorController@{AnimatorController}!animator@{animator}}
+\index{animator@{animator}!AnimatorController@{AnimatorController}}
+\doxysubsubsection{\texorpdfstring{animator}{animator}}
+{\footnotesize\ttfamily \label{class_animator_controller_a253c17f7cbf92e6baa523e5461b3a555} 
+Animator Animator\+Controller.\+animator\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em animator} & is a reference to the statemachine\\
+\hline
+\end{DoxyParams}
+
+
+param name="{}client\+Script"{}\texorpdfstring{$>$}{>} is a reference to the \doxylink{class_n_p_p_client}{NPPClient} instance in the scene\Hypertarget{class_animator_controller_a630c533a7f9225663d1e74347b3870ef}\index{AnimatorController@{AnimatorController}!clientScript@{clientScript}}
+\index{clientScript@{clientScript}!AnimatorController@{AnimatorController}}
+\doxysubsubsection{\texorpdfstring{clientScript}{clientScript}}
+{\footnotesize\ttfamily \label{class_animator_controller_a630c533a7f9225663d1e74347b3870ef} 
+\mbox{\hyperlink{class_n_p_p_client}{NPPClient}} Animator\+Controller.\+client\+Script\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+State\+Machine/\mbox{\hyperlink{_animator_controller_8cs}{Animator\+Controller.\+cs}}\end{DoxyCompactItemize}

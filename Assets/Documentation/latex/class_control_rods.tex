@@ -1,0 +1,91 @@
+\doxysection{Control\+Rods Class Reference}
+\hypertarget{class_control_rods}{}\label{class_control_rods}\index{ControlRods@{ControlRods}}
+
+
+This class implements logic for displaying the current position of the control rods.  
+
+
+Inheritance diagram for Control\+Rods\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_control_rods}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_control_rods_a97185e24fe3f9dc80598cc4e07576613}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current position of the control rods. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_control_rods_a867e682a72d177d262e6da00615c3d26}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the display by reading the current position of the control rods from the Reactor.\+rod\+Position field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} \mbox{\hyperlink{class_control_rods_a579dbf383ebbc9a2703fc23ddc09ce22}{anzeige\+Steuerung}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_control_rods_a84619af3f7620a8a7614536525d410d8}{client\+Object}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic for displaying the current position of the control rods. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_control_rods_a97185e24fe3f9dc80598cc4e07576613}\index{ControlRods@{ControlRods}!Start@{Start}}
+\index{Start@{Start}!ControlRods@{ControlRods}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_control_rods_a97185e24fe3f9dc80598cc4e07576613} 
+void Control\+Rods.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current position of the control rods. 
+
+\Hypertarget{class_control_rods_a867e682a72d177d262e6da00615c3d26}\index{ControlRods@{ControlRods}!Update@{Update}}
+\index{Update@{Update}!ControlRods@{ControlRods}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_control_rods_a867e682a72d177d262e6da00615c3d26} 
+void Control\+Rods.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the display by reading the current position of the control rods from the Reactor.\+rod\+Position field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_control_rods_a579dbf383ebbc9a2703fc23ddc09ce22}\index{ControlRods@{ControlRods}!anzeigeSteuerung@{anzeigeSteuerung}}
+\index{anzeigeSteuerung@{anzeigeSteuerung}!ControlRods@{ControlRods}}
+\doxysubsubsection{\texorpdfstring{anzeigeSteuerung}{anzeigeSteuerung}}
+{\footnotesize\ttfamily \label{class_control_rods_a579dbf383ebbc9a2703fc23ddc09ce22} 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} Control\+Rods.\+anzeige\+Steuerung\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_control_rods_a84619af3f7620a8a7614536525d410d8}\index{ControlRods@{ControlRods}!clientObject@{clientObject}}
+\index{clientObject@{clientObject}!ControlRods@{ControlRods}}
+\doxysubsubsection{\texorpdfstring{clientObject}{clientObject}}
+{\footnotesize\ttfamily \label{class_control_rods_a84619af3f7620a8a7614536525d410d8} 
+Game\+Object Control\+Rods.\+client\+Object\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Anzeigen/\mbox{\hyperlink{control_rods_8cs}{control\+Rods.\+cs}}\end{DoxyCompactItemize}

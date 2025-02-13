@@ -1,0 +1,112 @@
+.TH "ChangeLayer" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ChangeLayer \- This class implements logic to move objects and their children between layers\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetLayer\fP (string layer, bool propagate=true)"
+.br
+.RI "This method moves an object to a specific layer\&. "
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBPropagateChildren\fP (GameObject obj, int \fBtarget\fP)"
+.br
+.RI "This method moves all children of an object to a specific layer by calling itself recursively\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "string \fBtarget\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItarget\fP specifies the layer an object will be moved to
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBpropagateChildren\fP = true"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIpropagateChildren\fP tracks whether all children of an object will be moved
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements logic to move objects and their children between layers\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void ChangeLayer\&.PropagateChildren (GameObject obj, int target)\fR [private]\fP"
+
+.PP
+This method moves all children of an object to a specific layer by calling itself recursively\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP is a reference to an object that will be moved to a specific layer 
+.br
+\fItarget\fP specifies the layer an object will be moved to
+.RE
+.PP
+
+.SS "void ChangeLayer\&.setLayer (string layer, bool propagate = \fRtrue\fP)"
+
+.PP
+This method moves an object to a specific layer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlayer\fP specifies the layer an object will be moved to
+.br
+\fIpropagate\fP tracks whether all children of an object will be moved
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "bool ChangeLayer\&.propagateChildren = true\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIpropagateChildren\fP tracks whether all children of an object will be moved
+.RE
+.PP
+
+.SS "string ChangeLayer\&.target\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItarget\fP specifies the layer an object will be moved to
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

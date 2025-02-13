@@ -1,0 +1,170 @@
+\doxysection{Rotate3\+DArrow Class Reference}
+\hypertarget{class_rotate3_d_arrow}{}\label{class_rotate3_d_arrow}\index{Rotate3DArrow@{Rotate3DArrow}}
+
+
+This class implements a continuously rotating 3D arrow as a visual cue indicating the direction in which the player is supposed to turn an exact switch.  
+
+
+Inheritance diagram for Rotate3\+DArrow\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_rotate3_d_arrow}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_rotate3_d_arrow_a80c6cf41d95d335b0b12d0b360985252}{rotation\+Speed}} = 235f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em rotation\+Speed} & specifies the speed by which the arrow is rotating\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_rotate3_d_arrow_a0ffac631ac08ce7c69212060aa835b7c}{flip\+Direction}} = false
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em flip\+Direction} & toggles the direction in which the arrow is rotating\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_rotate3_d_arrow_a6673d39c5763e1394085b4a9bc1e4ab8}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initialises the arrow\textquotesingle{}s position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rotate3_d_arrow_a343651ee7e9f1bde7849f993acca9903}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the arrow\textquotesingle{}s position, rotating the arrow continuously in the direction specified in flip\+Direction (false\+: clockwise, true\+: counterclockwise). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_rotate3_d_arrow_af1a71f912b95284048cbe0ea716b768d}{move\+Speed}} = 3f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em move\+Speed} & specifies the speed of vertical movements\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_rotate3_d_arrow_afa3149b0774d6916d8d8d3811f538998}{move\+Amount}} = 0.\+015f
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em move\+Amount} & specifies the amount of vertical movement\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_rotate3_d_arrow_ae514a8c63c5bb91fc1de0f2a4a624c44}{initialY}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em initialY} & specifies the initial y position of the arrow\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements a continuously rotating 3D arrow as a visual cue indicating the direction in which the player is supposed to turn an exact switch. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rotate3_d_arrow_a6673d39c5763e1394085b4a9bc1e4ab8}\index{Rotate3DArrow@{Rotate3DArrow}!Start@{Start}}
+\index{Start@{Start}!Rotate3DArrow@{Rotate3DArrow}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_a6673d39c5763e1394085b4a9bc1e4ab8} 
+void Rotate3\+DArrow.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initialises the arrow\textquotesingle{}s position. 
+
+\Hypertarget{class_rotate3_d_arrow_a343651ee7e9f1bde7849f993acca9903}\index{Rotate3DArrow@{Rotate3DArrow}!Update@{Update}}
+\index{Update@{Update}!Rotate3DArrow@{Rotate3DArrow}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_a343651ee7e9f1bde7849f993acca9903} 
+void Rotate3\+DArrow.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the arrow\textquotesingle{}s position, rotating the arrow continuously in the direction specified in flip\+Direction (false\+: clockwise, true\+: counterclockwise). 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_rotate3_d_arrow_a0ffac631ac08ce7c69212060aa835b7c}\index{Rotate3DArrow@{Rotate3DArrow}!flipDirection@{flipDirection}}
+\index{flipDirection@{flipDirection}!Rotate3DArrow@{Rotate3DArrow}}
+\doxysubsubsection{\texorpdfstring{flipDirection}{flipDirection}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_a0ffac631ac08ce7c69212060aa835b7c} 
+bool Rotate3\+DArrow.\+flip\+Direction = false}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em flip\+Direction} & toggles the direction in which the arrow is rotating\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_rotate3_d_arrow_ae514a8c63c5bb91fc1de0f2a4a624c44}\index{Rotate3DArrow@{Rotate3DArrow}!initialY@{initialY}}
+\index{initialY@{initialY}!Rotate3DArrow@{Rotate3DArrow}}
+\doxysubsubsection{\texorpdfstring{initialY}{initialY}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_ae514a8c63c5bb91fc1de0f2a4a624c44} 
+float Rotate3\+DArrow.\+initialY\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em initialY} & specifies the initial y position of the arrow\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_rotate3_d_arrow_afa3149b0774d6916d8d8d3811f538998}\index{Rotate3DArrow@{Rotate3DArrow}!moveAmount@{moveAmount}}
+\index{moveAmount@{moveAmount}!Rotate3DArrow@{Rotate3DArrow}}
+\doxysubsubsection{\texorpdfstring{moveAmount}{moveAmount}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_afa3149b0774d6916d8d8d3811f538998} 
+float Rotate3\+DArrow.\+move\+Amount = 0.\+015f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Amount} & specifies the amount of vertical movement\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_rotate3_d_arrow_af1a71f912b95284048cbe0ea716b768d}\index{Rotate3DArrow@{Rotate3DArrow}!moveSpeed@{moveSpeed}}
+\index{moveSpeed@{moveSpeed}!Rotate3DArrow@{Rotate3DArrow}}
+\doxysubsubsection{\texorpdfstring{moveSpeed}{moveSpeed}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_af1a71f912b95284048cbe0ea716b768d} 
+float Rotate3\+DArrow.\+move\+Speed = 3f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Speed} & specifies the speed of vertical movements\\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_rotate3_d_arrow_a80c6cf41d95d335b0b12d0b360985252}\index{Rotate3DArrow@{Rotate3DArrow}!rotationSpeed@{rotationSpeed}}
+\index{rotationSpeed@{rotationSpeed}!Rotate3DArrow@{Rotate3DArrow}}
+\doxysubsubsection{\texorpdfstring{rotationSpeed}{rotationSpeed}}
+{\footnotesize\ttfamily \label{class_rotate3_d_arrow_a80c6cf41d95d335b0b12d0b360985252} 
+float Rotate3\+DArrow.\+rotation\+Speed = 235f}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation\+Speed} & specifies the speed by which the arrow is rotating\\
+\hline
+\end{DoxyParams}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+UI/\mbox{\hyperlink{_rotate3_d_arrow_8cs}{Rotate3\+DArrow.\+cs}}\end{DoxyCompactItemize}

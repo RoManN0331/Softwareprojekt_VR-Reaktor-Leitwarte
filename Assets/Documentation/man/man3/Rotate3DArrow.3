@@ -1,0 +1,160 @@
+.TH "Rotate3DArrow" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Rotate3DArrow \- This class implements a continuously rotating 3D arrow as a visual cue indicating the direction in which the player is supposed to turn an exact switch\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "float \fBrotationSpeed\fP = 235f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIrotationSpeed\fP specifies the speed by which the arrow is rotating
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBflipDirection\fP = false"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIflipDirection\fP toggles the direction in which the arrow is rotating
+.RE
+.PP
+"
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initialises the arrow's position\&. "
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.RI "This method updates the arrow's position, rotating the arrow continuously in the direction specified in flipDirection (false: clockwise, true: counterclockwise)\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "float \fBmoveSpeed\fP = 3f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImoveSpeed\fP specifies the speed of vertical movements
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBmoveAmount\fP = 0\&.015f"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fImoveAmount\fP specifies the amount of vertical movement
+.RE
+.PP
+"
+.ti -1c
+.RI "float \fBinitialY\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIinitialY\fP specifies the initial y position of the arrow
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements a continuously rotating 3D arrow as a visual cue indicating the direction in which the player is supposed to turn an exact switch\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void Rotate3DArrow\&.Start ()\fR [private]\fP"
+
+.PP
+This method initialises the arrow's position\&. 
+.SS "void Rotate3DArrow\&.Update ()\fR [private]\fP"
+
+.PP
+This method updates the arrow's position, rotating the arrow continuously in the direction specified in flipDirection (false: clockwise, true: counterclockwise)\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "bool Rotate3DArrow\&.flipDirection = false"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIflipDirection\fP toggles the direction in which the arrow is rotating
+.RE
+.PP
+
+.SS "float Rotate3DArrow\&.initialY\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIinitialY\fP specifies the initial y position of the arrow
+.RE
+.PP
+
+.SS "float Rotate3DArrow\&.moveAmount = 0\&.015f\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImoveAmount\fP specifies the amount of vertical movement
+.RE
+.PP
+
+.SS "float Rotate3DArrow\&.moveSpeed = 3f\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImoveSpeed\fP specifies the speed of vertical movements
+.RE
+.PP
+
+.SS "float Rotate3DArrow\&.rotationSpeed = 235f"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIrotationSpeed\fP specifies the speed by which the arrow is rotating
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

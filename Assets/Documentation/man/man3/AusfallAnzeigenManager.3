@@ -1,0 +1,136 @@
+.TH "AusfallAnzeigenManager" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AusfallAnzeigenManager \- This class implements logic to manage multiple displays signalling to the player whether specific components in the simulation have failed\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBTurnOn\fP (string name)"
+.br
+.RI "This method switches a display on if the corresponding component has failed\&. "
+.ti -1c
+.RI "void \fBTurnOff\fP (string name)"
+.br
+.RI "This method switches a display off\&. "
+.ti -1c
+.RI "void \fBTurnAllOn\fP ()"
+.br
+.RI "This method switches all displays on that were added to ausfallAnzeigen\&. "
+.ti -1c
+.RI "void \fBTurnAllOff\fP ()"
+.br
+.RI "This method switches all displays off that were added to ausfallAnzeigen\&. "
+.ti -1c
+.RI "void \fBSetAllLampsToRed\fP ()"
+.br
+.RI "This method sets the colour of all lamps to red\&. "
+.ti -1c
+.RI "void \fBSetAllLampsToWhite\fP ()"
+.br
+.RI "This method sets the colour of all lamps to white\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "List< \fBAusfallAnzeige\fP > \fBausfallAnzeigen\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIausfallAnzeigen\fP is a list of displays signalling whether the assigned components have failed
+.RE
+.PP
+"
+.ti -1c
+.RI "Color \fBtoChange\fP = Color\&.red"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItoChange\fP is a colour used for lamps
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements logic to manage multiple displays signalling to the player whether specific components in the simulation have failed\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void AusfallAnzeigenManager\&.SetAllLampsToRed ()"
+
+.PP
+This method sets the colour of all lamps to red\&. 
+.SS "void AusfallAnzeigenManager\&.SetAllLampsToWhite ()"
+
+.PP
+This method sets the colour of all lamps to white\&. 
+.SS "void AusfallAnzeigenManager\&.TurnAllOff ()"
+
+.PP
+This method switches all displays off that were added to ausfallAnzeigen\&. 
+.SS "void AusfallAnzeigenManager\&.TurnAllOn ()"
+
+.PP
+This method switches all displays on that were added to ausfallAnzeigen\&. 
+.SS "void AusfallAnzeigenManager\&.TurnOff (string name)"
+
+.PP
+This method switches a display off\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP specifies a name of a component with an assigned display
+.RE
+.PP
+
+.SS "void AusfallAnzeigenManager\&.TurnOn (string name)"
+
+.PP
+This method switches a display on if the corresponding component has failed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP specifies a name of a component that has failed
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "List<\fBAusfallAnzeige\fP> AusfallAnzeigenManager\&.ausfallAnzeigen"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIausfallAnzeigen\fP is a list of displays signalling whether the assigned components have failed
+.RE
+.PP
+
+.SS "Color AusfallAnzeigenManager\&.toChange = Color\&.red"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItoChange\fP is a colour used for lamps
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

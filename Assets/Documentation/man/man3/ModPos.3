@@ -1,0 +1,305 @@
+.TH "ModPos" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ModPos \- This class is used to control the control rods in an NPP simulation\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSetPercentFromExternal\fP (int newPercent)"
+.br
+.RI "This method sets the percentage value of the switch based on an external input\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "GameObject \fBto_rotate\fP"
+.br
+.ti -1c
+.RI "int \fBPercent\fP = 0"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIPercent\fP specifies the percentage the switch has been rotated based on its leftmost position
+.RE
+.PP
+"
+.in -1c
+.SS "Private Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBReglerTypeEnum\fP { \fBGenau\fP = 0, \fBBinaer\fP = 1 }"
+.br
+.RI "This Enum defines two types of rotary switches binary and exact\&. "
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initializes the \fBModPos\fP instance and sets the initial rotation of the switch\&. "
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.RI "This method updates the rotation of the switch based on the current value of Percent\&. "
+.ti -1c
+.RI "void \fBUpdateRotation\fP ()"
+.br
+.RI "This method updates the rotation of the switch\&. "
+.ti -1c
+.RI "void \fBHandleInteractorRotation\fP ()"
+.br
+.RI "This method computes the rotation of the handle based on the rotation of the interactor and calls \fBUpdateRotation()\fP to update the rotation of the switch as well as \fBUpdateRodPosition()\fP to intiate a call to the REST Server to update the simulation\&. "
+.ti -1c
+.RI "void \fBUpdateRodPosition\fP ()"
+.br
+.RI "This method initiates a call to the REST Server to update the simulation with the current position of the control rods\&. "
+.ti -1c
+.RI "void \fBOnEnable\fP ()"
+.br
+.RI "This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events\&. "
+.ti -1c
+.RI "void \fBOnDisable\fP ()"
+.br
+.RI "This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events\&. "
+.ti -1c
+.RI "void \fBOnSelectEntered\fP (SelectEnterEventArgs args)"
+.br
+.RI "This method is called when an interactor enters the object and sets the interactor and initialInteractorRotation values\&. "
+.ti -1c
+.RI "void \fBOnSelectExited\fP (SelectExitEventArgs args)"
+.br
+.RI "This method is called when an interactor exits the object and resets the isInteracting and interactor values\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBReglerTypeEnum\fP \fBReglerType\fP = \fBReglerTypeEnum\&.Genau\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIReglerType\fP specifies the type of rotary switch
+.RE
+.PP
+"
+.ti -1c
+.RI "int \fBStartRotation\fP = \-90"
+.br
+.RI "param name="EndRotation"> specifies the angle of the switches rightmost position"
+.ti -1c
+.RI "int \fBEndRotation\fP = 90"
+.br
+.RI "param name="lastPressTime"> specifies the last time the player didinteract with the switch"
+.ti -1c
+.RI "float \fBlastPressTime\fP = 0f"
+.br
+.RI "param name="pressCooldown"> specifies a cooldown between interactions with the switch"
+.ti -1c
+.RI "float \fBpressCooldown\fP = 0\&.1f"
+.br
+.ti -1c
+.RI "UnityEngine\&.XR\&.Interaction\&.Toolkit\&.Interactors\&.XRBaseInteractor \fBinteractor\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIinteractor\fP is a reference to an interactor
+.RE
+.PP
+"
+.ti -1c
+.RI "bool \fBisInteracting\fP = false"
+.br
+.RI "param name="initialInteractorPosition"> is a Vector3 specifying the initial position of the interactor"
+.ti -1c
+.RI "Vector3 \fBinitialInteractorPosition\fP"
+.br
+.RI "param name="initialPercent"> specifies the initinal percentage the switch has already been rotated"
+.ti -1c
+.RI "int \fBinitialPercent\fP"
+.br
+.RI "param name="previousPercent"> specifies the percentage by which the switch was rotated in the last frame"
+.ti -1c
+.RI "int \fBpreviousPercent\fP"
+.br
+.RI "param name="initialInteractorRotation"> is a Quaternion specifying the initial rotation of the interactor upon interaction"
+.ti -1c
+.RI "Quaternion \fBinitialInteractorRotation\fP"
+.br
+.RI "param name="nppClient"> is a reference to a \fBNPPClient\fP instance in the scene"
+.ti -1c
+.RI "\fBNPPClient\fP \fBnppClient\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class is used to control the control rods in an NPP simulation\&. 
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBModPos\&.ReglerTypeEnum\fP\fR [private]\fP"
+
+.PP
+This Enum defines two types of rotary switches binary and exact\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIGenau \fP
+.TP
+\f(BIBinaer \fP
+.SH "Member Function Documentation"
+.PP 
+.SS "void ModPos\&.HandleInteractorRotation ()\fR [private]\fP"
+
+.PP
+This method computes the rotation of the handle based on the rotation of the interactor and calls \fBUpdateRotation()\fP to update the rotation of the switch as well as \fBUpdateRodPosition()\fP to intiate a call to the REST Server to update the simulation\&. 
+.SS "void ModPos\&.OnDisable ()\fR [private]\fP"
+
+.PP
+This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events\&. 
+.SS "void ModPos\&.OnEnable ()\fR [private]\fP"
+
+.PP
+This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events\&. 
+.SS "void ModPos\&.OnSelectEntered (SelectEnterEventArgs args)\fR [private]\fP"
+
+.PP
+This method is called when an interactor enters the object and sets the interactor and initialInteractorRotation values\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP passes event specific arguments upon entering the interaction
+.RE
+.PP
+
+.SS "void ModPos\&.OnSelectExited (SelectExitEventArgs args)\fR [private]\fP"
+
+.PP
+This method is called when an interactor exits the object and resets the isInteracting and interactor values\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP passes event specific arguments upon exiting the interaction
+.RE
+.PP
+
+.SS "void ModPos\&.SetPercentFromExternal (int newPercent)"
+
+.PP
+This method sets the percentage value of the switch based on an external input\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInewPercent\fP specifies the percentage value to set the switch to
+.RE
+.PP
+
+.SS "void ModPos\&.Start ()\fR [private]\fP"
+
+.PP
+This method initializes the \fBModPos\fP instance and sets the initial rotation of the switch\&. 
+.SS "void ModPos\&.Update ()\fR [private]\fP"
+
+.PP
+This method updates the rotation of the switch based on the current value of Percent\&. Additionally a call to the REST Server is initiated via \fBUpdateRodPosition()\fP to update the simulation\&. 
+.SS "void ModPos\&.UpdateRodPosition ()\fR [private]\fP"
+
+.PP
+This method initiates a call to the REST Server to update the simulation with the current position of the control rods\&. 
+.SS "void ModPos\&.UpdateRotation ()\fR [private]\fP"
+
+.PP
+This method updates the rotation of the switch\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "int ModPos\&.EndRotation = 90\fR [private]\fP"
+
+.PP
+param name="lastPressTime"> specifies the last time the player didinteract with the switch
+.SS "Vector3 ModPos\&.initialInteractorPosition\fR [private]\fP"
+
+.PP
+param name="initialPercent"> specifies the initinal percentage the switch has already been rotated
+.SS "Quaternion ModPos\&.initialInteractorRotation\fR [private]\fP"
+
+.PP
+param name="nppClient"> is a reference to a \fBNPPClient\fP instance in the scene
+.SS "int ModPos\&.initialPercent\fR [private]\fP"
+
+.PP
+param name="previousPercent"> specifies the percentage by which the switch was rotated in the last frame
+.SS "UnityEngine\&.XR\&.Interaction\&.Toolkit\&.Interactors\&.XRBaseInteractor ModPos\&.interactor\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIinteractor\fP is a reference to an interactor
+.RE
+.PP
+param name="isInteracting"> tracks whether the player is currently interacting with the switch
+.SS "bool ModPos\&.isInteracting = false\fR [private]\fP"
+
+.PP
+param name="initialInteractorPosition"> is a Vector3 specifying the initial position of the interactor
+.SS "float ModPos\&.lastPressTime = 0f\fR [private]\fP"
+
+.PP
+param name="pressCooldown"> specifies a cooldown between interactions with the switch
+.SS "\fBNPPClient\fP ModPos\&.nppClient\fR [private]\fP"
+
+.SS "int ModPos\&.Percent = 0"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIPercent\fP specifies the percentage the switch has been rotated based on its leftmost position
+.RE
+.PP
+param name="StartRotation"> specifies the angle of the switches leftmost position
+.SS "float ModPos\&.pressCooldown = 0\&.1f\fR [private]\fP"
+
+.SS "int ModPos\&.previousPercent\fR [private]\fP"
+
+.PP
+param name="initialInteractorRotation"> is a Quaternion specifying the initial rotation of the interactor upon interaction
+.SS "\fBReglerTypeEnum\fP ModPos\&.ReglerType = \fBReglerTypeEnum\&.Genau\fP\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIReglerType\fP specifies the type of rotary switch
+.RE
+.PP
+param name="to_rotate"> specifies the handle the player must interact with to rotate the switch
+.SS "int ModPos\&.StartRotation = \-90\fR [private]\fP"
+
+.PP
+param name="EndRotation"> specifies the angle of the switches rightmost position
+.SS "GameObject ModPos\&.to_rotate"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

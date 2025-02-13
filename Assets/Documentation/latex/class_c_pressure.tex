@@ -1,0 +1,91 @@
+\doxysection{CPressure Class Reference}
+\hypertarget{class_c_pressure}{}\label{class_c_pressure}\index{CPressure@{CPressure}}
+
+
+This class implements logic for displaying the current pressure inside the condenser tank.  
+
+
+Inheritance diagram for CPressure\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_c_pressure}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_pressure_aa7201bfcb0955cbb5cccbd12d3c7062a}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current pressure inside the condenser tank. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_pressure_a6557765aeca6153440e1be3f12547c41}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the display by reading the current pressure inside the condenser tank from the Condenser.\+pressure field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} \mbox{\hyperlink{class_c_pressure_a049cbe2393f2de847c6c42455bc70cab}{anzeige\+Steuerung}}
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_c_pressure_a70fa7edc6e403e590f5fe5755cc02e80}{client\+Object}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements logic for displaying the current pressure inside the condenser tank. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_pressure_aa7201bfcb0955cbb5cccbd12d3c7062a}\index{CPressure@{CPressure}!Start@{Start}}
+\index{Start@{Start}!CPressure@{CPressure}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_c_pressure_aa7201bfcb0955cbb5cccbd12d3c7062a} 
+void CPressure.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method initializes the \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component, client\+Object and the display by calling the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient} to fetch the current pressure inside the condenser tank. 
+
+\Hypertarget{class_c_pressure_a6557765aeca6153440e1be3f12547c41}\index{CPressure@{CPressure}!Update@{Update}}
+\index{Update@{Update}!CPressure@{CPressure}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_c_pressure_a6557765aeca6153440e1be3f12547c41} 
+void CPressure.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method updates the display by reading the current pressure inside the condenser tank from the Condenser.\+pressure field of the \doxylink{class_n_p_p_reactor_state}{NPPReactor\+State} object in \doxylink{class_n_p_p_client}{NPPClient}. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_c_pressure_a049cbe2393f2de847c6c42455bc70cab}\index{CPressure@{CPressure}!anzeigeSteuerung@{anzeigeSteuerung}}
+\index{anzeigeSteuerung@{anzeigeSteuerung}!CPressure@{CPressure}}
+\doxysubsubsection{\texorpdfstring{anzeigeSteuerung}{anzeigeSteuerung}}
+{\footnotesize\ttfamily \label{class_c_pressure_a049cbe2393f2de847c6c42455bc70cab} 
+\mbox{\hyperlink{class_anzeige_steuerung}{Anzeige\+Steuerung}} CPressure.\+anzeige\+Steuerung\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em anzeige\+Steuerung} & is a reference to the displays \doxylink{class_anzeige_steuerung}{Anzeige\+Steuerung} component \\
+\hline
+\end{DoxyParams}
+
+
+\Hypertarget{class_c_pressure_a70fa7edc6e403e590f5fe5755cc02e80}\index{CPressure@{CPressure}!clientObject@{clientObject}}
+\index{clientObject@{clientObject}!CPressure@{CPressure}}
+\doxysubsubsection{\texorpdfstring{clientObject}{clientObject}}
+{\footnotesize\ttfamily \label{class_c_pressure_a70fa7edc6e403e590f5fe5755cc02e80} 
+Game\+Object CPressure.\+client\+Object\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<}param name="{}client\+Object"{}=\texorpdfstring{$>$}{>} is a reference to the scene\textquotesingle{}s client\+Object
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/playground/\+Unity/\+Softwareprojekt\+\_\+\+VR-\/\+Reaktor-\/\+Leitwarte/\+Assets/\+Skripte/\+Anzeigen/\mbox{\hyperlink{_c_pressure_8cs}{CPressure.\+cs}}\end{DoxyCompactItemize}

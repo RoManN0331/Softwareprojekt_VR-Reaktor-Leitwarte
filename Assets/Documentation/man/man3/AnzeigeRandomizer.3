@@ -1,0 +1,113 @@
+.TH "AnzeigeRandomizer" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AnzeigeRandomizer \- This class is responsible for randomizing the values shown on a display\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.RI "This method initialises the anzeigeSteuerung and anzeigeSteuerung2 component\&. "
+.ti -1c
+.RI "IEnumerator \fBChangeValuesOverTime\fP ()"
+.br
+.RI "This method simulates an active display by sending random input to it\&. "
+.ti -1c
+.RI "IEnumerator \fBChangeValuesOverTime2\fP ()"
+.br
+.RI "This method simulates an active display by sending random input to it\&. "
+.ti -1c
+.RI "string \fBGetRandomLetters\fP (int length)"
+.br
+.RI "This method generates a random string of letters\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBAnzeigeSteuerung\fP \fBanzeigeSteuerung\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanzeigeSteuerung\fP references a \fBAnzeigeSteuerung\fP component
+.RE
+.PP
+"
+.ti -1c
+.RI "\fBAnzeigeSteuerung5\fP \fBanzeigeSteuerung2\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIanzeigeSteuerung2\fP references a \fBAnzeigeSteuerung5\fP component
+.RE
+.PP
+"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class is responsible for randomizing the values shown on a display\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "IEnumerator AnzeigeRandomizer\&.ChangeValuesOverTime ()\fR [private]\fP"
+
+.PP
+This method simulates an active display by sending random input to it\&. 
+.SS "IEnumerator AnzeigeRandomizer\&.ChangeValuesOverTime2 ()\fR [private]\fP"
+
+.PP
+This method simulates an active display by sending random input to it\&. 
+.SS "string AnzeigeRandomizer\&.GetRandomLetters (int length)\fR [private]\fP"
+
+.PP
+This method generates a random string of letters\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlength\fP specifies the max length of the generated string
+.RE
+.PP
+
+.SS "void AnzeigeRandomizer\&.Start ()\fR [private]\fP"
+
+.PP
+This method initialises the anzeigeSteuerung and anzeigeSteuerung2 component\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBAnzeigeSteuerung\fP AnzeigeRandomizer\&.anzeigeSteuerung\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanzeigeSteuerung\fP references a \fBAnzeigeSteuerung\fP component
+.RE
+.PP
+
+.SS "\fBAnzeigeSteuerung5\fP AnzeigeRandomizer\&.anzeigeSteuerung2\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIanzeigeSteuerung2\fP references a \fBAnzeigeSteuerung5\fP component
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

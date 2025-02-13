@@ -1,0 +1,147 @@
+.TH "GazeGuidingClipboard" 3 "Version 0.1" "NPP VR Simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GazeGuidingClipboard \- This class implements logic to highlight tasks on a clipboard a player has to perform to complete a scenario\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGazeGuidingClipboard\fP (String clipboardText, string Color)"
+.br
+.RI "This constructor parses the clipboard text and creates a list of tasks a player must perform to complete a scenario\&. "
+.ti -1c
+.RI "void \fBHighlightTask\fP (int n)"
+.br
+.RI "This method highlights a task in tasklist\&. "
+.ti -1c
+.RI "string \fBGetFormattedClipboardText\fP ()"
+.br
+.RI "This method returns a formatted clipboard text\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "string \fBHIGHLIGHT_TEXT_COLOR\fP = '<color=#00FF00>'"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIHIGHLIGHT_TEXT_COLOR\fP contains the colour code of the highlight colour
+.RE
+.PP
+"
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "string \fBinformationText\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fIinformationText\fP contains information about a scenario
+.RE
+.PP
+"
+.ti -1c
+.RI "string[] \fBtaskList\fP"
+.br
+.RI "
+.PP
+\fBParameters\fP
+.RS 4
+\fItaskList\fP is a string array containing a list of tasks the player must perform to complete a scenario
+.RE
+.PP
+"
+.in -1c
+.SS "Static Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "const float \fBDISTANCE_THRESHOLD\fP = 1\&.0f"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements logic to highlight tasks on a clipboard a player has to perform to complete a scenario\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "GazeGuidingClipboard\&.GazeGuidingClipboard (String clipboardText, string Color)"
+
+.PP
+This constructor parses the clipboard text and creates a list of tasks a player must perform to complete a scenario\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIclipboardText\fP contains the whole text of a clipboard
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "string GazeGuidingClipboard\&.GetFormattedClipboardText ()"
+
+.PP
+This method returns a formatted clipboard text\&. 
+.SS "void GazeGuidingClipboard\&.HighlightTask (int n)"
+
+.PP
+This method highlights a task in tasklist\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIn\fP specifies a task to be highlighted
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "const float GazeGuidingClipboard\&.DISTANCE_THRESHOLD = 1\&.0f\fR [static]\fP, \fR [private]\fP"
+
+.SS "string GazeGuidingClipboard\&.HIGHLIGHT_TEXT_COLOR = '<color=#00FF00>'"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIHIGHLIGHT_TEXT_COLOR\fP contains the colour code of the highlight colour
+.RE
+.PP
+
+.SS "string GazeGuidingClipboard\&.informationText\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIinformationText\fP contains information about a scenario
+.RE
+.PP
+
+.SS "string [] GazeGuidingClipboard\&.taskList\fR [private]\fP"
+
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItaskList\fP is a string array containing a list of tasks the player must perform to complete a scenario
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NPP VR Simulation from the source code\&.

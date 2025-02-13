@@ -1,37 +1,54 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+/// <summary>
+/// This class implements the default behaviour for rotary switches.
+/// </summary>
 public class ReglerControl : MonoBehaviour
 {
+    ///<summary>This Enum defines two types of rotary switches binary and exact</summary>
     public enum ReglerTypeEnum
     {
         Genau = 0,
         Binaer = 1
     }
 
+    ///<param name="ReglerType"> specifies the type of rotary switch</param>
     public ReglerTypeEnum ReglerType = ReglerTypeEnum.Genau;
-
+    ///<param name="to_rotate"> specifies the handle the player must interact with to rotate the switch</param>
     public GameObject to_rotate;
-
     [Range(0, 100)]
+    ///<param name="Percent"> specifies the percentage the switch has been rotated based on its leftmost position</param>
     public int Percent = 0;
-
+    ///<param name="StartRotation"> specifies the angle of the switches leftmost position</param>
     private int StartRotation = -90;
+    ///<param name="EndRotation"> specifies the angle of the switches rightmost position</param>
     private int EndRotation = 90;
-
+    ///<param name="lastPressTime"> specifies when the switch was last interacted with</param>
     private float lastPressTime = 0f;
-    private float pressCooldown = 1f; // 1 second cooldown
-
+    ///<param name="pressCooldown"> specifies a cooldown between interactions with the switch</param>
+    private float pressCooldown = 1f;
+    ///<param name="interactor"> is a referemce tp am Interactor</param>
     private UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor interactor;
+    ///<param name="isInteracting"> tracks if the player is interacting with the switch</param>
     private bool isInteracting = false;
+    ///<param name="initialInteractorPosition"> is a Vector3 specifying the initial Position of the Interactor</param>
     private Vector3 initialInteractorPosition;
+    ///<param name="initialPercent"> specifies the initinal percentage the switch has already been rotated</param>
     private int initialPercent;
-    
+    ///<param name="previousPercent"> specifies the percentage the switch has been rotated in the last frame</param>
     private int previousPercent;
+    ///<param name="lightRegler"> is a reference to a LightRegler to switch on lights</param>
+    private LightRegler lightRegler;
+    ///<param name="initialInteractorRotation"> is a Quaternion specifying the initial rotation of the interactor upon interaction</param>
+    private Quaternion initialInteractorRotation;
 
+
+    /// <summary>
+    /// This method initializes the switch instance and sets the initial rotation of the switch.
+    /// </summary>
     void Start()
     {
-        //to_rotate = GameObject.Find("KNOB.005");
 
         if (ReglerType == ReglerTypeEnum.Binaer)
         {
@@ -52,6 +69,9 @@ public class ReglerControl : MonoBehaviour
         initLamp();
     }
 
+    /// <summary>
+    /// This method updates the rotation of the switch based on the current value of Percent and the type of the switch.
+    /// </summary>
     void Update()
     {
         if (Percent != previousPercent)
@@ -103,6 +123,9 @@ public class ReglerControl : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// This method is called when the object is enabled and adds event listeners for the selectEntered and selectExited events.
+    /// </summary>
     private void OnEnable()
     {
         var interactable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable>();
@@ -110,6 +133,9 @@ public class ReglerControl : MonoBehaviour
         interactable.selectExited.AddListener(OnSelectExited);
     }
 
+    /// <summary>
+    /// This method is called when the object is disabled and removes event listeners for the selectEntered and selectExited events.
+    /// </summary>
     private void OnDisable()
     {
         var interactable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable>();
@@ -117,7 +143,10 @@ public class ReglerControl : MonoBehaviour
         interactable.selectExited.RemoveListener(OnSelectExited);
     }
 
-    private Quaternion initialInteractorRotation;
+    /// <summary>
+    /// This method is called when an interactor enters the object and sets the interactor and initialInteractorRotation values.
+    /// </summary>
+    /// <param name="args"> passes event specific arguments upon entering the interaction</param>
     private void OnSelectEntered(SelectEnterEventArgs args)
     {
         if (ReglerType == ReglerTypeEnum.Genau)
@@ -135,6 +164,10 @@ public class ReglerControl : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is called when an interactor exits the object and resets the isInteracting and interactor values.
+    /// </summary>
+    /// <param name="args"> passes event specific arguments upon exiting the interaction</param>
     private void OnSelectExited(SelectExitEventArgs args)
     {
         if (ReglerType == ReglerTypeEnum.Genau)
@@ -144,7 +177,9 @@ public class ReglerControl : MonoBehaviour
         }
     }
     
-    private LightRegler lightRegler;
+    /// <summary>
+    /// This method initialises the switch's lamp.
+    /// </summary>
     private void initLamp()
     {
         if (ReglerType == ReglerTypeEnum.Binaer)
@@ -153,7 +188,6 @@ public class ReglerControl : MonoBehaviour
             Transform lampeTransform = transform.Find("Lampe");
             if (lampeTransform != null)
             {
-                // Get the LightRegler component from the child GameObject
                 lightRegler = lampeTransform.GetComponent<LightRegler>();
             }
             else
