@@ -72,6 +72,7 @@ public class HUD : MonoBehaviour
         else
         {
             Debug.LogWarning("No match found!");
+            clearText();
         }
     }
 

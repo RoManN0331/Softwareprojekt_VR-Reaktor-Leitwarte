@@ -24470,6 +24470,7 @@ MonoBehaviour:
   animationDuration: 1
   lineMaterial: {fileID: 2100000, guid: 9c8b90ff3b396b64e9ef60f86215f919, type: 2}
   lastCalledHighlight: 
+  lastCalledHighlight: 
   ClipBoardTextColor: <color=#00FF00>
   lastClipboardName: 
   detached: 0

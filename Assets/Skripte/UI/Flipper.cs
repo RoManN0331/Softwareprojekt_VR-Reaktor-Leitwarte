@@ -73,18 +73,7 @@ public class Flipper : MonoBehaviour
          Material mater = meshRenderer.material;
 
          mater.DisableKeyword("_EMISSION");
-
-        
-        InputActionManager temp = FindObjectOfType<InputActionManager>();
-        if (temp != null && temp.actionAssets.Count > 0)
-        {
-            foreach (var act in temp.actionAssets )
-            {
-                var action = act.FindAction("XRI Right Interaction/Select");
-                trigger = InputActionReference.Create(action);
-                break;
-            }
-        }
+         
         GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
         
         //INITALISIERE STATE
@@ -131,8 +120,8 @@ public class Flipper : MonoBehaviour
     private void OnEnable()
     {
         var interactable = GetComponent<XRSimpleInteractable>();
-        interactable.hoverEntered.AddListener(OnHoverEntered);
-        interactable.hoverExited.AddListener(OnHoverExited);
+        interactable.selectEntered.AddListener(OnSelectEntered);
+        interactable.selectExited.AddListener(OnSelectExited);
     }
 
     /// <summary>
@@ -141,8 +130,8 @@ public class Flipper : MonoBehaviour
     private void OnDisable()
     {
         var interactable = GetComponent<XRSimpleInteractable>();
-        interactable.hoverEntered.RemoveListener(OnHoverEntered);
-        interactable.hoverExited.RemoveListener(OnHoverExited);
+        interactable.selectEntered.RemoveListener(OnSelectEntered);
+        interactable.selectExited.RemoveListener(OnSelectExited);
     }
 
     /// <summary>
@@ -160,7 +149,15 @@ public class Flipper : MonoBehaviour
     /// <param name="args"> passes event specific arguments upon exiting the interaction</param>
     private void OnHoverExited(HoverExitEventArgs args)
     {
-        isHovering = false;
+        if(!CoroutineRunning) StartCoroutine(ResetAlreadyClicked());
+    }
+    
+    private IEnumerator ResetAlreadyClicked()
+    {
+        CoroutineRunning = true;
+        yield return new WaitForSeconds(1.5f);
+        alreadyClicked = false;
+        CoroutineRunning = false;
     }
     
     /// <summary>
@@ -168,8 +165,6 @@ public class Flipper : MonoBehaviour
     /// </summary>
     private IEnumerator Flip()
     {
-        isCooldown = true;
-
         Material mater = meshRenderer.material;
 
         if(!flipped)
@@ -190,23 +185,9 @@ public class Flipper : MonoBehaviour
             if (HUDEnabled) gazeGuidingButtons.HUD(true);
             if (DetachEnabled) gazeGuidingButtons.TriggerDetach(true);
             if (BlurEnabled) gazeGuidingButtons.TriggerBlur(true);
-            if (distractionsEnabled) FindAnyObjectByType<disableDistractions>().disableDistraction(true);
-            if (clipboardHighlight)
-            {
-                GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
-                pathPlayer.ClipBoardTextColor = "<color=#00FF00>";
-                pathPlayer.removeHighlightFromClipboardForButton();
-            }
-            
-            if (AnzeigenHighlight)
-            {
-                GazeGuidingPathPlayer pathPlayer = FindAnyObjectByType<GazeGuidingPathPlayer>();
-                pathPlayer.DisplayHighlightEnabled = true;
-                pathPlayer.unsetDisplayHighlight();
-                pathPlayer.setDisplayHighlight(pathPlayer.lastCalledHighlight);
-            }
-            
-
+            if (distractionsEnabled) gazeGuidingButtons.Distractions(true);
+            if (clipboardHighlight) gazeGuidingButtons.ClipboardHighlight(true);
+            if (AnzeigenHighlight) gazeGuidingButtons.AnzeigenHighlight(true);
 
         }
         else
