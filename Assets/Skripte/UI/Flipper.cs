@@ -133,6 +133,21 @@ public class Flipper : MonoBehaviour
         interactable.selectEntered.RemoveListener(OnSelectEntered);
         interactable.selectExited.RemoveListener(OnSelectExited);
     }
+    
+    private void OnSelectEntered(SelectEnterEventArgs args)
+    {
+        if (!alreadyClicked)
+        {
+            StartCoroutine(Flip());
+            alreadyClicked = true;
+        }
+    }
+    private UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor interactor;
+    private void OnSelectExited(SelectExitEventArgs args)
+    {
+        alreadyClicked = false;
+        interactor = null;
+    }
 
     /// <summary>
     /// This method is called when the XR interactor looks at the object, i.e. points to or moves onto the object .
@@ -147,11 +162,13 @@ public class Flipper : MonoBehaviour
     /// This method is called when the XR interactor is no longer looking at the object, i.e. the interactor moves away.
     /// </summary>
     /// <param name="args"> passes event specific arguments upon exiting the interaction</param>
+    /// 
+    private bool CoroutineRunning = false;
     private void OnHoverExited(HoverExitEventArgs args)
     {
         if(!CoroutineRunning) StartCoroutine(ResetAlreadyClicked());
     }
-    
+    private bool alreadyClicked = false;
     private IEnumerator ResetAlreadyClicked()
     {
         CoroutineRunning = true;
