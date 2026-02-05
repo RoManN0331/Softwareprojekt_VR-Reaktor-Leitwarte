@@ -77,6 +77,6 @@ und Anzeigen zur Steuerung des Reaktors bietet. Zusätzlich stehen Klemmbretter 
 Teilnehmer des Softwarepraktikums:
 
 - [Christian Kehl](https://github.com/Chrizzly02)
-- [Robert Mersiowsky](https://github.com/rmers)
+- [Robert Mersiowsky](https://github.com/kneive)
 - [Roman Schander](https://github.com/RoManN0331)
 - [Maxim Smirnov](https://github.com/masmir123)
